@@ -1,5 +1,5 @@
 # Targeting-Spiking-Actor-Networks-in-Reinforcement-Learning
-PyTorch implementation of proxy target framework.
+PyTorch implementation of NeurIPS 2025 submission 3118 "Proxy Target: Bridging the Gap Between Discrete Spiking Neural Networks and Continuous Control".
 
 ### Usage
 Experiments on single environments can be run by calling:
