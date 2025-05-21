@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--spiking_neurons", default="LIF")  # Spiking neurons (LIF, CLIF, DN or ANN)
-    parser.add_argument("--proxy", default=True)  # Whether to use the proxy target framework
+    parser.add_argument("--proxy", default="Yes")  # Whether to use the proxy target framework
     parser.add_argument("--proxy_hidden_sizes", default=[512,512], type=int, nargs=2)  # Hidden sizes of the proxy network
     parser.add_argument("--proxy_lr", default=1e-3, type=float)  # Learning rate of the proxy network
     parser.add_argument("--proxy_iters", default=3, type=int)  # Iterations of the proxy network per update
@@ -73,7 +73,7 @@ if __name__ == "__main__":
 
 
 
-    if args.proxy==True:
+    if args.proxy=="Yes":
         kwargs["hidden_sizes"] = args.proxy_hidden_sizes
         kwargs["proxy_lr"] = args.proxy_lr
         kwargs["proxy_iters"] = args.proxy_iters
