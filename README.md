@@ -1,8 +1,13 @@
 # Targeting-Spiking-Actor-Networks-in-Reinforcement-Learning
 PyTorch implementation of [`Proxy Target: Bridging the Gap Between Discrete Spiking Neural Networks and Continuous Control `](https://arxiv.org/abs/2505.24161), published in NeurIPS 2025. 
 
+![Proxy Target Framweork](./images/PT-framework.jpg)
+![Proxy Target Algorithm](./images/PT-algo.jpg)
+
+## Setup
 Method is tested on MuJoCo continuous control tasks in OpenAI gymnasium. Networks are trained using PyTorch 1.13 and Python 3.7.
 
+## Running Experiments
 Experiments can be run by calling:
 ```
 python main.py --env Ant-v4  --proxy Yes --spiking_neurons LIF 
