@@ -24,10 +24,10 @@ The environment "--env" can be "Ant-v4", "HalfCheetah-v4", "Walker2d-v4", "Hoppe
 To cite our paper and/or this repository in publications:
 
 ```bibtex
-@article{xu2025proxy,
+@inproceedings{xu2025proxy,
   title={Proxy Target: Bridging the Gap Between Discrete Spiking Neural Networks and Continuous Control},
   author={Xu, Zijie and Bu, Tong and Hao, Zecheng and Ding, Jianhao and Yu, Zhaofei},
-  journal={arXiv preprint arXiv:2505.24161},
+  booktitle={Advances in Neural Information Processing Systems},
   year={2025}
 }
 ```
