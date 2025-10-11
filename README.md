@@ -1,8 +1,8 @@
 # Targeting-Spiking-Actor-Networks-in-Reinforcement-Learning
 PyTorch implementation of [Proxy Target: Bridging the Gap Between Discrete Spiking Neural Networks and Continuous Control](https://arxiv.org/abs/2505.24161), accepted in NeurIPS 2025. 
 
-![Proxy Target Framweork](./images/PT-framework.jpg)
-![Proxy Target Algorithm](./images/PT-algo.jpg)
+![Proxy Target Framweork](./images/PT-framework.png)
+![Proxy Target Algorithm](./images/PT-algo.png)
 
 ## Setup
 Execute the following commands to set up a conda environment to run experiments
@@ -24,10 +24,10 @@ The environment "--env" can be "Ant-v4", "HalfCheetah-v4", "Walker2d-v4", "Hoppe
 To cite our paper and/or this repository in publications:
 
 ```bibtex
-@inproceedings{xu2025proxy,
+@article{xu2025proxy,
   title={Proxy Target: Bridging the Gap Between Discrete Spiking Neural Networks and Continuous Control},
   author={Xu, Zijie and Bu, Tong and Hao, Zecheng and Ding, Jianhao and Yu, Zhaofei},
-  booktitle={Advances in Neural Information Processing Systems},
+  journal={arXiv preprint arXiv:2505.24161},
   year={2025}
 }
 ```
