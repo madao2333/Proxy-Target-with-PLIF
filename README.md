@@ -2,7 +2,6 @@
 PyTorch implementation of [Proxy Target: Bridging the Gap Between Discrete Spiking Neural Networks and Continuous Control](https://arxiv.org/abs/2505.24161), accepted in NeurIPS 2025. 
 
 ![Proxy Target Framweork](./images/PT-framework.png)
-![Proxy Target Algorithm](./images/PT-algo.png)
 
 ## Setup
 Execute the following commands to set up a conda environment to run experiments
@@ -18,6 +17,10 @@ python main.py --env Ant-v4  --proxy Yes --spiking_neurons LIF
 ```
 
 The environment "--env" can be "Ant-v4", "HalfCheetah-v4", "Walker2d-v4", "Hopper-v4", and "InvertedDoublePendulum-v4". The spiking neurons "--spiking_neurons" can be "LIF", "CLIF", "DN", and "ANN". To test the vanilla spiking actor network without the proxy network, set "--proxy" to "No". Hyper-parameters can be modified with different arguments to main.py.
+
+
+## Faster Training 
+To reduce the training cost associated with multiple backpropagation steps during the proxy update, we can adopt a one-step proxy update setting for the LIF neuron, with the proxy update iteration $K=1$ and proxy learning rate $lr_{proxy}=3\cdot10^{-3}$ (where the default setting is $K=3$ and $lr_{proxy}=3\cdot10^{-3}$). This lightweight configuration significantly reduces computation without major performance loss (less than 1% performance degradation).
 
 ## Citing This
 
