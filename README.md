@@ -20,7 +20,7 @@ The environment "--env" can be "Ant-v4", "HalfCheetah-v4", "Walker2d-v4", "Hoppe
 
 
 ## Faster Training 
-To reduce the training cost associated with multiple backpropagation steps during the proxy update, we can adopt a one-step proxy update setting for the LIF neuron, with the proxy update iteration $K=1$ and proxy learning rate $lr_{proxy}=3\cdot10^{-3}$ (where the default setting is $K=3$ and $lr_{proxy}=3\cdot10^{-3}$). This lightweight configuration significantly reduces computation without major performance loss (less than 1% performance degradation).
+To reduce the training cost associated with multiple backpropagation steps during the proxy update, we can adopt a one-step proxy update setting for the LIF neuron, with the proxy update iteration $K=1$ and proxy learning rate $lr_{proxy}=3\cdot10^{-3}$ (where the default setting is $K=3$ and $lr_{proxy}=1\cdot10^{-3}$). This lightweight configuration significantly reduces computation without major performance loss (less than 1% performance degradation).
 
 ## Citing This
 
