@@ -15,7 +15,7 @@ from actor_critic import TD3,PT_TD3
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--spiking_neurons", default="LIF")  # Spiking neurons (LIF, CLIF, DN or ANN)
+    parser.add_argument("--spiking_neurons", default="LIF")  # Spiking neurons (LIF, CLIF, PLIF, DN or ANN)
     parser.add_argument("--proxy", default="Yes")  # Whether to use the proxy target framework
     parser.add_argument("--proxy_hidden_sizes", default=[512,512], type=int, nargs=2)  # Hidden sizes of the proxy network
     parser.add_argument("--proxy_lr", default=1e-3, type=float)  # Learning rate of the proxy network
@@ -87,8 +87,8 @@ if __name__ == "__main__":
 
     replay_buffer = ReplayBuffer(state_dim, action_dim)
 
-    # Evaluate untrained policy
-    evaluations = [eval_policy(policy, args.env, args.seed)]
+    # Evaluate untrained policy. Each record is [reward, tau].
+    evaluations = [list(eval_policy(policy, args.env, args.seed))]
 
     state, done = env.reset(), False
     state = state[0]
@@ -136,7 +136,7 @@ if __name__ == "__main__":
 
         # Evaluate episode
         if (t + 1) % args.eval_freq == 0:
-            evaluations.append(eval_policy(policy, args.env, args.seed))
-            np.save(f"./results/{file_name}", evaluations)
+            evaluations.append(list(eval_policy(policy, args.env, args.seed)))
+            np.save(f"./results/{file_name}", np.asarray(evaluations, dtype=np.float32))
 
     policy.save(f"./models/{file_name}")

@@ -7,6 +7,8 @@ import copy
 import torch.nn as nn
 import torch.nn.functional as F
 import math
+from typing import cast
+import utils
 
 '''Implementation of Proxy Target Framework '''
 
@@ -23,6 +25,18 @@ THETA_u = 0.529
 THETA_r = 0.021
 THETA_s = 0.132
 
+
+class PLIFNode(nn.Module):
+	def __init__(self, init_tau=1 / NEURON_VDECAY):
+		super().__init__()
+		init_w = - math.log(init_tau - 1)
+		self.w = nn.Parameter(torch.tensor(init_w, dtype=torch.float))
+
+	def forward(self, current, volt, spike):
+		volt = volt * self.w.sigmoid() * (1.0 - spike) + current
+		return volt
+	def tau(self):
+		return self.w.data.sigmoid().item()
 
 class PseudoEncoderSpikeRegular(torch.autograd.Function):
     """ Pseudo-gradient function for encoder """
@@ -62,6 +76,9 @@ class PopSpikeEncoder(nn.Module):
         self.mean = nn.Parameter(tmp_mean)
         self.std = nn.Parameter(tmp_std)
 
+    def spike_fn(self, input_tensor: torch.Tensor) -> torch.Tensor:
+        return cast(torch.Tensor, PseudoEncoderSpikeRegular.apply(input_tensor))
+
     def forward(self, obs, batch_size):
         """
         :param obs: observation
@@ -76,7 +93,7 @@ class PopSpikeEncoder(nn.Module):
         # Generate Regular Spike Trains
         for step in range(self.spike_ts):
             pop_volt = pop_volt + pop_act
-            pop_spikes[:, :, step] = self.pseudo_spike(pop_volt)
+            pop_spikes[:, :, step] = self.spike_fn(pop_volt)
             pop_volt = pop_volt - pop_spikes[:, :, step] * ENCODER_REGULAR_VTH
         return pop_spikes
 
@@ -118,6 +135,18 @@ class PseudoSpikeRect(torch.autograd.Function):
         spike_pseudo_grad = (abs(input - NEURON_VTH) < SPIKE_PSEUDO_GRAD_WINDOW)
         return grad_input * spike_pseudo_grad.float()
 
+class atan(torch.autograd.Function):
+	@staticmethod
+	def forward(ctx, x, alpha):
+		ctx.save_for_backward(x)
+		ctx.alpha = alpha
+		return (x > NEURON_VTH).float()
+
+	@staticmethod
+	def backward(ctx, grad_output):
+		x, = ctx.saved_tensors
+		grad_x = ctx.alpha / 2 / (1 + (math.pi / 2 * ctx.alpha * (x - NEURON_VTH)).pow(2)) * grad_output
+		return grad_x, None
 
 class SpikeMLP(nn.Module):
     """ Spike MLP for LIF and CLIF with Input and Output population neurons """
@@ -144,8 +173,13 @@ class SpikeMLP(nn.Module):
                 self.hidden_layers.extend([nn.Linear(hidden_sizes[layer-1], hidden_sizes[layer])])
         self.out_pop_layer = nn.Linear(hidden_sizes[-1], out_pop_dim)
         self.neurons = neurons
+        # One PLIF node per hidden layer and one for output population layer.
+        self.plifnodes = nn.ModuleList([PLIFNode() for _ in range(self.hidden_num + 1)])
 
-    def neuron_model(self, syn_func, pre_layer_output, current, volt, spike):
+    def spike_fn(self, input_tensor: torch.Tensor) -> torch.Tensor:
+        return cast(torch.Tensor, PseudoSpikeRect.apply(input_tensor))
+
+    def neuron_model(self, syn_func, pre_layer_output, current, volt, spike, plifnode: PLIFNode | None = None) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         """
         Neuron Model
         :param syn_func: synaptic function
@@ -158,13 +192,19 @@ class SpikeMLP(nn.Module):
         if self.neurons == 'LIF':
             current = syn_func(pre_layer_output)
             volt = volt * NEURON_VDECAY * (1. - spike) + current
-            spike = self.pseudo_spike(volt)
+            spike = self.spike_fn(volt)
         elif self.neurons == 'CLIF':
             current = current * NEURON_CDECAY + syn_func(pre_layer_output)
             volt = volt * NEURON_VDECAY * (1. - spike) + current
-            spike = self.pseudo_spike(volt)
+            spike = self.spike_fn(volt)
+        elif self.neurons == "PLIF":
+            if plifnode is None:
+                raise ValueError('plifnode is required when neurons == "PLIF"')
+            current = syn_func(pre_layer_output)
+            volt = plifnode(current, volt, spike)
+            spike = self.spike_fn(volt)
         else:
-            raise ValueError('Neuron model can only be LIF, CLIF, DN, and ANN')
+            raise ValueError('Neuron model can only be LIF, CLIF, PLIF, DN, and ANN')
         return current, volt, spike
 
 
@@ -187,17 +227,20 @@ class SpikeMLP(nn.Module):
             in_pop_spike_t = in_pop_spikes[:, :, step]
             hidden_states[0][0], hidden_states[0][1], hidden_states[0][2] = self.neuron_model(
                 self.hidden_layers[0], in_pop_spike_t,
-                hidden_states[0][0], hidden_states[0][1], hidden_states[0][2]
+                hidden_states[0][0], hidden_states[0][1], hidden_states[0][2],
+                cast(PLIFNode, self.plifnodes[0]) if self.neurons == 'PLIF' else None
             )
             if self.hidden_num > 1:
                 for layer in range(1, self.hidden_num):
                     hidden_states[layer][0], hidden_states[layer][1], hidden_states[layer][2] = self.neuron_model(
                         self.hidden_layers[layer], hidden_states[layer-1][2],
-                        hidden_states[layer][0], hidden_states[layer][1], hidden_states[layer][2]
+                        hidden_states[layer][0], hidden_states[layer][1], hidden_states[layer][2],
+                        cast(PLIFNode, self.plifnodes[layer]) if self.neurons == 'PLIF' else None
                     )
             out_pop_states[0], out_pop_states[1], out_pop_states[2] = self.neuron_model(
                 self.out_pop_layer, hidden_states[-1][2],
-                out_pop_states[0], out_pop_states[1], out_pop_states[2]
+                out_pop_states[0], out_pop_states[1], out_pop_states[2],
+                cast(PLIFNode, self.plifnodes[-1]) if self.neurons == 'PLIF' else None
             )
             out_pop_act += out_pop_states[2]
         out_pop_act = out_pop_act / self.spike_ts
@@ -228,7 +271,10 @@ class DynamicMLP(nn.Module):
                 self.hidden_layers.extend([nn.Linear(hidden_sizes[layer-1], hidden_sizes[layer])])
         self.out_pop_layer = nn.Linear(hidden_sizes[-1], out_pop_dim)
 
-    def neuron_model(self, syn_func, pre_layer_output, current, volt, u, spike):
+    def spike_fn(self, input_tensor: torch.Tensor) -> torch.Tensor:
+        return cast(torch.Tensor, PseudoSpikeRect.apply(input_tensor))
+
+    def neuron_model(self, syn_func, pre_layer_output, current, volt, u, spike) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
         """
         LIF Neuron Model
         :param syn_func: synaptic function
@@ -247,7 +293,7 @@ class DynamicMLP(nn.Module):
         volt = volt + dv
         u = u + du
 
-        spike = self.pseudo_spike(volt)
+        spike = self.spike_fn(volt)
         return current, volt, u, spike
 
     def forward(self, in_pop_spikes, batch_size):

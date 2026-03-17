@@ -96,7 +96,7 @@ class TD3(object):
         self.policy_noise = policy_noise
         self.noise_clip = noise_clip
         self.policy_freq = policy_freq
-
+        self.neurons = spiking_neurons
         self.total_it = 0
 
     def select_action(self, state):
@@ -206,7 +206,7 @@ class PT_TD3(object):
         self.noise_clip = noise_clip
         self.policy_freq = policy_freq
         self.proxy_iters = proxy_iters
-
+        self.neurons = spiking_neurons
         self.total_it = 0
 
     def select_action(self, state):
