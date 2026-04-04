@@ -71,6 +71,7 @@ class TD3(object):
             action_dim,
             max_action,
             spiking_neurons,
+            plif_lr=1e-4,
             discount=0.99,
             tau=0.005,
             policy_noise=0.2,
@@ -84,7 +85,18 @@ class TD3(object):
             self.actor = SAN.SNN_Actor(state_dim, action_dim, max_action, spiking_neurons).to(device)
 
         self.actor_target = copy.deepcopy(self.actor)
-        self.actor_optimizer = torch.optim.Adam(self.actor.parameters(), lr=3e-4)
+        if spiking_neurons == "PLIF" and isinstance(self.actor, SAN.SNN_Actor) and isinstance(self.actor.snn, SAN.SpikeMLP):
+            plif_params = list(self.actor.snn.plifnodes.parameters())
+            plif_param_ids = {id(param) for param in plif_params}
+            main_params = [param for param in self.actor.parameters() if id(param) not in plif_param_ids]
+            self.actor_optimizer = torch.optim.Adam(
+                [
+                    {"params": main_params, "lr": 3e-4},
+                    {"params": plif_params, "lr": plif_lr},
+                ]
+            )
+        else:
+            self.actor_optimizer = torch.optim.Adam(self.actor.parameters(), lr=3e-4)
 
         self.critic = Critic(state_dim, action_dim).to(device)
         self.critic_target = copy.deepcopy(self.critic)
@@ -180,6 +192,7 @@ class PT_TD3(object):
             hidden_sizes,
             proxy_lr,
             proxy_iters,
+            plif_lr=1e-4,
             discount=0.99,
             tau=0.005,
             policy_noise=0.2,
@@ -192,7 +205,18 @@ class PT_TD3(object):
         else:
             self.actor = SAN.SNN_Actor(state_dim, action_dim, max_action, spiking_neurons).to(device)
         self.actor_target = Proxy_target(state_dim, action_dim, max_action,hidden_sizes).to(device)
-        self.actor_optimizer = torch.optim.Adam(self.actor.parameters(), lr=3e-4)
+        if spiking_neurons == "PLIF" and isinstance(self.actor, SAN.SNN_Actor) and isinstance(self.actor.snn, SAN.SpikeMLP):
+            plif_params = list(self.actor.snn.plifnodes.parameters())
+            plif_param_ids = {id(param) for param in plif_params}
+            main_params = [param for param in self.actor.parameters() if id(param) not in plif_param_ids]
+            self.actor_optimizer = torch.optim.Adam(
+                [
+                    {"params": main_params, "lr": 3e-4},
+                    {"params": plif_params, "lr": plif_lr},
+                ]
+            )
+        else:
+            self.actor_optimizer = torch.optim.Adam(self.actor.parameters(), lr=3e-4)
         self.target_optimizer = torch.optim.Adam(self.actor_target.parameters(), lr=proxy_lr)
 
         self.critic = Critic(state_dim, action_dim).to(device)

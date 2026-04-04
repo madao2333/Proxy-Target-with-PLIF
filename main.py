@@ -20,6 +20,7 @@ if __name__ == "__main__":
     parser.add_argument("--proxy_hidden_sizes", default=[512,512], type=int, nargs=2)  # Hidden sizes of the proxy network
     parser.add_argument("--proxy_lr", default=1e-3, type=float)  # Learning rate of the proxy network
     parser.add_argument("--proxy_iters", default=3, type=int)  # Iterations of the proxy network per update
+    parser.add_argument("--plif_lr", default=1e-4, type=float)  # Learning rate for PLIF tau parameters
     parser.add_argument("--env", default="Ant-v4")  # OpenAI gym environment name
     parser.add_argument("--seed", default=0, type=int)  # Sets Gym, PyTorch and Numpy seeds
     parser.add_argument("--start_timesteps", default=25e3, type=int)  # Time steps initial random policy is used
@@ -69,6 +70,7 @@ if __name__ == "__main__":
         "noise_clip": args.noise_clip * max_action,
         "policy_freq": args.policy_freq,
         "spiking_neurons": args.spiking_neurons,
+        "plif_lr": args.plif_lr,
     }
 
 
