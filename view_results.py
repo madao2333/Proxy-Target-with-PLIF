@@ -45,12 +45,14 @@ def main() -> None:
                 rewards = evaluations.astype(float)
         else:
             rewards = evaluations.astype(float)
-    elif evaluations.ndim == 2 and evaluations.shape[1] >= 2:
-        # New format: [[reward, tau], ...]
+    elif evaluations.ndim == 2 and evaluations.shape[1] == 1:
         rewards = evaluations[:, 0].astype(float)
-        taus = evaluations[:, 1].astype(float)
+    elif evaluations.ndim == 2 and evaluations.shape[1] >= 2:
+        # New format: [[reward, tau_0, tau_1, ...], ...]
+        rewards = evaluations[:, 0].astype(float)
+        taus = evaluations[:, 1:].astype(float)
     else:
-        raise ValueError("不支持的结果格式，期望一维 reward 数组或二维 [reward, tau] 数组")
+        raise ValueError("不支持的结果格式，期望一维 reward 数组或二维 [reward, tau...] 数组")
 
     print(f"文件: {result_file}")
     print(f"评估次数: {len(rewards)}")
@@ -59,19 +61,41 @@ def main() -> None:
     print(f"最大值: {float(np.max(rewards)):.3f}")
     print(f"最小值: {float(np.min(rewards)):.3f}")
     if taus is not None:
-        valid_taus = taus[~np.isnan(taus)]
-        if valid_taus.size > 0:
-            print(f"tau 初始值: {float(valid_taus[0]):.6f}")
-            print(f"tau 最新值: {float(valid_taus[-1]):.6f}")
-            print(f"tau 最大值: {float(np.max(valid_taus)):.6f}")
-            print(f"tau 最小值: {float(np.min(valid_taus)):.6f}")
+        if taus.ndim == 1:
+            valid_taus = taus[~np.isnan(taus)]
+            if valid_taus.size > 0:
+                print(f"tau 初始值: {float(valid_taus[0]):.6f}")
+                print(f"tau 最新值: {float(valid_taus[-1]):.6f}")
+                print(f"tau 最大值: {float(np.max(valid_taus)):.6f}")
+                print(f"tau 最小值: {float(np.min(valid_taus)):.6f}")
+        else:
+            layer_count = taus.shape[1]
+            print(f"tau 层数: {layer_count}")
+            print("各层 tau 统计:")
+            for layer_index in range(layer_count):
+                layer_taus = taus[:, layer_index]
+                valid_layer_taus = layer_taus[~np.isnan(layer_taus)]
+                if valid_layer_taus.size > 0:
+                    print(
+                        f"  layer {layer_index:02d}: "
+                        f"initial={float(valid_layer_taus[0]):.6f}, "
+                        f"latest={float(valid_layer_taus[-1]):.6f}, "
+                        f"max={float(np.max(valid_layer_taus)):.6f}, "
+                        f"min={float(np.min(valid_layer_taus)):.6f}"
+                    )
     print("\n全部评估结果:")
 
     for index, reward in enumerate(rewards):
-        if taus is None or np.isnan(taus[index]):
+        if taus is None:
             print(f"{index:03d}: reward={float(reward):.3f}")
+        elif taus.ndim == 1:
+            if np.isnan(taus[index]):
+                print(f"{index:03d}: reward={float(reward):.3f}")
+            else:
+                print(f"{index:03d}: reward={float(reward):.3f}, tau={float(taus[index]):.6f}")
         else:
-            print(f"{index:03d}: reward={float(reward):.3f}, tau={float(taus[index]):.6f}")
+            tau_values = ", ".join(f"{float(value):.6f}" for value in taus[index])
+            print(f"{index:03d}: reward={float(reward):.3f}, taus=[{tau_values}]")
 
     if args.plot:
         try:
@@ -81,7 +105,11 @@ def main() -> None:
 
         plt.plot(rewards, marker="o", linewidth=1.5, label="reward")
         if taus is not None and np.any(~np.isnan(taus)):
-            plt.plot(taus, marker="s", linewidth=1.2, label="tau")
+            if taus.ndim == 1:
+                plt.plot(taus, marker="s", linewidth=1.2, label="tau")
+            else:
+                for layer_index in range(taus.shape[1]):
+                    plt.plot(taus[:, layer_index], marker="s", linewidth=1.2, label=f"tau_layer_{layer_index}")
         plt.title(result_file.stem)
         plt.xlabel("Evaluation Index")
         plt.ylabel("Value")

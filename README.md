@@ -21,6 +21,12 @@ Experiments can be run by calling:
 python main.py --env Ant-v4  --proxy Yes --spiking_neurons LIF --seed 0 
 ```
 
+To launch multiple experiments in parallel and sweep 5 random seeds, use:
+```bash
+nohup bash scripts/run_parallel.sh > logs/run_parallel_launcher.log 2>&1 &
+```
+You can control the concurrency with MAX_PARALLEL_JOBS, for example MAX_PARALLEL_JOBS=4 nohup bash scripts/run_parallel.sh > logs/run_parallel_launcher.log 2>&1 &.
+
 The environment "--env" can be "Ant-v4", "HalfCheetah-v4", "Walker2d-v4", "Hopper-v4", and "InvertedDoublePendulum-v4". The spiking neurons "--spiking_neurons" can be "LIF", "CLIF", "DN", and "ANN". To test the vanilla spiking actor network without the proxy network, set "--proxy" to "No". Hyper-parameters can be modified with different arguments to main.py.
 
 

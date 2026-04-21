@@ -7,7 +7,7 @@ import copy
 import torch.nn as nn
 import torch.nn.functional as F
 import math
-from typing import cast
+from typing import Union, cast
 import SAN
 import actor_critic
 
@@ -51,9 +51,9 @@ class ReplayBuffer(object):
 		)
 
 
-def eval_policy(policy: actor_critic.TD3 | actor_critic.PT_TD3, env_name, eval_seed, eval_episodes=10):
+def eval_policy(policy: Union[actor_critic.TD3, actor_critic.PT_TD3], env_name, eval_seed, eval_episodes=10):
 	'''
-	Runs policy for X episodes and returns average reward and tau.
+	Runs policy for X episodes and returns average reward and per-layer tau values.
 	A fixed seed is used for the eval environment.
 	'''
 	eval_env = gym.make(env_name)
@@ -70,7 +70,7 @@ def eval_policy(policy: actor_critic.TD3 | actor_critic.PT_TD3, env_name, eval_s
 			avg_reward += float(reward)
 
 	avg_reward /= eval_episodes
-	eval_tau = np.nan
+	eval_taus = []
 	print("---------------------------------------")
 	print(f"Evaluation over {eval_episodes} episodes: {avg_reward:.3f}")
 	print("---------------------------------------")
@@ -78,17 +78,15 @@ def eval_policy(policy: actor_critic.TD3 | actor_critic.PT_TD3, env_name, eval_s
 		if isinstance(policy.actor, SAN.SNN_Actor):
 			snn_module = policy.actor.snn
 			if isinstance(snn_module, SAN.SpikeMLP):
-				layer_taus = [cast(SAN.PLIFNode, node).tau() for node in snn_module.plifnodes]
-				if len(layer_taus) > 1:
+				eval_taus = [cast(SAN.PLIFNode, node).tau() for node in snn_module.plifnodes]
+				if len(eval_taus) > 1:
 					hidden_tau_str = ", ".join(
-						f"h{idx}: {tau:.6f}" for idx, tau in enumerate(layer_taus[:-1])
+						f"h{idx}: {tau:.6f}" for idx, tau in enumerate(eval_taus[:-1])
 					)
 					print(f"Current PLIF tau (hidden): {hidden_tau_str}")
-					print(f"Current PLIF tau (output): {layer_taus[-1]:.6f}")
+					print(f"Current PLIF tau (output): {eval_taus[-1]:.6f}")
 				else:
-					print(f"Current PLIF tau: {layer_taus[0]:.6f}")
-				# Keep a scalar tau return for backward compatibility with existing logs/plots.
-				eval_tau = float(np.mean(layer_taus))
-	return avg_reward, eval_tau
+					print(f"Current PLIF tau: {eval_taus[0]:.6f}")
+	return avg_reward, eval_taus
 
 	

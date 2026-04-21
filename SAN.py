@@ -7,7 +7,7 @@ import copy
 import torch.nn as nn
 import torch.nn.functional as F
 import math
-from typing import cast
+from typing import Optional, Tuple, cast
 import utils
 
 '''Implementation of Proxy Target Framework '''
@@ -179,7 +179,7 @@ class SpikeMLP(nn.Module):
     def spike_fn(self, input_tensor: torch.Tensor) -> torch.Tensor:
         return cast(torch.Tensor, PseudoSpikeRect.apply(input_tensor))
 
-    def neuron_model(self, syn_func, pre_layer_output, current, volt, spike, plifnode: PLIFNode | None = None) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+    def neuron_model(self, syn_func, pre_layer_output, current, volt, spike, plifnode: Optional[PLIFNode] = None) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         """
         Neuron Model
         :param syn_func: synaptic function
@@ -274,7 +274,7 @@ class DynamicMLP(nn.Module):
     def spike_fn(self, input_tensor: torch.Tensor) -> torch.Tensor:
         return cast(torch.Tensor, PseudoSpikeRect.apply(input_tensor))
 
-    def neuron_model(self, syn_func, pre_layer_output, current, volt, u, spike) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
+    def neuron_model(self, syn_func, pre_layer_output, current, volt, u, spike) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
         """
         LIF Neuron Model
         :param syn_func: synaptic function

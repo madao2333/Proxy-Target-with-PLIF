@@ -89,8 +89,9 @@ if __name__ == "__main__":
 
     replay_buffer = ReplayBuffer(state_dim, action_dim)
 
-    # Evaluate untrained policy. Each record is [reward, tau].
-    evaluations = [list(eval_policy(policy, args.env, args.seed))]
+    # Evaluate untrained policy. Each record is [reward, tau_0, tau_1, ...].
+    initial_reward, initial_taus = eval_policy(policy, args.env, args.seed)
+    evaluations = [[initial_reward, *initial_taus]] if initial_taus else [initial_reward]
 
     state, done = env.reset(), False
     state = state[0]
@@ -138,7 +139,8 @@ if __name__ == "__main__":
 
         # Evaluate episode
         if (t + 1) % args.eval_freq == 0:
-            evaluations.append(list(eval_policy(policy, args.env, args.seed)))
+            eval_reward, eval_taus = eval_policy(policy, args.env, args.seed)
+            evaluations.append([eval_reward, *eval_taus] if eval_taus else eval_reward)
             np.save(f"./results/{file_name}", np.asarray(evaluations, dtype=np.float32))
 
     policy.save(f"./models/{file_name}")
