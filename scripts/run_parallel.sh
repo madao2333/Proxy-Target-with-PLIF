@@ -6,13 +6,11 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
 PYTHON_BIN="${PYTHON_BIN:-python}"
-MAX_PARALLEL_JOBS="${MAX_PARALLEL_JOBS:-2}"
+MAX_PARALLEL_JOBS="${MAX_PARALLEL_JOBS:-4}"
 LOG_DIR="${LOG_DIR:-logs}"
 
 mkdir -p "$LOG_DIR" results models
 
-# Edit these lists to match the exact paper setting you want to reproduce.
-# This version only runs proxy-based PLIF experiments.
 ENVS=(
   Ant-v4
   HalfCheetah-v4
@@ -43,10 +41,12 @@ SEED_SUMMARY_FILE="$LOG_DIR/seeds_${BATCH_ID}.txt"
 
 echo "[seed-list] ${SEED_SUMMARY_FILE}"
 
-# Format: label|proxy|spiking_neurons
 CASES=(
   "PT_PLIF|Yes|PLIF"
 )
+
+GPUS=(0 1)
+gpu_index=0
 
 wait_for_slot() {
   while [[ "$(jobs -pr | wc -l)" -ge "$MAX_PARALLEL_JOBS" ]]; do
@@ -60,11 +60,12 @@ run_one() {
   local neuron_name="$3"
   local seed_value="$4"
   local label="$5"
+  local gpu_id="$6"
 
-  local log_file="$LOG_DIR/${label}_${env_name}_seed${seed_value}.log"
+  local log_file="$LOG_DIR/${label}_${env_name}_seed${seed_value}_gpu${gpu_id}.log"
 
-  echo "[launch] ${label} env=${env_name} seed=${seed_value} log=${log_file}"
-  "$PYTHON_BIN" main.py \
+  echo "[launch] ${label} env=${env_name} seed=${seed_value} gpu=${gpu_id} log=${log_file}"
+  CUDA_VISIBLE_DEVICES="$gpu_id" "$PYTHON_BIN" main.py \
     --env "$env_name" \
     --proxy "$proxy_flag" \
     --spiking_neurons "$neuron_name" \
@@ -78,7 +79,9 @@ for case in "${CASES[@]}"; do
   for env_name in "${ENVS[@]}"; do
     for seed_value in "${SEEDS[@]}"; do
       wait_for_slot
-      run_one "$env_name" "$proxy_flag" "$neuron_name" "$seed_value" "$label" &
+      gpu_id="${GPUS[$((gpu_index % ${#GPUS[@]}))]}"
+      gpu_index=$((gpu_index + 1))
+      run_one "$env_name" "$proxy_flag" "$neuron_name" "$seed_value" "$label" "$gpu_id" &
     done
   done
 done
