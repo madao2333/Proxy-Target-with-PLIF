@@ -45,7 +45,7 @@ CASES=(
   "PT_PLIF|Yes|PLIF"
 )
 
-GPUS=(0 1)
+GPUS=(0)
 gpu_index=0
 
 wait_for_slot() {
@@ -65,7 +65,7 @@ run_one() {
   local log_file="$LOG_DIR/${label}_${env_name}_seed${seed_value}_gpu${gpu_id}.log"
 
   echo "[launch] ${label} env=${env_name} seed=${seed_value} gpu=${gpu_id} log=${log_file}"
-  CUDA_VISIBLE_DEVICES="$gpu_id" "$PYTHON_BIN" main.py \
+  CUDA_VISIBLE_DEVICES="$gpu_id" PYTHONUNBUFFERED=1 "$PYTHON_BIN" -u main.py \
     --env "$env_name" \
     --proxy "$proxy_flag" \
     --spiking_neurons "$neuron_name" \

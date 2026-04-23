@@ -1,0 +1,10 @@
+batch_id=20260421_123713
+python_bin=python
+max_parallel_jobs=5
+log_dir=logs
+seeds:
+81544
+52783
+81093
+88426
+97304
