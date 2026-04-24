@@ -4474,3 +4474,11 @@ Current PLIF tau (output): 0.805061
 Total T: 1020631 Episode Num: 3446 Episode T: 1000 Reward: 3518.853
 Total T: 1021631 Episode Num: 3447 Episode T: 1000 Reward: 3490.462
 Total T: 1022335 Episode Num: 3448 Episode T: 704 Reward: 2574.269
+Total T: 1022823 Episode Num: 3449 Episode T: 488 Reward: 1821.812
+Traceback (most recent call last):
+  File "/data4/2026/chenjunwei/Proxy-Target-with-PLIF/main.py", line 111, in <module>
+    policy.select_action(np.array(state))
+  File "/data4/2026/chenjunwei/Proxy-Target-with-PLIF/actor_critic.py", line 238, in select_action
+    return self.actor(state).cpu().data.numpy().flatten()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

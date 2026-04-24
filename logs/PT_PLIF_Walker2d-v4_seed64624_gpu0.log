@@ -4268,3 +4268,30 @@ Total T: 985669 Episode Num: 3274 Episode T: 1000 Reward: 4088.304
 Total T: 986669 Episode Num: 3275 Episode T: 1000 Reward: 4032.083
 Total T: 987669 Episode Num: 3276 Episode T: 1000 Reward: 4064.983
 Total T: 988669 Episode Num: 3277 Episode T: 1000 Reward: 4055.128
+Total T: 989669 Episode Num: 3278 Episode T: 1000 Reward: 3981.906
+Traceback (most recent call last):
+  File "/data4/2026/chenjunwei/Proxy-Target-with-PLIF/main.py", line 142, in <module>
+    eval_reward, eval_taus = eval_policy(policy, args.env, args.seed)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data4/2026/chenjunwei/Proxy-Target-with-PLIF/utils.py", line 67, in eval_policy
+    action = policy.select_action(np.array(state))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data4/2026/chenjunwei/Proxy-Target-with-PLIF/actor_critic.py", line 238, in select_action
+    return self.actor(state).cpu().data.numpy().flatten()
+           ^^^^^^^^^^^^^^^^^
+  File "/data4/VirtualEnvs/chenjunwei/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data4/VirtualEnvs/chenjunwei/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data4/2026/chenjunwei/Proxy-Target-with-PLIF/SAN.py", line 368, in forward
+    in_pop_spikes = self.encoder(torch.tanh(obs), batch_size)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data4/VirtualEnvs/chenjunwei/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data4/VirtualEnvs/chenjunwei/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1755, in _call_impl
+    def _call_impl(self, *args, **kwargs):
+
+KeyboardInterrupt

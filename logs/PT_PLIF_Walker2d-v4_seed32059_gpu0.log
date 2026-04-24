@@ -4787,3 +4787,17 @@ Current PLIF tau (hidden): h0: 0.993014, h1: 0.982560
 Current PLIF tau (output): 0.672967
 Total T: 1000698 Episode Num: 3780 Episode T: 1000 Reward: 3492.220
 Total T: 1001698 Episode Num: 3781 Episode T: 1000 Reward: 3526.571
+Total T: 1002698 Episode Num: 3782 Episode T: 1000 Reward: 3418.006
+Traceback (most recent call last):
+  File "/data4/2026/chenjunwei/Proxy-Target-with-PLIF/main.py", line 128, in <module>
+    policy.train(replay_buffer, args.batch_size)
+  File "/data4/2026/chenjunwei/Proxy-Target-with-PLIF/actor_critic.py", line 249, in train
+    loss.backward()
+  File "/data4/VirtualEnvs/chenjunwei/lib/python3.11/site-packages/torch/_tensor.py", line 648, in backward
+    torch.autograd.backward(
+  File "/data4/VirtualEnvs/chenjunwei/lib/python3.11/site-packages/torch/autograd/__init__.py", line 353, in backward
+    _engine_run_backward(
+  File "/data4/VirtualEnvs/chenjunwei/lib/python3.11/site-packages/torch/autograd/graph.py", line 824, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
