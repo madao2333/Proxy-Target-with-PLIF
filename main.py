@@ -20,7 +20,7 @@ if __name__ == "__main__":
     parser.add_argument("--proxy_hidden_sizes", default=[512,512], type=int, nargs=2)  # Hidden sizes of the proxy network
     parser.add_argument("--proxy_lr", default=1e-3, type=float)  # Learning rate of the proxy network
     parser.add_argument("--proxy_iters", default=3, type=int)  # Iterations of the proxy network per update
-    parser.add_argument("--plif_lr", default=1e-4, type=float)  # Learning rate for PLIF tau parameters
+    parser.add_argument("--plif_lr", default=None, type=float)  # Learning rate for PLIF tau parameters
     parser.add_argument("--env", default="Ant-v4")  # OpenAI gym environment name
     parser.add_argument("--seed", default=0, type=int)  # Sets Gym, PyTorch and Numpy seeds
     parser.add_argument("--start_timesteps", default=25e3, type=int)  # Time steps initial random policy is used
@@ -34,12 +34,18 @@ if __name__ == "__main__":
     parser.add_argument("--noise_clip", default=0.5)  # Range to clip target policy noise
     parser.add_argument("--policy_freq", default=2, type=int)  # Frequency of delayed policy updates
     parser.add_argument("--load_model", default="")  # Model load file name, "" doesn't load
+    parser.add_argument("--run_label", default="")  # Optional prefix for saved results/models
+    parser.add_argument("--trace_stbp", default="No")  # Whether to trace timestep-level STBP current gradients
+    parser.add_argument("--trace_stbp_freq", default=100, type=int)  # Actor updates between STBP trace records
     args = parser.parse_known_args()[0]
 
 
-    file_name = f"{args.spiking_neurons}_{args.env}_{args.seed}"
+    file_prefix = args.run_label if args.run_label else args.spiking_neurons
+    file_name = f"{file_prefix}_{args.env}_{args.seed}"
     print("---------------------------------------")
     print(f"Policy: {args.spiking_neurons}, Env: {args.env}, Seed: {args.seed}")
+    if args.trace_stbp == "Yes":
+        print(f"STBP trace: logs/stbp_trace/stbp_trace.csv, every {args.trace_stbp_freq} actor update(s)")
     print("---------------------------------------")
 
     if not os.path.exists("./results"):
@@ -71,6 +77,8 @@ if __name__ == "__main__":
         "policy_freq": args.policy_freq,
         "spiking_neurons": args.spiking_neurons,
         "plif_lr": args.plif_lr,
+        "trace_stbp": args.trace_stbp,
+        "trace_stbp_freq": args.trace_stbp_freq,
     }
 
 

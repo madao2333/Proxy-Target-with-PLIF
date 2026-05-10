@@ -7,7 +7,7 @@ import copy
 import torch.nn as nn
 import torch.nn.functional as F
 import math
-from typing import Optional, Tuple, cast
+from typing import Dict, Optional, Tuple, cast
 import utils
 
 '''Implementation of Proxy Target Framework '''
@@ -175,11 +175,69 @@ class SpikeMLP(nn.Module):
         self.neurons = neurons
         # One PLIF node per hidden layer and one for output population layer.
         self.plifnodes = nn.ModuleList([PLIFNode() for _ in range(self.hidden_num + 1)])
+        self.trace_stbp = False
+        self.stbp_trace_records = []
+        self.stbp_trace_context: Dict[str, object] = {}
 
     def spike_fn(self, input_tensor: torch.Tensor) -> torch.Tensor:
         return cast(torch.Tensor, PseudoSpikeRect.apply(input_tensor))
 
-    def neuron_model(self, syn_func, pre_layer_output, current, volt, spike, plifnode: Optional[PLIFNode] = None) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+    def begin_stbp_trace(self, context: Optional[Dict[str, object]] = None):
+        self.trace_stbp = True
+        self.stbp_trace_records = []
+        self.stbp_trace_context = context if context is not None else {}
+
+    def end_stbp_trace(self):
+        self.trace_stbp = False
+        records = self.stbp_trace_records
+        self.stbp_trace_records = []
+        self.stbp_trace_context = {}
+        return records
+
+    @staticmethod
+    def _tensor_stats(prefix, tensor):
+        tensor = tensor.detach()
+        return {
+            f"{prefix}_l2": tensor.norm().item(),
+            f"{prefix}_abs_mean": tensor.abs().mean().item(),
+            f"{prefix}_abs_max": tensor.abs().max().item(),
+        }
+
+    def _maybe_trace_current(self, current, pre_layer_output, volt, spike, layer_name, step):
+        if not self.trace_stbp or layer_name is None or step is None or not current.requires_grad:
+            return
+
+        pre_spike = pre_layer_output.detach()
+        forward_stats = {
+            "pre_spike_rate": pre_spike.float().mean().item(),
+            "post_spike_rate": spike.detach().float().mean().item(),
+            "current_abs_mean": current.detach().abs().mean().item(),
+            "current_abs_max": current.detach().abs().max().item(),
+            "volt_mean": volt.detach().mean().item(),
+            "volt_std": volt.detach().std(unbiased=False).item(),
+        }
+
+        def record_current_grad(grad):
+            grad = grad.detach()
+            grad_w_t = grad.transpose(0, 1).matmul(pre_spike)
+            grad_b_t = grad.sum(dim=0)
+            record = dict(self.stbp_trace_context)
+            record.update({
+                "neuron": self.neurons,
+                "layer": layer_name,
+                "step": step,
+                "batch_size": grad.shape[0],
+                **forward_stats,
+                **self._tensor_stats("current_grad", grad),
+                **self._tensor_stats("weight_grad_t", grad_w_t),
+                **self._tensor_stats("bias_grad_t", grad_b_t),
+            })
+            self.stbp_trace_records.append(record)
+
+        current.register_hook(record_current_grad)
+
+    def neuron_model(self, syn_func, pre_layer_output, current, volt, spike, plifnode: Optional[PLIFNode] = None,
+                     layer_name: Optional[str] = None, step: Optional[int] = None) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         """
         Neuron Model
         :param syn_func: synaptic function
@@ -193,16 +251,19 @@ class SpikeMLP(nn.Module):
             current = syn_func(pre_layer_output)
             volt = volt * NEURON_VDECAY * (1. - spike) + current
             spike = self.spike_fn(volt)
+            self._maybe_trace_current(current, pre_layer_output, volt, spike, layer_name, step)
         elif self.neurons == 'CLIF':
             current = current * NEURON_CDECAY + syn_func(pre_layer_output)
             volt = volt * NEURON_VDECAY * (1. - spike) + current
             spike = self.spike_fn(volt)
+            self._maybe_trace_current(current, pre_layer_output, volt, spike, layer_name, step)
         elif self.neurons == "PLIF":
             if plifnode is None:
                 raise ValueError('plifnode is required when neurons == "PLIF"')
             current = syn_func(pre_layer_output)
             volt = plifnode(current, volt, spike)
             spike = self.spike_fn(volt)
+            self._maybe_trace_current(current, pre_layer_output, volt, spike, layer_name, step)
         else:
             raise ValueError('Neuron model can only be LIF, CLIF, PLIF, DN, and ANN')
         return current, volt, spike
@@ -228,19 +289,22 @@ class SpikeMLP(nn.Module):
             hidden_states[0][0], hidden_states[0][1], hidden_states[0][2] = self.neuron_model(
                 self.hidden_layers[0], in_pop_spike_t,
                 hidden_states[0][0], hidden_states[0][1], hidden_states[0][2],
-                cast(PLIFNode, self.plifnodes[0]) if self.neurons == 'PLIF' else None
+                cast(PLIFNode, self.plifnodes[0]) if self.neurons == 'PLIF' else None,
+                "hidden0", step
             )
             if self.hidden_num > 1:
                 for layer in range(1, self.hidden_num):
                     hidden_states[layer][0], hidden_states[layer][1], hidden_states[layer][2] = self.neuron_model(
                         self.hidden_layers[layer], hidden_states[layer-1][2],
                         hidden_states[layer][0], hidden_states[layer][1], hidden_states[layer][2],
-                        cast(PLIFNode, self.plifnodes[layer]) if self.neurons == 'PLIF' else None
+                        cast(PLIFNode, self.plifnodes[layer]) if self.neurons == 'PLIF' else None,
+                        f"hidden{layer}", step
                     )
             out_pop_states[0], out_pop_states[1], out_pop_states[2] = self.neuron_model(
                 self.out_pop_layer, hidden_states[-1][2],
                 out_pop_states[0], out_pop_states[1], out_pop_states[2],
-                cast(PLIFNode, self.plifnodes[-1]) if self.neurons == 'PLIF' else None
+                cast(PLIFNode, self.plifnodes[-1]) if self.neurons == 'PLIF' else None,
+                "output", step
             )
             out_pop_act += out_pop_states[2]
         out_pop_act = out_pop_act / self.spike_ts
@@ -369,6 +433,15 @@ class SNN_Actor(nn.Module):
         out_pop_activity = self.snn(in_pop_spikes, batch_size)
         action = self.act_limit * self.decoder(out_pop_activity)
         return action
+
+    def begin_stbp_trace(self, context: Optional[Dict[str, object]] = None):
+        if isinstance(self.snn, SpikeMLP):
+            self.snn.begin_stbp_trace(context)
+
+    def end_stbp_trace(self):
+        if isinstance(self.snn, SpikeMLP):
+            return self.snn.end_stbp_trace()
+        return []
 
 
 class ANN_Actor(nn.Module):
