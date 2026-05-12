@@ -1,0 +1,26 @@
+file	line	kind	max_value	matched_text
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140201_Ant-v4_seed10991_gpu2.log	2404	Evaluation over 10 episodes	5156.210	Evaluation over 10 episodes: 5156.210
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140201_Ant-v4_seed22297_gpu2.log	2475	Evaluation over 10 episodes	4322.036	Evaluation over 10 episodes: 4322.036
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140201_Ant-v4_seed33431_gpu2.log	2340	Evaluation over 10 episodes	4995.776	Evaluation over 10 episodes: 4995.776
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140201_Ant-v4_seed75183_gpu2.log	2391	Evaluation over 10 episodes	5290.254	Evaluation over 10 episodes: 5290.254
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140201_Ant-v4_seed95718_gpu2.log	2428	Evaluation over 10 episodes	4922.065	Evaluation over 10 episodes: 4922.065
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140201_HalfCheetah-v4_seed10991_gpu2.log	1905	Evaluation over 10 episodes	9539.940	Evaluation over 10 episodes: 9539.940
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140201_HalfCheetah-v4_seed22297_gpu2.log	1935	Evaluation over 10 episodes	9620.285	Evaluation over 10 episodes: 9620.285
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140201_HalfCheetah-v4_seed33431_gpu2.log	1925	Evaluation over 10 episodes	9606.675	Evaluation over 10 episodes: 9606.675
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140201_HalfCheetah-v4_seed75183_gpu2.log	1915	Evaluation over 10 episodes	9965.681	Evaluation over 10 episodes: 9965.681
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140201_HalfCheetah-v4_seed95718_gpu2.log	1845	Evaluation over 10 episodes	9999.057	Evaluation over 10 episodes: 9999.057
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140248_Hopper-v4_seed10991_gpu0.log	6433	Evaluation over 10 episodes	3260.879	Evaluation over 10 episodes: 3260.879
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140248_Hopper-v4_seed22297_gpu0.log	5557	Evaluation over 10 episodes	3479.211	Evaluation over 10 episodes: 3479.211
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140248_Hopper-v4_seed33431_gpu0.log	5833	Evaluation over 10 episodes	3344.959	Evaluation over 10 episodes: 3344.959
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140248_Hopper-v4_seed75183_gpu0.log	5996	Evaluation over 10 episodes	3545.337	Evaluation over 10 episodes: 3545.337
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140248_Hopper-v4_seed95718_gpu0.log	5879	Evaluation over 10 episodes	3384.793	Evaluation over 10 episodes: 3384.793
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140814_InvertedDoublePendulum-v4_seed10991_gpu0.log	9322	Evaluation over 10 episodes	9344.812	Evaluation over 10 episodes: 9344.812
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140814_InvertedDoublePendulum-v4_seed22297_gpu0.log	8995	Evaluation over 10 episodes	9347.696	Evaluation over 10 episodes: 9347.696
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140814_InvertedDoublePendulum-v4_seed33431_gpu0.log	9083	Evaluation over 10 episodes	9345.553	Evaluation over 10 episodes: 9345.553
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140814_InvertedDoublePendulum-v4_seed75183_gpu0.log	9140	Evaluation over 10 episodes	9347.380	Evaluation over 10 episodes: 9347.380
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140814_InvertedDoublePendulum-v4_seed95718_gpu0.log	9097	Evaluation over 10 episodes	9347.244	Evaluation over 10 episodes: 9347.244
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140248_Walker2d-v4_seed10991_gpu0.log	5103	Evaluation over 10 episodes	4943.838	Evaluation over 10 episodes: 4943.838
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140248_Walker2d-v4_seed22297_gpu0.log	6031	Evaluation over 10 episodes	3824.537	Evaluation over 10 episodes: 3824.537
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140248_Walker2d-v4_seed33431_gpu0.log	5252	Evaluation over 10 episodes	5050.470	Evaluation over 10 episodes: 5050.470
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140248_Walker2d-v4_seed75183_gpu0.log	5670	Evaluation over 10 episodes	4614.685	Evaluation over 10 episodes: 4614.685
+Proxy-Target-with-PLIF/logs/PT_PLIF_STABLE_20260510_140248_Walker2d-v4_seed95718_gpu0.log	5611	Evaluation over 10 episodes	4269.846	Evaluation over 10 episodes: 4269.846

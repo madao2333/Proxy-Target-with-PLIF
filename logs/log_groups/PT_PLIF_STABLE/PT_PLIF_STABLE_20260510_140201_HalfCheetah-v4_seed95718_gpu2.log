@@ -1,0 +1,2108 @@
+---------------------------------------
+Policy: PLIF, Env: HalfCheetah-v4, Seed: 95718
+---------------------------------------
+---------------------------------------
+Evaluation over 10 episodes: -21.997
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.750000, h1: 0.750000
+Current PLIF tau (output): 0.750000
+Total T: 1000 Episode Num: 1 Episode T: 1000 Reward: -290.836
+Total T: 2000 Episode Num: 2 Episode T: 1000 Reward: -355.549
+Total T: 3000 Episode Num: 3 Episode T: 1000 Reward: -285.411
+Total T: 4000 Episode Num: 4 Episode T: 1000 Reward: -354.413
+Total T: 5000 Episode Num: 5 Episode T: 1000 Reward: -243.256
+---------------------------------------
+Evaluation over 10 episodes: -21.997
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.750000, h1: 0.750000
+Current PLIF tau (output): 0.750000
+Total T: 6000 Episode Num: 6 Episode T: 1000 Reward: -251.649
+Total T: 7000 Episode Num: 7 Episode T: 1000 Reward: -380.016
+Total T: 8000 Episode Num: 8 Episode T: 1000 Reward: -253.339
+Total T: 9000 Episode Num: 9 Episode T: 1000 Reward: -227.194
+Total T: 10000 Episode Num: 10 Episode T: 1000 Reward: -302.629
+---------------------------------------
+Evaluation over 10 episodes: -21.997
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.750000, h1: 0.750000
+Current PLIF tau (output): 0.750000
+Total T: 11000 Episode Num: 11 Episode T: 1000 Reward: -242.223
+Total T: 12000 Episode Num: 12 Episode T: 1000 Reward: -149.957
+Total T: 13000 Episode Num: 13 Episode T: 1000 Reward: -272.434
+Total T: 14000 Episode Num: 14 Episode T: 1000 Reward: -75.609
+Total T: 15000 Episode Num: 15 Episode T: 1000 Reward: -238.902
+---------------------------------------
+Evaluation over 10 episodes: -21.997
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.750000, h1: 0.750000
+Current PLIF tau (output): 0.750000
+Total T: 16000 Episode Num: 16 Episode T: 1000 Reward: -362.075
+Total T: 17000 Episode Num: 17 Episode T: 1000 Reward: -207.380
+Total T: 18000 Episode Num: 18 Episode T: 1000 Reward: -208.364
+Total T: 19000 Episode Num: 19 Episode T: 1000 Reward: -447.403
+Total T: 20000 Episode Num: 20 Episode T: 1000 Reward: -204.323
+---------------------------------------
+Evaluation over 10 episodes: -21.997
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.750000, h1: 0.750000
+Current PLIF tau (output): 0.750000
+Total T: 21000 Episode Num: 21 Episode T: 1000 Reward: -377.895
+Total T: 22000 Episode Num: 22 Episode T: 1000 Reward: -343.196
+Total T: 23000 Episode Num: 23 Episode T: 1000 Reward: -261.036
+Total T: 24000 Episode Num: 24 Episode T: 1000 Reward: -315.714
+Total T: 25000 Episode Num: 25 Episode T: 1000 Reward: -255.513
+---------------------------------------
+Evaluation over 10 episodes: -21.997
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.750000, h1: 0.750000
+Current PLIF tau (output): 0.750000
+Total T: 26000 Episode Num: 26 Episode T: 1000 Reward: -232.156
+Total T: 27000 Episode Num: 27 Episode T: 1000 Reward: -257.551
+Total T: 28000 Episode Num: 28 Episode T: 1000 Reward: -205.593
+Total T: 29000 Episode Num: 29 Episode T: 1000 Reward: -245.687
+Total T: 30000 Episode Num: 30 Episode T: 1000 Reward: -301.473
+---------------------------------------
+Evaluation over 10 episodes: -21.997
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.750000, h1: 0.750000
+Current PLIF tau (output): 0.750000
+Total T: 31000 Episode Num: 31 Episode T: 1000 Reward: -152.668
+Total T: 32000 Episode Num: 32 Episode T: 1000 Reward: -399.336
+Total T: 33000 Episode Num: 33 Episode T: 1000 Reward: -306.535
+Total T: 34000 Episode Num: 34 Episode T: 1000 Reward: -355.990
+Total T: 35000 Episode Num: 35 Episode T: 1000 Reward: -361.561
+---------------------------------------
+Evaluation over 10 episodes: -21.997
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.750000, h1: 0.750000
+Current PLIF tau (output): 0.750000
+Total T: 36000 Episode Num: 36 Episode T: 1000 Reward: -227.478
+Total T: 37000 Episode Num: 37 Episode T: 1000 Reward: -327.206
+Total T: 38000 Episode Num: 38 Episode T: 1000 Reward: -253.318
+Total T: 39000 Episode Num: 39 Episode T: 1000 Reward: -211.482
+Total T: 40000 Episode Num: 40 Episode T: 1000 Reward: -260.297
+---------------------------------------
+Evaluation over 10 episodes: -21.997
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.750000, h1: 0.750000
+Current PLIF tau (output): 0.750000
+Total T: 41000 Episode Num: 41 Episode T: 1000 Reward: -210.973
+Total T: 42000 Episode Num: 42 Episode T: 1000 Reward: -293.449
+Total T: 43000 Episode Num: 43 Episode T: 1000 Reward: -143.933
+Total T: 44000 Episode Num: 44 Episode T: 1000 Reward: -307.605
+Total T: 45000 Episode Num: 45 Episode T: 1000 Reward: -204.370
+---------------------------------------
+Evaluation over 10 episodes: -21.997
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.750000, h1: 0.750000
+Current PLIF tau (output): 0.750000
+Total T: 46000 Episode Num: 46 Episode T: 1000 Reward: -299.951
+Total T: 47000 Episode Num: 47 Episode T: 1000 Reward: -461.860
+Total T: 48000 Episode Num: 48 Episode T: 1000 Reward: -241.146
+Total T: 49000 Episode Num: 49 Episode T: 1000 Reward: -494.628
+Total T: 50000 Episode Num: 50 Episode T: 1000 Reward: -285.138
+---------------------------------------
+Evaluation over 10 episodes: -21.997
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.750000, h1: 0.750000
+Current PLIF tau (output): 0.750000
+Total T: 51000 Episode Num: 51 Episode T: 1000 Reward: -188.877
+Total T: 52000 Episode Num: 52 Episode T: 1000 Reward: -301.139
+Total T: 53000 Episode Num: 53 Episode T: 1000 Reward: -320.055
+Total T: 54000 Episode Num: 54 Episode T: 1000 Reward: -255.149
+Total T: 55000 Episode Num: 55 Episode T: 1000 Reward: -179.166
+---------------------------------------
+Evaluation over 10 episodes: -169.756
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.749933, h1: 0.750124
+Current PLIF tau (output): 0.747322
+Total T: 56000 Episode Num: 56 Episode T: 1000 Reward: -307.674
+Total T: 57000 Episode Num: 57 Episode T: 1000 Reward: -428.560
+Total T: 58000 Episode Num: 58 Episode T: 1000 Reward: -445.341
+Total T: 59000 Episode Num: 59 Episode T: 1000 Reward: -471.929
+Total T: 60000 Episode Num: 60 Episode T: 1000 Reward: -227.570
+---------------------------------------
+Evaluation over 10 episodes: -230.502
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.754003, h1: 0.760485
+Current PLIF tau (output): 0.753470
+Total T: 61000 Episode Num: 61 Episode T: 1000 Reward: 191.170
+Total T: 62000 Episode Num: 62 Episode T: 1000 Reward: 310.741
+Total T: 63000 Episode Num: 63 Episode T: 1000 Reward: 1712.424
+Total T: 64000 Episode Num: 64 Episode T: 1000 Reward: 1408.247
+Total T: 65000 Episode Num: 65 Episode T: 1000 Reward: 1861.411
+---------------------------------------
+Evaluation over 10 episodes: 2031.310
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.755575, h1: 0.770087
+Current PLIF tau (output): 0.766467
+Total T: 66000 Episode Num: 66 Episode T: 1000 Reward: 2017.280
+Total T: 67000 Episode Num: 67 Episode T: 1000 Reward: 2384.825
+Total T: 68000 Episode Num: 68 Episode T: 1000 Reward: 2225.351
+Total T: 69000 Episode Num: 69 Episode T: 1000 Reward: 2750.849
+Total T: 70000 Episode Num: 70 Episode T: 1000 Reward: 2461.162
+---------------------------------------
+Evaluation over 10 episodes: 1656.511
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.758327, h1: 0.780036
+Current PLIF tau (output): 0.777269
+Total T: 71000 Episode Num: 71 Episode T: 1000 Reward: 2683.055
+Total T: 72000 Episode Num: 72 Episode T: 1000 Reward: 2799.831
+Total T: 73000 Episode Num: 73 Episode T: 1000 Reward: 2840.808
+Total T: 74000 Episode Num: 74 Episode T: 1000 Reward: 2999.259
+Total T: 75000 Episode Num: 75 Episode T: 1000 Reward: 3068.820
+---------------------------------------
+Evaluation over 10 episodes: 2614.680
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.759859, h1: 0.787525
+Current PLIF tau (output): 0.784845
+Total T: 76000 Episode Num: 76 Episode T: 1000 Reward: 3365.702
+Total T: 77000 Episode Num: 77 Episode T: 1000 Reward: 3130.044
+Total T: 78000 Episode Num: 78 Episode T: 1000 Reward: -90.647
+Total T: 79000 Episode Num: 79 Episode T: 1000 Reward: 1839.351
+Total T: 80000 Episode Num: 80 Episode T: 1000 Reward: 3542.142
+---------------------------------------
+Evaluation over 10 episodes: 1841.236
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.761369, h1: 0.795456
+Current PLIF tau (output): 0.792529
+Total T: 81000 Episode Num: 81 Episode T: 1000 Reward: 3671.988
+Total T: 82000 Episode Num: 82 Episode T: 1000 Reward: 2092.936
+Total T: 83000 Episode Num: 83 Episode T: 1000 Reward: 292.431
+Total T: 84000 Episode Num: 84 Episode T: 1000 Reward: 3035.710
+Total T: 85000 Episode Num: 85 Episode T: 1000 Reward: 3152.945
+---------------------------------------
+Evaluation over 10 episodes: 2601.204
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.763326, h1: 0.802197
+Current PLIF tau (output): 0.799522
+Total T: 86000 Episode Num: 86 Episode T: 1000 Reward: 1266.931
+Total T: 87000 Episode Num: 87 Episode T: 1000 Reward: 3714.183
+Total T: 88000 Episode Num: 88 Episode T: 1000 Reward: 3689.624
+Total T: 89000 Episode Num: 89 Episode T: 1000 Reward: 1885.249
+Total T: 90000 Episode Num: 90 Episode T: 1000 Reward: 2543.122
+---------------------------------------
+Evaluation over 10 episodes: 2303.707
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.765399, h1: 0.807874
+Current PLIF tau (output): 0.805822
+Total T: 91000 Episode Num: 91 Episode T: 1000 Reward: 909.786
+Total T: 92000 Episode Num: 92 Episode T: 1000 Reward: 3773.731
+Total T: 93000 Episode Num: 93 Episode T: 1000 Reward: 3735.676
+Total T: 94000 Episode Num: 94 Episode T: 1000 Reward: 3216.177
+Total T: 95000 Episode Num: 95 Episode T: 1000 Reward: 4031.644
+---------------------------------------
+Evaluation over 10 episodes: 2172.708
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.767694, h1: 0.814379
+Current PLIF tau (output): 0.812891
+Total T: 96000 Episode Num: 96 Episode T: 1000 Reward: 1070.031
+Total T: 97000 Episode Num: 97 Episode T: 1000 Reward: 4082.635
+Total T: 98000 Episode Num: 98 Episode T: 1000 Reward: 108.102
+Total T: 99000 Episode Num: 99 Episode T: 1000 Reward: 622.997
+Total T: 100000 Episode Num: 100 Episode T: 1000 Reward: 1226.690
+---------------------------------------
+Evaluation over 10 episodes: 2835.541
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.769471, h1: 0.820099
+Current PLIF tau (output): 0.819031
+Total T: 101000 Episode Num: 101 Episode T: 1000 Reward: 4285.440
+Total T: 102000 Episode Num: 102 Episode T: 1000 Reward: 4038.688
+Total T: 103000 Episode Num: 103 Episode T: 1000 Reward: 363.702
+Total T: 104000 Episode Num: 104 Episode T: 1000 Reward: 634.092
+Total T: 105000 Episode Num: 105 Episode T: 1000 Reward: 4356.016
+---------------------------------------
+Evaluation over 10 episodes: 3185.102
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.771843, h1: 0.825736
+Current PLIF tau (output): 0.823966
+Total T: 106000 Episode Num: 106 Episode T: 1000 Reward: 4253.361
+Total T: 107000 Episode Num: 107 Episode T: 1000 Reward: 3653.830
+Total T: 108000 Episode Num: 108 Episode T: 1000 Reward: 4451.642
+Total T: 109000 Episode Num: 109 Episode T: 1000 Reward: 3787.580
+Total T: 110000 Episode Num: 110 Episode T: 1000 Reward: 3909.861
+---------------------------------------
+Evaluation over 10 episodes: 3417.909
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.773490, h1: 0.831141
+Current PLIF tau (output): 0.828841
+Total T: 111000 Episode Num: 111 Episode T: 1000 Reward: 2926.066
+Total T: 112000 Episode Num: 112 Episode T: 1000 Reward: 4467.761
+Total T: 113000 Episode Num: 113 Episode T: 1000 Reward: 4169.954
+Total T: 114000 Episode Num: 114 Episode T: 1000 Reward: 4298.272
+Total T: 115000 Episode Num: 115 Episode T: 1000 Reward: 816.519
+---------------------------------------
+Evaluation over 10 episodes: 4503.128
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.775482, h1: 0.835996
+Current PLIF tau (output): 0.833232
+Total T: 116000 Episode Num: 116 Episode T: 1000 Reward: 4196.556
+Total T: 117000 Episode Num: 117 Episode T: 1000 Reward: 4154.854
+Total T: 118000 Episode Num: 118 Episode T: 1000 Reward: 4315.897
+Total T: 119000 Episode Num: 119 Episode T: 1000 Reward: 4313.646
+Total T: 120000 Episode Num: 120 Episode T: 1000 Reward: 4433.037
+---------------------------------------
+Evaluation over 10 episodes: 3884.471
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.777491, h1: 0.841323
+Current PLIF tau (output): 0.837858
+Total T: 121000 Episode Num: 121 Episode T: 1000 Reward: 4326.081
+Total T: 122000 Episode Num: 122 Episode T: 1000 Reward: 4415.337
+Total T: 123000 Episode Num: 123 Episode T: 1000 Reward: 4284.331
+Total T: 124000 Episode Num: 124 Episode T: 1000 Reward: 4460.169
+Total T: 125000 Episode Num: 125 Episode T: 1000 Reward: 4497.453
+---------------------------------------
+Evaluation over 10 episodes: 4508.618
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.779481, h1: 0.845847
+Current PLIF tau (output): 0.842436
+Total T: 126000 Episode Num: 126 Episode T: 1000 Reward: 4661.292
+Total T: 127000 Episode Num: 127 Episode T: 1000 Reward: 4689.929
+Total T: 128000 Episode Num: 128 Episode T: 1000 Reward: 4257.276
+Total T: 129000 Episode Num: 129 Episode T: 1000 Reward: 4626.888
+Total T: 130000 Episode Num: 130 Episode T: 1000 Reward: 4673.354
+---------------------------------------
+Evaluation over 10 episodes: 4751.191
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.781528, h1: 0.850592
+Current PLIF tau (output): 0.846261
+Total T: 131000 Episode Num: 131 Episode T: 1000 Reward: 4708.545
+Total T: 132000 Episode Num: 132 Episode T: 1000 Reward: 4584.137
+Total T: 133000 Episode Num: 133 Episode T: 1000 Reward: 4642.484
+Total T: 134000 Episode Num: 134 Episode T: 1000 Reward: 4779.515
+Total T: 135000 Episode Num: 135 Episode T: 1000 Reward: 4649.868
+---------------------------------------
+Evaluation over 10 episodes: 4660.078
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.783496, h1: 0.855386
+Current PLIF tau (output): 0.850262
+Total T: 136000 Episode Num: 136 Episode T: 1000 Reward: 4570.043
+Total T: 137000 Episode Num: 137 Episode T: 1000 Reward: 4539.057
+Total T: 138000 Episode Num: 138 Episode T: 1000 Reward: 4846.334
+Total T: 139000 Episode Num: 139 Episode T: 1000 Reward: 4727.985
+Total T: 140000 Episode Num: 140 Episode T: 1000 Reward: 4724.937
+---------------------------------------
+Evaluation over 10 episodes: 4982.280
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.785283, h1: 0.859536
+Current PLIF tau (output): 0.854251
+Total T: 141000 Episode Num: 141 Episode T: 1000 Reward: 4726.271
+Total T: 142000 Episode Num: 142 Episode T: 1000 Reward: 4661.475
+Total T: 143000 Episode Num: 143 Episode T: 1000 Reward: 4745.709
+Total T: 144000 Episode Num: 144 Episode T: 1000 Reward: 4841.576
+Total T: 145000 Episode Num: 145 Episode T: 1000 Reward: 4940.204
+---------------------------------------
+Evaluation over 10 episodes: 4933.687
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.787080, h1: 0.863582
+Current PLIF tau (output): 0.858056
+Total T: 146000 Episode Num: 146 Episode T: 1000 Reward: 4976.341
+Total T: 147000 Episode Num: 147 Episode T: 1000 Reward: 5019.518
+Total T: 148000 Episode Num: 148 Episode T: 1000 Reward: 5012.990
+Total T: 149000 Episode Num: 149 Episode T: 1000 Reward: 5166.741
+Total T: 150000 Episode Num: 150 Episode T: 1000 Reward: 4869.277
+---------------------------------------
+Evaluation over 10 episodes: 4965.599
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.789148, h1: 0.867359
+Current PLIF tau (output): 0.861694
+Total T: 151000 Episode Num: 151 Episode T: 1000 Reward: 4828.718
+Total T: 152000 Episode Num: 152 Episode T: 1000 Reward: 4886.693
+Total T: 153000 Episode Num: 153 Episode T: 1000 Reward: 1416.737
+Total T: 154000 Episode Num: 154 Episode T: 1000 Reward: 5334.973
+Total T: 155000 Episode Num: 155 Episode T: 1000 Reward: 4591.792
+---------------------------------------
+Evaluation over 10 episodes: 5312.261
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.791165, h1: 0.871298
+Current PLIF tau (output): 0.865811
+Total T: 156000 Episode Num: 156 Episode T: 1000 Reward: 4909.444
+Total T: 157000 Episode Num: 157 Episode T: 1000 Reward: 4921.339
+Total T: 158000 Episode Num: 158 Episode T: 1000 Reward: 787.178
+Total T: 159000 Episode Num: 159 Episode T: 1000 Reward: 5309.901
+Total T: 160000 Episode Num: 160 Episode T: 1000 Reward: 4817.281
+---------------------------------------
+Evaluation over 10 episodes: 5356.796
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.793075, h1: 0.875264
+Current PLIF tau (output): 0.869302
+Total T: 161000 Episode Num: 161 Episode T: 1000 Reward: 5141.611
+Total T: 162000 Episode Num: 162 Episode T: 1000 Reward: 5167.024
+Total T: 163000 Episode Num: 163 Episode T: 1000 Reward: 5103.718
+Total T: 164000 Episode Num: 164 Episode T: 1000 Reward: 5338.109
+Total T: 165000 Episode Num: 165 Episode T: 1000 Reward: 2779.147
+---------------------------------------
+Evaluation over 10 episodes: 5360.452
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.795190, h1: 0.878999
+Current PLIF tau (output): 0.872688
+Total T: 166000 Episode Num: 166 Episode T: 1000 Reward: 5210.686
+Total T: 167000 Episode Num: 167 Episode T: 1000 Reward: 5265.051
+Total T: 168000 Episode Num: 168 Episode T: 1000 Reward: 5144.059
+Total T: 169000 Episode Num: 169 Episode T: 1000 Reward: 5329.618
+Total T: 170000 Episode Num: 170 Episode T: 1000 Reward: 5557.653
+---------------------------------------
+Evaluation over 10 episodes: 4868.416
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.797132, h1: 0.882484
+Current PLIF tau (output): 0.875957
+Total T: 171000 Episode Num: 171 Episode T: 1000 Reward: 5360.081
+Total T: 172000 Episode Num: 172 Episode T: 1000 Reward: 5168.891
+Total T: 173000 Episode Num: 173 Episode T: 1000 Reward: 5480.594
+Total T: 174000 Episode Num: 174 Episode T: 1000 Reward: 5362.803
+Total T: 175000 Episode Num: 175 Episode T: 1000 Reward: 5143.861
+---------------------------------------
+Evaluation over 10 episodes: 5636.034
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.798983, h1: 0.885868
+Current PLIF tau (output): 0.879050
+Total T: 176000 Episode Num: 176 Episode T: 1000 Reward: 5386.782
+Total T: 177000 Episode Num: 177 Episode T: 1000 Reward: 5449.416
+Total T: 178000 Episode Num: 178 Episode T: 1000 Reward: 5751.569
+Total T: 179000 Episode Num: 179 Episode T: 1000 Reward: 5602.262
+Total T: 180000 Episode Num: 180 Episode T: 1000 Reward: 5208.142
+---------------------------------------
+Evaluation over 10 episodes: 5779.285
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.801439, h1: 0.889129
+Current PLIF tau (output): 0.882044
+Total T: 181000 Episode Num: 181 Episode T: 1000 Reward: 5451.483
+Total T: 182000 Episode Num: 182 Episode T: 1000 Reward: 5606.634
+Total T: 183000 Episode Num: 183 Episode T: 1000 Reward: 5516.303
+Total T: 184000 Episode Num: 184 Episode T: 1000 Reward: 5506.594
+Total T: 185000 Episode Num: 185 Episode T: 1000 Reward: 5446.250
+---------------------------------------
+Evaluation over 10 episodes: 5058.712
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.803470, h1: 0.892000
+Current PLIF tau (output): 0.884591
+Total T: 186000 Episode Num: 186 Episode T: 1000 Reward: 5467.869
+Total T: 187000 Episode Num: 187 Episode T: 1000 Reward: 5731.404
+Total T: 188000 Episode Num: 188 Episode T: 1000 Reward: 5771.140
+Total T: 189000 Episode Num: 189 Episode T: 1000 Reward: 5672.127
+Total T: 190000 Episode Num: 190 Episode T: 1000 Reward: 5942.443
+---------------------------------------
+Evaluation over 10 episodes: 6323.181
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.804918, h1: 0.894494
+Current PLIF tau (output): 0.887248
+Total T: 191000 Episode Num: 191 Episode T: 1000 Reward: 5897.757
+Total T: 192000 Episode Num: 192 Episode T: 1000 Reward: 6117.369
+Total T: 193000 Episode Num: 193 Episode T: 1000 Reward: 5785.959
+Total T: 194000 Episode Num: 194 Episode T: 1000 Reward: 5870.492
+Total T: 195000 Episode Num: 195 Episode T: 1000 Reward: 5873.834
+---------------------------------------
+Evaluation over 10 episodes: 6448.821
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.806643, h1: 0.897030
+Current PLIF tau (output): 0.890003
+Total T: 196000 Episode Num: 196 Episode T: 1000 Reward: 6132.395
+Total T: 197000 Episode Num: 197 Episode T: 1000 Reward: 6090.288
+Total T: 198000 Episode Num: 198 Episode T: 1000 Reward: 5909.607
+Total T: 199000 Episode Num: 199 Episode T: 1000 Reward: 6282.065
+Total T: 200000 Episode Num: 200 Episode T: 1000 Reward: 6242.689
+---------------------------------------
+Evaluation over 10 episodes: 6431.812
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.808198, h1: 0.899756
+Current PLIF tau (output): 0.892641
+Total T: 201000 Episode Num: 201 Episode T: 1000 Reward: 6145.644
+Total T: 202000 Episode Num: 202 Episode T: 1000 Reward: 6212.645
+Total T: 203000 Episode Num: 203 Episode T: 1000 Reward: 6133.834
+Total T: 204000 Episode Num: 204 Episode T: 1000 Reward: 6153.596
+Total T: 205000 Episode Num: 205 Episode T: 1000 Reward: 6403.632
+---------------------------------------
+Evaluation over 10 episodes: 6311.326
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.810208, h1: 0.902030
+Current PLIF tau (output): 0.895094
+Total T: 206000 Episode Num: 206 Episode T: 1000 Reward: 6171.419
+Total T: 207000 Episode Num: 207 Episode T: 1000 Reward: 6296.079
+Total T: 208000 Episode Num: 208 Episode T: 1000 Reward: 6282.600
+Total T: 209000 Episode Num: 209 Episode T: 1000 Reward: 6305.710
+Total T: 210000 Episode Num: 210 Episode T: 1000 Reward: 6308.992
+---------------------------------------
+Evaluation over 10 episodes: 6791.965
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.812457, h1: 0.904467
+Current PLIF tau (output): 0.897404
+Total T: 211000 Episode Num: 211 Episode T: 1000 Reward: 6569.732
+Total T: 212000 Episode Num: 212 Episode T: 1000 Reward: 6233.410
+Total T: 213000 Episode Num: 213 Episode T: 1000 Reward: 6321.638
+Total T: 214000 Episode Num: 214 Episode T: 1000 Reward: 6521.083
+Total T: 215000 Episode Num: 215 Episode T: 1000 Reward: 6122.151
+---------------------------------------
+Evaluation over 10 episodes: 6457.789
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.814205, h1: 0.906908
+Current PLIF tau (output): 0.899525
+Total T: 216000 Episode Num: 216 Episode T: 1000 Reward: 6406.761
+Total T: 217000 Episode Num: 217 Episode T: 1000 Reward: 6347.561
+Total T: 218000 Episode Num: 218 Episode T: 1000 Reward: 6485.628
+Total T: 219000 Episode Num: 219 Episode T: 1000 Reward: 6450.950
+Total T: 220000 Episode Num: 220 Episode T: 1000 Reward: 6558.222
+---------------------------------------
+Evaluation over 10 episodes: 6861.182
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.815843, h1: 0.909154
+Current PLIF tau (output): 0.901595
+Total T: 221000 Episode Num: 221 Episode T: 1000 Reward: 6117.048
+Total T: 222000 Episode Num: 222 Episode T: 1000 Reward: 6643.995
+Total T: 223000 Episode Num: 223 Episode T: 1000 Reward: 6414.673
+Total T: 224000 Episode Num: 224 Episode T: 1000 Reward: 6597.632
+Total T: 225000 Episode Num: 225 Episode T: 1000 Reward: 6530.037
+---------------------------------------
+Evaluation over 10 episodes: 6817.781
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.817727, h1: 0.911763
+Current PLIF tau (output): 0.903954
+Total T: 226000 Episode Num: 226 Episode T: 1000 Reward: 6470.804
+Total T: 227000 Episode Num: 227 Episode T: 1000 Reward: 6601.643
+Total T: 228000 Episode Num: 228 Episode T: 1000 Reward: 6296.414
+Total T: 229000 Episode Num: 229 Episode T: 1000 Reward: 6747.478
+Total T: 230000 Episode Num: 230 Episode T: 1000 Reward: 6562.585
+---------------------------------------
+Evaluation over 10 episodes: 7072.307
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.820023, h1: 0.914136
+Current PLIF tau (output): 0.906216
+Total T: 231000 Episode Num: 231 Episode T: 1000 Reward: 6496.506
+Total T: 232000 Episode Num: 232 Episode T: 1000 Reward: 6508.826
+Total T: 233000 Episode Num: 233 Episode T: 1000 Reward: 6614.060
+Total T: 234000 Episode Num: 234 Episode T: 1000 Reward: 6694.649
+Total T: 235000 Episode Num: 235 Episode T: 1000 Reward: 6849.881
+---------------------------------------
+Evaluation over 10 episodes: 7190.287
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.822111, h1: 0.916243
+Current PLIF tau (output): 0.908159
+Total T: 236000 Episode Num: 236 Episode T: 1000 Reward: 6442.104
+Total T: 237000 Episode Num: 237 Episode T: 1000 Reward: 7086.995
+Total T: 238000 Episode Num: 238 Episode T: 1000 Reward: 6558.203
+Total T: 239000 Episode Num: 239 Episode T: 1000 Reward: 6793.379
+Total T: 240000 Episode Num: 240 Episode T: 1000 Reward: 6820.403
+---------------------------------------
+Evaluation over 10 episodes: 7187.041
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.824273, h1: 0.918214
+Current PLIF tau (output): 0.909996
+Total T: 241000 Episode Num: 241 Episode T: 1000 Reward: 6921.000
+Total T: 242000 Episode Num: 242 Episode T: 1000 Reward: 6932.207
+Total T: 243000 Episode Num: 243 Episode T: 1000 Reward: 6692.308
+Total T: 244000 Episode Num: 244 Episode T: 1000 Reward: 6713.489
+Total T: 245000 Episode Num: 245 Episode T: 1000 Reward: 6889.336
+---------------------------------------
+Evaluation over 10 episodes: 6552.392
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.826507, h1: 0.920018
+Current PLIF tau (output): 0.911700
+Total T: 246000 Episode Num: 246 Episode T: 1000 Reward: 6806.965
+Total T: 247000 Episode Num: 247 Episode T: 1000 Reward: 7030.181
+Total T: 248000 Episode Num: 248 Episode T: 1000 Reward: 6955.807
+Total T: 249000 Episode Num: 249 Episode T: 1000 Reward: 7159.659
+Total T: 250000 Episode Num: 250 Episode T: 1000 Reward: 7002.875
+---------------------------------------
+Evaluation over 10 episodes: 7280.939
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.828405, h1: 0.921710
+Current PLIF tau (output): 0.913186
+Total T: 251000 Episode Num: 251 Episode T: 1000 Reward: 6943.554
+Total T: 252000 Episode Num: 252 Episode T: 1000 Reward: 7180.250
+Total T: 253000 Episode Num: 253 Episode T: 1000 Reward: 6708.754
+Total T: 254000 Episode Num: 254 Episode T: 1000 Reward: 6718.491
+Total T: 255000 Episode Num: 255 Episode T: 1000 Reward: 6871.621
+---------------------------------------
+Evaluation over 10 episodes: 7419.635
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.829914, h1: 0.923415
+Current PLIF tau (output): 0.914756
+Total T: 256000 Episode Num: 256 Episode T: 1000 Reward: 7128.578
+Total T: 257000 Episode Num: 257 Episode T: 1000 Reward: 7091.788
+Total T: 258000 Episode Num: 258 Episode T: 1000 Reward: 6824.587
+Total T: 259000 Episode Num: 259 Episode T: 1000 Reward: 7221.788
+Total T: 260000 Episode Num: 260 Episode T: 1000 Reward: 6735.855
+---------------------------------------
+Evaluation over 10 episodes: 7244.549
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.832008, h1: 0.925050
+Current PLIF tau (output): 0.916092
+Total T: 261000 Episode Num: 261 Episode T: 1000 Reward: 6865.717
+Total T: 262000 Episode Num: 262 Episode T: 1000 Reward: 7059.285
+Total T: 263000 Episode Num: 263 Episode T: 1000 Reward: 7097.149
+Total T: 264000 Episode Num: 264 Episode T: 1000 Reward: 6955.907
+Total T: 265000 Episode Num: 265 Episode T: 1000 Reward: 7150.916
+---------------------------------------
+Evaluation over 10 episodes: 7434.082
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.834221, h1: 0.926722
+Current PLIF tau (output): 0.917507
+Total T: 266000 Episode Num: 266 Episode T: 1000 Reward: 7020.908
+Total T: 267000 Episode Num: 267 Episode T: 1000 Reward: 7310.734
+Total T: 268000 Episode Num: 268 Episode T: 1000 Reward: 7039.993
+Total T: 269000 Episode Num: 269 Episode T: 1000 Reward: 6931.373
+Total T: 270000 Episode Num: 270 Episode T: 1000 Reward: 6996.600
+---------------------------------------
+Evaluation over 10 episodes: 7539.817
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.835675, h1: 0.928113
+Current PLIF tau (output): 0.918635
+Total T: 271000 Episode Num: 271 Episode T: 1000 Reward: 7001.065
+Total T: 272000 Episode Num: 272 Episode T: 1000 Reward: 7077.299
+Total T: 273000 Episode Num: 273 Episode T: 1000 Reward: 6665.566
+Total T: 274000 Episode Num: 274 Episode T: 1000 Reward: 7010.707
+Total T: 275000 Episode Num: 275 Episode T: 1000 Reward: 7063.675
+---------------------------------------
+Evaluation over 10 episodes: 7553.509
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.837783, h1: 0.929646
+Current PLIF tau (output): 0.920148
+Total T: 276000 Episode Num: 276 Episode T: 1000 Reward: 6719.495
+Total T: 277000 Episode Num: 277 Episode T: 1000 Reward: 7236.714
+Total T: 278000 Episode Num: 278 Episode T: 1000 Reward: 7175.696
+Total T: 279000 Episode Num: 279 Episode T: 1000 Reward: 6998.730
+Total T: 280000 Episode Num: 280 Episode T: 1000 Reward: 7026.500
+---------------------------------------
+Evaluation over 10 episodes: 7673.707
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.839587, h1: 0.930958
+Current PLIF tau (output): 0.921213
+Total T: 281000 Episode Num: 281 Episode T: 1000 Reward: 6959.911
+Total T: 282000 Episode Num: 282 Episode T: 1000 Reward: 7089.427
+Total T: 283000 Episode Num: 283 Episode T: 1000 Reward: 7064.782
+Total T: 284000 Episode Num: 284 Episode T: 1000 Reward: 6903.958
+Total T: 285000 Episode Num: 285 Episode T: 1000 Reward: 7301.710
+---------------------------------------
+Evaluation over 10 episodes: 7587.971
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.841376, h1: 0.932094
+Current PLIF tau (output): 0.922389
+Total T: 286000 Episode Num: 286 Episode T: 1000 Reward: 7273.197
+Total T: 287000 Episode Num: 287 Episode T: 1000 Reward: 7040.730
+Total T: 288000 Episode Num: 288 Episode T: 1000 Reward: 7223.115
+Total T: 289000 Episode Num: 289 Episode T: 1000 Reward: 7225.699
+Total T: 290000 Episode Num: 290 Episode T: 1000 Reward: 7199.129
+---------------------------------------
+Evaluation over 10 episodes: 7602.464
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.842687, h1: 0.933061
+Current PLIF tau (output): 0.923384
+Total T: 291000 Episode Num: 291 Episode T: 1000 Reward: 7326.888
+Total T: 292000 Episode Num: 292 Episode T: 1000 Reward: 7448.023
+Total T: 293000 Episode Num: 293 Episode T: 1000 Reward: 7168.175
+Total T: 294000 Episode Num: 294 Episode T: 1000 Reward: 7308.888
+Total T: 295000 Episode Num: 295 Episode T: 1000 Reward: 7405.552
+---------------------------------------
+Evaluation over 10 episodes: 7667.715
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.844433, h1: 0.934151
+Current PLIF tau (output): 0.924444
+Total T: 296000 Episode Num: 296 Episode T: 1000 Reward: 7359.028
+Total T: 297000 Episode Num: 297 Episode T: 1000 Reward: 7187.462
+Total T: 298000 Episode Num: 298 Episode T: 1000 Reward: 7436.475
+Total T: 299000 Episode Num: 299 Episode T: 1000 Reward: 7213.230
+Total T: 300000 Episode Num: 300 Episode T: 1000 Reward: 7403.228
+---------------------------------------
+Evaluation over 10 episodes: 7379.579
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.846221, h1: 0.935341
+Current PLIF tau (output): 0.925507
+Total T: 301000 Episode Num: 301 Episode T: 1000 Reward: 7246.853
+Total T: 302000 Episode Num: 302 Episode T: 1000 Reward: 7117.114
+Total T: 303000 Episode Num: 303 Episode T: 1000 Reward: 7352.595
+Total T: 304000 Episode Num: 304 Episode T: 1000 Reward: 7514.962
+Total T: 305000 Episode Num: 305 Episode T: 1000 Reward: 7330.312
+---------------------------------------
+Evaluation over 10 episodes: 7862.265
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.847656, h1: 0.936360
+Current PLIF tau (output): 0.926516
+Total T: 306000 Episode Num: 306 Episode T: 1000 Reward: 7695.290
+Total T: 307000 Episode Num: 307 Episode T: 1000 Reward: 7026.164
+Total T: 308000 Episode Num: 308 Episode T: 1000 Reward: 7752.703
+Total T: 309000 Episode Num: 309 Episode T: 1000 Reward: 7590.390
+Total T: 310000 Episode Num: 310 Episode T: 1000 Reward: 7271.852
+---------------------------------------
+Evaluation over 10 episodes: 7918.417
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.849165, h1: 0.937452
+Current PLIF tau (output): 0.927427
+Total T: 311000 Episode Num: 311 Episode T: 1000 Reward: 7492.048
+Total T: 312000 Episode Num: 312 Episode T: 1000 Reward: 7644.681
+Total T: 313000 Episode Num: 313 Episode T: 1000 Reward: 7345.692
+Total T: 314000 Episode Num: 314 Episode T: 1000 Reward: 7770.846
+Total T: 315000 Episode Num: 315 Episode T: 1000 Reward: 7530.738
+---------------------------------------
+Evaluation over 10 episodes: 7851.085
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.850602, h1: 0.938368
+Current PLIF tau (output): 0.928329
+Total T: 316000 Episode Num: 316 Episode T: 1000 Reward: 7713.399
+Total T: 317000 Episode Num: 317 Episode T: 1000 Reward: 7929.377
+Total T: 318000 Episode Num: 318 Episode T: 1000 Reward: 7538.743
+Total T: 319000 Episode Num: 319 Episode T: 1000 Reward: 7611.799
+Total T: 320000 Episode Num: 320 Episode T: 1000 Reward: 7388.077
+---------------------------------------
+Evaluation over 10 episodes: 7880.301
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.852114, h1: 0.939318
+Current PLIF tau (output): 0.929106
+Total T: 321000 Episode Num: 321 Episode T: 1000 Reward: 7305.945
+Total T: 322000 Episode Num: 322 Episode T: 1000 Reward: 7565.184
+Total T: 323000 Episode Num: 323 Episode T: 1000 Reward: 7868.799
+Total T: 324000 Episode Num: 324 Episode T: 1000 Reward: 7886.458
+Total T: 325000 Episode Num: 325 Episode T: 1000 Reward: 7620.928
+---------------------------------------
+Evaluation over 10 episodes: 8203.423
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.853829, h1: 0.940100
+Current PLIF tau (output): 0.929904
+Total T: 326000 Episode Num: 326 Episode T: 1000 Reward: 7777.371
+Total T: 327000 Episode Num: 327 Episode T: 1000 Reward: 7496.211
+Total T: 328000 Episode Num: 328 Episode T: 1000 Reward: 7538.901
+Total T: 329000 Episode Num: 329 Episode T: 1000 Reward: 7463.426
+Total T: 330000 Episode Num: 330 Episode T: 1000 Reward: 7855.920
+---------------------------------------
+Evaluation over 10 episodes: 8010.084
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.855326, h1: 0.940998
+Current PLIF tau (output): 0.930847
+Total T: 331000 Episode Num: 331 Episode T: 1000 Reward: 7659.276
+Total T: 332000 Episode Num: 332 Episode T: 1000 Reward: 7598.038
+Total T: 333000 Episode Num: 333 Episode T: 1000 Reward: 7840.235
+Total T: 334000 Episode Num: 334 Episode T: 1000 Reward: 7782.123
+Total T: 335000 Episode Num: 335 Episode T: 1000 Reward: 7874.750
+---------------------------------------
+Evaluation over 10 episodes: 8153.877
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.856732, h1: 0.941902
+Current PLIF tau (output): 0.931833
+Total T: 336000 Episode Num: 336 Episode T: 1000 Reward: 7807.562
+Total T: 337000 Episode Num: 337 Episode T: 1000 Reward: 7691.952
+Total T: 338000 Episode Num: 338 Episode T: 1000 Reward: 7317.822
+Total T: 339000 Episode Num: 339 Episode T: 1000 Reward: 7755.053
+Total T: 340000 Episode Num: 340 Episode T: 1000 Reward: 7483.322
+---------------------------------------
+Evaluation over 10 episodes: 8234.683
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.857948, h1: 0.942818
+Current PLIF tau (output): 0.932592
+Total T: 341000 Episode Num: 341 Episode T: 1000 Reward: 7798.965
+Total T: 342000 Episode Num: 342 Episode T: 1000 Reward: 7988.170
+Total T: 343000 Episode Num: 343 Episode T: 1000 Reward: 8056.912
+Total T: 344000 Episode Num: 344 Episode T: 1000 Reward: 7871.144
+Total T: 345000 Episode Num: 345 Episode T: 1000 Reward: 7647.171
+---------------------------------------
+Evaluation over 10 episodes: 7533.345
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.859440, h1: 0.943546
+Current PLIF tau (output): 0.933367
+Total T: 346000 Episode Num: 346 Episode T: 1000 Reward: 7697.360
+Total T: 347000 Episode Num: 347 Episode T: 1000 Reward: 7443.420
+Total T: 348000 Episode Num: 348 Episode T: 1000 Reward: 8071.107
+Total T: 349000 Episode Num: 349 Episode T: 1000 Reward: 8067.198
+Total T: 350000 Episode Num: 350 Episode T: 1000 Reward: 7769.077
+---------------------------------------
+Evaluation over 10 episodes: 8466.880
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.860922, h1: 0.944339
+Current PLIF tau (output): 0.934093
+Total T: 351000 Episode Num: 351 Episode T: 1000 Reward: 7780.587
+Total T: 352000 Episode Num: 352 Episode T: 1000 Reward: 7782.873
+Total T: 353000 Episode Num: 353 Episode T: 1000 Reward: 8066.833
+Total T: 354000 Episode Num: 354 Episode T: 1000 Reward: 7923.494
+Total T: 355000 Episode Num: 355 Episode T: 1000 Reward: 8220.790
+---------------------------------------
+Evaluation over 10 episodes: 8304.484
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.862315, h1: 0.945039
+Current PLIF tau (output): 0.934804
+Total T: 356000 Episode Num: 356 Episode T: 1000 Reward: 8117.566
+Total T: 357000 Episode Num: 357 Episode T: 1000 Reward: 7790.032
+Total T: 358000 Episode Num: 358 Episode T: 1000 Reward: 7787.076
+Total T: 359000 Episode Num: 359 Episode T: 1000 Reward: 7990.659
+Total T: 360000 Episode Num: 360 Episode T: 1000 Reward: 8147.087
+---------------------------------------
+Evaluation over 10 episodes: 8297.498
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.863761, h1: 0.945561
+Current PLIF tau (output): 0.935336
+Total T: 361000 Episode Num: 361 Episode T: 1000 Reward: 7744.035
+Total T: 362000 Episode Num: 362 Episode T: 1000 Reward: 8075.656
+Total T: 363000 Episode Num: 363 Episode T: 1000 Reward: 7936.386
+Total T: 364000 Episode Num: 364 Episode T: 1000 Reward: 8116.100
+Total T: 365000 Episode Num: 365 Episode T: 1000 Reward: 7982.546
+---------------------------------------
+Evaluation over 10 episodes: 8197.744
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.865198, h1: 0.946261
+Current PLIF tau (output): 0.936059
+Total T: 366000 Episode Num: 366 Episode T: 1000 Reward: 8191.279
+Total T: 367000 Episode Num: 367 Episode T: 1000 Reward: 8225.853
+Total T: 368000 Episode Num: 368 Episode T: 1000 Reward: 8099.799
+Total T: 369000 Episode Num: 369 Episode T: 1000 Reward: 8060.937
+Total T: 370000 Episode Num: 370 Episode T: 1000 Reward: 7820.489
+---------------------------------------
+Evaluation over 10 episodes: 8385.834
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.866463, h1: 0.946857
+Current PLIF tau (output): 0.936737
+Total T: 371000 Episode Num: 371 Episode T: 1000 Reward: 7929.483
+Total T: 372000 Episode Num: 372 Episode T: 1000 Reward: 8042.325
+Total T: 373000 Episode Num: 373 Episode T: 1000 Reward: 8113.974
+Total T: 374000 Episode Num: 374 Episode T: 1000 Reward: 8212.267
+Total T: 375000 Episode Num: 375 Episode T: 1000 Reward: 8060.438
+---------------------------------------
+Evaluation over 10 episodes: 8211.937
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.867767, h1: 0.947346
+Current PLIF tau (output): 0.937498
+Total T: 376000 Episode Num: 376 Episode T: 1000 Reward: 8372.508
+Total T: 377000 Episode Num: 377 Episode T: 1000 Reward: 8244.255
+Total T: 378000 Episode Num: 378 Episode T: 1000 Reward: 8328.306
+Total T: 379000 Episode Num: 379 Episode T: 1000 Reward: 7915.953
+Total T: 380000 Episode Num: 380 Episode T: 1000 Reward: 8023.355
+---------------------------------------
+Evaluation over 10 episodes: 8347.005
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.868600, h1: 0.947886
+Current PLIF tau (output): 0.937924
+Total T: 381000 Episode Num: 381 Episode T: 1000 Reward: 7945.921
+Total T: 382000 Episode Num: 382 Episode T: 1000 Reward: 7990.915
+Total T: 383000 Episode Num: 383 Episode T: 1000 Reward: 8079.142
+Total T: 384000 Episode Num: 384 Episode T: 1000 Reward: 8086.834
+Total T: 385000 Episode Num: 385 Episode T: 1000 Reward: 8144.185
+---------------------------------------
+Evaluation over 10 episodes: 8462.332
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.869743, h1: 0.948394
+Current PLIF tau (output): 0.938427
+Total T: 386000 Episode Num: 386 Episode T: 1000 Reward: 8055.946
+Total T: 387000 Episode Num: 387 Episode T: 1000 Reward: 8084.226
+Total T: 388000 Episode Num: 388 Episode T: 1000 Reward: 8213.725
+Total T: 389000 Episode Num: 389 Episode T: 1000 Reward: 7976.697
+Total T: 390000 Episode Num: 390 Episode T: 1000 Reward: 8059.929
+---------------------------------------
+Evaluation over 10 episodes: 8195.114
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.870657, h1: 0.948860
+Current PLIF tau (output): 0.938827
+Total T: 391000 Episode Num: 391 Episode T: 1000 Reward: 8116.050
+Total T: 392000 Episode Num: 392 Episode T: 1000 Reward: 8009.580
+Total T: 393000 Episode Num: 393 Episode T: 1000 Reward: 8144.554
+Total T: 394000 Episode Num: 394 Episode T: 1000 Reward: 8301.472
+Total T: 395000 Episode Num: 395 Episode T: 1000 Reward: 8169.042
+---------------------------------------
+Evaluation over 10 episodes: 8365.198
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.871434, h1: 0.949340
+Current PLIF tau (output): 0.939341
+Total T: 396000 Episode Num: 396 Episode T: 1000 Reward: 8373.105
+Total T: 397000 Episode Num: 397 Episode T: 1000 Reward: 8275.341
+Total T: 398000 Episode Num: 398 Episode T: 1000 Reward: 8229.876
+Total T: 399000 Episode Num: 399 Episode T: 1000 Reward: 8271.250
+Total T: 400000 Episode Num: 400 Episode T: 1000 Reward: 8343.436
+---------------------------------------
+Evaluation over 10 episodes: 8629.155
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.872450, h1: 0.949989
+Current PLIF tau (output): 0.939900
+Total T: 401000 Episode Num: 401 Episode T: 1000 Reward: 7964.238
+Total T: 402000 Episode Num: 402 Episode T: 1000 Reward: 8089.212
+Total T: 403000 Episode Num: 403 Episode T: 1000 Reward: 8137.804
+Total T: 404000 Episode Num: 404 Episode T: 1000 Reward: 8170.718
+Total T: 405000 Episode Num: 405 Episode T: 1000 Reward: 8276.291
+---------------------------------------
+Evaluation over 10 episodes: 8064.665
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.873772, h1: 0.950586
+Current PLIF tau (output): 0.940612
+Total T: 406000 Episode Num: 406 Episode T: 1000 Reward: 7966.805
+Total T: 407000 Episode Num: 407 Episode T: 1000 Reward: 8323.607
+Total T: 408000 Episode Num: 408 Episode T: 1000 Reward: 8633.009
+Total T: 409000 Episode Num: 409 Episode T: 1000 Reward: 8110.433
+Total T: 410000 Episode Num: 410 Episode T: 1000 Reward: 8161.722
+---------------------------------------
+Evaluation over 10 episodes: 8607.613
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.875085, h1: 0.951295
+Current PLIF tau (output): 0.941089
+Total T: 411000 Episode Num: 411 Episode T: 1000 Reward: 8267.088
+Total T: 412000 Episode Num: 412 Episode T: 1000 Reward: 8233.052
+Total T: 413000 Episode Num: 413 Episode T: 1000 Reward: 8262.708
+Total T: 414000 Episode Num: 414 Episode T: 1000 Reward: 8133.222
+Total T: 415000 Episode Num: 415 Episode T: 1000 Reward: 8523.819
+---------------------------------------
+Evaluation over 10 episodes: 8690.492
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.876033, h1: 0.951668
+Current PLIF tau (output): 0.941420
+Total T: 416000 Episode Num: 416 Episode T: 1000 Reward: 8425.178
+Total T: 417000 Episode Num: 417 Episode T: 1000 Reward: 8357.566
+Total T: 418000 Episode Num: 418 Episode T: 1000 Reward: 8343.089
+Total T: 419000 Episode Num: 419 Episode T: 1000 Reward: 8329.783
+Total T: 420000 Episode Num: 420 Episode T: 1000 Reward: 7839.629
+---------------------------------------
+Evaluation over 10 episodes: 8452.116
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.877158, h1: 0.952190
+Current PLIF tau (output): 0.941857
+Total T: 421000 Episode Num: 421 Episode T: 1000 Reward: 8382.431
+Total T: 422000 Episode Num: 422 Episode T: 1000 Reward: 8439.951
+Total T: 423000 Episode Num: 423 Episode T: 1000 Reward: 7985.295
+Total T: 424000 Episode Num: 424 Episode T: 1000 Reward: 8250.742
+Total T: 425000 Episode Num: 425 Episode T: 1000 Reward: 7896.474
+---------------------------------------
+Evaluation over 10 episodes: 8888.703
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.878245, h1: 0.952738
+Current PLIF tau (output): 0.942267
+Total T: 426000 Episode Num: 426 Episode T: 1000 Reward: 8582.759
+Total T: 427000 Episode Num: 427 Episode T: 1000 Reward: 8632.770
+Total T: 428000 Episode Num: 428 Episode T: 1000 Reward: 8527.661
+Total T: 429000 Episode Num: 429 Episode T: 1000 Reward: 8189.285
+Total T: 430000 Episode Num: 430 Episode T: 1000 Reward: 8531.260
+---------------------------------------
+Evaluation over 10 episodes: 8042.745
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.879384, h1: 0.953262
+Current PLIF tau (output): 0.942640
+Total T: 431000 Episode Num: 431 Episode T: 1000 Reward: 8462.850
+Total T: 432000 Episode Num: 432 Episode T: 1000 Reward: 8316.504
+Total T: 433000 Episode Num: 433 Episode T: 1000 Reward: 8367.983
+Total T: 434000 Episode Num: 434 Episode T: 1000 Reward: 8031.263
+Total T: 435000 Episode Num: 435 Episode T: 1000 Reward: 8388.671
+---------------------------------------
+Evaluation over 10 episodes: 8874.589
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.880318, h1: 0.953776
+Current PLIF tau (output): 0.942966
+Total T: 436000 Episode Num: 436 Episode T: 1000 Reward: 8524.644
+Total T: 437000 Episode Num: 437 Episode T: 1000 Reward: 8208.675
+Total T: 438000 Episode Num: 438 Episode T: 1000 Reward: 8282.039
+Total T: 439000 Episode Num: 439 Episode T: 1000 Reward: 8318.293
+Total T: 440000 Episode Num: 440 Episode T: 1000 Reward: 8327.958
+---------------------------------------
+Evaluation over 10 episodes: 8466.721
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.881097, h1: 0.954095
+Current PLIF tau (output): 0.943203
+Total T: 441000 Episode Num: 441 Episode T: 1000 Reward: 8632.486
+Total T: 442000 Episode Num: 442 Episode T: 1000 Reward: 7888.619
+Total T: 443000 Episode Num: 443 Episode T: 1000 Reward: 8473.914
+Total T: 444000 Episode Num: 444 Episode T: 1000 Reward: 8255.582
+Total T: 445000 Episode Num: 445 Episode T: 1000 Reward: 8328.561
+---------------------------------------
+Evaluation over 10 episodes: 8781.676
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.882062, h1: 0.954523
+Current PLIF tau (output): 0.943693
+Total T: 446000 Episode Num: 446 Episode T: 1000 Reward: 8253.861
+Total T: 447000 Episode Num: 447 Episode T: 1000 Reward: 8191.380
+Total T: 448000 Episode Num: 448 Episode T: 1000 Reward: 8518.944
+Total T: 449000 Episode Num: 449 Episode T: 1000 Reward: 8572.703
+Total T: 450000 Episode Num: 450 Episode T: 1000 Reward: 8600.228
+---------------------------------------
+Evaluation over 10 episodes: 8722.856
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.883231, h1: 0.955035
+Current PLIF tau (output): 0.944116
+Total T: 451000 Episode Num: 451 Episode T: 1000 Reward: 8319.322
+Total T: 452000 Episode Num: 452 Episode T: 1000 Reward: 8439.778
+Total T: 453000 Episode Num: 453 Episode T: 1000 Reward: 8417.515
+Total T: 454000 Episode Num: 454 Episode T: 1000 Reward: 8237.145
+Total T: 455000 Episode Num: 455 Episode T: 1000 Reward: 8420.333
+---------------------------------------
+Evaluation over 10 episodes: 8825.682
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.884192, h1: 0.955416
+Current PLIF tau (output): 0.944501
+Total T: 456000 Episode Num: 456 Episode T: 1000 Reward: 8642.134
+Total T: 457000 Episode Num: 457 Episode T: 1000 Reward: 8550.949
+Total T: 458000 Episode Num: 458 Episode T: 1000 Reward: 8199.707
+Total T: 459000 Episode Num: 459 Episode T: 1000 Reward: 8744.727
+Total T: 460000 Episode Num: 460 Episode T: 1000 Reward: 8558.676
+---------------------------------------
+Evaluation over 10 episodes: 8834.881
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.885211, h1: 0.955754
+Current PLIF tau (output): 0.944878
+Total T: 461000 Episode Num: 461 Episode T: 1000 Reward: 8782.458
+Total T: 462000 Episode Num: 462 Episode T: 1000 Reward: 8423.606
+Total T: 463000 Episode Num: 463 Episode T: 1000 Reward: 8286.896
+Total T: 464000 Episode Num: 464 Episode T: 1000 Reward: 7597.599
+Total T: 465000 Episode Num: 465 Episode T: 1000 Reward: 8400.607
+---------------------------------------
+Evaluation over 10 episodes: 8752.012
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.885787, h1: 0.956026
+Current PLIF tau (output): 0.945141
+Total T: 466000 Episode Num: 466 Episode T: 1000 Reward: 8474.947
+Total T: 467000 Episode Num: 467 Episode T: 1000 Reward: 8408.907
+Total T: 468000 Episode Num: 468 Episode T: 1000 Reward: 8249.261
+Total T: 469000 Episode Num: 469 Episode T: 1000 Reward: 8696.258
+Total T: 470000 Episode Num: 470 Episode T: 1000 Reward: 8245.868
+---------------------------------------
+Evaluation over 10 episodes: 8887.562
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.886682, h1: 0.956421
+Current PLIF tau (output): 0.945319
+Total T: 471000 Episode Num: 471 Episode T: 1000 Reward: 8394.558
+Total T: 472000 Episode Num: 472 Episode T: 1000 Reward: 8324.361
+Total T: 473000 Episode Num: 473 Episode T: 1000 Reward: 8429.129
+Total T: 474000 Episode Num: 474 Episode T: 1000 Reward: 8126.896
+Total T: 475000 Episode Num: 475 Episode T: 1000 Reward: 8667.300
+---------------------------------------
+Evaluation over 10 episodes: 9080.880
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.887743, h1: 0.956850
+Current PLIF tau (output): 0.945762
+Total T: 476000 Episode Num: 476 Episode T: 1000 Reward: 8826.285
+Total T: 477000 Episode Num: 477 Episode T: 1000 Reward: 8790.660
+Total T: 478000 Episode Num: 478 Episode T: 1000 Reward: 8596.880
+Total T: 479000 Episode Num: 479 Episode T: 1000 Reward: 8812.359
+Total T: 480000 Episode Num: 480 Episode T: 1000 Reward: 8655.321
+---------------------------------------
+Evaluation over 10 episodes: 8857.414
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.888779, h1: 0.957174
+Current PLIF tau (output): 0.946166
+Total T: 481000 Episode Num: 481 Episode T: 1000 Reward: 8653.767
+Total T: 482000 Episode Num: 482 Episode T: 1000 Reward: 8618.621
+Total T: 483000 Episode Num: 483 Episode T: 1000 Reward: 8502.913
+Total T: 484000 Episode Num: 484 Episode T: 1000 Reward: 8429.493
+Total T: 485000 Episode Num: 485 Episode T: 1000 Reward: 8591.140
+---------------------------------------
+Evaluation over 10 episodes: 8425.841
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.889587, h1: 0.957468
+Current PLIF tau (output): 0.946554
+Total T: 486000 Episode Num: 486 Episode T: 1000 Reward: 8426.959
+Total T: 487000 Episode Num: 487 Episode T: 1000 Reward: 8522.083
+Total T: 488000 Episode Num: 488 Episode T: 1000 Reward: 8494.413
+Total T: 489000 Episode Num: 489 Episode T: 1000 Reward: 8628.304
+Total T: 490000 Episode Num: 490 Episode T: 1000 Reward: 8521.109
+---------------------------------------
+Evaluation over 10 episodes: 9060.083
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.890850, h1: 0.957867
+Current PLIF tau (output): 0.946984
+Total T: 491000 Episode Num: 491 Episode T: 1000 Reward: 8409.568
+Total T: 492000 Episode Num: 492 Episode T: 1000 Reward: 8440.402
+Total T: 493000 Episode Num: 493 Episode T: 1000 Reward: 8613.142
+Total T: 494000 Episode Num: 494 Episode T: 1000 Reward: 8808.787
+Total T: 495000 Episode Num: 495 Episode T: 1000 Reward: 8626.423
+---------------------------------------
+Evaluation over 10 episodes: 8940.801
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.891870, h1: 0.958057
+Current PLIF tau (output): 0.947283
+Total T: 496000 Episode Num: 496 Episode T: 1000 Reward: 8634.820
+Total T: 497000 Episode Num: 497 Episode T: 1000 Reward: 8516.350
+Total T: 498000 Episode Num: 498 Episode T: 1000 Reward: 8815.152
+Total T: 499000 Episode Num: 499 Episode T: 1000 Reward: 8532.017
+Total T: 500000 Episode Num: 500 Episode T: 1000 Reward: 8561.291
+---------------------------------------
+Evaluation over 10 episodes: 8934.131
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.892828, h1: 0.958329
+Current PLIF tau (output): 0.947633
+Total T: 501000 Episode Num: 501 Episode T: 1000 Reward: 8658.933
+Total T: 502000 Episode Num: 502 Episode T: 1000 Reward: 8703.975
+Total T: 503000 Episode Num: 503 Episode T: 1000 Reward: 8866.440
+Total T: 504000 Episode Num: 504 Episode T: 1000 Reward: 8781.286
+Total T: 505000 Episode Num: 505 Episode T: 1000 Reward: 8374.975
+---------------------------------------
+Evaluation over 10 episodes: 8117.944
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.893403, h1: 0.958531
+Current PLIF tau (output): 0.947794
+Total T: 506000 Episode Num: 506 Episode T: 1000 Reward: 8643.249
+Total T: 507000 Episode Num: 507 Episode T: 1000 Reward: 8861.320
+Total T: 508000 Episode Num: 508 Episode T: 1000 Reward: 8652.158
+Total T: 509000 Episode Num: 509 Episode T: 1000 Reward: 8840.201
+Total T: 510000 Episode Num: 510 Episode T: 1000 Reward: 8668.755
+---------------------------------------
+Evaluation over 10 episodes: 9070.676
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.894142, h1: 0.958874
+Current PLIF tau (output): 0.947997
+Total T: 511000 Episode Num: 511 Episode T: 1000 Reward: 8426.008
+Total T: 512000 Episode Num: 512 Episode T: 1000 Reward: 8701.721
+Total T: 513000 Episode Num: 513 Episode T: 1000 Reward: 8411.341
+Total T: 514000 Episode Num: 514 Episode T: 1000 Reward: 8786.593
+Total T: 515000 Episode Num: 515 Episode T: 1000 Reward: 8509.278
+---------------------------------------
+Evaluation over 10 episodes: 9020.050
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.895080, h1: 0.959127
+Current PLIF tau (output): 0.948107
+Total T: 516000 Episode Num: 516 Episode T: 1000 Reward: 8487.240
+Total T: 517000 Episode Num: 517 Episode T: 1000 Reward: 8722.003
+Total T: 518000 Episode Num: 518 Episode T: 1000 Reward: 8918.923
+Total T: 519000 Episode Num: 519 Episode T: 1000 Reward: 8640.248
+Total T: 520000 Episode Num: 520 Episode T: 1000 Reward: 8418.839
+---------------------------------------
+Evaluation over 10 episodes: 9079.947
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.895915, h1: 0.959250
+Current PLIF tau (output): 0.948093
+Total T: 521000 Episode Num: 521 Episode T: 1000 Reward: 8650.647
+Total T: 522000 Episode Num: 522 Episode T: 1000 Reward: 9052.164
+Total T: 523000 Episode Num: 523 Episode T: 1000 Reward: 8662.899
+Total T: 524000 Episode Num: 524 Episode T: 1000 Reward: 8898.578
+Total T: 525000 Episode Num: 525 Episode T: 1000 Reward: 8973.400
+---------------------------------------
+Evaluation over 10 episodes: 9203.262
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.896735, h1: 0.959531
+Current PLIF tau (output): 0.948405
+Total T: 526000 Episode Num: 526 Episode T: 1000 Reward: 8597.792
+Total T: 527000 Episode Num: 527 Episode T: 1000 Reward: 8465.983
+Total T: 528000 Episode Num: 528 Episode T: 1000 Reward: 8937.146
+Total T: 529000 Episode Num: 529 Episode T: 1000 Reward: 8393.147
+Total T: 530000 Episode Num: 530 Episode T: 1000 Reward: 8886.014
+---------------------------------------
+Evaluation over 10 episodes: 8550.907
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.897382, h1: 0.959702
+Current PLIF tau (output): 0.948511
+Total T: 531000 Episode Num: 531 Episode T: 1000 Reward: 8679.432
+Total T: 532000 Episode Num: 532 Episode T: 1000 Reward: 8644.884
+Total T: 533000 Episode Num: 533 Episode T: 1000 Reward: 8853.425
+Total T: 534000 Episode Num: 534 Episode T: 1000 Reward: 8972.826
+Total T: 535000 Episode Num: 535 Episode T: 1000 Reward: 8869.415
+---------------------------------------
+Evaluation over 10 episodes: 8633.110
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.898259, h1: 0.959896
+Current PLIF tau (output): 0.948678
+Total T: 536000 Episode Num: 536 Episode T: 1000 Reward: 8357.693
+Total T: 537000 Episode Num: 537 Episode T: 1000 Reward: 8665.588
+Total T: 538000 Episode Num: 538 Episode T: 1000 Reward: 8838.716
+Total T: 539000 Episode Num: 539 Episode T: 1000 Reward: 8913.315
+Total T: 540000 Episode Num: 540 Episode T: 1000 Reward: 8957.382
+---------------------------------------
+Evaluation over 10 episodes: 9232.647
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.899205, h1: 0.960043
+Current PLIF tau (output): 0.948886
+Total T: 541000 Episode Num: 541 Episode T: 1000 Reward: 8793.514
+Total T: 542000 Episode Num: 542 Episode T: 1000 Reward: 8906.986
+Total T: 543000 Episode Num: 543 Episode T: 1000 Reward: 8773.275
+Total T: 544000 Episode Num: 544 Episode T: 1000 Reward: 8747.663
+Total T: 545000 Episode Num: 545 Episode T: 1000 Reward: 8946.860
+---------------------------------------
+Evaluation over 10 episodes: 9159.580
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.899698, h1: 0.960160
+Current PLIF tau (output): 0.949008
+Total T: 546000 Episode Num: 546 Episode T: 1000 Reward: 8954.437
+Total T: 547000 Episode Num: 547 Episode T: 1000 Reward: 8889.671
+Total T: 548000 Episode Num: 548 Episode T: 1000 Reward: 8501.543
+Total T: 549000 Episode Num: 549 Episode T: 1000 Reward: 8698.981
+Total T: 550000 Episode Num: 550 Episode T: 1000 Reward: 8819.440
+---------------------------------------
+Evaluation over 10 episodes: 8507.218
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.900223, h1: 0.960307
+Current PLIF tau (output): 0.949128
+Total T: 551000 Episode Num: 551 Episode T: 1000 Reward: 8758.356
+Total T: 552000 Episode Num: 552 Episode T: 1000 Reward: 9038.453
+Total T: 553000 Episode Num: 553 Episode T: 1000 Reward: 8675.699
+Total T: 554000 Episode Num: 554 Episode T: 1000 Reward: 8509.196
+Total T: 555000 Episode Num: 555 Episode T: 1000 Reward: 8642.710
+---------------------------------------
+Evaluation over 10 episodes: 8422.914
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.900974, h1: 0.960431
+Current PLIF tau (output): 0.949311
+Total T: 556000 Episode Num: 556 Episode T: 1000 Reward: 8933.706
+Total T: 557000 Episode Num: 557 Episode T: 1000 Reward: 8955.178
+Total T: 558000 Episode Num: 558 Episode T: 1000 Reward: 5974.608
+Total T: 559000 Episode Num: 559 Episode T: 1000 Reward: 8708.383
+Total T: 560000 Episode Num: 560 Episode T: 1000 Reward: 8747.833
+---------------------------------------
+Evaluation over 10 episodes: 9209.739
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.901397, h1: 0.960553
+Current PLIF tau (output): 0.949345
+Total T: 561000 Episode Num: 561 Episode T: 1000 Reward: 8461.170
+Total T: 562000 Episode Num: 562 Episode T: 1000 Reward: 8908.378
+Total T: 563000 Episode Num: 563 Episode T: 1000 Reward: 8938.489
+Total T: 564000 Episode Num: 564 Episode T: 1000 Reward: 8766.337
+Total T: 565000 Episode Num: 565 Episode T: 1000 Reward: 8551.059
+---------------------------------------
+Evaluation over 10 episodes: 8833.767
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.902020, h1: 0.960613
+Current PLIF tau (output): 0.949456
+Total T: 566000 Episode Num: 566 Episode T: 1000 Reward: 8619.763
+Total T: 567000 Episode Num: 567 Episode T: 1000 Reward: 8715.900
+Total T: 568000 Episode Num: 568 Episode T: 1000 Reward: 8991.442
+Total T: 569000 Episode Num: 569 Episode T: 1000 Reward: 8741.939
+Total T: 570000 Episode Num: 570 Episode T: 1000 Reward: 9022.307
+---------------------------------------
+Evaluation over 10 episodes: 9331.666
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.902290, h1: 0.960721
+Current PLIF tau (output): 0.949511
+Total T: 571000 Episode Num: 571 Episode T: 1000 Reward: 8487.444
+Total T: 572000 Episode Num: 572 Episode T: 1000 Reward: 8649.285
+Total T: 573000 Episode Num: 573 Episode T: 1000 Reward: 8582.056
+Total T: 574000 Episode Num: 574 Episode T: 1000 Reward: 8759.561
+Total T: 575000 Episode Num: 575 Episode T: 1000 Reward: 8790.263
+---------------------------------------
+Evaluation over 10 episodes: 9293.741
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.902851, h1: 0.960900
+Current PLIF tau (output): 0.949794
+Total T: 576000 Episode Num: 576 Episode T: 1000 Reward: 8710.841
+Total T: 577000 Episode Num: 577 Episode T: 1000 Reward: 8964.268
+Total T: 578000 Episode Num: 578 Episode T: 1000 Reward: 8794.192
+Total T: 579000 Episode Num: 579 Episode T: 1000 Reward: 6574.314
+Total T: 580000 Episode Num: 580 Episode T: 1000 Reward: 8883.848
+---------------------------------------
+Evaluation over 10 episodes: 9395.982
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.903278, h1: 0.961040
+Current PLIF tau (output): 0.949804
+Total T: 581000 Episode Num: 581 Episode T: 1000 Reward: 8841.716
+Total T: 582000 Episode Num: 582 Episode T: 1000 Reward: 8669.270
+Total T: 583000 Episode Num: 583 Episode T: 1000 Reward: 8847.362
+Total T: 584000 Episode Num: 584 Episode T: 1000 Reward: 8949.402
+Total T: 585000 Episode Num: 585 Episode T: 1000 Reward: 9143.575
+---------------------------------------
+Evaluation over 10 episodes: 9192.482
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.904526, h1: 0.961286
+Current PLIF tau (output): 0.949875
+Total T: 586000 Episode Num: 586 Episode T: 1000 Reward: 8930.281
+Total T: 587000 Episode Num: 587 Episode T: 1000 Reward: 8700.014
+Total T: 588000 Episode Num: 588 Episode T: 1000 Reward: 8903.426
+Total T: 589000 Episode Num: 589 Episode T: 1000 Reward: 8637.848
+Total T: 590000 Episode Num: 590 Episode T: 1000 Reward: 8821.461
+---------------------------------------
+Evaluation over 10 episodes: 9246.952
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.904802, h1: 0.961496
+Current PLIF tau (output): 0.950038
+Total T: 591000 Episode Num: 591 Episode T: 1000 Reward: 8417.389
+Total T: 592000 Episode Num: 592 Episode T: 1000 Reward: 8805.114
+Total T: 593000 Episode Num: 593 Episode T: 1000 Reward: 8798.986
+Total T: 594000 Episode Num: 594 Episode T: 1000 Reward: 9096.328
+Total T: 595000 Episode Num: 595 Episode T: 1000 Reward: 9222.923
+---------------------------------------
+Evaluation over 10 episodes: 9322.734
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.905700, h1: 0.961538
+Current PLIF tau (output): 0.950023
+Total T: 596000 Episode Num: 596 Episode T: 1000 Reward: 8781.473
+Total T: 597000 Episode Num: 597 Episode T: 1000 Reward: 8699.538
+Total T: 598000 Episode Num: 598 Episode T: 1000 Reward: 8961.604
+Total T: 599000 Episode Num: 599 Episode T: 1000 Reward: 8998.926
+Total T: 600000 Episode Num: 600 Episode T: 1000 Reward: 8654.772
+---------------------------------------
+Evaluation over 10 episodes: 9437.741
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.906103, h1: 0.961697
+Current PLIF tau (output): 0.950102
+Total T: 601000 Episode Num: 601 Episode T: 1000 Reward: 8590.051
+Total T: 602000 Episode Num: 602 Episode T: 1000 Reward: 9039.843
+Total T: 603000 Episode Num: 603 Episode T: 1000 Reward: 8847.309
+Total T: 604000 Episode Num: 604 Episode T: 1000 Reward: 8700.337
+Total T: 605000 Episode Num: 605 Episode T: 1000 Reward: 8992.895
+---------------------------------------
+Evaluation over 10 episodes: 9477.067
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.906846, h1: 0.961896
+Current PLIF tau (output): 0.950130
+Total T: 606000 Episode Num: 606 Episode T: 1000 Reward: 9138.256
+Total T: 607000 Episode Num: 607 Episode T: 1000 Reward: 8685.682
+Total T: 608000 Episode Num: 608 Episode T: 1000 Reward: 8799.835
+Total T: 609000 Episode Num: 609 Episode T: 1000 Reward: 9058.788
+Total T: 610000 Episode Num: 610 Episode T: 1000 Reward: 8848.193
+---------------------------------------
+Evaluation over 10 episodes: 9490.890
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.907576, h1: 0.962042
+Current PLIF tau (output): 0.950229
+Total T: 611000 Episode Num: 611 Episode T: 1000 Reward: 8945.780
+Total T: 612000 Episode Num: 612 Episode T: 1000 Reward: 8978.954
+Total T: 613000 Episode Num: 613 Episode T: 1000 Reward: 8647.108
+Total T: 614000 Episode Num: 614 Episode T: 1000 Reward: 8882.699
+Total T: 615000 Episode Num: 615 Episode T: 1000 Reward: 8960.760
+---------------------------------------
+Evaluation over 10 episodes: 8370.938
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.908359, h1: 0.962298
+Current PLIF tau (output): 0.950389
+Total T: 616000 Episode Num: 616 Episode T: 1000 Reward: 8832.302
+Total T: 617000 Episode Num: 617 Episode T: 1000 Reward: 9029.653
+Total T: 618000 Episode Num: 618 Episode T: 1000 Reward: 8882.392
+Total T: 619000 Episode Num: 619 Episode T: 1000 Reward: 8828.381
+Total T: 620000 Episode Num: 620 Episode T: 1000 Reward: 8940.612
+---------------------------------------
+Evaluation over 10 episodes: 9332.583
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.909263, h1: 0.962600
+Current PLIF tau (output): 0.950695
+Total T: 621000 Episode Num: 621 Episode T: 1000 Reward: 9088.480
+Total T: 622000 Episode Num: 622 Episode T: 1000 Reward: 9122.190
+Total T: 623000 Episode Num: 623 Episode T: 1000 Reward: 9021.744
+Total T: 624000 Episode Num: 624 Episode T: 1000 Reward: 8754.625
+Total T: 625000 Episode Num: 625 Episode T: 1000 Reward: 8833.170
+---------------------------------------
+Evaluation over 10 episodes: 9502.411
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.910036, h1: 0.962903
+Current PLIF tau (output): 0.950970
+Total T: 626000 Episode Num: 626 Episode T: 1000 Reward: 8913.247
+Total T: 627000 Episode Num: 627 Episode T: 1000 Reward: 8941.916
+Total T: 628000 Episode Num: 628 Episode T: 1000 Reward: 8724.242
+Total T: 629000 Episode Num: 629 Episode T: 1000 Reward: 9083.031
+Total T: 630000 Episode Num: 630 Episode T: 1000 Reward: 8608.422
+---------------------------------------
+Evaluation over 10 episodes: 9343.954
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.910645, h1: 0.963153
+Current PLIF tau (output): 0.951211
+Total T: 631000 Episode Num: 631 Episode T: 1000 Reward: 9296.456
+Total T: 632000 Episode Num: 632 Episode T: 1000 Reward: 9420.493
+Total T: 633000 Episode Num: 633 Episode T: 1000 Reward: 8382.158
+Total T: 634000 Episode Num: 634 Episode T: 1000 Reward: 8988.317
+Total T: 635000 Episode Num: 635 Episode T: 1000 Reward: 9112.235
+---------------------------------------
+Evaluation over 10 episodes: 9447.520
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.911260, h1: 0.963441
+Current PLIF tau (output): 0.951446
+Total T: 636000 Episode Num: 636 Episode T: 1000 Reward: 8781.283
+Total T: 637000 Episode Num: 637 Episode T: 1000 Reward: 2293.495
+Total T: 638000 Episode Num: 638 Episode T: 1000 Reward: 8740.527
+Total T: 639000 Episode Num: 639 Episode T: 1000 Reward: 9120.112
+Total T: 640000 Episode Num: 640 Episode T: 1000 Reward: 9137.126
+---------------------------------------
+Evaluation over 10 episodes: 9301.393
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.912133, h1: 0.963710
+Current PLIF tau (output): 0.951565
+Total T: 641000 Episode Num: 641 Episode T: 1000 Reward: 9085.825
+Total T: 642000 Episode Num: 642 Episode T: 1000 Reward: 8802.944
+Total T: 643000 Episode Num: 643 Episode T: 1000 Reward: 8799.270
+Total T: 644000 Episode Num: 644 Episode T: 1000 Reward: 8727.691
+Total T: 645000 Episode Num: 645 Episode T: 1000 Reward: 8697.263
+---------------------------------------
+Evaluation over 10 episodes: 9214.089
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.912914, h1: 0.963924
+Current PLIF tau (output): 0.951926
+Total T: 646000 Episode Num: 646 Episode T: 1000 Reward: 9323.595
+Total T: 647000 Episode Num: 647 Episode T: 1000 Reward: 8730.644
+Total T: 648000 Episode Num: 648 Episode T: 1000 Reward: 8618.620
+Total T: 649000 Episode Num: 649 Episode T: 1000 Reward: 8879.512
+Total T: 650000 Episode Num: 650 Episode T: 1000 Reward: 9171.459
+---------------------------------------
+Evaluation over 10 episodes: 9371.380
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.913601, h1: 0.964155
+Current PLIF tau (output): 0.952041
+Total T: 651000 Episode Num: 651 Episode T: 1000 Reward: 9071.835
+Total T: 652000 Episode Num: 652 Episode T: 1000 Reward: 9127.601
+Total T: 653000 Episode Num: 653 Episode T: 1000 Reward: 9132.323
+Total T: 654000 Episode Num: 654 Episode T: 1000 Reward: 9009.906
+Total T: 655000 Episode Num: 655 Episode T: 1000 Reward: 9027.689
+---------------------------------------
+Evaluation over 10 episodes: 9376.826
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.914438, h1: 0.964366
+Current PLIF tau (output): 0.952187
+Total T: 656000 Episode Num: 656 Episode T: 1000 Reward: 9086.326
+Total T: 657000 Episode Num: 657 Episode T: 1000 Reward: 8818.406
+Total T: 658000 Episode Num: 658 Episode T: 1000 Reward: 9159.949
+Total T: 659000 Episode Num: 659 Episode T: 1000 Reward: 9137.061
+Total T: 660000 Episode Num: 660 Episode T: 1000 Reward: 9320.956
+---------------------------------------
+Evaluation over 10 episodes: 9396.228
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.915210, h1: 0.964646
+Current PLIF tau (output): 0.952478
+Total T: 661000 Episode Num: 661 Episode T: 1000 Reward: 8840.726
+Total T: 662000 Episode Num: 662 Episode T: 1000 Reward: 9263.678
+Total T: 663000 Episode Num: 663 Episode T: 1000 Reward: 8789.350
+Total T: 664000 Episode Num: 664 Episode T: 1000 Reward: 9072.311
+Total T: 665000 Episode Num: 665 Episode T: 1000 Reward: 9185.567
+---------------------------------------
+Evaluation over 10 episodes: 9446.149
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.915745, h1: 0.964724
+Current PLIF tau (output): 0.952727
+Total T: 666000 Episode Num: 666 Episode T: 1000 Reward: 8838.295
+Total T: 667000 Episode Num: 667 Episode T: 1000 Reward: 9035.671
+Total T: 668000 Episode Num: 668 Episode T: 1000 Reward: 9034.690
+Total T: 669000 Episode Num: 669 Episode T: 1000 Reward: 9007.347
+Total T: 670000 Episode Num: 670 Episode T: 1000 Reward: 9143.740
+---------------------------------------
+Evaluation over 10 episodes: 9549.952
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.916573, h1: 0.964833
+Current PLIF tau (output): 0.952926
+Total T: 671000 Episode Num: 671 Episode T: 1000 Reward: 8757.143
+Total T: 672000 Episode Num: 672 Episode T: 1000 Reward: 9267.130
+Total T: 673000 Episode Num: 673 Episode T: 1000 Reward: 9153.985
+Total T: 674000 Episode Num: 674 Episode T: 1000 Reward: 9068.491
+Total T: 675000 Episode Num: 675 Episode T: 1000 Reward: 9314.774
+---------------------------------------
+Evaluation over 10 episodes: 9576.579
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.917192, h1: 0.964975
+Current PLIF tau (output): 0.953041
+Total T: 676000 Episode Num: 676 Episode T: 1000 Reward: 9308.739
+Total T: 677000 Episode Num: 677 Episode T: 1000 Reward: 8921.691
+Total T: 678000 Episode Num: 678 Episode T: 1000 Reward: 8829.094
+Total T: 679000 Episode Num: 679 Episode T: 1000 Reward: 9013.615
+Total T: 680000 Episode Num: 680 Episode T: 1000 Reward: 9229.067
+---------------------------------------
+Evaluation over 10 episodes: 9452.864
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.917721, h1: 0.965159
+Current PLIF tau (output): 0.953225
+Total T: 681000 Episode Num: 681 Episode T: 1000 Reward: 8928.089
+Total T: 682000 Episode Num: 682 Episode T: 1000 Reward: 8909.307
+Total T: 683000 Episode Num: 683 Episode T: 1000 Reward: 9029.241
+Total T: 684000 Episode Num: 684 Episode T: 1000 Reward: 9161.814
+Total T: 685000 Episode Num: 685 Episode T: 1000 Reward: 9067.024
+---------------------------------------
+Evaluation over 10 episodes: 9386.419
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.918219, h1: 0.965315
+Current PLIF tau (output): 0.953474
+Total T: 686000 Episode Num: 686 Episode T: 1000 Reward: 9138.200
+Total T: 687000 Episode Num: 687 Episode T: 1000 Reward: 8991.819
+Total T: 688000 Episode Num: 688 Episode T: 1000 Reward: 9044.375
+Total T: 689000 Episode Num: 689 Episode T: 1000 Reward: 9361.597
+Total T: 690000 Episode Num: 690 Episode T: 1000 Reward: 8707.074
+---------------------------------------
+Evaluation over 10 episodes: 8786.867
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.918815, h1: 0.965449
+Current PLIF tau (output): 0.953721
+Total T: 691000 Episode Num: 691 Episode T: 1000 Reward: 9145.872
+Total T: 692000 Episode Num: 692 Episode T: 1000 Reward: 8761.161
+Total T: 693000 Episode Num: 693 Episode T: 1000 Reward: 9031.184
+Total T: 694000 Episode Num: 694 Episode T: 1000 Reward: 9188.863
+Total T: 695000 Episode Num: 695 Episode T: 1000 Reward: 9227.454
+---------------------------------------
+Evaluation over 10 episodes: 9654.762
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.919250, h1: 0.965566
+Current PLIF tau (output): 0.953932
+Total T: 696000 Episode Num: 696 Episode T: 1000 Reward: 8634.650
+Total T: 697000 Episode Num: 697 Episode T: 1000 Reward: 9029.655
+Total T: 698000 Episode Num: 698 Episode T: 1000 Reward: 8808.846
+Total T: 699000 Episode Num: 699 Episode T: 1000 Reward: 8967.219
+Total T: 700000 Episode Num: 700 Episode T: 1000 Reward: 8901.123
+---------------------------------------
+Evaluation over 10 episodes: 9558.330
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.919687, h1: 0.965674
+Current PLIF tau (output): 0.954235
+Total T: 701000 Episode Num: 701 Episode T: 1000 Reward: 9213.212
+Total T: 702000 Episode Num: 702 Episode T: 1000 Reward: 8819.809
+Total T: 703000 Episode Num: 703 Episode T: 1000 Reward: 9061.473
+Total T: 704000 Episode Num: 704 Episode T: 1000 Reward: 8812.002
+Total T: 705000 Episode Num: 705 Episode T: 1000 Reward: 9206.698
+---------------------------------------
+Evaluation over 10 episodes: 9712.999
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.920133, h1: 0.965844
+Current PLIF tau (output): 0.954454
+Total T: 706000 Episode Num: 706 Episode T: 1000 Reward: 9284.606
+Total T: 707000 Episode Num: 707 Episode T: 1000 Reward: 9378.922
+Total T: 708000 Episode Num: 708 Episode T: 1000 Reward: 9044.124
+Total T: 709000 Episode Num: 709 Episode T: 1000 Reward: 9147.623
+Total T: 710000 Episode Num: 710 Episode T: 1000 Reward: 9246.688
+---------------------------------------
+Evaluation over 10 episodes: 9550.877
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.920476, h1: 0.966038
+Current PLIF tau (output): 0.954568
+Total T: 711000 Episode Num: 711 Episode T: 1000 Reward: 8895.933
+Total T: 712000 Episode Num: 712 Episode T: 1000 Reward: 9163.489
+Total T: 713000 Episode Num: 713 Episode T: 1000 Reward: 9103.617
+Total T: 714000 Episode Num: 714 Episode T: 1000 Reward: 9174.206
+Total T: 715000 Episode Num: 715 Episode T: 1000 Reward: 9013.645
+---------------------------------------
+Evaluation over 10 episodes: 9538.113
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.921130, h1: 0.966237
+Current PLIF tau (output): 0.954875
+Total T: 716000 Episode Num: 716 Episode T: 1000 Reward: 8872.562
+Total T: 717000 Episode Num: 717 Episode T: 1000 Reward: 9100.039
+Total T: 718000 Episode Num: 718 Episode T: 1000 Reward: 9245.785
+Total T: 719000 Episode Num: 719 Episode T: 1000 Reward: 9341.155
+Total T: 720000 Episode Num: 720 Episode T: 1000 Reward: 8963.494
+---------------------------------------
+Evaluation over 10 episodes: 9433.972
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.921770, h1: 0.966447
+Current PLIF tau (output): 0.955077
+Total T: 721000 Episode Num: 721 Episode T: 1000 Reward: 8983.442
+Total T: 722000 Episode Num: 722 Episode T: 1000 Reward: 9175.488
+Total T: 723000 Episode Num: 723 Episode T: 1000 Reward: 8666.277
+Total T: 724000 Episode Num: 724 Episode T: 1000 Reward: 8970.116
+Total T: 725000 Episode Num: 725 Episode T: 1000 Reward: 9373.776
+---------------------------------------
+Evaluation over 10 episodes: 9622.281
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.922304, h1: 0.966624
+Current PLIF tau (output): 0.955416
+Total T: 726000 Episode Num: 726 Episode T: 1000 Reward: 9337.952
+Total T: 727000 Episode Num: 727 Episode T: 1000 Reward: 9130.461
+Total T: 728000 Episode Num: 728 Episode T: 1000 Reward: 9130.141
+Total T: 729000 Episode Num: 729 Episode T: 1000 Reward: 9147.048
+Total T: 730000 Episode Num: 730 Episode T: 1000 Reward: 9016.048
+---------------------------------------
+Evaluation over 10 episodes: 9676.940
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.922911, h1: 0.966800
+Current PLIF tau (output): 0.955759
+Total T: 731000 Episode Num: 731 Episode T: 1000 Reward: 9208.209
+Total T: 732000 Episode Num: 732 Episode T: 1000 Reward: 9090.873
+Total T: 733000 Episode Num: 733 Episode T: 1000 Reward: 9040.074
+Total T: 734000 Episode Num: 734 Episode T: 1000 Reward: 9305.813
+Total T: 735000 Episode Num: 735 Episode T: 1000 Reward: 9175.305
+---------------------------------------
+Evaluation over 10 episodes: 9621.636
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.923621, h1: 0.966989
+Current PLIF tau (output): 0.956058
+Total T: 736000 Episode Num: 736 Episode T: 1000 Reward: 9154.995
+Total T: 737000 Episode Num: 737 Episode T: 1000 Reward: 9340.566
+Total T: 738000 Episode Num: 738 Episode T: 1000 Reward: 9202.963
+Total T: 739000 Episode Num: 739 Episode T: 1000 Reward: 9406.902
+Total T: 740000 Episode Num: 740 Episode T: 1000 Reward: 9265.404
+---------------------------------------
+Evaluation over 10 episodes: 9582.485
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.924299, h1: 0.967106
+Current PLIF tau (output): 0.956448
+Total T: 741000 Episode Num: 741 Episode T: 1000 Reward: 9080.068
+Total T: 742000 Episode Num: 742 Episode T: 1000 Reward: 9118.609
+Total T: 743000 Episode Num: 743 Episode T: 1000 Reward: 8949.508
+Total T: 744000 Episode Num: 744 Episode T: 1000 Reward: 9148.329
+Total T: 745000 Episode Num: 745 Episode T: 1000 Reward: 9273.728
+---------------------------------------
+Evaluation over 10 episodes: 9622.505
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.925095, h1: 0.967292
+Current PLIF tau (output): 0.956875
+Total T: 746000 Episode Num: 746 Episode T: 1000 Reward: 9108.659
+Total T: 747000 Episode Num: 747 Episode T: 1000 Reward: 8999.638
+Total T: 748000 Episode Num: 748 Episode T: 1000 Reward: 8986.925
+Total T: 749000 Episode Num: 749 Episode T: 1000 Reward: 9463.259
+Total T: 750000 Episode Num: 750 Episode T: 1000 Reward: 9078.651
+---------------------------------------
+Evaluation over 10 episodes: 9712.232
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.925331, h1: 0.967419
+Current PLIF tau (output): 0.957236
+Total T: 751000 Episode Num: 751 Episode T: 1000 Reward: 9330.898
+Total T: 752000 Episode Num: 752 Episode T: 1000 Reward: 9519.271
+Total T: 753000 Episode Num: 753 Episode T: 1000 Reward: 9390.179
+Total T: 754000 Episode Num: 754 Episode T: 1000 Reward: 9465.380
+Total T: 755000 Episode Num: 755 Episode T: 1000 Reward: 9031.845
+---------------------------------------
+Evaluation over 10 episodes: 9525.764
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.925736, h1: 0.967483
+Current PLIF tau (output): 0.957358
+Total T: 756000 Episode Num: 756 Episode T: 1000 Reward: 9572.376
+Total T: 757000 Episode Num: 757 Episode T: 1000 Reward: 9100.697
+Total T: 758000 Episode Num: 758 Episode T: 1000 Reward: 8989.036
+Total T: 759000 Episode Num: 759 Episode T: 1000 Reward: 9425.379
+Total T: 760000 Episode Num: 760 Episode T: 1000 Reward: 9313.184
+---------------------------------------
+Evaluation over 10 episodes: 9174.273
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.926140, h1: 0.967664
+Current PLIF tau (output): 0.957615
+Total T: 761000 Episode Num: 761 Episode T: 1000 Reward: 9042.741
+Total T: 762000 Episode Num: 762 Episode T: 1000 Reward: 9330.487
+Total T: 763000 Episode Num: 763 Episode T: 1000 Reward: 8966.174
+Total T: 764000 Episode Num: 764 Episode T: 1000 Reward: 8866.743
+Total T: 765000 Episode Num: 765 Episode T: 1000 Reward: 9342.100
+---------------------------------------
+Evaluation over 10 episodes: 9671.585
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.926790, h1: 0.967989
+Current PLIF tau (output): 0.957910
+Total T: 766000 Episode Num: 766 Episode T: 1000 Reward: 9317.895
+Total T: 767000 Episode Num: 767 Episode T: 1000 Reward: 8987.578
+Total T: 768000 Episode Num: 768 Episode T: 1000 Reward: 9359.074
+Total T: 769000 Episode Num: 769 Episode T: 1000 Reward: 9132.362
+Total T: 770000 Episode Num: 770 Episode T: 1000 Reward: 9326.817
+---------------------------------------
+Evaluation over 10 episodes: 9677.958
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.927221, h1: 0.968149
+Current PLIF tau (output): 0.958224
+Total T: 771000 Episode Num: 771 Episode T: 1000 Reward: 9207.537
+Total T: 772000 Episode Num: 772 Episode T: 1000 Reward: 9252.982
+Total T: 773000 Episode Num: 773 Episode T: 1000 Reward: 9096.355
+Total T: 774000 Episode Num: 774 Episode T: 1000 Reward: 9406.697
+Total T: 775000 Episode Num: 775 Episode T: 1000 Reward: 9118.098
+---------------------------------------
+Evaluation over 10 episodes: 9307.363
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.927917, h1: 0.968340
+Current PLIF tau (output): 0.958534
+Total T: 776000 Episode Num: 776 Episode T: 1000 Reward: 9446.959
+Total T: 777000 Episode Num: 777 Episode T: 1000 Reward: 9298.147
+Total T: 778000 Episode Num: 778 Episode T: 1000 Reward: 9090.308
+Total T: 779000 Episode Num: 779 Episode T: 1000 Reward: 9436.232
+Total T: 780000 Episode Num: 780 Episode T: 1000 Reward: 9312.079
+---------------------------------------
+Evaluation over 10 episodes: 9667.482
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.928289, h1: 0.968475
+Current PLIF tau (output): 0.958859
+Total T: 781000 Episode Num: 781 Episode T: 1000 Reward: 9281.727
+Total T: 782000 Episode Num: 782 Episode T: 1000 Reward: 9487.690
+Total T: 783000 Episode Num: 783 Episode T: 1000 Reward: 9408.337
+Total T: 784000 Episode Num: 784 Episode T: 1000 Reward: 9243.340
+Total T: 785000 Episode Num: 785 Episode T: 1000 Reward: 9084.507
+---------------------------------------
+Evaluation over 10 episodes: 9493.099
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.928987, h1: 0.968664
+Current PLIF tau (output): 0.959158
+Total T: 786000 Episode Num: 786 Episode T: 1000 Reward: 9246.529
+Total T: 787000 Episode Num: 787 Episode T: 1000 Reward: 9308.683
+Total T: 788000 Episode Num: 788 Episode T: 1000 Reward: 9052.511
+Total T: 789000 Episode Num: 789 Episode T: 1000 Reward: 9378.221
+Total T: 790000 Episode Num: 790 Episode T: 1000 Reward: 9364.455
+---------------------------------------
+Evaluation over 10 episodes: 9549.250
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.929243, h1: 0.968823
+Current PLIF tau (output): 0.959427
+Total T: 791000 Episode Num: 791 Episode T: 1000 Reward: 9267.420
+Total T: 792000 Episode Num: 792 Episode T: 1000 Reward: 8859.037
+Total T: 793000 Episode Num: 793 Episode T: 1000 Reward: 9420.229
+Total T: 794000 Episode Num: 794 Episode T: 1000 Reward: 9276.178
+Total T: 795000 Episode Num: 795 Episode T: 1000 Reward: 9175.863
+---------------------------------------
+Evaluation over 10 episodes: 9720.852
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.929740, h1: 0.968964
+Current PLIF tau (output): 0.959664
+Total T: 796000 Episode Num: 796 Episode T: 1000 Reward: 8797.397
+Total T: 797000 Episode Num: 797 Episode T: 1000 Reward: 9509.525
+Total T: 798000 Episode Num: 798 Episode T: 1000 Reward: 9203.684
+Total T: 799000 Episode Num: 799 Episode T: 1000 Reward: 9312.041
+Total T: 800000 Episode Num: 800 Episode T: 1000 Reward: 9360.463
+---------------------------------------
+Evaluation over 10 episodes: 9865.211
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.930209, h1: 0.969091
+Current PLIF tau (output): 0.959876
+Total T: 801000 Episode Num: 801 Episode T: 1000 Reward: 9466.322
+Total T: 802000 Episode Num: 802 Episode T: 1000 Reward: 9410.903
+Total T: 803000 Episode Num: 803 Episode T: 1000 Reward: 9241.920
+Total T: 804000 Episode Num: 804 Episode T: 1000 Reward: 9149.769
+Total T: 805000 Episode Num: 805 Episode T: 1000 Reward: 9233.047
+---------------------------------------
+Evaluation over 10 episodes: 9717.272
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.930601, h1: 0.969223
+Current PLIF tau (output): 0.960012
+Total T: 806000 Episode Num: 806 Episode T: 1000 Reward: 8998.253
+Total T: 807000 Episode Num: 807 Episode T: 1000 Reward: 9351.453
+Total T: 808000 Episode Num: 808 Episode T: 1000 Reward: 9421.482
+Total T: 809000 Episode Num: 809 Episode T: 1000 Reward: 9377.462
+Total T: 810000 Episode Num: 810 Episode T: 1000 Reward: 9603.469
+---------------------------------------
+Evaluation over 10 episodes: 9861.951
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.930998, h1: 0.969362
+Current PLIF tau (output): 0.960310
+Total T: 811000 Episode Num: 811 Episode T: 1000 Reward: 9572.744
+Total T: 812000 Episode Num: 812 Episode T: 1000 Reward: 9467.426
+Total T: 813000 Episode Num: 813 Episode T: 1000 Reward: 9501.046
+Total T: 814000 Episode Num: 814 Episode T: 1000 Reward: 9207.747
+Total T: 815000 Episode Num: 815 Episode T: 1000 Reward: 8950.960
+---------------------------------------
+Evaluation over 10 episodes: 9473.545
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.931272, h1: 0.969428
+Current PLIF tau (output): 0.960333
+Total T: 816000 Episode Num: 816 Episode T: 1000 Reward: 9424.763
+Total T: 817000 Episode Num: 817 Episode T: 1000 Reward: 9340.111
+Total T: 818000 Episode Num: 818 Episode T: 1000 Reward: 9411.353
+Total T: 819000 Episode Num: 819 Episode T: 1000 Reward: 9356.808
+Total T: 820000 Episode Num: 820 Episode T: 1000 Reward: 9345.178
+---------------------------------------
+Evaluation over 10 episodes: 9747.538
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.931646, h1: 0.969593
+Current PLIF tau (output): 0.960376
+Total T: 821000 Episode Num: 821 Episode T: 1000 Reward: 9068.611
+Total T: 822000 Episode Num: 822 Episode T: 1000 Reward: 9519.930
+Total T: 823000 Episode Num: 823 Episode T: 1000 Reward: 9534.632
+Total T: 824000 Episode Num: 824 Episode T: 1000 Reward: 9417.216
+Total T: 825000 Episode Num: 825 Episode T: 1000 Reward: 9416.499
+---------------------------------------
+Evaluation over 10 episodes: 9494.713
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.932267, h1: 0.969689
+Current PLIF tau (output): 0.960530
+Total T: 826000 Episode Num: 826 Episode T: 1000 Reward: 8810.931
+Total T: 827000 Episode Num: 827 Episode T: 1000 Reward: 9136.768
+Total T: 828000 Episode Num: 828 Episode T: 1000 Reward: 9465.573
+Total T: 829000 Episode Num: 829 Episode T: 1000 Reward: 9445.462
+Total T: 830000 Episode Num: 830 Episode T: 1000 Reward: 9432.729
+---------------------------------------
+Evaluation over 10 episodes: 9869.484
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.932581, h1: 0.969757
+Current PLIF tau (output): 0.960584
+Total T: 831000 Episode Num: 831 Episode T: 1000 Reward: 9152.565
+Total T: 832000 Episode Num: 832 Episode T: 1000 Reward: 9484.994
+Total T: 833000 Episode Num: 833 Episode T: 1000 Reward: 9464.471
+Total T: 834000 Episode Num: 834 Episode T: 1000 Reward: 9597.007
+Total T: 835000 Episode Num: 835 Episode T: 1000 Reward: 9036.656
+---------------------------------------
+Evaluation over 10 episodes: 9577.089
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.933152, h1: 0.969926
+Current PLIF tau (output): 0.960713
+Total T: 836000 Episode Num: 836 Episode T: 1000 Reward: 9102.800
+Total T: 837000 Episode Num: 837 Episode T: 1000 Reward: 9623.838
+Total T: 838000 Episode Num: 838 Episode T: 1000 Reward: 9460.494
+Total T: 839000 Episode Num: 839 Episode T: 1000 Reward: 9524.620
+Total T: 840000 Episode Num: 840 Episode T: 1000 Reward: 9384.673
+---------------------------------------
+Evaluation over 10 episodes: 9799.371
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.933749, h1: 0.970113
+Current PLIF tau (output): 0.960862
+Total T: 841000 Episode Num: 841 Episode T: 1000 Reward: 9167.034
+Total T: 842000 Episode Num: 842 Episode T: 1000 Reward: 9066.056
+Total T: 843000 Episode Num: 843 Episode T: 1000 Reward: 9602.950
+Total T: 844000 Episode Num: 844 Episode T: 1000 Reward: 9732.170
+Total T: 845000 Episode Num: 845 Episode T: 1000 Reward: 9662.318
+---------------------------------------
+Evaluation over 10 episodes: 9788.298
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.934345, h1: 0.970268
+Current PLIF tau (output): 0.961117
+Total T: 846000 Episode Num: 846 Episode T: 1000 Reward: 9149.232
+Total T: 847000 Episode Num: 847 Episode T: 1000 Reward: 9330.754
+Total T: 848000 Episode Num: 848 Episode T: 1000 Reward: 9506.896
+Total T: 849000 Episode Num: 849 Episode T: 1000 Reward: 9420.531
+Total T: 850000 Episode Num: 850 Episode T: 1000 Reward: 9195.091
+---------------------------------------
+Evaluation over 10 episodes: 9762.892
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.934901, h1: 0.970450
+Current PLIF tau (output): 0.961463
+Total T: 851000 Episode Num: 851 Episode T: 1000 Reward: 9389.949
+Total T: 852000 Episode Num: 852 Episode T: 1000 Reward: 9314.995
+Total T: 853000 Episode Num: 853 Episode T: 1000 Reward: 9509.635
+Total T: 854000 Episode Num: 854 Episode T: 1000 Reward: 9188.229
+Total T: 855000 Episode Num: 855 Episode T: 1000 Reward: 9207.997
+---------------------------------------
+Evaluation over 10 episodes: 9799.320
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.935462, h1: 0.970586
+Current PLIF tau (output): 0.961655
+Total T: 856000 Episode Num: 856 Episode T: 1000 Reward: 9371.257
+Total T: 857000 Episode Num: 857 Episode T: 1000 Reward: 9703.344
+Total T: 858000 Episode Num: 858 Episode T: 1000 Reward: 9530.506
+Total T: 859000 Episode Num: 859 Episode T: 1000 Reward: 9280.142
+Total T: 860000 Episode Num: 860 Episode T: 1000 Reward: 9178.139
+---------------------------------------
+Evaluation over 10 episodes: 9825.565
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.936128, h1: 0.970657
+Current PLIF tau (output): 0.961924
+Total T: 861000 Episode Num: 861 Episode T: 1000 Reward: 8924.675
+Total T: 862000 Episode Num: 862 Episode T: 1000 Reward: 9193.790
+Total T: 863000 Episode Num: 863 Episode T: 1000 Reward: 9573.006
+Total T: 864000 Episode Num: 864 Episode T: 1000 Reward: 9372.464
+Total T: 865000 Episode Num: 865 Episode T: 1000 Reward: 9316.345
+---------------------------------------
+Evaluation over 10 episodes: 9806.217
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.936755, h1: 0.970821
+Current PLIF tau (output): 0.962126
+Total T: 866000 Episode Num: 866 Episode T: 1000 Reward: 9346.405
+Total T: 867000 Episode Num: 867 Episode T: 1000 Reward: 9621.801
+Total T: 868000 Episode Num: 868 Episode T: 1000 Reward: 9517.832
+Total T: 869000 Episode Num: 869 Episode T: 1000 Reward: 9478.675
+Total T: 870000 Episode Num: 870 Episode T: 1000 Reward: 9452.963
+---------------------------------------
+Evaluation over 10 episodes: 9686.992
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.937021, h1: 0.970909
+Current PLIF tau (output): 0.962146
+Total T: 871000 Episode Num: 871 Episode T: 1000 Reward: 9573.778
+Total T: 872000 Episode Num: 872 Episode T: 1000 Reward: 9600.843
+Total T: 873000 Episode Num: 873 Episode T: 1000 Reward: 9299.336
+Total T: 874000 Episode Num: 874 Episode T: 1000 Reward: 9609.746
+Total T: 875000 Episode Num: 875 Episode T: 1000 Reward: 9561.523
+---------------------------------------
+Evaluation over 10 episodes: 9729.247
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.937492, h1: 0.970975
+Current PLIF tau (output): 0.962303
+Total T: 876000 Episode Num: 876 Episode T: 1000 Reward: 9738.883
+Total T: 877000 Episode Num: 877 Episode T: 1000 Reward: 9321.356
+Total T: 878000 Episode Num: 878 Episode T: 1000 Reward: 9259.313
+Total T: 879000 Episode Num: 879 Episode T: 1000 Reward: 9324.891
+Total T: 880000 Episode Num: 880 Episode T: 1000 Reward: 9116.986
+---------------------------------------
+Evaluation over 10 episodes: 9909.470
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.938004, h1: 0.971093
+Current PLIF tau (output): 0.962457
+Total T: 881000 Episode Num: 881 Episode T: 1000 Reward: 9614.167
+Total T: 882000 Episode Num: 882 Episode T: 1000 Reward: 9551.813
+Total T: 883000 Episode Num: 883 Episode T: 1000 Reward: 9878.104
+Total T: 884000 Episode Num: 884 Episode T: 1000 Reward: 9693.381
+Total T: 885000 Episode Num: 885 Episode T: 1000 Reward: 9456.052
+---------------------------------------
+Evaluation over 10 episodes: 9880.734
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.938497, h1: 0.971196
+Current PLIF tau (output): 0.962610
+Total T: 886000 Episode Num: 886 Episode T: 1000 Reward: 9724.614
+Total T: 887000 Episode Num: 887 Episode T: 1000 Reward: 9353.497
+Total T: 888000 Episode Num: 888 Episode T: 1000 Reward: 9644.602
+Total T: 889000 Episode Num: 889 Episode T: 1000 Reward: 9305.401
+Total T: 890000 Episode Num: 890 Episode T: 1000 Reward: 9159.421
+---------------------------------------
+Evaluation over 10 episodes: 9802.011
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.938967, h1: 0.971331
+Current PLIF tau (output): 0.962715
+Total T: 891000 Episode Num: 891 Episode T: 1000 Reward: 9642.281
+Total T: 892000 Episode Num: 892 Episode T: 1000 Reward: 9669.934
+Total T: 893000 Episode Num: 893 Episode T: 1000 Reward: 9673.779
+Total T: 894000 Episode Num: 894 Episode T: 1000 Reward: 9095.924
+Total T: 895000 Episode Num: 895 Episode T: 1000 Reward: 9583.948
+---------------------------------------
+Evaluation over 10 episodes: 9387.198
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.939662, h1: 0.971431
+Current PLIF tau (output): 0.962868
+Total T: 896000 Episode Num: 896 Episode T: 1000 Reward: 9108.651
+Total T: 897000 Episode Num: 897 Episode T: 1000 Reward: 9448.157
+Total T: 898000 Episode Num: 898 Episode T: 1000 Reward: 9212.961
+Total T: 899000 Episode Num: 899 Episode T: 1000 Reward: 9350.565
+Total T: 900000 Episode Num: 900 Episode T: 1000 Reward: 9200.007
+---------------------------------------
+Evaluation over 10 episodes: 9761.224
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.940003, h1: 0.971496
+Current PLIF tau (output): 0.962901
+Total T: 901000 Episode Num: 901 Episode T: 1000 Reward: 9674.417
+Total T: 902000 Episode Num: 902 Episode T: 1000 Reward: 9216.682
+Total T: 903000 Episode Num: 903 Episode T: 1000 Reward: 9690.312
+Total T: 904000 Episode Num: 904 Episode T: 1000 Reward: 9660.365
+Total T: 905000 Episode Num: 905 Episode T: 1000 Reward: 9771.819
+---------------------------------------
+Evaluation over 10 episodes: 9732.483
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.940491, h1: 0.971570
+Current PLIF tau (output): 0.963088
+Total T: 906000 Episode Num: 906 Episode T: 1000 Reward: 9354.112
+Total T: 907000 Episode Num: 907 Episode T: 1000 Reward: 9428.515
+Total T: 908000 Episode Num: 908 Episode T: 1000 Reward: 9500.685
+Total T: 909000 Episode Num: 909 Episode T: 1000 Reward: 9321.720
+Total T: 910000 Episode Num: 910 Episode T: 1000 Reward: 9195.116
+---------------------------------------
+Evaluation over 10 episodes: 9929.461
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.940708, h1: 0.971704
+Current PLIF tau (output): 0.963410
+Total T: 911000 Episode Num: 911 Episode T: 1000 Reward: 9596.203
+Total T: 912000 Episode Num: 912 Episode T: 1000 Reward: 9458.992
+Total T: 913000 Episode Num: 913 Episode T: 1000 Reward: 9313.265
+Total T: 914000 Episode Num: 914 Episode T: 1000 Reward: 9604.703
+Total T: 915000 Episode Num: 915 Episode T: 1000 Reward: 9539.049
+---------------------------------------
+Evaluation over 10 episodes: 9330.472
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.941147, h1: 0.971802
+Current PLIF tau (output): 0.963608
+Total T: 916000 Episode Num: 916 Episode T: 1000 Reward: 9397.420
+Total T: 917000 Episode Num: 917 Episode T: 1000 Reward: 9134.504
+Total T: 918000 Episode Num: 918 Episode T: 1000 Reward: 9223.257
+Total T: 919000 Episode Num: 919 Episode T: 1000 Reward: 9377.879
+Total T: 920000 Episode Num: 920 Episode T: 1000 Reward: 9685.736
+---------------------------------------
+Evaluation over 10 episodes: 9999.057
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.941505, h1: 0.971830
+Current PLIF tau (output): 0.963685
+Total T: 921000 Episode Num: 921 Episode T: 1000 Reward: 9415.013
+Total T: 922000 Episode Num: 922 Episode T: 1000 Reward: 9280.000
+Total T: 923000 Episode Num: 923 Episode T: 1000 Reward: 9373.640
+Total T: 924000 Episode Num: 924 Episode T: 1000 Reward: 9501.839
+Total T: 925000 Episode Num: 925 Episode T: 1000 Reward: 9282.010
+---------------------------------------
+Evaluation over 10 episodes: 9587.482
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.942119, h1: 0.971968
+Current PLIF tau (output): 0.963851
+Total T: 926000 Episode Num: 926 Episode T: 1000 Reward: 9262.252
+Total T: 927000 Episode Num: 927 Episode T: 1000 Reward: 9455.129
+Total T: 928000 Episode Num: 928 Episode T: 1000 Reward: 9295.618
+Total T: 929000 Episode Num: 929 Episode T: 1000 Reward: 9585.570
+Total T: 930000 Episode Num: 930 Episode T: 1000 Reward: 9496.472
+---------------------------------------
+Evaluation over 10 episodes: 9938.088
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.942719, h1: 0.972075
+Current PLIF tau (output): 0.964119
+Total T: 931000 Episode Num: 931 Episode T: 1000 Reward: 9442.479
+Total T: 932000 Episode Num: 932 Episode T: 1000 Reward: 9513.625
+Total T: 933000 Episode Num: 933 Episode T: 1000 Reward: 9064.305
+Total T: 934000 Episode Num: 934 Episode T: 1000 Reward: 9425.161
+Total T: 935000 Episode Num: 935 Episode T: 1000 Reward: 9493.653
+---------------------------------------
+Evaluation over 10 episodes: 9810.034
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.943265, h1: 0.972182
+Current PLIF tau (output): 0.964447
+Total T: 936000 Episode Num: 936 Episode T: 1000 Reward: 9483.844
+Total T: 937000 Episode Num: 937 Episode T: 1000 Reward: 9349.052
+Total T: 938000 Episode Num: 938 Episode T: 1000 Reward: 9261.086
+Total T: 939000 Episode Num: 939 Episode T: 1000 Reward: 9632.193
+Total T: 940000 Episode Num: 940 Episode T: 1000 Reward: 9509.302
+---------------------------------------
+Evaluation over 10 episodes: 9739.905
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.943831, h1: 0.972379
+Current PLIF tau (output): 0.964898
+Total T: 941000 Episode Num: 941 Episode T: 1000 Reward: 9714.986
+Total T: 942000 Episode Num: 942 Episode T: 1000 Reward: 9828.391
+Total T: 943000 Episode Num: 943 Episode T: 1000 Reward: 9324.631
+Total T: 944000 Episode Num: 944 Episode T: 1000 Reward: 9402.482
+Total T: 945000 Episode Num: 945 Episode T: 1000 Reward: 9453.126
+---------------------------------------
+Evaluation over 10 episodes: 9805.596
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.944274, h1: 0.972467
+Current PLIF tau (output): 0.965132
+Total T: 946000 Episode Num: 946 Episode T: 1000 Reward: 9511.357
+Total T: 947000 Episode Num: 947 Episode T: 1000 Reward: 9632.987
+Total T: 948000 Episode Num: 948 Episode T: 1000 Reward: 9785.456
+Total T: 949000 Episode Num: 949 Episode T: 1000 Reward: 9800.022
+Total T: 950000 Episode Num: 950 Episode T: 1000 Reward: 9569.863
+---------------------------------------
+Evaluation over 10 episodes: 9951.687
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.944688, h1: 0.972543
+Current PLIF tau (output): 0.965281
+Total T: 951000 Episode Num: 951 Episode T: 1000 Reward: 9448.358
+Total T: 952000 Episode Num: 952 Episode T: 1000 Reward: 9353.641
+Total T: 953000 Episode Num: 953 Episode T: 1000 Reward: 9673.268
+Total T: 954000 Episode Num: 954 Episode T: 1000 Reward: 9661.737
+Total T: 955000 Episode Num: 955 Episode T: 1000 Reward: 9717.255
+---------------------------------------
+Evaluation over 10 episodes: 9968.460
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.945242, h1: 0.972732
+Current PLIF tau (output): 0.965541
+Total T: 956000 Episode Num: 956 Episode T: 1000 Reward: 9379.493
+Total T: 957000 Episode Num: 957 Episode T: 1000 Reward: 9492.598
+Total T: 958000 Episode Num: 958 Episode T: 1000 Reward: 9907.853
+Total T: 959000 Episode Num: 959 Episode T: 1000 Reward: 9316.899
+Total T: 960000 Episode Num: 960 Episode T: 1000 Reward: 9782.834
+---------------------------------------
+Evaluation over 10 episodes: 9851.497
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.945604, h1: 0.972845
+Current PLIF tau (output): 0.965748
+Total T: 961000 Episode Num: 961 Episode T: 1000 Reward: 9408.251
+Total T: 962000 Episode Num: 962 Episode T: 1000 Reward: 9485.509
+Total T: 963000 Episode Num: 963 Episode T: 1000 Reward: 9806.196
+Total T: 964000 Episode Num: 964 Episode T: 1000 Reward: 9380.061
+Total T: 965000 Episode Num: 965 Episode T: 1000 Reward: 9571.203
+---------------------------------------
+Evaluation over 10 episodes: 9754.401
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.945930, h1: 0.972962
+Current PLIF tau (output): 0.966052
+Total T: 966000 Episode Num: 966 Episode T: 1000 Reward: 9315.486
+Total T: 967000 Episode Num: 967 Episode T: 1000 Reward: 9402.831
+Total T: 968000 Episode Num: 968 Episode T: 1000 Reward: 9476.417
+Total T: 969000 Episode Num: 969 Episode T: 1000 Reward: 9490.698
+Total T: 970000 Episode Num: 970 Episode T: 1000 Reward: 9520.068
+---------------------------------------
+Evaluation over 10 episodes: 9959.497
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.946280, h1: 0.973088
+Current PLIF tau (output): 0.966264
+Total T: 971000 Episode Num: 971 Episode T: 1000 Reward: 9818.207
+Total T: 972000 Episode Num: 972 Episode T: 1000 Reward: 9403.248
+Total T: 973000 Episode Num: 973 Episode T: 1000 Reward: 9520.473
+Total T: 974000 Episode Num: 974 Episode T: 1000 Reward: 9374.985
+Total T: 975000 Episode Num: 975 Episode T: 1000 Reward: 9726.120
+---------------------------------------
+Evaluation over 10 episodes: 9471.226
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.946802, h1: 0.973160
+Current PLIF tau (output): 0.966487
+Total T: 976000 Episode Num: 976 Episode T: 1000 Reward: 9898.215
+Total T: 977000 Episode Num: 977 Episode T: 1000 Reward: 9917.756
+Total T: 978000 Episode Num: 978 Episode T: 1000 Reward: 9649.620
+Total T: 979000 Episode Num: 979 Episode T: 1000 Reward: 9959.300
+Total T: 980000 Episode Num: 980 Episode T: 1000 Reward: 9741.025
+---------------------------------------
+Evaluation over 10 episodes: 9981.437
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.947180, h1: 0.973199
+Current PLIF tau (output): 0.966701
+Total T: 981000 Episode Num: 981 Episode T: 1000 Reward: 9603.134
+Total T: 982000 Episode Num: 982 Episode T: 1000 Reward: 9699.312
+Total T: 983000 Episode Num: 983 Episode T: 1000 Reward: 9404.377
+Total T: 984000 Episode Num: 984 Episode T: 1000 Reward: 8996.114
+Total T: 985000 Episode Num: 985 Episode T: 1000 Reward: 9247.284
+---------------------------------------
+Evaluation over 10 episodes: 9987.311
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.947521, h1: 0.973273
+Current PLIF tau (output): 0.966811
+Total T: 986000 Episode Num: 986 Episode T: 1000 Reward: 9511.969
+Total T: 987000 Episode Num: 987 Episode T: 1000 Reward: 9741.347
+Total T: 988000 Episode Num: 988 Episode T: 1000 Reward: 9251.508
+Total T: 989000 Episode Num: 989 Episode T: 1000 Reward: 9678.127
+Total T: 990000 Episode Num: 990 Episode T: 1000 Reward: 9458.410
+---------------------------------------
+Evaluation over 10 episodes: 9997.955
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.947813, h1: 0.973368
+Current PLIF tau (output): 0.966830
+Total T: 991000 Episode Num: 991 Episode T: 1000 Reward: 9437.791
+Total T: 992000 Episode Num: 992 Episode T: 1000 Reward: 9544.346
+Total T: 993000 Episode Num: 993 Episode T: 1000 Reward: 9704.468
+Total T: 994000 Episode Num: 994 Episode T: 1000 Reward: 9504.918
+Total T: 995000 Episode Num: 995 Episode T: 1000 Reward: 9700.903
+---------------------------------------
+Evaluation over 10 episodes: 10076.574
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.948141, h1: 0.973454
+Current PLIF tau (output): 0.967069
+Total T: 996000 Episode Num: 996 Episode T: 1000 Reward: 9604.315
+Total T: 997000 Episode Num: 997 Episode T: 1000 Reward: 9732.125
+Total T: 998000 Episode Num: 998 Episode T: 1000 Reward: 9746.054
+Total T: 999000 Episode Num: 999 Episode T: 1000 Reward: 9779.158
+Total T: 1000000 Episode Num: 1000 Episode T: 1000 Reward: 9529.061
+---------------------------------------
+Evaluation over 10 episodes: 9994.738
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.948615, h1: 0.973521
+Current PLIF tau (output): 0.967142
+Total T: 1001000 Episode Num: 1001 Episode T: 1000 Reward: 9745.519
+Total T: 1002000 Episode Num: 1002 Episode T: 1000 Reward: 9403.232
+Total T: 1003000 Episode Num: 1003 Episode T: 1000 Reward: 9367.411
+Total T: 1004000 Episode Num: 1004 Episode T: 1000 Reward: 9512.493
+Total T: 1005000 Episode Num: 1005 Episode T: 1000 Reward: 9632.317
+---------------------------------------
+Evaluation over 10 episodes: 9952.183
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.948843, h1: 0.973619
+Current PLIF tau (output): 0.967379
+Total T: 1006000 Episode Num: 1006 Episode T: 1000 Reward: 9755.819
+Total T: 1007000 Episode Num: 1007 Episode T: 1000 Reward: 9960.789
+Total T: 1008000 Episode Num: 1008 Episode T: 1000 Reward: 9637.755
+Total T: 1009000 Episode Num: 1009 Episode T: 1000 Reward: 9484.722
+Total T: 1010000 Episode Num: 1010 Episode T: 1000 Reward: 9448.707
+---------------------------------------
+Evaluation over 10 episodes: 10077.685
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.949435, h1: 0.973680
+Current PLIF tau (output): 0.967524
+Total T: 1011000 Episode Num: 1011 Episode T: 1000 Reward: 9502.353
+Total T: 1012000 Episode Num: 1012 Episode T: 1000 Reward: 9362.808
+Total T: 1013000 Episode Num: 1013 Episode T: 1000 Reward: 9598.331
+Total T: 1014000 Episode Num: 1014 Episode T: 1000 Reward: 9401.167
+Total T: 1015000 Episode Num: 1015 Episode T: 1000 Reward: 9763.007
+---------------------------------------
+Evaluation over 10 episodes: 10107.054
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.949666, h1: 0.973785
+Current PLIF tau (output): 0.967778
+Total T: 1016000 Episode Num: 1016 Episode T: 1000 Reward: 9112.006
+Total T: 1017000 Episode Num: 1017 Episode T: 1000 Reward: 9815.766
+Total T: 1018000 Episode Num: 1018 Episode T: 1000 Reward: 9180.257
+Total T: 1019000 Episode Num: 1019 Episode T: 1000 Reward: 9638.349
+Total T: 1020000 Episode Num: 1020 Episode T: 1000 Reward: 9480.843
+---------------------------------------
+Evaluation over 10 episodes: 10061.900
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.950028, h1: 0.973859
+Current PLIF tau (output): 0.967972
+Total T: 1021000 Episode Num: 1021 Episode T: 1000 Reward: 9905.390
+Total T: 1022000 Episode Num: 1022 Episode T: 1000 Reward: 9904.850
+Total T: 1023000 Episode Num: 1023 Episode T: 1000 Reward: 9361.381
+Total T: 1024000 Episode Num: 1024 Episode T: 1000 Reward: 9645.905
+Total T: 1025000 Episode Num: 1025 Episode T: 1000 Reward: 9628.284
+---------------------------------------
+Evaluation over 10 episodes: 9856.465
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.950470, h1: 0.974002
+Current PLIF tau (output): 0.968128
+Total T: 1026000 Episode Num: 1026 Episode T: 1000 Reward: 9688.328
+Total T: 1027000 Episode Num: 1027 Episode T: 1000 Reward: 9479.707
+Total T: 1028000 Episode Num: 1028 Episode T: 1000 Reward: 9695.287
+Total T: 1029000 Episode Num: 1029 Episode T: 1000 Reward: 9695.311
+Total T: 1030000 Episode Num: 1030 Episode T: 1000 Reward: 9871.022
+---------------------------------------
+Evaluation over 10 episodes: 10014.731
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.950755, h1: 0.974113
+Current PLIF tau (output): 0.968214
+Total T: 1031000 Episode Num: 1031 Episode T: 1000 Reward: 9578.641
+Total T: 1032000 Episode Num: 1032 Episode T: 1000 Reward: 9894.319
+Total T: 1033000 Episode Num: 1033 Episode T: 1000 Reward: 9614.416
+Total T: 1034000 Episode Num: 1034 Episode T: 1000 Reward: 9529.810
+Total T: 1035000 Episode Num: 1035 Episode T: 1000 Reward: 9740.550
+---------------------------------------
+Evaluation over 10 episodes: 10112.361
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.951180, h1: 0.974243
+Current PLIF tau (output): 0.968385
+Total T: 1036000 Episode Num: 1036 Episode T: 1000 Reward: 9506.840
+Total T: 1037000 Episode Num: 1037 Episode T: 1000 Reward: 9781.602
+Total T: 1038000 Episode Num: 1038 Episode T: 1000 Reward: 9701.510
+Total T: 1039000 Episode Num: 1039 Episode T: 1000 Reward: 9671.202
+Total T: 1040000 Episode Num: 1040 Episode T: 1000 Reward: 9736.195
+---------------------------------------
+Evaluation over 10 episodes: 9978.624
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.951587, h1: 0.974342
+Current PLIF tau (output): 0.968455
+Total T: 1041000 Episode Num: 1041 Episode T: 1000 Reward: 9541.569
+Total T: 1042000 Episode Num: 1042 Episode T: 1000 Reward: 9685.523
+Total T: 1043000 Episode Num: 1043 Episode T: 1000 Reward: 9685.807
+Total T: 1044000 Episode Num: 1044 Episode T: 1000 Reward: 9503.778
+Total T: 1045000 Episode Num: 1045 Episode T: 1000 Reward: 9781.010
+---------------------------------------
+Evaluation over 10 episodes: 9771.746
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.952195, h1: 0.974499
+Current PLIF tau (output): 0.968634
+Total T: 1046000 Episode Num: 1046 Episode T: 1000 Reward: 9709.280
+Total T: 1047000 Episode Num: 1047 Episode T: 1000 Reward: 9344.823
+Total T: 1048000 Episode Num: 1048 Episode T: 1000 Reward: 9809.541
+Total T: 1049000 Episode Num: 1049 Episode T: 1000 Reward: 10041.041
+Total T: 1050000 Episode Num: 1050 Episode T: 1000 Reward: 9459.173
+---------------------------------------
+Evaluation over 10 episodes: 9725.490
+---------------------------------------
+Current PLIF tau (hidden): h0: 0.952679, h1: 0.974597
+Current PLIF tau (output): 0.968750

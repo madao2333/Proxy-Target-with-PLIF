@@ -1,0 +1,26 @@
+file	line	kind	max_value	matched_text
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_Ant-v4_seed10991_gpu0.log	1817	Evaluation over 10 episodes	5976.822	Evaluation over 10 episodes: 5976.822
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_Ant-v4_seed22297_gpu0.log	1784	Evaluation over 10 episodes	5670.692	Evaluation over 10 episodes: 5670.692
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_Ant-v4_seed33431_gpu0.log	1769	Evaluation over 10 episodes	3152.998	Evaluation over 10 episodes: 3152.998
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_Ant-v4_seed75183_gpu0.log	1767	Evaluation over 10 episodes	3909.475	Evaluation over 10 episodes: 3909.475
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_Ant-v4_seed95718_gpu0.log	1767	Evaluation over 10 episodes	5531.691	Evaluation over 10 episodes: 5531.691
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_HalfCheetah-v4_seed10991_gpu0.log	1517	Evaluation over 10 episodes	11449.274	Evaluation over 10 episodes: 11449.274
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_HalfCheetah-v4_seed22297_gpu0.log	1613	Evaluation over 10 episodes	11181.052	Evaluation over 10 episodes: 11181.052
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_HalfCheetah-v4_seed33431_gpu0.log	1645	Evaluation over 10 episodes	10014.730	Evaluation over 10 episodes: 10014.730
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_HalfCheetah-v4_seed75183_gpu0.log	1629	Evaluation over 10 episodes	10265.989	Evaluation over 10 episodes: 10265.989
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_HalfCheetah-v4_seed95718_gpu0.log	1637	Evaluation over 10 episodes	11523.181	Evaluation over 10 episodes: 11523.181
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_Hopper-v4_seed10991_gpu0.log	4213	Evaluation over 10 episodes	3586.289	Evaluation over 10 episodes: 3586.289
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_Hopper-v4_seed22297_gpu0.log	4134	Evaluation over 10 episodes	3278.843	Evaluation over 10 episodes: 3278.843
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_Hopper-v4_seed33431_gpu0.log	6720	Evaluation over 10 episodes	3207.424	Evaluation over 10 episodes: 3207.424
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_Hopper-v4_seed75183_gpu0.log	3694	Evaluation over 10 episodes	3534.560	Evaluation over 10 episodes: 3534.560
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_Hopper-v4_seed95718_gpu0.log	4853	Evaluation over 10 episodes	3618.535	Evaluation over 10 episodes: 3618.535
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_InvertedDoublePendulum-v4_seed10991_gpu2.log	4728	Evaluation over 10 episodes	9359.696	Evaluation over 10 episodes: 9359.696
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_InvertedDoublePendulum-v4_seed22297_gpu2.log	4739	Evaluation over 10 episodes	9359.880	Evaluation over 10 episodes: 9359.880
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_InvertedDoublePendulum-v4_seed33431_gpu2.log	5	Evaluation over 10 episodes	72.339	Evaluation over 10 episodes: 72.339
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_InvertedDoublePendulum-v4_seed75183_gpu2.log	34221	Evaluation over 10 episodes	63.972	Evaluation over 10 episodes: 63.972
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_InvertedDoublePendulum-v4_seed95718_gpu2.log	4778	Evaluation over 10 episodes	9359.851	Evaluation over 10 episodes: 9359.851
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_Walker2d-v4_seed10991_gpu2.log	4102	Evaluation over 10 episodes	3766.568	Evaluation over 10 episodes: 3766.568
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_Walker2d-v4_seed22297_gpu2.log	3507	Evaluation over 10 episodes	5072.661	Evaluation over 10 episodes: 5072.661
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_Walker2d-v4_seed33431_gpu2.log	3760	Evaluation over 10 episodes	3876.372	Evaluation over 10 episodes: 3876.372
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_Walker2d-v4_seed75183_gpu2.log	4566	Evaluation over 10 episodes	3753.134	Evaluation over 10 episodes: 3753.134
+Proxy-Target-with-PLIF/logs/log_groups/PT_ANN/PT_ANN_Walker2d-v4_seed95718_gpu2.log	3705	Evaluation over 10 episodes	4180.393	Evaluation over 10 episodes: 4180.393

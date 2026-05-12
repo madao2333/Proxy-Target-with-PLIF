@@ -1,0 +1,26 @@
+file	line	kind	max_value	matched_text
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113615_Ant-v4_seed10991_gpu0.log	1799	Evaluation over 10 episodes	5438.589	Evaluation over 10 episodes: 5438.589
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113615_Ant-v4_seed22297_gpu0.log	1859	Evaluation over 10 episodes	5678.905	Evaluation over 10 episodes: 5678.905
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113615_Ant-v4_seed33431_gpu0.log	1921	Evaluation over 10 episodes	5177.650	Evaluation over 10 episodes: 5177.650
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113615_Ant-v4_seed75183_gpu0.log	1918	Evaluation over 10 episodes	5632.164	Evaluation over 10 episodes: 5632.164
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113615_Ant-v4_seed95718_gpu0.log	1927	Evaluation over 10 episodes	5461.670	Evaluation over 10 episodes: 5461.670
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113743_HalfCheetah-v4_seed10991_gpu2.log	1581	Evaluation over 10 episodes	9923.559	Evaluation over 10 episodes: 9923.559
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113743_HalfCheetah-v4_seed22297_gpu2.log	1637	Evaluation over 10 episodes	8543.785	Evaluation over 10 episodes: 8543.785
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113743_HalfCheetah-v4_seed33431_gpu2.log	1485	Evaluation over 10 episodes	9901.819	Evaluation over 10 episodes: 9901.819
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113743_HalfCheetah-v4_seed75183_gpu2.log	1565	Evaluation over 10 episodes	10262.117	Evaluation over 10 episodes: 10262.117
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113743_HalfCheetah-v4_seed95718_gpu2.log	1589	Evaluation over 10 episodes	9320.543	Evaluation over 10 episodes: 9320.543
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113743_Hopper-v4_seed10991_gpu2.log	4313	Evaluation over 10 episodes	3477.591	Evaluation over 10 episodes: 3477.591
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113743_Hopper-v4_seed22297_gpu2.log	4402	Evaluation over 10 episodes	3418.072	Evaluation over 10 episodes: 3418.072
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113743_Hopper-v4_seed33431_gpu2.log	3996	Evaluation over 10 episodes	3341.768	Evaluation over 10 episodes: 3341.768
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113743_Hopper-v4_seed75183_gpu2.log	4419	Evaluation over 10 episodes	3291.964	Evaluation over 10 episodes: 3291.964
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113743_Hopper-v4_seed95718_gpu2.log	4465	Evaluation over 10 episodes	3323.692	Evaluation over 10 episodes: 3323.692
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113836_InvertedDoublePendulum-v4_seed10991_gpu3.log	4941	Evaluation over 10 episodes	9346.627	Evaluation over 10 episodes: 9346.627
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113836_InvertedDoublePendulum-v4_seed22297_gpu3.log	4792	Evaluation over 10 episodes	9346.389	Evaluation over 10 episodes: 9346.389
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113836_InvertedDoublePendulum-v4_seed33431_gpu3.log	4800	Evaluation over 10 episodes	9346.404	Evaluation over 10 episodes: 9346.404
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113836_InvertedDoublePendulum-v4_seed75183_gpu3.log	4748	Evaluation over 10 episodes	9347.467	Evaluation over 10 episodes: 9347.467
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113836_InvertedDoublePendulum-v4_seed95718_gpu3.log	4941	Evaluation over 10 episodes	9347.379	Evaluation over 10 episodes: 9347.379
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113836_Walker2d-v4_seed10991_gpu3.log	3358	Evaluation over 10 episodes	3856.395	Evaluation over 10 episodes: 3856.395
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113836_Walker2d-v4_seed22297_gpu3.log	2351	Evaluation over 10 episodes	1056.530	Evaluation over 10 episodes: 1056.530
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113836_Walker2d-v4_seed33431_gpu3.log	3443	Evaluation over 10 episodes	4641.096	Evaluation over 10 episodes: 4641.096
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113836_Walker2d-v4_seed75183_gpu3.log	3912	Evaluation over 10 episodes	4340.631	Evaluation over 10 episodes: 4340.631
+Proxy-Target-with-PLIF/logs/log_groups/PT_LIF_RERUN/PT_LIF_RERUN_20260509_113836_Walker2d-v4_seed95718_gpu3.log	2805	Evaluation over 10 episodes	3919.100	Evaluation over 10 episodes: 3919.100

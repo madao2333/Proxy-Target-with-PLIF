@@ -1,0 +1,17 @@
+batch_id=20260508_221805
+python_bin=python
+max_parallel_jobs=15
+log_dir=logs
+seed_file=logs/lif_seeds.txt
+gpu_id=2
+run_label=PT_PLIF_RERUN_20260508_221805
+envs:
+Ant-v4
+HalfCheetah-v4
+Hopper-v4
+seeds:
+95718
+22297
+75183
+10991
+33431

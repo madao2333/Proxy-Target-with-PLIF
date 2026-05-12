@@ -1,0 +1,1779 @@
+---------------------------------------
+Policy: ANN, Env: Ant-v4, Seed: 33431
+---------------------------------------
+---------------------------------------
+Evaluation over 10 episodes: 982.668
+---------------------------------------
+Total T: 1000 Episode Num: 1 Episode T: 1000 Reward: -311.843
+Total T: 1200 Episode Num: 2 Episode T: 200 Reward: -129.626
+Total T: 1316 Episode Num: 3 Episode T: 116 Reward: -25.614
+Total T: 1371 Episode Num: 4 Episode T: 55 Reward: 8.344
+Total T: 1395 Episode Num: 5 Episode T: 24 Reward: -16.918
+Total T: 1460 Episode Num: 6 Episode T: 65 Reward: -28.781
+Total T: 1653 Episode Num: 7 Episode T: 193 Reward: -124.218
+Total T: 1701 Episode Num: 8 Episode T: 48 Reward: -22.454
+Total T: 1925 Episode Num: 9 Episode T: 224 Reward: -94.758
+Total T: 1983 Episode Num: 10 Episode T: 58 Reward: 6.052
+Total T: 2134 Episode Num: 11 Episode T: 151 Reward: -80.080
+Total T: 2186 Episode Num: 12 Episode T: 52 Reward: -6.469
+Total T: 2347 Episode Num: 13 Episode T: 161 Reward: -159.494
+Total T: 3347 Episode Num: 14 Episode T: 1000 Reward: -355.239
+Total T: 3385 Episode Num: 15 Episode T: 38 Reward: -12.764
+Total T: 3507 Episode Num: 16 Episode T: 122 Reward: -56.635
+Total T: 3605 Episode Num: 17 Episode T: 98 Reward: -55.991
+Total T: 3658 Episode Num: 18 Episode T: 53 Reward: 0.077
+Total T: 3684 Episode Num: 19 Episode T: 26 Reward: -17.990
+Total T: 3712 Episode Num: 20 Episode T: 28 Reward: 0.136
+Total T: 4712 Episode Num: 21 Episode T: 1000 Reward: -322.028
+Total T: 4730 Episode Num: 22 Episode T: 18 Reward: -3.121
+Total T: 4745 Episode Num: 23 Episode T: 15 Reward: -7.462
+---------------------------------------
+Evaluation over 10 episodes: 982.668
+---------------------------------------
+Total T: 5745 Episode Num: 24 Episode T: 1000 Reward: -348.374
+Total T: 5770 Episode Num: 25 Episode T: 25 Reward: -16.134
+Total T: 5823 Episode Num: 26 Episode T: 53 Reward: 17.551
+Total T: 6029 Episode Num: 27 Episode T: 206 Reward: -102.337
+Total T: 6072 Episode Num: 28 Episode T: 43 Reward: -19.782
+Total T: 6123 Episode Num: 29 Episode T: 51 Reward: 19.037
+Total T: 6219 Episode Num: 30 Episode T: 96 Reward: -35.352
+Total T: 7219 Episode Num: 31 Episode T: 1000 Reward: -362.242
+Total T: 8219 Episode Num: 32 Episode T: 1000 Reward: -401.454
+Total T: 8386 Episode Num: 33 Episode T: 167 Reward: -100.460
+Total T: 8453 Episode Num: 34 Episode T: 67 Reward: -57.969
+Total T: 8486 Episode Num: 35 Episode T: 33 Reward: 2.226
+Total T: 9486 Episode Num: 36 Episode T: 1000 Reward: -291.646
+---------------------------------------
+Evaluation over 10 episodes: 982.668
+---------------------------------------
+Total T: 10486 Episode Num: 37 Episode T: 1000 Reward: -323.804
+Total T: 10506 Episode Num: 38 Episode T: 20 Reward: -6.143
+Total T: 10799 Episode Num: 39 Episode T: 293 Reward: -192.862
+Total T: 10871 Episode Num: 40 Episode T: 72 Reward: -86.197
+Total T: 10985 Episode Num: 41 Episode T: 114 Reward: -30.905
+Total T: 11025 Episode Num: 42 Episode T: 40 Reward: -16.737
+Total T: 11123 Episode Num: 43 Episode T: 98 Reward: -65.109
+Total T: 11211 Episode Num: 44 Episode T: 88 Reward: -47.649
+Total T: 12211 Episode Num: 45 Episode T: 1000 Reward: -333.989
+Total T: 12247 Episode Num: 46 Episode T: 36 Reward: -3.806
+Total T: 12374 Episode Num: 47 Episode T: 127 Reward: -55.171
+Total T: 12502 Episode Num: 48 Episode T: 128 Reward: -25.079
+Total T: 12516 Episode Num: 49 Episode T: 14 Reward: -5.389
+Total T: 12659 Episode Num: 50 Episode T: 143 Reward: -78.901
+Total T: 12826 Episode Num: 51 Episode T: 167 Reward: 2.974
+Total T: 12881 Episode Num: 52 Episode T: 55 Reward: -50.096
+Total T: 13881 Episode Num: 53 Episode T: 1000 Reward: -284.010
+Total T: 13974 Episode Num: 54 Episode T: 93 Reward: -66.578
+Total T: 14051 Episode Num: 55 Episode T: 77 Reward: -69.758
+Total T: 14250 Episode Num: 56 Episode T: 199 Reward: -71.948
+Total T: 14279 Episode Num: 57 Episode T: 29 Reward: 3.973
+Total T: 14303 Episode Num: 58 Episode T: 24 Reward: -3.336
+Total T: 14447 Episode Num: 59 Episode T: 144 Reward: -55.018
+Total T: 14556 Episode Num: 60 Episode T: 109 Reward: 3.467
+Total T: 14569 Episode Num: 61 Episode T: 13 Reward: -1.409
+Total T: 14618 Episode Num: 62 Episode T: 49 Reward: -50.335
+Total T: 14652 Episode Num: 63 Episode T: 34 Reward: -19.451
+Total T: 14768 Episode Num: 64 Episode T: 116 Reward: -66.078
+Total T: 14798 Episode Num: 65 Episode T: 30 Reward: -10.788
+---------------------------------------
+Evaluation over 10 episodes: 982.668
+---------------------------------------
+Total T: 15798 Episode Num: 66 Episode T: 1000 Reward: -361.930
+Total T: 15812 Episode Num: 67 Episode T: 14 Reward: 4.854
+Total T: 15982 Episode Num: 68 Episode T: 170 Reward: -62.343
+Total T: 16075 Episode Num: 69 Episode T: 93 Reward: -37.758
+Total T: 17075 Episode Num: 70 Episode T: 1000 Reward: -294.189
+Total T: 17118 Episode Num: 71 Episode T: 43 Reward: -15.829
+Total T: 17325 Episode Num: 72 Episode T: 207 Reward: -111.393
+Total T: 17476 Episode Num: 73 Episode T: 151 Reward: -35.892
+Total T: 17704 Episode Num: 74 Episode T: 228 Reward: -67.587
+Total T: 17844 Episode Num: 75 Episode T: 140 Reward: -96.754
+Total T: 17859 Episode Num: 76 Episode T: 15 Reward: -4.297
+Total T: 17941 Episode Num: 77 Episode T: 82 Reward: -34.962
+Total T: 17979 Episode Num: 78 Episode T: 38 Reward: -12.954
+Total T: 18000 Episode Num: 79 Episode T: 21 Reward: -18.023
+Total T: 19000 Episode Num: 80 Episode T: 1000 Reward: -318.874
+Total T: 19089 Episode Num: 81 Episode T: 89 Reward: -3.973
+Total T: 19228 Episode Num: 82 Episode T: 139 Reward: -25.399
+Total T: 19264 Episode Num: 83 Episode T: 36 Reward: -28.199
+Total T: 19311 Episode Num: 84 Episode T: 47 Reward: 4.230
+Total T: 19386 Episode Num: 85 Episode T: 75 Reward: -29.734
+Total T: 19588 Episode Num: 86 Episode T: 202 Reward: -95.101
+Total T: 19620 Episode Num: 87 Episode T: 32 Reward: -26.164
+Total T: 19688 Episode Num: 88 Episode T: 68 Reward: -22.349
+Total T: 19862 Episode Num: 89 Episode T: 174 Reward: -47.019
+Total T: 19879 Episode Num: 90 Episode T: 17 Reward: -4.308
+Total T: 19923 Episode Num: 91 Episode T: 44 Reward: -41.079
+Total T: 19941 Episode Num: 92 Episode T: 18 Reward: -2.272
+Total T: 19956 Episode Num: 93 Episode T: 15 Reward: -8.961
+---------------------------------------
+Evaluation over 10 episodes: 982.668
+---------------------------------------
+Total T: 20003 Episode Num: 94 Episode T: 47 Reward: -24.752
+Total T: 20069 Episode Num: 95 Episode T: 66 Reward: -79.492
+Total T: 20205 Episode Num: 96 Episode T: 136 Reward: -49.114
+Total T: 20227 Episode Num: 97 Episode T: 22 Reward: -14.900
+Total T: 20259 Episode Num: 98 Episode T: 32 Reward: -7.188
+Total T: 20356 Episode Num: 99 Episode T: 97 Reward: -71.878
+Total T: 20377 Episode Num: 100 Episode T: 21 Reward: -24.234
+Total T: 20553 Episode Num: 101 Episode T: 176 Reward: -40.341
+Total T: 20580 Episode Num: 102 Episode T: 27 Reward: 11.455
+Total T: 20622 Episode Num: 103 Episode T: 42 Reward: -8.983
+Total T: 20790 Episode Num: 104 Episode T: 168 Reward: -55.595
+Total T: 20948 Episode Num: 105 Episode T: 158 Reward: -38.444
+Total T: 20981 Episode Num: 106 Episode T: 33 Reward: -2.448
+Total T: 21082 Episode Num: 107 Episode T: 101 Reward: 0.693
+Total T: 21236 Episode Num: 108 Episode T: 154 Reward: -60.808
+Total T: 21364 Episode Num: 109 Episode T: 128 Reward: 9.872
+Total T: 22364 Episode Num: 110 Episode T: 1000 Reward: -354.385
+Total T: 22557 Episode Num: 111 Episode T: 193 Reward: -69.013
+Total T: 22658 Episode Num: 112 Episode T: 101 Reward: -18.344
+Total T: 22755 Episode Num: 113 Episode T: 97 Reward: -1.389
+Total T: 23755 Episode Num: 114 Episode T: 1000 Reward: -356.055
+Total T: 23824 Episode Num: 115 Episode T: 69 Reward: -32.724
+Total T: 24824 Episode Num: 116 Episode T: 1000 Reward: -344.241
+Total T: 24866 Episode Num: 117 Episode T: 42 Reward: -44.561
+Total T: 24891 Episode Num: 118 Episode T: 25 Reward: -12.831
+Total T: 24983 Episode Num: 119 Episode T: 92 Reward: 2.588
+---------------------------------------
+Evaluation over 10 episodes: 982.668
+---------------------------------------
+Total T: 25157 Episode Num: 120 Episode T: 174 Reward: 4.252
+Total T: 26157 Episode Num: 121 Episode T: 1000 Reward: -81.830
+Total T: 27157 Episode Num: 122 Episode T: 1000 Reward: 588.330
+Total T: 28157 Episode Num: 123 Episode T: 1000 Reward: 744.368
+Total T: 29157 Episode Num: 124 Episode T: 1000 Reward: 773.910
+---------------------------------------
+Evaluation over 10 episodes: 826.965
+---------------------------------------
+Total T: 30157 Episode Num: 125 Episode T: 1000 Reward: 771.458
+Total T: 31157 Episode Num: 126 Episode T: 1000 Reward: 767.346
+Total T: 32157 Episode Num: 127 Episode T: 1000 Reward: 831.690
+Total T: 33157 Episode Num: 128 Episode T: 1000 Reward: 779.250
+Total T: 34157 Episode Num: 129 Episode T: 1000 Reward: 779.107
+---------------------------------------
+Evaluation over 10 episodes: 748.648
+---------------------------------------
+Total T: 35157 Episode Num: 130 Episode T: 1000 Reward: 791.488
+Total T: 36157 Episode Num: 131 Episode T: 1000 Reward: 617.759
+Total T: 37157 Episode Num: 132 Episode T: 1000 Reward: 758.647
+Total T: 38157 Episode Num: 133 Episode T: 1000 Reward: 711.559
+Total T: 39157 Episode Num: 134 Episode T: 1000 Reward: 688.476
+---------------------------------------
+Evaluation over 10 episodes: 719.586
+---------------------------------------
+Total T: 40157 Episode Num: 135 Episode T: 1000 Reward: 668.172
+Total T: 40354 Episode Num: 136 Episode T: 197 Reward: 175.550
+Total T: 41354 Episode Num: 137 Episode T: 1000 Reward: 639.772
+Total T: 41390 Episode Num: 138 Episode T: 36 Reward: 18.479
+Total T: 42390 Episode Num: 139 Episode T: 1000 Reward: 639.338
+Total T: 43102 Episode Num: 140 Episode T: 712 Reward: 400.542
+Total T: 44102 Episode Num: 141 Episode T: 1000 Reward: 560.835
+---------------------------------------
+Evaluation over 10 episodes: 520.615
+---------------------------------------
+Total T: 45102 Episode Num: 142 Episode T: 1000 Reward: 490.153
+Total T: 46102 Episode Num: 143 Episode T: 1000 Reward: 431.112
+Total T: 47102 Episode Num: 144 Episode T: 1000 Reward: 529.354
+Total T: 47832 Episode Num: 145 Episode T: 730 Reward: 338.854
+Total T: 48832 Episode Num: 146 Episode T: 1000 Reward: 264.357
+Total T: 49832 Episode Num: 147 Episode T: 1000 Reward: 619.781
+---------------------------------------
+Evaluation over 10 episodes: 648.515
+---------------------------------------
+Total T: 50832 Episode Num: 148 Episode T: 1000 Reward: 739.981
+Total T: 51832 Episode Num: 149 Episode T: 1000 Reward: 689.619
+Total T: 52832 Episode Num: 150 Episode T: 1000 Reward: 500.928
+Total T: 53832 Episode Num: 151 Episode T: 1000 Reward: 712.864
+Total T: 54832 Episode Num: 152 Episode T: 1000 Reward: 780.560
+---------------------------------------
+Evaluation over 10 episodes: 777.517
+---------------------------------------
+Total T: 55832 Episode Num: 153 Episode T: 1000 Reward: 729.616
+Total T: 56832 Episode Num: 154 Episode T: 1000 Reward: 801.459
+Total T: 57522 Episode Num: 155 Episode T: 690 Reward: 331.711
+Total T: 58453 Episode Num: 156 Episode T: 931 Reward: 454.160
+Total T: 59453 Episode Num: 157 Episode T: 1000 Reward: 613.227
+Total T: 59718 Episode Num: 158 Episode T: 265 Reward: 232.303
+---------------------------------------
+Evaluation over 10 episodes: 720.873
+---------------------------------------
+Total T: 60130 Episode Num: 159 Episode T: 412 Reward: 345.174
+Total T: 60427 Episode Num: 160 Episode T: 297 Reward: 236.177
+Total T: 60720 Episode Num: 161 Episode T: 293 Reward: 193.633
+Total T: 61720 Episode Num: 162 Episode T: 1000 Reward: 462.400
+Total T: 62720 Episode Num: 163 Episode T: 1000 Reward: 625.087
+Total T: 63720 Episode Num: 164 Episode T: 1000 Reward: 492.667
+Total T: 64720 Episode Num: 165 Episode T: 1000 Reward: 751.918
+---------------------------------------
+Evaluation over 10 episodes: 824.900
+---------------------------------------
+Total T: 65720 Episode Num: 166 Episode T: 1000 Reward: 689.556
+Total T: 66720 Episode Num: 167 Episode T: 1000 Reward: 726.653
+Total T: 67720 Episode Num: 168 Episode T: 1000 Reward: 845.341
+Total T: 68123 Episode Num: 169 Episode T: 403 Reward: 314.682
+Total T: 69123 Episode Num: 170 Episode T: 1000 Reward: 723.911
+---------------------------------------
+Evaluation over 10 episodes: 863.847
+---------------------------------------
+Total T: 70123 Episode Num: 171 Episode T: 1000 Reward: 765.169
+Total T: 71123 Episode Num: 172 Episode T: 1000 Reward: 228.418
+Total T: 72123 Episode Num: 173 Episode T: 1000 Reward: 794.166
+Total T: 73123 Episode Num: 174 Episode T: 1000 Reward: 766.067
+Total T: 74123 Episode Num: 175 Episode T: 1000 Reward: 797.583
+---------------------------------------
+Evaluation over 10 episodes: 807.895
+---------------------------------------
+Total T: 75123 Episode Num: 176 Episode T: 1000 Reward: 805.413
+Total T: 76123 Episode Num: 177 Episode T: 1000 Reward: 775.098
+Total T: 77123 Episode Num: 178 Episode T: 1000 Reward: 826.886
+Total T: 78123 Episode Num: 179 Episode T: 1000 Reward: 793.265
+Total T: 79123 Episode Num: 180 Episode T: 1000 Reward: 808.469
+---------------------------------------
+Evaluation over 10 episodes: 844.734
+---------------------------------------
+Total T: 80123 Episode Num: 181 Episode T: 1000 Reward: 786.795
+Total T: 80374 Episode Num: 182 Episode T: 251 Reward: 198.860
+Total T: 81125 Episode Num: 183 Episode T: 751 Reward: 618.450
+Total T: 82125 Episode Num: 184 Episode T: 1000 Reward: 813.563
+Total T: 83125 Episode Num: 185 Episode T: 1000 Reward: 809.973
+Total T: 83204 Episode Num: 186 Episode T: 79 Reward: 56.455
+Total T: 84204 Episode Num: 187 Episode T: 1000 Reward: 798.373
+---------------------------------------
+Evaluation over 10 episodes: 833.277
+---------------------------------------
+Total T: 85204 Episode Num: 188 Episode T: 1000 Reward: 784.455
+Total T: 86204 Episode Num: 189 Episode T: 1000 Reward: 812.498
+Total T: 87204 Episode Num: 190 Episode T: 1000 Reward: 770.521
+Total T: 88204 Episode Num: 191 Episode T: 1000 Reward: 812.580
+Total T: 89204 Episode Num: 192 Episode T: 1000 Reward: 784.885
+---------------------------------------
+Evaluation over 10 episodes: 895.844
+---------------------------------------
+Total T: 90204 Episode Num: 193 Episode T: 1000 Reward: 822.778
+Total T: 91204 Episode Num: 194 Episode T: 1000 Reward: 843.012
+Total T: 92204 Episode Num: 195 Episode T: 1000 Reward: 829.596
+Total T: 93204 Episode Num: 196 Episode T: 1000 Reward: 807.056
+Total T: 94204 Episode Num: 197 Episode T: 1000 Reward: 815.286
+---------------------------------------
+Evaluation over 10 episodes: 881.303
+---------------------------------------
+Total T: 95204 Episode Num: 198 Episode T: 1000 Reward: 810.719
+Total T: 96204 Episode Num: 199 Episode T: 1000 Reward: 836.495
+Total T: 97204 Episode Num: 200 Episode T: 1000 Reward: 818.110
+Total T: 98204 Episode Num: 201 Episode T: 1000 Reward: 771.393
+Total T: 99204 Episode Num: 202 Episode T: 1000 Reward: 829.846
+---------------------------------------
+Evaluation over 10 episodes: 879.789
+---------------------------------------
+Total T: 100204 Episode Num: 203 Episode T: 1000 Reward: 836.723
+Total T: 101204 Episode Num: 204 Episode T: 1000 Reward: 821.649
+Total T: 102204 Episode Num: 205 Episode T: 1000 Reward: 839.681
+Total T: 103204 Episode Num: 206 Episode T: 1000 Reward: 836.980
+Total T: 104204 Episode Num: 207 Episode T: 1000 Reward: 830.628
+---------------------------------------
+Evaluation over 10 episodes: 883.481
+---------------------------------------
+Total T: 105204 Episode Num: 208 Episode T: 1000 Reward: 841.676
+Total T: 106204 Episode Num: 209 Episode T: 1000 Reward: 838.245
+Total T: 107204 Episode Num: 210 Episode T: 1000 Reward: 834.826
+Total T: 108204 Episode Num: 211 Episode T: 1000 Reward: 840.963
+Total T: 108220 Episode Num: 212 Episode T: 16 Reward: 2.933
+Total T: 109220 Episode Num: 213 Episode T: 1000 Reward: 851.825
+---------------------------------------
+Evaluation over 10 episodes: 865.097
+---------------------------------------
+Total T: 110220 Episode Num: 214 Episode T: 1000 Reward: 843.983
+Total T: 111220 Episode Num: 215 Episode T: 1000 Reward: 854.675
+Total T: 112220 Episode Num: 216 Episode T: 1000 Reward: 847.086
+Total T: 113220 Episode Num: 217 Episode T: 1000 Reward: 825.928
+Total T: 114220 Episode Num: 218 Episode T: 1000 Reward: 854.180
+---------------------------------------
+Evaluation over 10 episodes: 720.136
+---------------------------------------
+Total T: 115220 Episode Num: 219 Episode T: 1000 Reward: 838.623
+Total T: 115265 Episode Num: 220 Episode T: 45 Reward: 43.537
+Total T: 116265 Episode Num: 221 Episode T: 1000 Reward: 864.567
+Total T: 117265 Episode Num: 222 Episode T: 1000 Reward: 856.443
+Total T: 118265 Episode Num: 223 Episode T: 1000 Reward: 836.917
+Total T: 119265 Episode Num: 224 Episode T: 1000 Reward: 861.137
+---------------------------------------
+Evaluation over 10 episodes: 929.499
+---------------------------------------
+Total T: 120265 Episode Num: 225 Episode T: 1000 Reward: 865.664
+Total T: 121265 Episode Num: 226 Episode T: 1000 Reward: 868.671
+Total T: 122265 Episode Num: 227 Episode T: 1000 Reward: 861.665
+Total T: 123265 Episode Num: 228 Episode T: 1000 Reward: 870.284
+Total T: 124265 Episode Num: 229 Episode T: 1000 Reward: 852.810
+---------------------------------------
+Evaluation over 10 episodes: 911.768
+---------------------------------------
+Total T: 125265 Episode Num: 230 Episode T: 1000 Reward: 868.117
+Total T: 126265 Episode Num: 231 Episode T: 1000 Reward: 850.989
+Total T: 127265 Episode Num: 232 Episode T: 1000 Reward: 863.560
+Total T: 128265 Episode Num: 233 Episode T: 1000 Reward: 876.782
+Total T: 129265 Episode Num: 234 Episode T: 1000 Reward: 857.766
+---------------------------------------
+Evaluation over 10 episodes: 916.838
+---------------------------------------
+Total T: 130265 Episode Num: 235 Episode T: 1000 Reward: 871.401
+Total T: 130286 Episode Num: 236 Episode T: 21 Reward: 0.093
+Total T: 131286 Episode Num: 237 Episode T: 1000 Reward: 860.076
+Total T: 132286 Episode Num: 238 Episode T: 1000 Reward: 823.222
+Total T: 133286 Episode Num: 239 Episode T: 1000 Reward: 840.336
+Total T: 134286 Episode Num: 240 Episode T: 1000 Reward: 850.882
+---------------------------------------
+Evaluation over 10 episodes: 931.241
+---------------------------------------
+Total T: 135286 Episode Num: 241 Episode T: 1000 Reward: 850.285
+Total T: 136286 Episode Num: 242 Episode T: 1000 Reward: 861.098
+Total T: 137286 Episode Num: 243 Episode T: 1000 Reward: 862.794
+Total T: 138286 Episode Num: 244 Episode T: 1000 Reward: 869.860
+Total T: 139286 Episode Num: 245 Episode T: 1000 Reward: 844.867
+---------------------------------------
+Evaluation over 10 episodes: 908.216
+---------------------------------------
+Total T: 140286 Episode Num: 246 Episode T: 1000 Reward: 862.256
+Total T: 141286 Episode Num: 247 Episode T: 1000 Reward: 880.481
+Total T: 142286 Episode Num: 248 Episode T: 1000 Reward: 866.166
+Total T: 143286 Episode Num: 249 Episode T: 1000 Reward: 858.119
+Total T: 144286 Episode Num: 250 Episode T: 1000 Reward: 869.616
+---------------------------------------
+Evaluation over 10 episodes: 929.232
+---------------------------------------
+Total T: 145286 Episode Num: 251 Episode T: 1000 Reward: 863.098
+Total T: 146286 Episode Num: 252 Episode T: 1000 Reward: 789.999
+Total T: 147286 Episode Num: 253 Episode T: 1000 Reward: 855.607
+Total T: 148286 Episode Num: 254 Episode T: 1000 Reward: 859.020
+Total T: 149286 Episode Num: 255 Episode T: 1000 Reward: 855.537
+---------------------------------------
+Evaluation over 10 episodes: 916.577
+---------------------------------------
+Total T: 150286 Episode Num: 256 Episode T: 1000 Reward: 867.362
+Total T: 151286 Episode Num: 257 Episode T: 1000 Reward: 875.590
+Total T: 152286 Episode Num: 258 Episode T: 1000 Reward: 855.566
+Total T: 153286 Episode Num: 259 Episode T: 1000 Reward: 866.614
+Total T: 154286 Episode Num: 260 Episode T: 1000 Reward: 875.226
+---------------------------------------
+Evaluation over 10 episodes: 904.417
+---------------------------------------
+Total T: 155286 Episode Num: 261 Episode T: 1000 Reward: 884.882
+Total T: 156286 Episode Num: 262 Episode T: 1000 Reward: 875.539
+Total T: 157286 Episode Num: 263 Episode T: 1000 Reward: 789.861
+Total T: 158286 Episode Num: 264 Episode T: 1000 Reward: 880.337
+Total T: 159286 Episode Num: 265 Episode T: 1000 Reward: 875.616
+---------------------------------------
+Evaluation over 10 episodes: 769.323
+---------------------------------------
+Total T: 160286 Episode Num: 266 Episode T: 1000 Reward: 885.952
+Total T: 161286 Episode Num: 267 Episode T: 1000 Reward: 872.808
+Total T: 162286 Episode Num: 268 Episode T: 1000 Reward: 874.392
+Total T: 163286 Episode Num: 269 Episode T: 1000 Reward: 879.960
+Total T: 164286 Episode Num: 270 Episode T: 1000 Reward: 887.232
+---------------------------------------
+Evaluation over 10 episodes: 918.483
+---------------------------------------
+Total T: 165286 Episode Num: 271 Episode T: 1000 Reward: 871.411
+Total T: 166286 Episode Num: 272 Episode T: 1000 Reward: 887.655
+Total T: 167286 Episode Num: 273 Episode T: 1000 Reward: 895.767
+Total T: 168286 Episode Num: 274 Episode T: 1000 Reward: 877.804
+Total T: 169286 Episode Num: 275 Episode T: 1000 Reward: 893.373
+---------------------------------------
+Evaluation over 10 episodes: 915.634
+---------------------------------------
+Total T: 170286 Episode Num: 276 Episode T: 1000 Reward: 866.017
+Total T: 171286 Episode Num: 277 Episode T: 1000 Reward: 888.991
+Total T: 172286 Episode Num: 278 Episode T: 1000 Reward: 873.516
+Total T: 173286 Episode Num: 279 Episode T: 1000 Reward: 880.639
+Total T: 174286 Episode Num: 280 Episode T: 1000 Reward: 857.826
+---------------------------------------
+Evaluation over 10 episodes: 916.951
+---------------------------------------
+Total T: 175286 Episode Num: 281 Episode T: 1000 Reward: 868.118
+Total T: 176286 Episode Num: 282 Episode T: 1000 Reward: 867.053
+Total T: 177286 Episode Num: 283 Episode T: 1000 Reward: 881.394
+Total T: 178286 Episode Num: 284 Episode T: 1000 Reward: 862.249
+Total T: 179286 Episode Num: 285 Episode T: 1000 Reward: 865.093
+---------------------------------------
+Evaluation over 10 episodes: 597.678
+---------------------------------------
+Total T: 180286 Episode Num: 286 Episode T: 1000 Reward: 874.313
+Total T: 181286 Episode Num: 287 Episode T: 1000 Reward: 883.837
+Total T: 182286 Episode Num: 288 Episode T: 1000 Reward: 863.171
+Total T: 183286 Episode Num: 289 Episode T: 1000 Reward: 892.328
+Total T: 184286 Episode Num: 290 Episode T: 1000 Reward: 886.553
+---------------------------------------
+Evaluation over 10 episodes: 910.321
+---------------------------------------
+Total T: 185286 Episode Num: 291 Episode T: 1000 Reward: 876.671
+Total T: 186286 Episode Num: 292 Episode T: 1000 Reward: 887.124
+Total T: 187286 Episode Num: 293 Episode T: 1000 Reward: 889.494
+Total T: 188286 Episode Num: 294 Episode T: 1000 Reward: 877.225
+Total T: 189286 Episode Num: 295 Episode T: 1000 Reward: 878.189
+---------------------------------------
+Evaluation over 10 episodes: 929.481
+---------------------------------------
+Total T: 190286 Episode Num: 296 Episode T: 1000 Reward: 871.361
+Total T: 191286 Episode Num: 297 Episode T: 1000 Reward: 885.104
+Total T: 192286 Episode Num: 298 Episode T: 1000 Reward: 889.320
+Total T: 193286 Episode Num: 299 Episode T: 1000 Reward: 884.639
+Total T: 194286 Episode Num: 300 Episode T: 1000 Reward: 869.589
+---------------------------------------
+Evaluation over 10 episodes: 938.217
+---------------------------------------
+Total T: 195286 Episode Num: 301 Episode T: 1000 Reward: 874.211
+Total T: 196286 Episode Num: 302 Episode T: 1000 Reward: 872.134
+Total T: 197286 Episode Num: 303 Episode T: 1000 Reward: 889.034
+Total T: 198286 Episode Num: 304 Episode T: 1000 Reward: 609.674
+Total T: 199286 Episode Num: 305 Episode T: 1000 Reward: 895.670
+---------------------------------------
+Evaluation over 10 episodes: 925.055
+---------------------------------------
+Total T: 200286 Episode Num: 306 Episode T: 1000 Reward: 894.941
+Total T: 201286 Episode Num: 307 Episode T: 1000 Reward: 896.470
+Total T: 202286 Episode Num: 308 Episode T: 1000 Reward: 896.155
+Total T: 203286 Episode Num: 309 Episode T: 1000 Reward: 897.632
+Total T: 204286 Episode Num: 310 Episode T: 1000 Reward: 899.383
+---------------------------------------
+Evaluation over 10 episodes: 911.330
+---------------------------------------
+Total T: 205286 Episode Num: 311 Episode T: 1000 Reward: 883.695
+Total T: 206286 Episode Num: 312 Episode T: 1000 Reward: 887.355
+Total T: 207286 Episode Num: 313 Episode T: 1000 Reward: 891.002
+Total T: 208286 Episode Num: 314 Episode T: 1000 Reward: 888.134
+Total T: 209286 Episode Num: 315 Episode T: 1000 Reward: 885.494
+---------------------------------------
+Evaluation over 10 episodes: 916.531
+---------------------------------------
+Total T: 210286 Episode Num: 316 Episode T: 1000 Reward: 889.865
+Total T: 211286 Episode Num: 317 Episode T: 1000 Reward: 887.364
+Total T: 212286 Episode Num: 318 Episode T: 1000 Reward: 882.824
+Total T: 213286 Episode Num: 319 Episode T: 1000 Reward: 891.952
+Total T: 214286 Episode Num: 320 Episode T: 1000 Reward: 896.367
+---------------------------------------
+Evaluation over 10 episodes: 954.827
+---------------------------------------
+Total T: 215286 Episode Num: 321 Episode T: 1000 Reward: 892.909
+Total T: 216286 Episode Num: 322 Episode T: 1000 Reward: 886.086
+Total T: 217286 Episode Num: 323 Episode T: 1000 Reward: 890.180
+Total T: 218286 Episode Num: 324 Episode T: 1000 Reward: 886.777
+Total T: 219286 Episode Num: 325 Episode T: 1000 Reward: 899.085
+---------------------------------------
+Evaluation over 10 episodes: 950.605
+---------------------------------------
+Total T: 220286 Episode Num: 326 Episode T: 1000 Reward: 899.199
+Total T: 221286 Episode Num: 327 Episode T: 1000 Reward: 882.137
+Total T: 222286 Episode Num: 328 Episode T: 1000 Reward: 894.766
+Total T: 223286 Episode Num: 329 Episode T: 1000 Reward: 900.725
+Total T: 224286 Episode Num: 330 Episode T: 1000 Reward: 897.677
+---------------------------------------
+Evaluation over 10 episodes: 920.060
+---------------------------------------
+Total T: 225286 Episode Num: 331 Episode T: 1000 Reward: 893.130
+Total T: 226286 Episode Num: 332 Episode T: 1000 Reward: 901.297
+Total T: 227286 Episode Num: 333 Episode T: 1000 Reward: 903.752
+Total T: 228286 Episode Num: 334 Episode T: 1000 Reward: 900.173
+Total T: 229286 Episode Num: 335 Episode T: 1000 Reward: 887.861
+---------------------------------------
+Evaluation over 10 episodes: 933.269
+---------------------------------------
+Total T: 230286 Episode Num: 336 Episode T: 1000 Reward: 896.024
+Total T: 231286 Episode Num: 337 Episode T: 1000 Reward: 899.381
+Total T: 232286 Episode Num: 338 Episode T: 1000 Reward: 905.071
+Total T: 233286 Episode Num: 339 Episode T: 1000 Reward: 895.815
+Total T: 234286 Episode Num: 340 Episode T: 1000 Reward: 902.599
+---------------------------------------
+Evaluation over 10 episodes: 923.556
+---------------------------------------
+Total T: 235286 Episode Num: 341 Episode T: 1000 Reward: 909.351
+Total T: 236286 Episode Num: 342 Episode T: 1000 Reward: 900.385
+Total T: 237286 Episode Num: 343 Episode T: 1000 Reward: 893.749
+Total T: 238286 Episode Num: 344 Episode T: 1000 Reward: 879.400
+Total T: 239286 Episode Num: 345 Episode T: 1000 Reward: 886.421
+---------------------------------------
+Evaluation over 10 episodes: 953.483
+---------------------------------------
+Total T: 240286 Episode Num: 346 Episode T: 1000 Reward: 885.722
+Total T: 241286 Episode Num: 347 Episode T: 1000 Reward: 882.868
+Total T: 242286 Episode Num: 348 Episode T: 1000 Reward: 899.049
+Total T: 243286 Episode Num: 349 Episode T: 1000 Reward: 902.237
+Total T: 244286 Episode Num: 350 Episode T: 1000 Reward: 889.432
+---------------------------------------
+Evaluation over 10 episodes: 931.963
+---------------------------------------
+Total T: 245286 Episode Num: 351 Episode T: 1000 Reward: 899.612
+Total T: 246286 Episode Num: 352 Episode T: 1000 Reward: 886.454
+Total T: 247286 Episode Num: 353 Episode T: 1000 Reward: 881.896
+Total T: 248286 Episode Num: 354 Episode T: 1000 Reward: 897.522
+Total T: 249286 Episode Num: 355 Episode T: 1000 Reward: 890.563
+---------------------------------------
+Evaluation over 10 episodes: 939.791
+---------------------------------------
+Total T: 250286 Episode Num: 356 Episode T: 1000 Reward: 889.521
+Total T: 251286 Episode Num: 357 Episode T: 1000 Reward: 885.261
+Total T: 252286 Episode Num: 358 Episode T: 1000 Reward: 860.504
+Total T: 253286 Episode Num: 359 Episode T: 1000 Reward: 903.380
+Total T: 254286 Episode Num: 360 Episode T: 1000 Reward: 887.860
+---------------------------------------
+Evaluation over 10 episodes: 944.121
+---------------------------------------
+Total T: 255286 Episode Num: 361 Episode T: 1000 Reward: 892.254
+Total T: 256286 Episode Num: 362 Episode T: 1000 Reward: 906.756
+Total T: 257286 Episode Num: 363 Episode T: 1000 Reward: 894.861
+Total T: 258286 Episode Num: 364 Episode T: 1000 Reward: 896.025
+Total T: 259286 Episode Num: 365 Episode T: 1000 Reward: 908.164
+---------------------------------------
+Evaluation over 10 episodes: 880.980
+---------------------------------------
+Total T: 260286 Episode Num: 366 Episode T: 1000 Reward: 892.907
+Total T: 261286 Episode Num: 367 Episode T: 1000 Reward: 918.658
+Total T: 262286 Episode Num: 368 Episode T: 1000 Reward: 913.776
+Total T: 263286 Episode Num: 369 Episode T: 1000 Reward: 918.388
+Total T: 264286 Episode Num: 370 Episode T: 1000 Reward: 897.920
+---------------------------------------
+Evaluation over 10 episodes: 940.657
+---------------------------------------
+Total T: 265286 Episode Num: 371 Episode T: 1000 Reward: 920.322
+Total T: 266286 Episode Num: 372 Episode T: 1000 Reward: 920.125
+Total T: 267286 Episode Num: 373 Episode T: 1000 Reward: 916.877
+Total T: 268286 Episode Num: 374 Episode T: 1000 Reward: 917.895
+Total T: 268301 Episode Num: 375 Episode T: 15 Reward: -13.421
+Total T: 269301 Episode Num: 376 Episode T: 1000 Reward: 913.365
+---------------------------------------
+Evaluation over 10 episodes: 1026.609
+---------------------------------------
+Total T: 270301 Episode Num: 377 Episode T: 1000 Reward: 915.411
+Total T: 271301 Episode Num: 378 Episode T: 1000 Reward: 935.371
+Total T: 272301 Episode Num: 379 Episode T: 1000 Reward: 927.818
+Total T: 273301 Episode Num: 380 Episode T: 1000 Reward: 948.912
+Total T: 274301 Episode Num: 381 Episode T: 1000 Reward: 939.062
+---------------------------------------
+Evaluation over 10 episodes: 994.403
+---------------------------------------
+Total T: 275301 Episode Num: 382 Episode T: 1000 Reward: 917.579
+Total T: 276301 Episode Num: 383 Episode T: 1000 Reward: 930.841
+Total T: 277301 Episode Num: 384 Episode T: 1000 Reward: 943.655
+Total T: 278301 Episode Num: 385 Episode T: 1000 Reward: 943.162
+Total T: 279301 Episode Num: 386 Episode T: 1000 Reward: 946.214
+---------------------------------------
+Evaluation over 10 episodes: 1006.225
+---------------------------------------
+Total T: 280301 Episode Num: 387 Episode T: 1000 Reward: 934.564
+Total T: 281301 Episode Num: 388 Episode T: 1000 Reward: 928.035
+Total T: 282301 Episode Num: 389 Episode T: 1000 Reward: 926.164
+Total T: 283301 Episode Num: 390 Episode T: 1000 Reward: 961.536
+Total T: 284301 Episode Num: 391 Episode T: 1000 Reward: 959.385
+---------------------------------------
+Evaluation over 10 episodes: 1000.493
+---------------------------------------
+Total T: 285301 Episode Num: 392 Episode T: 1000 Reward: 939.523
+Total T: 286301 Episode Num: 393 Episode T: 1000 Reward: 971.003
+Total T: 287301 Episode Num: 394 Episode T: 1000 Reward: 965.422
+Total T: 288301 Episode Num: 395 Episode T: 1000 Reward: 900.255
+Total T: 289301 Episode Num: 396 Episode T: 1000 Reward: 971.745
+---------------------------------------
+Evaluation over 10 episodes: 982.413
+---------------------------------------
+Total T: 290301 Episode Num: 397 Episode T: 1000 Reward: 973.017
+Total T: 291301 Episode Num: 398 Episode T: 1000 Reward: 960.080
+Total T: 292301 Episode Num: 399 Episode T: 1000 Reward: 952.731
+Total T: 293301 Episode Num: 400 Episode T: 1000 Reward: 962.050
+Total T: 294301 Episode Num: 401 Episode T: 1000 Reward: 963.600
+---------------------------------------
+Evaluation over 10 episodes: 962.782
+---------------------------------------
+Total T: 295301 Episode Num: 402 Episode T: 1000 Reward: 950.989
+Total T: 296301 Episode Num: 403 Episode T: 1000 Reward: 965.879
+Total T: 297301 Episode Num: 404 Episode T: 1000 Reward: 935.265
+Total T: 298301 Episode Num: 405 Episode T: 1000 Reward: 938.286
+Total T: 298310 Episode Num: 406 Episode T: 9 Reward: 2.547
+Total T: 299310 Episode Num: 407 Episode T: 1000 Reward: 949.676
+---------------------------------------
+Evaluation over 10 episodes: 965.207
+---------------------------------------
+Total T: 300310 Episode Num: 408 Episode T: 1000 Reward: 926.876
+Total T: 301310 Episode Num: 409 Episode T: 1000 Reward: 931.493
+Total T: 302310 Episode Num: 410 Episode T: 1000 Reward: 921.503
+Total T: 303310 Episode Num: 411 Episode T: 1000 Reward: 920.856
+Total T: 304310 Episode Num: 412 Episode T: 1000 Reward: 916.313
+---------------------------------------
+Evaluation over 10 episodes: 959.052
+---------------------------------------
+Total T: 305310 Episode Num: 413 Episode T: 1000 Reward: 927.521
+Total T: 306310 Episode Num: 414 Episode T: 1000 Reward: 929.971
+Total T: 307310 Episode Num: 415 Episode T: 1000 Reward: 949.855
+Total T: 308310 Episode Num: 416 Episode T: 1000 Reward: 922.844
+Total T: 309310 Episode Num: 417 Episode T: 1000 Reward: 927.515
+---------------------------------------
+Evaluation over 10 episodes: 950.545
+---------------------------------------
+Total T: 310310 Episode Num: 418 Episode T: 1000 Reward: 932.287
+Total T: 311310 Episode Num: 419 Episode T: 1000 Reward: 921.105
+Total T: 312310 Episode Num: 420 Episode T: 1000 Reward: 906.620
+Total T: 313310 Episode Num: 421 Episode T: 1000 Reward: 932.168
+Total T: 314310 Episode Num: 422 Episode T: 1000 Reward: 927.027
+---------------------------------------
+Evaluation over 10 episodes: 948.635
+---------------------------------------
+Total T: 315310 Episode Num: 423 Episode T: 1000 Reward: 909.428
+Total T: 316310 Episode Num: 424 Episode T: 1000 Reward: 922.545
+Total T: 317310 Episode Num: 425 Episode T: 1000 Reward: 900.250
+Total T: 318310 Episode Num: 426 Episode T: 1000 Reward: -642.672
+Total T: 319310 Episode Num: 427 Episode T: 1000 Reward: 893.541
+---------------------------------------
+Evaluation over 10 episodes: 747.338
+---------------------------------------
+Total T: 320310 Episode Num: 428 Episode T: 1000 Reward: 901.999
+Total T: 321310 Episode Num: 429 Episode T: 1000 Reward: 903.024
+Total T: 322310 Episode Num: 430 Episode T: 1000 Reward: 906.729
+Total T: 323310 Episode Num: 431 Episode T: 1000 Reward: 908.902
+Total T: 323332 Episode Num: 432 Episode T: 22 Reward: 24.586
+Total T: 324332 Episode Num: 433 Episode T: 1000 Reward: 933.441
+---------------------------------------
+Evaluation over 10 episodes: 955.210
+---------------------------------------
+Total T: 325332 Episode Num: 434 Episode T: 1000 Reward: 952.869
+Total T: 326332 Episode Num: 435 Episode T: 1000 Reward: 932.195
+Total T: 327332 Episode Num: 436 Episode T: 1000 Reward: 950.273
+Total T: 328332 Episode Num: 437 Episode T: 1000 Reward: 939.607
+Total T: 329332 Episode Num: 438 Episode T: 1000 Reward: 937.894
+---------------------------------------
+Evaluation over 10 episodes: 964.256
+---------------------------------------
+Total T: 330332 Episode Num: 439 Episode T: 1000 Reward: 924.816
+Total T: 331332 Episode Num: 440 Episode T: 1000 Reward: 932.456
+Total T: 332332 Episode Num: 441 Episode T: 1000 Reward: 945.916
+Total T: 333332 Episode Num: 442 Episode T: 1000 Reward: 945.053
+Total T: 334332 Episode Num: 443 Episode T: 1000 Reward: 950.034
+---------------------------------------
+Evaluation over 10 episodes: 967.875
+---------------------------------------
+Total T: 335332 Episode Num: 444 Episode T: 1000 Reward: 930.818
+Total T: 336332 Episode Num: 445 Episode T: 1000 Reward: 961.642
+Total T: 337332 Episode Num: 446 Episode T: 1000 Reward: 992.810
+Total T: 338332 Episode Num: 447 Episode T: 1000 Reward: 962.893
+Total T: 339332 Episode Num: 448 Episode T: 1000 Reward: 1014.579
+---------------------------------------
+Evaluation over 10 episodes: 950.473
+---------------------------------------
+Total T: 340332 Episode Num: 449 Episode T: 1000 Reward: 974.841
+Total T: 341332 Episode Num: 450 Episode T: 1000 Reward: 982.807
+Total T: 342332 Episode Num: 451 Episode T: 1000 Reward: 953.984
+Total T: 343332 Episode Num: 452 Episode T: 1000 Reward: 970.655
+Total T: 344332 Episode Num: 453 Episode T: 1000 Reward: 1002.570
+---------------------------------------
+Evaluation over 10 episodes: 984.859
+---------------------------------------
+Total T: 345332 Episode Num: 454 Episode T: 1000 Reward: 966.090
+Total T: 346332 Episode Num: 455 Episode T: 1000 Reward: 940.000
+Total T: 347332 Episode Num: 456 Episode T: 1000 Reward: 968.957
+Total T: 348332 Episode Num: 457 Episode T: 1000 Reward: 962.285
+Total T: 349332 Episode Num: 458 Episode T: 1000 Reward: 943.625
+---------------------------------------
+Evaluation over 10 episodes: 972.853
+---------------------------------------
+Total T: 350332 Episode Num: 459 Episode T: 1000 Reward: 926.501
+Total T: 351332 Episode Num: 460 Episode T: 1000 Reward: 920.781
+Total T: 352332 Episode Num: 461 Episode T: 1000 Reward: 964.490
+Total T: 353332 Episode Num: 462 Episode T: 1000 Reward: 961.626
+Total T: 354332 Episode Num: 463 Episode T: 1000 Reward: 948.094
+---------------------------------------
+Evaluation over 10 episodes: 943.212
+---------------------------------------
+Total T: 355332 Episode Num: 464 Episode T: 1000 Reward: 1024.076
+Total T: 356332 Episode Num: 465 Episode T: 1000 Reward: 905.243
+Total T: 357332 Episode Num: 466 Episode T: 1000 Reward: 931.518
+Total T: 358332 Episode Num: 467 Episode T: 1000 Reward: 878.696
+Total T: 359332 Episode Num: 468 Episode T: 1000 Reward: 982.935
+---------------------------------------
+Evaluation over 10 episodes: 980.779
+---------------------------------------
+Total T: 360332 Episode Num: 469 Episode T: 1000 Reward: 928.811
+Total T: 361332 Episode Num: 470 Episode T: 1000 Reward: 1009.044
+Total T: 362332 Episode Num: 471 Episode T: 1000 Reward: 969.522
+Total T: 363332 Episode Num: 472 Episode T: 1000 Reward: 975.604
+Total T: 364332 Episode Num: 473 Episode T: 1000 Reward: 1039.838
+---------------------------------------
+Evaluation over 10 episodes: 988.626
+---------------------------------------
+Total T: 365332 Episode Num: 474 Episode T: 1000 Reward: 1085.473
+Total T: 366332 Episode Num: 475 Episode T: 1000 Reward: 878.661
+Total T: 367332 Episode Num: 476 Episode T: 1000 Reward: -686.745
+Total T: 368332 Episode Num: 477 Episode T: 1000 Reward: 1044.331
+Total T: 369332 Episode Num: 478 Episode T: 1000 Reward: 1031.792
+---------------------------------------
+Evaluation over 10 episodes: 953.155
+---------------------------------------
+Total T: 370332 Episode Num: 479 Episode T: 1000 Reward: 1050.320
+Total T: 371332 Episode Num: 480 Episode T: 1000 Reward: 1077.284
+Total T: 372332 Episode Num: 481 Episode T: 1000 Reward: 1063.889
+Total T: 373332 Episode Num: 482 Episode T: 1000 Reward: 1123.355
+Total T: 374332 Episode Num: 483 Episode T: 1000 Reward: 1127.968
+---------------------------------------
+Evaluation over 10 episodes: 1135.115
+---------------------------------------
+Total T: 375332 Episode Num: 484 Episode T: 1000 Reward: 1122.100
+Total T: 376332 Episode Num: 485 Episode T: 1000 Reward: 1070.481
+Total T: 377332 Episode Num: 486 Episode T: 1000 Reward: 1059.744
+Total T: 378332 Episode Num: 487 Episode T: 1000 Reward: 1149.442
+Total T: 379332 Episode Num: 488 Episode T: 1000 Reward: 1073.916
+---------------------------------------
+Evaluation over 10 episodes: 1043.880
+---------------------------------------
+Total T: 380332 Episode Num: 489 Episode T: 1000 Reward: 1021.766
+Total T: 381332 Episode Num: 490 Episode T: 1000 Reward: 1123.790
+Total T: 382332 Episode Num: 491 Episode T: 1000 Reward: 1098.776
+Total T: 383332 Episode Num: 492 Episode T: 1000 Reward: 1095.804
+Total T: 384332 Episode Num: 493 Episode T: 1000 Reward: 1110.352
+---------------------------------------
+Evaluation over 10 episodes: 954.935
+---------------------------------------
+Total T: 385332 Episode Num: 494 Episode T: 1000 Reward: 1056.891
+Total T: 386332 Episode Num: 495 Episode T: 1000 Reward: 1101.429
+Total T: 387332 Episode Num: 496 Episode T: 1000 Reward: 1108.427
+Total T: 388332 Episode Num: 497 Episode T: 1000 Reward: 212.891
+Total T: 389259 Episode Num: 498 Episode T: 927 Reward: 1055.814
+---------------------------------------
+Evaluation over 10 episodes: 978.598
+---------------------------------------
+Total T: 390259 Episode Num: 499 Episode T: 1000 Reward: 1070.701
+Total T: 391259 Episode Num: 500 Episode T: 1000 Reward: 1124.625
+Total T: 392259 Episode Num: 501 Episode T: 1000 Reward: 1131.939
+Total T: 393259 Episode Num: 502 Episode T: 1000 Reward: 1165.705
+Total T: 394259 Episode Num: 503 Episode T: 1000 Reward: 1242.681
+---------------------------------------
+Evaluation over 10 episodes: 1041.276
+---------------------------------------
+Total T: 395259 Episode Num: 504 Episode T: 1000 Reward: 1234.023
+Total T: 396259 Episode Num: 505 Episode T: 1000 Reward: 1267.692
+Total T: 397259 Episode Num: 506 Episode T: 1000 Reward: 1289.852
+Total T: 398259 Episode Num: 507 Episode T: 1000 Reward: 1300.500
+Total T: 399259 Episode Num: 508 Episode T: 1000 Reward: 1275.208
+---------------------------------------
+Evaluation over 10 episodes: 1214.484
+---------------------------------------
+Total T: 400259 Episode Num: 509 Episode T: 1000 Reward: 1212.519
+Total T: 401259 Episode Num: 510 Episode T: 1000 Reward: 1330.561
+Total T: 402259 Episode Num: 511 Episode T: 1000 Reward: 1281.872
+Total T: 403259 Episode Num: 512 Episode T: 1000 Reward: 1313.332
+Total T: 404259 Episode Num: 513 Episode T: 1000 Reward: 1283.718
+---------------------------------------
+Evaluation over 10 episodes: 1406.044
+---------------------------------------
+Total T: 405259 Episode Num: 514 Episode T: 1000 Reward: 1268.584
+Total T: 406259 Episode Num: 515 Episode T: 1000 Reward: 1304.463
+Total T: 407259 Episode Num: 516 Episode T: 1000 Reward: 1281.477
+Total T: 408259 Episode Num: 517 Episode T: 1000 Reward: 1348.022
+Total T: 409259 Episode Num: 518 Episode T: 1000 Reward: 1382.794
+---------------------------------------
+Evaluation over 10 episodes: 1499.075
+---------------------------------------
+Total T: 410259 Episode Num: 519 Episode T: 1000 Reward: 1424.892
+Total T: 411259 Episode Num: 520 Episode T: 1000 Reward: 1474.199
+Total T: 412259 Episode Num: 521 Episode T: 1000 Reward: 1375.484
+Total T: 413259 Episode Num: 522 Episode T: 1000 Reward: 1371.933
+Total T: 414259 Episode Num: 523 Episode T: 1000 Reward: 1277.595
+---------------------------------------
+Evaluation over 10 episodes: 1506.379
+---------------------------------------
+Total T: 415259 Episode Num: 524 Episode T: 1000 Reward: 1239.211
+Total T: 416259 Episode Num: 525 Episode T: 1000 Reward: 1409.105
+Total T: 417259 Episode Num: 526 Episode T: 1000 Reward: 1360.885
+Total T: 418259 Episode Num: 527 Episode T: 1000 Reward: 1378.839
+Total T: 419259 Episode Num: 528 Episode T: 1000 Reward: 1413.988
+---------------------------------------
+Evaluation over 10 episodes: 1538.529
+---------------------------------------
+Total T: 420259 Episode Num: 529 Episode T: 1000 Reward: 1397.224
+Total T: 421259 Episode Num: 530 Episode T: 1000 Reward: 1358.581
+Total T: 422259 Episode Num: 531 Episode T: 1000 Reward: 1379.203
+Total T: 423259 Episode Num: 532 Episode T: 1000 Reward: 1423.695
+Total T: 424259 Episode Num: 533 Episode T: 1000 Reward: 1432.798
+---------------------------------------
+Evaluation over 10 episodes: 1606.636
+---------------------------------------
+Total T: 425259 Episode Num: 534 Episode T: 1000 Reward: 1437.516
+Total T: 426259 Episode Num: 535 Episode T: 1000 Reward: 1462.457
+Total T: 427259 Episode Num: 536 Episode T: 1000 Reward: 1498.856
+Total T: 428259 Episode Num: 537 Episode T: 1000 Reward: 1466.335
+Total T: 429259 Episode Num: 538 Episode T: 1000 Reward: 1482.048
+---------------------------------------
+Evaluation over 10 episodes: 1645.533
+---------------------------------------
+Total T: 430259 Episode Num: 539 Episode T: 1000 Reward: 1523.570
+Total T: 431259 Episode Num: 540 Episode T: 1000 Reward: 1565.107
+Total T: 432259 Episode Num: 541 Episode T: 1000 Reward: 1575.253
+Total T: 433259 Episode Num: 542 Episode T: 1000 Reward: 1521.758
+Total T: 434259 Episode Num: 543 Episode T: 1000 Reward: 1571.427
+---------------------------------------
+Evaluation over 10 episodes: 1726.020
+---------------------------------------
+Total T: 435259 Episode Num: 544 Episode T: 1000 Reward: 1585.210
+Total T: 436259 Episode Num: 545 Episode T: 1000 Reward: 1571.051
+Total T: 437259 Episode Num: 546 Episode T: 1000 Reward: 1626.633
+Total T: 438259 Episode Num: 547 Episode T: 1000 Reward: 1568.106
+Total T: 439259 Episode Num: 548 Episode T: 1000 Reward: 469.969
+---------------------------------------
+Evaluation over 10 episodes: 1721.332
+---------------------------------------
+Total T: 440259 Episode Num: 549 Episode T: 1000 Reward: 1604.751
+Total T: 441259 Episode Num: 550 Episode T: 1000 Reward: 1657.900
+Total T: 442259 Episode Num: 551 Episode T: 1000 Reward: 1640.491
+Total T: 443259 Episode Num: 552 Episode T: 1000 Reward: 1616.251
+Total T: 444259 Episode Num: 553 Episode T: 1000 Reward: 1678.945
+---------------------------------------
+Evaluation over 10 episodes: 1842.912
+---------------------------------------
+Total T: 445259 Episode Num: 554 Episode T: 1000 Reward: 1681.153
+Total T: 446259 Episode Num: 555 Episode T: 1000 Reward: 1746.512
+Total T: 447259 Episode Num: 556 Episode T: 1000 Reward: 1105.559
+Total T: 448259 Episode Num: 557 Episode T: 1000 Reward: 1772.274
+Total T: 449259 Episode Num: 558 Episode T: 1000 Reward: 1689.775
+---------------------------------------
+Evaluation over 10 episodes: 1577.890
+---------------------------------------
+Total T: 450259 Episode Num: 559 Episode T: 1000 Reward: 1769.316
+Total T: 451259 Episode Num: 560 Episode T: 1000 Reward: 1767.768
+Total T: 452259 Episode Num: 561 Episode T: 1000 Reward: 1686.662
+Total T: 453259 Episode Num: 562 Episode T: 1000 Reward: 1740.268
+Total T: 454259 Episode Num: 563 Episode T: 1000 Reward: 1747.890
+---------------------------------------
+Evaluation over 10 episodes: 1915.933
+---------------------------------------
+Total T: 455259 Episode Num: 564 Episode T: 1000 Reward: 1733.815
+Total T: 456259 Episode Num: 565 Episode T: 1000 Reward: 1761.888
+Total T: 457259 Episode Num: 566 Episode T: 1000 Reward: 1762.524
+Total T: 458259 Episode Num: 567 Episode T: 1000 Reward: 1756.037
+Total T: 459259 Episode Num: 568 Episode T: 1000 Reward: 1812.412
+---------------------------------------
+Evaluation over 10 episodes: 1849.405
+---------------------------------------
+Total T: 460259 Episode Num: 569 Episode T: 1000 Reward: 1793.973
+Total T: 461259 Episode Num: 570 Episode T: 1000 Reward: 1393.632
+Total T: 462259 Episode Num: 571 Episode T: 1000 Reward: 1829.267
+Total T: 463259 Episode Num: 572 Episode T: 1000 Reward: 1878.383
+Total T: 464259 Episode Num: 573 Episode T: 1000 Reward: 1822.133
+---------------------------------------
+Evaluation over 10 episodes: 1910.956
+---------------------------------------
+Total T: 465259 Episode Num: 574 Episode T: 1000 Reward: 1789.359
+Total T: 466259 Episode Num: 575 Episode T: 1000 Reward: 291.849
+Total T: 467259 Episode Num: 576 Episode T: 1000 Reward: 1886.734
+Total T: 468259 Episode Num: 577 Episode T: 1000 Reward: 1871.496
+Total T: 469259 Episode Num: 578 Episode T: 1000 Reward: 1070.949
+---------------------------------------
+Evaluation over 10 episodes: 2108.276
+---------------------------------------
+Total T: 470259 Episode Num: 579 Episode T: 1000 Reward: 1927.236
+Total T: 471259 Episode Num: 580 Episode T: 1000 Reward: 1924.927
+Total T: 472259 Episode Num: 581 Episode T: 1000 Reward: 1964.276
+Total T: 473259 Episode Num: 582 Episode T: 1000 Reward: 1901.553
+Total T: 474259 Episode Num: 583 Episode T: 1000 Reward: 1889.840
+---------------------------------------
+Evaluation over 10 episodes: 1828.852
+---------------------------------------
+Total T: 475259 Episode Num: 584 Episode T: 1000 Reward: 1870.296
+Total T: 476259 Episode Num: 585 Episode T: 1000 Reward: 1853.995
+Total T: 477259 Episode Num: 586 Episode T: 1000 Reward: 1927.550
+Total T: 478259 Episode Num: 587 Episode T: 1000 Reward: 1832.522
+Total T: 479259 Episode Num: 588 Episode T: 1000 Reward: 1890.812
+---------------------------------------
+Evaluation over 10 episodes: 1949.285
+---------------------------------------
+Total T: 480259 Episode Num: 589 Episode T: 1000 Reward: 1897.394
+Total T: 481259 Episode Num: 590 Episode T: 1000 Reward: 1935.050
+Total T: 482259 Episode Num: 591 Episode T: 1000 Reward: 1861.966
+Total T: 483259 Episode Num: 592 Episode T: 1000 Reward: 1959.487
+Total T: 484259 Episode Num: 593 Episode T: 1000 Reward: 1984.943
+---------------------------------------
+Evaluation over 10 episodes: 1639.778
+---------------------------------------
+Total T: 485259 Episode Num: 594 Episode T: 1000 Reward: 2048.740
+Total T: 486259 Episode Num: 595 Episode T: 1000 Reward: 623.450
+Total T: 487259 Episode Num: 596 Episode T: 1000 Reward: 632.155
+Total T: 488259 Episode Num: 597 Episode T: 1000 Reward: 858.935
+Total T: 489259 Episode Num: 598 Episode T: 1000 Reward: 1862.552
+---------------------------------------
+Evaluation over 10 episodes: 1462.474
+---------------------------------------
+Total T: 490259 Episode Num: 599 Episode T: 1000 Reward: 846.091
+Total T: 491259 Episode Num: 600 Episode T: 1000 Reward: 1304.021
+Total T: 492259 Episode Num: 601 Episode T: 1000 Reward: 1675.772
+Total T: 493259 Episode Num: 602 Episode T: 1000 Reward: 1989.312
+Total T: 493854 Episode Num: 603 Episode T: 595 Reward: 1165.203
+Total T: 494033 Episode Num: 604 Episode T: 179 Reward: 345.600
+Total T: 494667 Episode Num: 605 Episode T: 634 Reward: 1159.989
+---------------------------------------
+Evaluation over 10 episodes: 1497.349
+---------------------------------------
+Total T: 495267 Episode Num: 606 Episode T: 600 Reward: 1184.233
+Total T: 496267 Episode Num: 607 Episode T: 1000 Reward: 1613.085
+Total T: 497267 Episode Num: 608 Episode T: 1000 Reward: 511.975
+Total T: 498267 Episode Num: 609 Episode T: 1000 Reward: 1944.512
+Total T: 499267 Episode Num: 610 Episode T: 1000 Reward: 1976.113
+---------------------------------------
+Evaluation over 10 episodes: 2103.359
+---------------------------------------
+Total T: 500131 Episode Num: 611 Episode T: 864 Reward: 1756.429
+Total T: 501131 Episode Num: 612 Episode T: 1000 Reward: 1971.600
+Total T: 502131 Episode Num: 613 Episode T: 1000 Reward: 2032.551
+Total T: 503131 Episode Num: 614 Episode T: 1000 Reward: 2024.988
+Total T: 504131 Episode Num: 615 Episode T: 1000 Reward: 2021.621
+---------------------------------------
+Evaluation over 10 episodes: 2024.070
+---------------------------------------
+Total T: 505131 Episode Num: 616 Episode T: 1000 Reward: 2007.692
+Total T: 506131 Episode Num: 617 Episode T: 1000 Reward: 1990.974
+Total T: 507131 Episode Num: 618 Episode T: 1000 Reward: 2050.395
+Total T: 508131 Episode Num: 619 Episode T: 1000 Reward: 1932.077
+Total T: 509131 Episode Num: 620 Episode T: 1000 Reward: 2006.414
+---------------------------------------
+Evaluation over 10 episodes: 2077.531
+---------------------------------------
+Total T: 510131 Episode Num: 621 Episode T: 1000 Reward: 1966.916
+Total T: 511131 Episode Num: 622 Episode T: 1000 Reward: 1998.645
+Total T: 512131 Episode Num: 623 Episode T: 1000 Reward: 1954.995
+Total T: 513131 Episode Num: 624 Episode T: 1000 Reward: 1950.663
+Total T: 514131 Episode Num: 625 Episode T: 1000 Reward: 1983.290
+---------------------------------------
+Evaluation over 10 episodes: 1902.561
+---------------------------------------
+Total T: 515131 Episode Num: 626 Episode T: 1000 Reward: 2013.359
+Total T: 515445 Episode Num: 627 Episode T: 314 Reward: 612.974
+Total T: 516445 Episode Num: 628 Episode T: 1000 Reward: 2048.415
+Total T: 517445 Episode Num: 629 Episode T: 1000 Reward: 1255.142
+Total T: 518445 Episode Num: 630 Episode T: 1000 Reward: 2034.892
+Total T: 519445 Episode Num: 631 Episode T: 1000 Reward: 2067.597
+---------------------------------------
+Evaluation over 10 episodes: 2096.533
+---------------------------------------
+Total T: 520445 Episode Num: 632 Episode T: 1000 Reward: 2060.603
+Total T: 521445 Episode Num: 633 Episode T: 1000 Reward: 2030.983
+Total T: 522445 Episode Num: 634 Episode T: 1000 Reward: 2022.444
+Total T: 523445 Episode Num: 635 Episode T: 1000 Reward: 2015.768
+Total T: 524445 Episode Num: 636 Episode T: 1000 Reward: 1992.769
+---------------------------------------
+Evaluation over 10 episodes: 2152.333
+---------------------------------------
+Total T: 525445 Episode Num: 637 Episode T: 1000 Reward: 2089.728
+Total T: 526445 Episode Num: 638 Episode T: 1000 Reward: 85.015
+Total T: 527387 Episode Num: 639 Episode T: 942 Reward: 1815.780
+Total T: 528387 Episode Num: 640 Episode T: 1000 Reward: 1077.233
+Total T: 529387 Episode Num: 641 Episode T: 1000 Reward: 2042.133
+---------------------------------------
+Evaluation over 10 episodes: 2178.912
+---------------------------------------
+Total T: 530387 Episode Num: 642 Episode T: 1000 Reward: 2128.951
+Total T: 531387 Episode Num: 643 Episode T: 1000 Reward: 2044.330
+Total T: 532387 Episode Num: 644 Episode T: 1000 Reward: 2084.784
+Total T: 533387 Episode Num: 645 Episode T: 1000 Reward: 2154.968
+Total T: 534387 Episode Num: 646 Episode T: 1000 Reward: 2126.238
+---------------------------------------
+Evaluation over 10 episodes: 2278.418
+---------------------------------------
+Total T: 535387 Episode Num: 647 Episode T: 1000 Reward: 2069.197
+Total T: 536387 Episode Num: 648 Episode T: 1000 Reward: 2157.206
+Total T: 537387 Episode Num: 649 Episode T: 1000 Reward: 2162.726
+Total T: 538387 Episode Num: 650 Episode T: 1000 Reward: 2142.079
+Total T: 539387 Episode Num: 651 Episode T: 1000 Reward: 2071.468
+---------------------------------------
+Evaluation over 10 episodes: 2273.547
+---------------------------------------
+Total T: 540387 Episode Num: 652 Episode T: 1000 Reward: 2098.529
+Total T: 541387 Episode Num: 653 Episode T: 1000 Reward: 2138.756
+Total T: 541931 Episode Num: 654 Episode T: 544 Reward: 1173.026
+Total T: 542931 Episode Num: 655 Episode T: 1000 Reward: 2051.570
+Total T: 543931 Episode Num: 656 Episode T: 1000 Reward: 2185.936
+Total T: 544931 Episode Num: 657 Episode T: 1000 Reward: 2160.122
+---------------------------------------
+Evaluation over 10 episodes: 2290.329
+---------------------------------------
+Total T: 545931 Episode Num: 658 Episode T: 1000 Reward: 2252.119
+Total T: 546931 Episode Num: 659 Episode T: 1000 Reward: 2323.328
+Total T: 547931 Episode Num: 660 Episode T: 1000 Reward: 2178.642
+Total T: 548931 Episode Num: 661 Episode T: 1000 Reward: 2278.217
+Total T: 549931 Episode Num: 662 Episode T: 1000 Reward: 2248.909
+---------------------------------------
+Evaluation over 10 episodes: 2317.930
+---------------------------------------
+Total T: 550931 Episode Num: 663 Episode T: 1000 Reward: 2298.103
+Total T: 551931 Episode Num: 664 Episode T: 1000 Reward: 2186.031
+Total T: 552931 Episode Num: 665 Episode T: 1000 Reward: 541.321
+Total T: 553931 Episode Num: 666 Episode T: 1000 Reward: 2322.315
+Total T: 554931 Episode Num: 667 Episode T: 1000 Reward: 2275.066
+---------------------------------------
+Evaluation over 10 episodes: 2285.011
+---------------------------------------
+Total T: 555931 Episode Num: 668 Episode T: 1000 Reward: 2217.228
+Total T: 556931 Episode Num: 669 Episode T: 1000 Reward: 2266.352
+Total T: 557931 Episode Num: 670 Episode T: 1000 Reward: 2176.995
+Total T: 558931 Episode Num: 671 Episode T: 1000 Reward: 2185.015
+Total T: 559247 Episode Num: 672 Episode T: 316 Reward: 665.177
+---------------------------------------
+Evaluation over 10 episodes: 2395.628
+---------------------------------------
+Total T: 560247 Episode Num: 673 Episode T: 1000 Reward: 2205.657
+Total T: 561247 Episode Num: 674 Episode T: 1000 Reward: 2294.876
+Total T: 562247 Episode Num: 675 Episode T: 1000 Reward: 2293.935
+Total T: 563247 Episode Num: 676 Episode T: 1000 Reward: 2274.217
+Total T: 564247 Episode Num: 677 Episode T: 1000 Reward: 2279.452
+---------------------------------------
+Evaluation over 10 episodes: 2471.276
+---------------------------------------
+Total T: 565247 Episode Num: 678 Episode T: 1000 Reward: 2311.650
+Total T: 565448 Episode Num: 679 Episode T: 201 Reward: 407.411
+Total T: 566448 Episode Num: 680 Episode T: 1000 Reward: 2249.298
+Total T: 567448 Episode Num: 681 Episode T: 1000 Reward: 2256.074
+Total T: 568448 Episode Num: 682 Episode T: 1000 Reward: 2328.494
+Total T: 569448 Episode Num: 683 Episode T: 1000 Reward: 2287.698
+---------------------------------------
+Evaluation over 10 episodes: 2482.828
+---------------------------------------
+Total T: 570448 Episode Num: 684 Episode T: 1000 Reward: 2262.587
+Total T: 571448 Episode Num: 685 Episode T: 1000 Reward: 2275.033
+Total T: 572448 Episode Num: 686 Episode T: 1000 Reward: 2262.954
+Total T: 573448 Episode Num: 687 Episode T: 1000 Reward: 2235.647
+Total T: 574448 Episode Num: 688 Episode T: 1000 Reward: 2320.323
+---------------------------------------
+Evaluation over 10 episodes: 2451.875
+---------------------------------------
+Total T: 575448 Episode Num: 689 Episode T: 1000 Reward: 2283.647
+Total T: 576448 Episode Num: 690 Episode T: 1000 Reward: 2334.253
+Total T: 577448 Episode Num: 691 Episode T: 1000 Reward: 2310.110
+Total T: 578448 Episode Num: 692 Episode T: 1000 Reward: 2379.337
+Total T: 579448 Episode Num: 693 Episode T: 1000 Reward: 2324.877
+---------------------------------------
+Evaluation over 10 episodes: 2438.260
+---------------------------------------
+Total T: 580448 Episode Num: 694 Episode T: 1000 Reward: 2366.342
+Total T: 581448 Episode Num: 695 Episode T: 1000 Reward: 2370.837
+Total T: 582448 Episode Num: 696 Episode T: 1000 Reward: 2306.315
+Total T: 583448 Episode Num: 697 Episode T: 1000 Reward: 2288.796
+Total T: 584448 Episode Num: 698 Episode T: 1000 Reward: 2333.588
+---------------------------------------
+Evaluation over 10 episodes: 2479.928
+---------------------------------------
+Total T: 585448 Episode Num: 699 Episode T: 1000 Reward: 2323.674
+Total T: 586448 Episode Num: 700 Episode T: 1000 Reward: 2377.836
+Total T: 587448 Episode Num: 701 Episode T: 1000 Reward: 2480.169
+Total T: 588448 Episode Num: 702 Episode T: 1000 Reward: 2284.798
+Total T: 589448 Episode Num: 703 Episode T: 1000 Reward: 2315.458
+---------------------------------------
+Evaluation over 10 episodes: 2310.340
+---------------------------------------
+Total T: 590448 Episode Num: 704 Episode T: 1000 Reward: 2343.616
+Total T: 591448 Episode Num: 705 Episode T: 1000 Reward: 2325.753
+Total T: 592448 Episode Num: 706 Episode T: 1000 Reward: 2382.583
+Total T: 593448 Episode Num: 707 Episode T: 1000 Reward: 2437.638
+Total T: 594448 Episode Num: 708 Episode T: 1000 Reward: 2347.371
+---------------------------------------
+Evaluation over 10 episodes: 2481.602
+---------------------------------------
+Total T: 595448 Episode Num: 709 Episode T: 1000 Reward: 2364.731
+Total T: 596448 Episode Num: 710 Episode T: 1000 Reward: 2368.016
+Total T: 597448 Episode Num: 711 Episode T: 1000 Reward: 2418.813
+Total T: 598448 Episode Num: 712 Episode T: 1000 Reward: 2364.308
+Total T: 598853 Episode Num: 713 Episode T: 405 Reward: 988.370
+Total T: 599853 Episode Num: 714 Episode T: 1000 Reward: 2300.963
+---------------------------------------
+Evaluation over 10 episodes: 2340.450
+---------------------------------------
+Total T: 600853 Episode Num: 715 Episode T: 1000 Reward: 2377.937
+Total T: 601853 Episode Num: 716 Episode T: 1000 Reward: 2305.272
+Total T: 602853 Episode Num: 717 Episode T: 1000 Reward: 2352.254
+Total T: 603853 Episode Num: 718 Episode T: 1000 Reward: 2440.092
+Total T: 604532 Episode Num: 719 Episode T: 679 Reward: 1649.573
+---------------------------------------
+Evaluation over 10 episodes: 2482.960
+---------------------------------------
+Total T: 605532 Episode Num: 720 Episode T: 1000 Reward: 2375.055
+Total T: 606532 Episode Num: 721 Episode T: 1000 Reward: 2392.899
+Total T: 607532 Episode Num: 722 Episode T: 1000 Reward: 2421.623
+Total T: 608532 Episode Num: 723 Episode T: 1000 Reward: 2313.482
+Total T: 609532 Episode Num: 724 Episode T: 1000 Reward: 2441.607
+---------------------------------------
+Evaluation over 10 episodes: 2459.021
+---------------------------------------
+Total T: 610532 Episode Num: 725 Episode T: 1000 Reward: 2269.843
+Total T: 611532 Episode Num: 726 Episode T: 1000 Reward: 2377.150
+Total T: 612532 Episode Num: 727 Episode T: 1000 Reward: 2327.037
+Total T: 612815 Episode Num: 728 Episode T: 283 Reward: 667.999
+Total T: 613815 Episode Num: 729 Episode T: 1000 Reward: 2404.963
+Total T: 614815 Episode Num: 730 Episode T: 1000 Reward: 2328.008
+---------------------------------------
+Evaluation over 10 episodes: 2532.232
+---------------------------------------
+Total T: 615815 Episode Num: 731 Episode T: 1000 Reward: 2322.867
+Total T: 616815 Episode Num: 732 Episode T: 1000 Reward: 2469.833
+Total T: 617815 Episode Num: 733 Episode T: 1000 Reward: 2271.829
+Total T: 618815 Episode Num: 734 Episode T: 1000 Reward: 2455.075
+Total T: 619815 Episode Num: 735 Episode T: 1000 Reward: 2435.576
+---------------------------------------
+Evaluation over 10 episodes: 2394.190
+---------------------------------------
+Total T: 620815 Episode Num: 736 Episode T: 1000 Reward: 2410.341
+Total T: 621815 Episode Num: 737 Episode T: 1000 Reward: 2448.975
+Total T: 622815 Episode Num: 738 Episode T: 1000 Reward: 2433.797
+Total T: 623815 Episode Num: 739 Episode T: 1000 Reward: 2394.702
+Total T: 624815 Episode Num: 740 Episode T: 1000 Reward: 2470.039
+---------------------------------------
+Evaluation over 10 episodes: 2423.329
+---------------------------------------
+Total T: 625528 Episode Num: 741 Episode T: 713 Reward: 1646.247
+Total T: 626528 Episode Num: 742 Episode T: 1000 Reward: 2389.146
+Total T: 627528 Episode Num: 743 Episode T: 1000 Reward: 2480.969
+Total T: 628528 Episode Num: 744 Episode T: 1000 Reward: 2434.426
+Total T: 629528 Episode Num: 745 Episode T: 1000 Reward: 2409.876
+---------------------------------------
+Evaluation over 10 episodes: 2242.826
+---------------------------------------
+Total T: 630528 Episode Num: 746 Episode T: 1000 Reward: 2456.482
+Total T: 631528 Episode Num: 747 Episode T: 1000 Reward: 2348.881
+Total T: 632528 Episode Num: 748 Episode T: 1000 Reward: 2440.830
+Total T: 633528 Episode Num: 749 Episode T: 1000 Reward: 2411.624
+Total T: 634528 Episode Num: 750 Episode T: 1000 Reward: 2439.310
+---------------------------------------
+Evaluation over 10 episodes: 2561.364
+---------------------------------------
+Total T: 635528 Episode Num: 751 Episode T: 1000 Reward: 571.386
+Total T: 636528 Episode Num: 752 Episode T: 1000 Reward: 2313.207
+Total T: 637528 Episode Num: 753 Episode T: 1000 Reward: 2517.278
+Total T: 638528 Episode Num: 754 Episode T: 1000 Reward: 2448.729
+Total T: 639528 Episode Num: 755 Episode T: 1000 Reward: 2463.725
+---------------------------------------
+Evaluation over 10 episodes: 2353.943
+---------------------------------------
+Total T: 640528 Episode Num: 756 Episode T: 1000 Reward: 2479.245
+Total T: 641528 Episode Num: 757 Episode T: 1000 Reward: 2501.427
+Total T: 642528 Episode Num: 758 Episode T: 1000 Reward: 2423.413
+Total T: 643528 Episode Num: 759 Episode T: 1000 Reward: 2539.360
+Total T: 644528 Episode Num: 760 Episode T: 1000 Reward: 2021.010
+---------------------------------------
+Evaluation over 10 episodes: 2528.891
+---------------------------------------
+Total T: 645528 Episode Num: 761 Episode T: 1000 Reward: 2461.801
+Total T: 646528 Episode Num: 762 Episode T: 1000 Reward: 2405.837
+Total T: 647528 Episode Num: 763 Episode T: 1000 Reward: 2374.890
+Total T: 648528 Episode Num: 764 Episode T: 1000 Reward: 2474.049
+Total T: 649528 Episode Num: 765 Episode T: 1000 Reward: 2382.642
+---------------------------------------
+Evaluation over 10 episodes: 2679.249
+---------------------------------------
+Total T: 650528 Episode Num: 766 Episode T: 1000 Reward: 2314.700
+Total T: 651528 Episode Num: 767 Episode T: 1000 Reward: 2091.671
+Total T: 652528 Episode Num: 768 Episode T: 1000 Reward: 1800.048
+Total T: 653263 Episode Num: 769 Episode T: 735 Reward: 1893.959
+Total T: 653689 Episode Num: 770 Episode T: 426 Reward: 1032.091
+Total T: 653759 Episode Num: 771 Episode T: 70 Reward: 140.086
+Total T: 654445 Episode Num: 772 Episode T: 686 Reward: 1687.766
+---------------------------------------
+Evaluation over 10 episodes: 2712.108
+---------------------------------------
+Total T: 655445 Episode Num: 773 Episode T: 1000 Reward: 2519.242
+Total T: 656445 Episode Num: 774 Episode T: 1000 Reward: 2478.111
+Total T: 657445 Episode Num: 775 Episode T: 1000 Reward: 779.677
+Total T: 658063 Episode Num: 776 Episode T: 618 Reward: 1607.413
+Total T: 659063 Episode Num: 777 Episode T: 1000 Reward: 2482.074
+---------------------------------------
+Evaluation over 10 episodes: 2689.011
+---------------------------------------
+Total T: 660063 Episode Num: 778 Episode T: 1000 Reward: 2437.990
+Total T: 661063 Episode Num: 779 Episode T: 1000 Reward: 2555.333
+Total T: 662063 Episode Num: 780 Episode T: 1000 Reward: 2507.184
+Total T: 663063 Episode Num: 781 Episode T: 1000 Reward: 2490.050
+Total T: 664063 Episode Num: 782 Episode T: 1000 Reward: 2464.729
+---------------------------------------
+Evaluation over 10 episodes: 2617.618
+---------------------------------------
+Total T: 665063 Episode Num: 783 Episode T: 1000 Reward: 2487.548
+Total T: 666063 Episode Num: 784 Episode T: 1000 Reward: 311.218
+Total T: 667063 Episode Num: 785 Episode T: 1000 Reward: 2464.460
+Total T: 668063 Episode Num: 786 Episode T: 1000 Reward: 2551.453
+Total T: 669063 Episode Num: 787 Episode T: 1000 Reward: 2488.547
+---------------------------------------
+Evaluation over 10 episodes: 2427.252
+---------------------------------------
+Total T: 670063 Episode Num: 788 Episode T: 1000 Reward: 2473.770
+Total T: 671063 Episode Num: 789 Episode T: 1000 Reward: 2375.756
+Total T: 672063 Episode Num: 790 Episode T: 1000 Reward: 2558.323
+Total T: 673063 Episode Num: 791 Episode T: 1000 Reward: 2517.052
+Total T: 674063 Episode Num: 792 Episode T: 1000 Reward: 2414.339
+---------------------------------------
+Evaluation over 10 episodes: 2646.572
+---------------------------------------
+Total T: 675063 Episode Num: 793 Episode T: 1000 Reward: 2491.261
+Total T: 676063 Episode Num: 794 Episode T: 1000 Reward: 2551.683
+Total T: 676549 Episode Num: 795 Episode T: 486 Reward: 1139.985
+Total T: 677549 Episode Num: 796 Episode T: 1000 Reward: 2424.151
+Total T: 678549 Episode Num: 797 Episode T: 1000 Reward: 2460.766
+Total T: 679549 Episode Num: 798 Episode T: 1000 Reward: 2340.337
+---------------------------------------
+Evaluation over 10 episodes: 2593.656
+---------------------------------------
+Total T: 680549 Episode Num: 799 Episode T: 1000 Reward: 2560.915
+Total T: 681549 Episode Num: 800 Episode T: 1000 Reward: 2523.625
+Total T: 682549 Episode Num: 801 Episode T: 1000 Reward: 2316.244
+Total T: 683549 Episode Num: 802 Episode T: 1000 Reward: 2338.098
+Total T: 684549 Episode Num: 803 Episode T: 1000 Reward: 2481.077
+---------------------------------------
+Evaluation over 10 episodes: 2667.753
+---------------------------------------
+Total T: 685549 Episode Num: 804 Episode T: 1000 Reward: 2530.547
+Total T: 686549 Episode Num: 805 Episode T: 1000 Reward: 2542.426
+Total T: 687549 Episode Num: 806 Episode T: 1000 Reward: 2578.011
+Total T: 688549 Episode Num: 807 Episode T: 1000 Reward: 2470.571
+Total T: 689549 Episode Num: 808 Episode T: 1000 Reward: 2598.577
+---------------------------------------
+Evaluation over 10 episodes: 2769.690
+---------------------------------------
+Total T: 690549 Episode Num: 809 Episode T: 1000 Reward: 2558.091
+Total T: 691549 Episode Num: 810 Episode T: 1000 Reward: 2442.680
+Total T: 692549 Episode Num: 811 Episode T: 1000 Reward: 2448.200
+Total T: 693549 Episode Num: 812 Episode T: 1000 Reward: 2556.624
+Total T: 694549 Episode Num: 813 Episode T: 1000 Reward: 2524.045
+---------------------------------------
+Evaluation over 10 episodes: 2770.359
+---------------------------------------
+Total T: 695549 Episode Num: 814 Episode T: 1000 Reward: 2563.445
+Total T: 696549 Episode Num: 815 Episode T: 1000 Reward: 2629.003
+Total T: 697549 Episode Num: 816 Episode T: 1000 Reward: 2507.306
+Total T: 698549 Episode Num: 817 Episode T: 1000 Reward: 2523.696
+Total T: 699549 Episode Num: 818 Episode T: 1000 Reward: 2541.273
+---------------------------------------
+Evaluation over 10 episodes: 2738.651
+---------------------------------------
+Total T: 700549 Episode Num: 819 Episode T: 1000 Reward: 2576.236
+Total T: 701549 Episode Num: 820 Episode T: 1000 Reward: 2604.588
+Total T: 702549 Episode Num: 821 Episode T: 1000 Reward: 2518.466
+Total T: 703549 Episode Num: 822 Episode T: 1000 Reward: 2663.825
+Total T: 704549 Episode Num: 823 Episode T: 1000 Reward: 2582.657
+---------------------------------------
+Evaluation over 10 episodes: 2700.377
+---------------------------------------
+Total T: 705549 Episode Num: 824 Episode T: 1000 Reward: 2535.770
+Total T: 706549 Episode Num: 825 Episode T: 1000 Reward: 2614.760
+Total T: 707549 Episode Num: 826 Episode T: 1000 Reward: 2600.948
+Total T: 708549 Episode Num: 827 Episode T: 1000 Reward: 2556.980
+Total T: 709549 Episode Num: 828 Episode T: 1000 Reward: 2523.601
+---------------------------------------
+Evaluation over 10 episodes: 2734.568
+---------------------------------------
+Total T: 710549 Episode Num: 829 Episode T: 1000 Reward: 2610.343
+Total T: 711549 Episode Num: 830 Episode T: 1000 Reward: 2610.263
+Total T: 712549 Episode Num: 831 Episode T: 1000 Reward: 2624.106
+Total T: 713549 Episode Num: 832 Episode T: 1000 Reward: 2560.656
+Total T: 714549 Episode Num: 833 Episode T: 1000 Reward: 2462.002
+---------------------------------------
+Evaluation over 10 episodes: 2478.974
+---------------------------------------
+Total T: 715549 Episode Num: 834 Episode T: 1000 Reward: 2522.859
+Total T: 716549 Episode Num: 835 Episode T: 1000 Reward: 2603.332
+Total T: 717549 Episode Num: 836 Episode T: 1000 Reward: 2638.922
+Total T: 717626 Episode Num: 837 Episode T: 77 Reward: 163.920
+Total T: 718626 Episode Num: 838 Episode T: 1000 Reward: 2641.532
+Total T: 719626 Episode Num: 839 Episode T: 1000 Reward: 2610.285
+Total T: 719988 Episode Num: 840 Episode T: 362 Reward: 927.932
+---------------------------------------
+Evaluation over 10 episodes: 2433.239
+---------------------------------------
+Total T: 720988 Episode Num: 841 Episode T: 1000 Reward: 2560.222
+Total T: 721988 Episode Num: 842 Episode T: 1000 Reward: 2515.122
+Total T: 722988 Episode Num: 843 Episode T: 1000 Reward: 2550.695
+Total T: 723988 Episode Num: 844 Episode T: 1000 Reward: 2511.148
+Total T: 724988 Episode Num: 845 Episode T: 1000 Reward: 2533.006
+---------------------------------------
+Evaluation over 10 episodes: 2798.942
+---------------------------------------
+Total T: 725988 Episode Num: 846 Episode T: 1000 Reward: 2545.308
+Total T: 726988 Episode Num: 847 Episode T: 1000 Reward: 2595.155
+Total T: 727988 Episode Num: 848 Episode T: 1000 Reward: 332.964
+Total T: 728988 Episode Num: 849 Episode T: 1000 Reward: 2639.430
+Total T: 729988 Episode Num: 850 Episode T: 1000 Reward: 2618.169
+---------------------------------------
+Evaluation over 10 episodes: 2791.606
+---------------------------------------
+Total T: 730988 Episode Num: 851 Episode T: 1000 Reward: 2632.516
+Total T: 731988 Episode Num: 852 Episode T: 1000 Reward: 2678.466
+Total T: 732988 Episode Num: 853 Episode T: 1000 Reward: 2609.402
+Total T: 733988 Episode Num: 854 Episode T: 1000 Reward: 2531.802
+Total T: 734611 Episode Num: 855 Episode T: 623 Reward: 1603.173
+---------------------------------------
+Evaluation over 10 episodes: 2770.865
+---------------------------------------
+Total T: 735611 Episode Num: 856 Episode T: 1000 Reward: 2573.179
+Total T: 736611 Episode Num: 857 Episode T: 1000 Reward: 2595.080
+Total T: 737611 Episode Num: 858 Episode T: 1000 Reward: 2651.287
+Total T: 738611 Episode Num: 859 Episode T: 1000 Reward: 2641.310
+Total T: 739611 Episode Num: 860 Episode T: 1000 Reward: 2577.403
+---------------------------------------
+Evaluation over 10 episodes: 2845.534
+---------------------------------------
+Total T: 740611 Episode Num: 861 Episode T: 1000 Reward: 2633.794
+Total T: 741611 Episode Num: 862 Episode T: 1000 Reward: 2692.682
+Total T: 742611 Episode Num: 863 Episode T: 1000 Reward: 1559.522
+Total T: 743611 Episode Num: 864 Episode T: 1000 Reward: 2586.074
+Total T: 744611 Episode Num: 865 Episode T: 1000 Reward: 2569.580
+---------------------------------------
+Evaluation over 10 episodes: 2785.900
+---------------------------------------
+Total T: 745611 Episode Num: 866 Episode T: 1000 Reward: 2643.876
+Total T: 746611 Episode Num: 867 Episode T: 1000 Reward: 2536.971
+Total T: 746767 Episode Num: 868 Episode T: 156 Reward: 398.249
+Total T: 747767 Episode Num: 869 Episode T: 1000 Reward: 2490.678
+Total T: 748767 Episode Num: 870 Episode T: 1000 Reward: 2505.770
+Total T: 749767 Episode Num: 871 Episode T: 1000 Reward: 2747.033
+---------------------------------------
+Evaluation over 10 episodes: 2878.675
+---------------------------------------
+Total T: 750767 Episode Num: 872 Episode T: 1000 Reward: 2637.047
+Total T: 751767 Episode Num: 873 Episode T: 1000 Reward: 2528.092
+Total T: 751814 Episode Num: 874 Episode T: 47 Reward: 71.512
+Total T: 752814 Episode Num: 875 Episode T: 1000 Reward: 2712.672
+Total T: 753814 Episode Num: 876 Episode T: 1000 Reward: 2665.606
+Total T: 754814 Episode Num: 877 Episode T: 1000 Reward: 1082.350
+---------------------------------------
+Evaluation over 10 episodes: 2701.883
+---------------------------------------
+Total T: 755814 Episode Num: 878 Episode T: 1000 Reward: 2628.869
+Total T: 756750 Episode Num: 879 Episode T: 936 Reward: 2482.318
+Total T: 757750 Episode Num: 880 Episode T: 1000 Reward: 2547.515
+Total T: 758750 Episode Num: 881 Episode T: 1000 Reward: 2690.174
+Total T: 759750 Episode Num: 882 Episode T: 1000 Reward: 2757.084
+---------------------------------------
+Evaluation over 10 episodes: 2557.669
+---------------------------------------
+Total T: 760750 Episode Num: 883 Episode T: 1000 Reward: 2614.338
+Total T: 761750 Episode Num: 884 Episode T: 1000 Reward: 2682.164
+Total T: 762750 Episode Num: 885 Episode T: 1000 Reward: 2653.492
+Total T: 763750 Episode Num: 886 Episode T: 1000 Reward: 2561.754
+Total T: 764750 Episode Num: 887 Episode T: 1000 Reward: 2596.880
+---------------------------------------
+Evaluation over 10 episodes: 2885.366
+---------------------------------------
+Total T: 765750 Episode Num: 888 Episode T: 1000 Reward: 2684.114
+Total T: 766750 Episode Num: 889 Episode T: 1000 Reward: 2468.343
+Total T: 767750 Episode Num: 890 Episode T: 1000 Reward: 2505.709
+Total T: 768750 Episode Num: 891 Episode T: 1000 Reward: 2635.740
+Total T: 769750 Episode Num: 892 Episode T: 1000 Reward: 2662.260
+---------------------------------------
+Evaluation over 10 episodes: 2651.915
+---------------------------------------
+Total T: 770750 Episode Num: 893 Episode T: 1000 Reward: 2631.903
+Total T: 771750 Episode Num: 894 Episode T: 1000 Reward: 2633.435
+Total T: 771877 Episode Num: 895 Episode T: 127 Reward: 264.058
+Total T: 772877 Episode Num: 896 Episode T: 1000 Reward: 2545.787
+Total T: 773877 Episode Num: 897 Episode T: 1000 Reward: 2644.638
+Total T: 774877 Episode Num: 898 Episode T: 1000 Reward: 2642.080
+---------------------------------------
+Evaluation over 10 episodes: 2850.200
+---------------------------------------
+Total T: 775877 Episode Num: 899 Episode T: 1000 Reward: 2611.333
+Total T: 776877 Episode Num: 900 Episode T: 1000 Reward: -38.193
+Total T: 777877 Episode Num: 901 Episode T: 1000 Reward: 2623.893
+Total T: 778877 Episode Num: 902 Episode T: 1000 Reward: 2591.696
+Total T: 779877 Episode Num: 903 Episode T: 1000 Reward: 2649.196
+---------------------------------------
+Evaluation over 10 episodes: 2706.661
+---------------------------------------
+Total T: 780877 Episode Num: 904 Episode T: 1000 Reward: 2654.384
+Total T: 781877 Episode Num: 905 Episode T: 1000 Reward: 2645.583
+Total T: 782877 Episode Num: 906 Episode T: 1000 Reward: 2645.606
+Total T: 783877 Episode Num: 907 Episode T: 1000 Reward: 2609.134
+Total T: 784877 Episode Num: 908 Episode T: 1000 Reward: 2684.851
+---------------------------------------
+Evaluation over 10 episodes: 2840.827
+---------------------------------------
+Total T: 785877 Episode Num: 909 Episode T: 1000 Reward: 2653.112
+Total T: 786877 Episode Num: 910 Episode T: 1000 Reward: 2500.466
+Total T: 787877 Episode Num: 911 Episode T: 1000 Reward: 2627.609
+Total T: 788877 Episode Num: 912 Episode T: 1000 Reward: 2672.676
+Total T: 789877 Episode Num: 913 Episode T: 1000 Reward: 2617.100
+---------------------------------------
+Evaluation over 10 episodes: 2576.383
+---------------------------------------
+Total T: 790877 Episode Num: 914 Episode T: 1000 Reward: 1984.255
+Total T: 791877 Episode Num: 915 Episode T: 1000 Reward: 700.028
+Total T: 792877 Episode Num: 916 Episode T: 1000 Reward: 2764.446
+Total T: 793877 Episode Num: 917 Episode T: 1000 Reward: 2772.220
+Total T: 794877 Episode Num: 918 Episode T: 1000 Reward: 2639.303
+---------------------------------------
+Evaluation over 10 episodes: 2810.006
+---------------------------------------
+Total T: 795877 Episode Num: 919 Episode T: 1000 Reward: 2573.593
+Total T: 796379 Episode Num: 920 Episode T: 502 Reward: 1328.647
+Total T: 797379 Episode Num: 921 Episode T: 1000 Reward: 2690.978
+Total T: 798379 Episode Num: 922 Episode T: 1000 Reward: 2690.142
+Total T: 799379 Episode Num: 923 Episode T: 1000 Reward: 2667.978
+Total T: 799800 Episode Num: 924 Episode T: 421 Reward: 1092.951
+---------------------------------------
+Evaluation over 10 episodes: 2838.383
+---------------------------------------
+Total T: 800800 Episode Num: 925 Episode T: 1000 Reward: 2645.228
+Total T: 801800 Episode Num: 926 Episode T: 1000 Reward: 2798.123
+Total T: 802143 Episode Num: 927 Episode T: 343 Reward: 906.544
+Total T: 803047 Episode Num: 928 Episode T: 904 Reward: 2460.209
+Total T: 804047 Episode Num: 929 Episode T: 1000 Reward: 2706.444
+---------------------------------------
+Evaluation over 10 episodes: 2488.540
+---------------------------------------
+Total T: 805047 Episode Num: 930 Episode T: 1000 Reward: 2700.478
+Total T: 806047 Episode Num: 931 Episode T: 1000 Reward: 2769.302
+Total T: 807047 Episode Num: 932 Episode T: 1000 Reward: 2611.968
+Total T: 808047 Episode Num: 933 Episode T: 1000 Reward: 2719.777
+Total T: 809047 Episode Num: 934 Episode T: 1000 Reward: 2763.218
+---------------------------------------
+Evaluation over 10 episodes: 2832.337
+---------------------------------------
+Total T: 810047 Episode Num: 935 Episode T: 1000 Reward: 2618.822
+Total T: 811047 Episode Num: 936 Episode T: 1000 Reward: 2601.437
+Total T: 811914 Episode Num: 937 Episode T: 867 Reward: 2305.627
+Total T: 812914 Episode Num: 938 Episode T: 1000 Reward: 2674.267
+Total T: 813914 Episode Num: 939 Episode T: 1000 Reward: 2705.364
+Total T: 814914 Episode Num: 940 Episode T: 1000 Reward: 2729.786
+---------------------------------------
+Evaluation over 10 episodes: 2844.170
+---------------------------------------
+Total T: 815914 Episode Num: 941 Episode T: 1000 Reward: 2658.465
+Total T: 816914 Episode Num: 942 Episode T: 1000 Reward: 2742.717
+Total T: 817914 Episode Num: 943 Episode T: 1000 Reward: 2701.408
+Total T: 818914 Episode Num: 944 Episode T: 1000 Reward: 2650.130
+Total T: 819914 Episode Num: 945 Episode T: 1000 Reward: 2765.798
+---------------------------------------
+Evaluation over 10 episodes: 2862.870
+---------------------------------------
+Total T: 820914 Episode Num: 946 Episode T: 1000 Reward: 2701.534
+Total T: 821914 Episode Num: 947 Episode T: 1000 Reward: 2675.505
+Total T: 822914 Episode Num: 948 Episode T: 1000 Reward: 2710.628
+Total T: 823914 Episode Num: 949 Episode T: 1000 Reward: 2718.259
+Total T: 824914 Episode Num: 950 Episode T: 1000 Reward: 2760.490
+---------------------------------------
+Evaluation over 10 episodes: 2915.755
+---------------------------------------
+Total T: 825914 Episode Num: 951 Episode T: 1000 Reward: 2661.294
+Total T: 826914 Episode Num: 952 Episode T: 1000 Reward: 2646.237
+Total T: 827914 Episode Num: 953 Episode T: 1000 Reward: 2749.887
+Total T: 828914 Episode Num: 954 Episode T: 1000 Reward: 2737.615
+Total T: 829914 Episode Num: 955 Episode T: 1000 Reward: 2770.230
+---------------------------------------
+Evaluation over 10 episodes: 2826.195
+---------------------------------------
+Total T: 830914 Episode Num: 956 Episode T: 1000 Reward: 2771.133
+Total T: 831914 Episode Num: 957 Episode T: 1000 Reward: 2749.949
+Total T: 832914 Episode Num: 958 Episode T: 1000 Reward: 2588.873
+Total T: 833914 Episode Num: 959 Episode T: 1000 Reward: 2752.359
+Total T: 834914 Episode Num: 960 Episode T: 1000 Reward: 2753.203
+---------------------------------------
+Evaluation over 10 episodes: 2877.667
+---------------------------------------
+Total T: 835914 Episode Num: 961 Episode T: 1000 Reward: 2728.575
+Total T: 836914 Episode Num: 962 Episode T: 1000 Reward: 2655.834
+Total T: 837914 Episode Num: 963 Episode T: 1000 Reward: 2748.136
+Total T: 838914 Episode Num: 964 Episode T: 1000 Reward: 2733.332
+Total T: 839914 Episode Num: 965 Episode T: 1000 Reward: 2669.806
+---------------------------------------
+Evaluation over 10 episodes: 2931.251
+---------------------------------------
+Total T: 840914 Episode Num: 966 Episode T: 1000 Reward: 2687.383
+Total T: 841914 Episode Num: 967 Episode T: 1000 Reward: 2733.005
+Total T: 842914 Episode Num: 968 Episode T: 1000 Reward: 2803.094
+Total T: 843914 Episode Num: 969 Episode T: 1000 Reward: 2755.429
+Total T: 844914 Episode Num: 970 Episode T: 1000 Reward: 2679.258
+---------------------------------------
+Evaluation over 10 episodes: 2932.799
+---------------------------------------
+Total T: 845914 Episode Num: 971 Episode T: 1000 Reward: 2780.662
+Total T: 846914 Episode Num: 972 Episode T: 1000 Reward: 2790.837
+Total T: 847914 Episode Num: 973 Episode T: 1000 Reward: 2797.659
+Total T: 848914 Episode Num: 974 Episode T: 1000 Reward: 2756.230
+Total T: 849914 Episode Num: 975 Episode T: 1000 Reward: 2683.915
+---------------------------------------
+Evaluation over 10 episodes: 3011.459
+---------------------------------------
+Total T: 850914 Episode Num: 976 Episode T: 1000 Reward: 2804.173
+Total T: 851914 Episode Num: 977 Episode T: 1000 Reward: 2701.320
+Total T: 852914 Episode Num: 978 Episode T: 1000 Reward: 2703.555
+Total T: 853914 Episode Num: 979 Episode T: 1000 Reward: 2888.821
+Total T: 854914 Episode Num: 980 Episode T: 1000 Reward: 2712.599
+---------------------------------------
+Evaluation over 10 episodes: 2917.295
+---------------------------------------
+Total T: 855140 Episode Num: 981 Episode T: 226 Reward: 592.989
+Total T: 856140 Episode Num: 982 Episode T: 1000 Reward: 2731.107
+Total T: 857140 Episode Num: 983 Episode T: 1000 Reward: 2766.726
+Total T: 858140 Episode Num: 984 Episode T: 1000 Reward: 2770.069
+Total T: 859140 Episode Num: 985 Episode T: 1000 Reward: 2810.356
+---------------------------------------
+Evaluation over 10 episodes: 3007.566
+---------------------------------------
+Total T: 860140 Episode Num: 986 Episode T: 1000 Reward: 2761.939
+Total T: 861140 Episode Num: 987 Episode T: 1000 Reward: 2706.152
+Total T: 862140 Episode Num: 988 Episode T: 1000 Reward: 2852.814
+Total T: 863140 Episode Num: 989 Episode T: 1000 Reward: 2733.697
+Total T: 863722 Episode Num: 990 Episode T: 582 Reward: 1630.417
+Total T: 864722 Episode Num: 991 Episode T: 1000 Reward: 2785.346
+---------------------------------------
+Evaluation over 10 episodes: 2986.880
+---------------------------------------
+Total T: 865722 Episode Num: 992 Episode T: 1000 Reward: 2859.628
+Total T: 866722 Episode Num: 993 Episode T: 1000 Reward: 2752.127
+Total T: 867722 Episode Num: 994 Episode T: 1000 Reward: 2861.349
+Total T: 868722 Episode Num: 995 Episode T: 1000 Reward: 2795.723
+Total T: 869722 Episode Num: 996 Episode T: 1000 Reward: 2755.966
+---------------------------------------
+Evaluation over 10 episodes: 2878.692
+---------------------------------------
+Total T: 870722 Episode Num: 997 Episode T: 1000 Reward: 2841.617
+Total T: 871722 Episode Num: 998 Episode T: 1000 Reward: 2718.876
+Total T: 872722 Episode Num: 999 Episode T: 1000 Reward: 2803.769
+Total T: 873355 Episode Num: 1000 Episode T: 633 Reward: 1691.840
+Total T: 874355 Episode Num: 1001 Episode T: 1000 Reward: 2837.346
+---------------------------------------
+Evaluation over 10 episodes: 3071.604
+---------------------------------------
+Total T: 875355 Episode Num: 1002 Episode T: 1000 Reward: 2788.461
+Total T: 876355 Episode Num: 1003 Episode T: 1000 Reward: 2791.787
+Total T: 877355 Episode Num: 1004 Episode T: 1000 Reward: 2774.892
+Total T: 878355 Episode Num: 1005 Episode T: 1000 Reward: 2803.078
+Total T: 879355 Episode Num: 1006 Episode T: 1000 Reward: 2763.952
+Total T: 879406 Episode Num: 1007 Episode T: 51 Reward: 88.351
+---------------------------------------
+Evaluation over 10 episodes: 2927.333
+---------------------------------------
+Total T: 880406 Episode Num: 1008 Episode T: 1000 Reward: 2829.006
+Total T: 881406 Episode Num: 1009 Episode T: 1000 Reward: 2839.699
+Total T: 882406 Episode Num: 1010 Episode T: 1000 Reward: 2779.559
+Total T: 883406 Episode Num: 1011 Episode T: 1000 Reward: 2797.590
+Total T: 884020 Episode Num: 1012 Episode T: 614 Reward: 1792.117
+---------------------------------------
+Evaluation over 10 episodes: 2810.905
+---------------------------------------
+Total T: 885020 Episode Num: 1013 Episode T: 1000 Reward: 2823.080
+Total T: 886020 Episode Num: 1014 Episode T: 1000 Reward: 2781.170
+Total T: 887020 Episode Num: 1015 Episode T: 1000 Reward: 2863.314
+Total T: 888020 Episode Num: 1016 Episode T: 1000 Reward: 2779.842
+Total T: 889020 Episode Num: 1017 Episode T: 1000 Reward: 2783.844
+---------------------------------------
+Evaluation over 10 episodes: 2993.439
+---------------------------------------
+Total T: 890020 Episode Num: 1018 Episode T: 1000 Reward: 2851.780
+Total T: 891020 Episode Num: 1019 Episode T: 1000 Reward: 2842.663
+Total T: 892020 Episode Num: 1020 Episode T: 1000 Reward: 2846.593
+Total T: 893020 Episode Num: 1021 Episode T: 1000 Reward: 2832.560
+Total T: 894020 Episode Num: 1022 Episode T: 1000 Reward: 2800.998
+---------------------------------------
+Evaluation over 10 episodes: 3042.475
+---------------------------------------
+Total T: 895020 Episode Num: 1023 Episode T: 1000 Reward: 2768.171
+Total T: 896020 Episode Num: 1024 Episode T: 1000 Reward: 2871.437
+Total T: 897020 Episode Num: 1025 Episode T: 1000 Reward: 2863.524
+Total T: 898020 Episode Num: 1026 Episode T: 1000 Reward: 2863.322
+Total T: 899020 Episode Num: 1027 Episode T: 1000 Reward: 2885.904
+---------------------------------------
+Evaluation over 10 episodes: 3035.174
+---------------------------------------
+Total T: 900020 Episode Num: 1028 Episode T: 1000 Reward: 2894.289
+Total T: 901020 Episode Num: 1029 Episode T: 1000 Reward: 2815.758
+Total T: 902020 Episode Num: 1030 Episode T: 1000 Reward: 2799.519
+Total T: 903020 Episode Num: 1031 Episode T: 1000 Reward: 2883.952
+Total T: 904020 Episode Num: 1032 Episode T: 1000 Reward: 2838.800
+---------------------------------------
+Evaluation over 10 episodes: 2970.119
+---------------------------------------
+Total T: 905020 Episode Num: 1033 Episode T: 1000 Reward: 2920.820
+Total T: 906020 Episode Num: 1034 Episode T: 1000 Reward: 2826.179
+Total T: 907020 Episode Num: 1035 Episode T: 1000 Reward: 2882.871
+Total T: 908020 Episode Num: 1036 Episode T: 1000 Reward: 2810.531
+Total T: 909020 Episode Num: 1037 Episode T: 1000 Reward: 2762.506
+---------------------------------------
+Evaluation over 10 episodes: 3063.267
+---------------------------------------
+Total T: 910020 Episode Num: 1038 Episode T: 1000 Reward: 2865.618
+Total T: 911020 Episode Num: 1039 Episode T: 1000 Reward: 2850.601
+Total T: 912020 Episode Num: 1040 Episode T: 1000 Reward: 2853.155
+Total T: 913020 Episode Num: 1041 Episode T: 1000 Reward: 2820.515
+Total T: 914020 Episode Num: 1042 Episode T: 1000 Reward: 2838.025
+---------------------------------------
+Evaluation over 10 episodes: 2713.749
+---------------------------------------
+Total T: 915020 Episode Num: 1043 Episode T: 1000 Reward: 2902.924
+Total T: 916020 Episode Num: 1044 Episode T: 1000 Reward: 2811.043
+Total T: 917020 Episode Num: 1045 Episode T: 1000 Reward: 2881.405
+Total T: 918020 Episode Num: 1046 Episode T: 1000 Reward: 2934.892
+Total T: 919020 Episode Num: 1047 Episode T: 1000 Reward: 2882.968
+---------------------------------------
+Evaluation over 10 episodes: 3094.674
+---------------------------------------
+Total T: 920020 Episode Num: 1048 Episode T: 1000 Reward: 2814.612
+Total T: 921020 Episode Num: 1049 Episode T: 1000 Reward: 2841.953
+Total T: 922020 Episode Num: 1050 Episode T: 1000 Reward: 2929.023
+Total T: 923020 Episode Num: 1051 Episode T: 1000 Reward: 2851.646
+Total T: 924020 Episode Num: 1052 Episode T: 1000 Reward: 2746.285
+---------------------------------------
+Evaluation over 10 episodes: 3021.328
+---------------------------------------
+Total T: 925020 Episode Num: 1053 Episode T: 1000 Reward: 2839.398
+Total T: 926020 Episode Num: 1054 Episode T: 1000 Reward: 2932.382
+Total T: 927020 Episode Num: 1055 Episode T: 1000 Reward: 2857.496
+Total T: 927420 Episode Num: 1056 Episode T: 400 Reward: 1043.416
+Total T: 928420 Episode Num: 1057 Episode T: 1000 Reward: 2907.580
+Total T: 929420 Episode Num: 1058 Episode T: 1000 Reward: 2878.734
+Total T: 929928 Episode Num: 1059 Episode T: 508 Reward: 1472.204
+---------------------------------------
+Evaluation over 10 episodes: 2470.877
+---------------------------------------
+Total T: 930928 Episode Num: 1060 Episode T: 1000 Reward: 2896.545
+Total T: 931532 Episode Num: 1061 Episode T: 604 Reward: 1694.163
+Total T: 932532 Episode Num: 1062 Episode T: 1000 Reward: 2869.445
+Total T: 933532 Episode Num: 1063 Episode T: 1000 Reward: 2944.109
+Total T: 934532 Episode Num: 1064 Episode T: 1000 Reward: 2841.907
+---------------------------------------
+Evaluation over 10 episodes: 2415.281
+---------------------------------------
+Total T: 935532 Episode Num: 1065 Episode T: 1000 Reward: 2835.782
+Total T: 936532 Episode Num: 1066 Episode T: 1000 Reward: 2871.686
+Total T: 937532 Episode Num: 1067 Episode T: 1000 Reward: 2890.250
+Total T: 938532 Episode Num: 1068 Episode T: 1000 Reward: 2816.713
+Total T: 939532 Episode Num: 1069 Episode T: 1000 Reward: 2794.497
+---------------------------------------
+Evaluation over 10 episodes: 3054.262
+---------------------------------------
+Total T: 940532 Episode Num: 1070 Episode T: 1000 Reward: 2870.103
+Total T: 941532 Episode Num: 1071 Episode T: 1000 Reward: 2911.043
+Total T: 942532 Episode Num: 1072 Episode T: 1000 Reward: 2773.471
+Total T: 943532 Episode Num: 1073 Episode T: 1000 Reward: 2942.478
+Total T: 944241 Episode Num: 1074 Episode T: 709 Reward: 2045.952
+---------------------------------------
+Evaluation over 10 episodes: 3034.481
+---------------------------------------
+Total T: 945241 Episode Num: 1075 Episode T: 1000 Reward: 2859.122
+Total T: 946241 Episode Num: 1076 Episode T: 1000 Reward: 2896.348
+Total T: 946448 Episode Num: 1077 Episode T: 207 Reward: 567.596
+Total T: 947448 Episode Num: 1078 Episode T: 1000 Reward: 2756.499
+Total T: 948448 Episode Num: 1079 Episode T: 1000 Reward: 2883.893
+Total T: 949448 Episode Num: 1080 Episode T: 1000 Reward: 2830.046
+---------------------------------------
+Evaluation over 10 episodes: 3016.860
+---------------------------------------
+Total T: 950448 Episode Num: 1081 Episode T: 1000 Reward: 2898.901
+Total T: 951448 Episode Num: 1082 Episode T: 1000 Reward: 2895.675
+Total T: 952448 Episode Num: 1083 Episode T: 1000 Reward: 2919.172
+Total T: 953448 Episode Num: 1084 Episode T: 1000 Reward: 2880.262
+Total T: 954448 Episode Num: 1085 Episode T: 1000 Reward: 2781.287
+---------------------------------------
+Evaluation over 10 episodes: 3067.616
+---------------------------------------
+Total T: 955448 Episode Num: 1086 Episode T: 1000 Reward: 2914.237
+Total T: 956448 Episode Num: 1087 Episode T: 1000 Reward: 2826.017
+Total T: 957448 Episode Num: 1088 Episode T: 1000 Reward: 2889.652
+Total T: 958283 Episode Num: 1089 Episode T: 835 Reward: 2397.613
+Total T: 959283 Episode Num: 1090 Episode T: 1000 Reward: 2867.955
+---------------------------------------
+Evaluation over 10 episodes: 3061.949
+---------------------------------------
+Total T: 960283 Episode Num: 1091 Episode T: 1000 Reward: 2866.365
+Total T: 961283 Episode Num: 1092 Episode T: 1000 Reward: 2817.659
+Total T: 962283 Episode Num: 1093 Episode T: 1000 Reward: 2837.770
+Total T: 963283 Episode Num: 1094 Episode T: 1000 Reward: 2929.075
+Total T: 964283 Episode Num: 1095 Episode T: 1000 Reward: 2895.063
+---------------------------------------
+Evaluation over 10 episodes: 3129.780
+---------------------------------------
+Total T: 965283 Episode Num: 1096 Episode T: 1000 Reward: 2813.435
+Total T: 966283 Episode Num: 1097 Episode T: 1000 Reward: 2871.663
+Total T: 967283 Episode Num: 1098 Episode T: 1000 Reward: 2782.087
+Total T: 968283 Episode Num: 1099 Episode T: 1000 Reward: 2948.894
+Total T: 969283 Episode Num: 1100 Episode T: 1000 Reward: 2781.745
+---------------------------------------
+Evaluation over 10 episodes: 3048.573
+---------------------------------------
+Total T: 970283 Episode Num: 1101 Episode T: 1000 Reward: 2863.314
+Total T: 971283 Episode Num: 1102 Episode T: 1000 Reward: 2886.170
+Total T: 972283 Episode Num: 1103 Episode T: 1000 Reward: 2843.424
+Total T: 973283 Episode Num: 1104 Episode T: 1000 Reward: 2927.839
+Total T: 974283 Episode Num: 1105 Episode T: 1000 Reward: 2830.262
+---------------------------------------
+Evaluation over 10 episodes: 3065.037
+---------------------------------------
+Total T: 975283 Episode Num: 1106 Episode T: 1000 Reward: 2894.063
+Total T: 976283 Episode Num: 1107 Episode T: 1000 Reward: 2899.856
+Total T: 977283 Episode Num: 1108 Episode T: 1000 Reward: 2908.476
+Total T: 978268 Episode Num: 1109 Episode T: 985 Reward: 2876.039
+Total T: 979268 Episode Num: 1110 Episode T: 1000 Reward: 2895.721
+---------------------------------------
+Evaluation over 10 episodes: 3068.088
+---------------------------------------
+Total T: 980268 Episode Num: 1111 Episode T: 1000 Reward: 2871.028
+Total T: 981268 Episode Num: 1112 Episode T: 1000 Reward: 2935.378
+Total T: 982241 Episode Num: 1113 Episode T: 973 Reward: 2706.463
+Total T: 983027 Episode Num: 1114 Episode T: 786 Reward: 2246.030
+Total T: 984027 Episode Num: 1115 Episode T: 1000 Reward: 2938.416
+---------------------------------------
+Evaluation over 10 episodes: 3150.692
+---------------------------------------
+Total T: 985027 Episode Num: 1116 Episode T: 1000 Reward: 2913.277
+Total T: 986027 Episode Num: 1117 Episode T: 1000 Reward: 2948.684
+Total T: 987027 Episode Num: 1118 Episode T: 1000 Reward: 2925.339
+Total T: 988027 Episode Num: 1119 Episode T: 1000 Reward: 2877.137
+Total T: 989027 Episode Num: 1120 Episode T: 1000 Reward: 2847.773
+---------------------------------------
+Evaluation over 10 episodes: 3042.580
+---------------------------------------
+Total T: 990027 Episode Num: 1121 Episode T: 1000 Reward: 2945.453
+Total T: 991027 Episode Num: 1122 Episode T: 1000 Reward: 2870.984
+Total T: 991898 Episode Num: 1123 Episode T: 871 Reward: 2460.452
+Total T: 992898 Episode Num: 1124 Episode T: 1000 Reward: 2916.944
+Total T: 993652 Episode Num: 1125 Episode T: 754 Reward: 2218.557
+Total T: 994652 Episode Num: 1126 Episode T: 1000 Reward: 2890.299
+---------------------------------------
+Evaluation over 10 episodes: 3092.105
+---------------------------------------
+Total T: 995652 Episode Num: 1127 Episode T: 1000 Reward: 2908.757
+Total T: 996652 Episode Num: 1128 Episode T: 1000 Reward: 2810.373
+Total T: 997652 Episode Num: 1129 Episode T: 1000 Reward: 2831.307
+Total T: 998652 Episode Num: 1130 Episode T: 1000 Reward: 3002.669
+Total T: 999652 Episode Num: 1131 Episode T: 1000 Reward: 2898.370
+---------------------------------------
+Evaluation over 10 episodes: 3129.853
+---------------------------------------
+Total T: 1000652 Episode Num: 1132 Episode T: 1000 Reward: 2877.188
+Total T: 1001652 Episode Num: 1133 Episode T: 1000 Reward: 2940.924
+Total T: 1002652 Episode Num: 1134 Episode T: 1000 Reward: 2888.316
+Total T: 1003652 Episode Num: 1135 Episode T: 1000 Reward: 2826.622
+Total T: 1004652 Episode Num: 1136 Episode T: 1000 Reward: 2933.483
+---------------------------------------
+Evaluation over 10 episodes: 3041.620
+---------------------------------------
+Total T: 1005398 Episode Num: 1137 Episode T: 746 Reward: 2082.820
+Total T: 1006398 Episode Num: 1138 Episode T: 1000 Reward: 2930.537
+Total T: 1007398 Episode Num: 1139 Episode T: 1000 Reward: 2862.805
+Total T: 1008398 Episode Num: 1140 Episode T: 1000 Reward: 2851.817
+Total T: 1009398 Episode Num: 1141 Episode T: 1000 Reward: 2834.466
+---------------------------------------
+Evaluation over 10 episodes: 3049.806
+---------------------------------------
+Total T: 1010398 Episode Num: 1142 Episode T: 1000 Reward: 2940.368
+Total T: 1011263 Episode Num: 1143 Episode T: 865 Reward: 2509.819
+Total T: 1012263 Episode Num: 1144 Episode T: 1000 Reward: 2898.180
+Total T: 1013263 Episode Num: 1145 Episode T: 1000 Reward: 2919.855
+Total T: 1014203 Episode Num: 1146 Episode T: 940 Reward: 2771.323
+Total T: 1014456 Episode Num: 1147 Episode T: 253 Reward: 679.459
+---------------------------------------
+Evaluation over 10 episodes: 2813.890
+---------------------------------------
+Total T: 1015456 Episode Num: 1148 Episode T: 1000 Reward: 2861.425
+Total T: 1016456 Episode Num: 1149 Episode T: 1000 Reward: 2852.915
+Total T: 1017456 Episode Num: 1150 Episode T: 1000 Reward: 2904.675
+Total T: 1018287 Episode Num: 1151 Episode T: 831 Reward: 2470.026
+Total T: 1019287 Episode Num: 1152 Episode T: 1000 Reward: 2870.840
+---------------------------------------
+Evaluation over 10 episodes: 3152.998
+---------------------------------------
+Total T: 1020287 Episode Num: 1153 Episode T: 1000 Reward: 2825.649
+Total T: 1021287 Episode Num: 1154 Episode T: 1000 Reward: 2967.426
+Total T: 1021664 Episode Num: 1155 Episode T: 377 Reward: 1100.826
+Total T: 1022664 Episode Num: 1156 Episode T: 1000 Reward: 2946.912
+Total T: 1023664 Episode Num: 1157 Episode T: 1000 Reward: 2892.727
+Total T: 1024664 Episode Num: 1158 Episode T: 1000 Reward: 2839.351
+---------------------------------------
+Evaluation over 10 episodes: 3016.136
+---------------------------------------
