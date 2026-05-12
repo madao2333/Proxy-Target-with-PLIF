@@ -64,6 +64,8 @@
 
 - Proxy Target 用于缓解 SNN 离散脉冲输出与连续动作控制之间的差距。
 - 说明 actor、critic、proxy target 的更新关系。
+- 在 proxy target 更新阶段，SNN actor 的输出作为监督信号，proxy target ANN 通过 MSE 拟合该动作输出。
+- 对 actor 输出使用 `torch.no_grad()` 或 `detach()`，使 proxy loss 只反向传播到 proxy target ANN，避免对 SNN actor 进行无效的 STBP 反向计算。
 - 本文实验基于 Proxy Target + TD3 框架展开。
 
 ## 3. PLIF 脉冲 Actor 设计
@@ -99,7 +101,10 @@ volt = volt * learnable_tau * (1 - spike) + current
 ### 3.4 训练流程
 
 - 环境交互并存入 replay buffer。
-- 更新 proxy target。
+- 更新 proxy target：
+  - 使用当前 SNN actor 生成动作标签。
+  - 将 actor 输出从计算图中分离，作为固定监督目标。
+  - 使用 MSE 损失只更新 proxy target ANN。
 - 更新 critic。
 - 延迟更新 spiking actor。
 - 对 PLIF actor，tau 参数与普通 actor 权重使用不同学习率。
@@ -204,6 +209,13 @@ volt = volt * learnable_tau * (1 - spike) + current
 - 打印和绘制 PLIF tau 参数梯度。
 - 比较不同任务中梯度是否更稳定。
 - 分析 PLIF 是否改善梯度消失、梯度过小或脉冲发放过稀疏的问题。
+
+### 5.7 训练效率与梯度隔离分析
+
+- 说明 proxy target 更新中的 actor 输出只承担监督标签作用，不需要对 actor 反向传播。
+- 分析若不使用 `detach` 或 `torch.no_grad()`，每个 proxy iteration 都会额外触发一次 SNN actor 的 STBP 反向传播。
+- 结合 `proxy_iters` 和 `policy_freq` 说明额外开销会随 proxy target 更新次数放大。
+- 强调该设计不改变 proxy target 的优化目标，只减少无效梯度计算和显存占用。
 
 ## 6. 讨论
 
