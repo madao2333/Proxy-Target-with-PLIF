@@ -1,0 +1,23 @@
+batch_id=20260513_215542
+python_bin=python
+log_dir=logs
+log_group_dir=logs/log_groups/PT_PLIF_POLICY_FREQ
+trace_dir=logs/stbp_trace
+gpu_id=1
+max_parallel_jobs=5
+run_label=PT_PLIF_POLICY_FREQ_20260513_215542
+env=Hopper-v4
+seed=10991
+repeats=5
+proxy=Yes
+spiking_neurons=PLIF
+trace_stbp=Yes
+trace_stbp_freq=main.py default
+view_snn_actor_params=Yes
+view_snn_actor_params_freq=main.py default
+test_axis=policy_freq_only
+proxy_lr=1e-3
+policy_freq=4
+comparison_fail_defaults=proxy_lr=1e-3 policy_freq=2
+comparison_success_both_changed=proxy_lr=5e-4 policy_freq=4
+other_training_hyperparameters=main.py defaults
