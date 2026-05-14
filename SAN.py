@@ -33,8 +33,10 @@ class PLIFNode(nn.Module):
 		self.w = nn.Parameter(torch.tensor(init_w, dtype=torch.float))
 
 	def forward(self, current, volt, spike):
-		volt = volt * self.w.sigmoid() * (1.0 - spike) + current
+		volt = volt * self.tau_tensor() * (1.0 - spike) + current
 		return volt
+	def tau_tensor(self):
+		return self.w.sigmoid()
 	def tau(self):
 		return self.w.data.sigmoid().item()
 
@@ -176,7 +178,7 @@ class SpikeMLP(nn.Module):
         # One PLIF node per hidden layer and one for output population layer.
         self.plifnodes = nn.ModuleList([PLIFNode() for _ in range(self.hidden_num + 1)])
         self.trace_stbp = False
-        self.stbp_trace_records = []
+        self.stbp_trace_records: Dict[Tuple[str, int], Dict[str, object]] = {}
         self.stbp_trace_context: Dict[str, object] = {}
 
     def spike_fn(self, input_tensor: torch.Tensor) -> torch.Tensor:
@@ -184,13 +186,16 @@ class SpikeMLP(nn.Module):
 
     def begin_stbp_trace(self, context: Optional[Dict[str, object]] = None):
         self.trace_stbp = True
-        self.stbp_trace_records = []
+        self.stbp_trace_records = {}
         self.stbp_trace_context = context if context is not None else {}
 
     def end_stbp_trace(self):
         self.trace_stbp = False
-        records = self.stbp_trace_records
-        self.stbp_trace_records = []
+        records = [
+            self.stbp_trace_records[key]
+            for key in sorted(self.stbp_trace_records.keys(), key=lambda item: (item[1], item[0]))
+        ]
+        self.stbp_trace_records = {}
         self.stbp_trace_context = {}
         return records
 
@@ -199,9 +204,22 @@ class SpikeMLP(nn.Module):
         tensor = tensor.detach()
         return {
             f"{prefix}_l2": tensor.norm().item(),
+            f"{prefix}_mean": tensor.mean().item(),
             f"{prefix}_abs_mean": tensor.abs().mean().item(),
             f"{prefix}_abs_max": tensor.abs().max().item(),
         }
+
+    def _trace_record(self, layer_name, step):
+        key = (layer_name, step)
+        if key not in self.stbp_trace_records:
+            record = dict(self.stbp_trace_context)
+            record.update({
+                "neuron": self.neurons,
+                "layer": layer_name,
+                "step": step,
+            })
+            self.stbp_trace_records[key] = record
+        return self.stbp_trace_records[key]
 
     def _maybe_trace_current(self, current, pre_layer_output, volt, spike, layer_name, step):
         if not self.trace_stbp or layer_name is None or step is None or not current.requires_grad:
@@ -211,6 +229,7 @@ class SpikeMLP(nn.Module):
         forward_stats = {
             "pre_spike_rate": pre_spike.float().mean().item(),
             "post_spike_rate": spike.detach().float().mean().item(),
+            "current_mean": current.detach().mean().item(),
             "current_abs_mean": current.detach().abs().mean().item(),
             "current_abs_max": current.detach().abs().max().item(),
             "volt_mean": volt.detach().mean().item(),
@@ -221,20 +240,37 @@ class SpikeMLP(nn.Module):
             grad = grad.detach()
             grad_w_t = grad.transpose(0, 1).matmul(pre_spike)
             grad_b_t = grad.sum(dim=0)
-            record = dict(self.stbp_trace_context)
+            record = self._trace_record(layer_name, step)
             record.update({
-                "neuron": self.neurons,
-                "layer": layer_name,
-                "step": step,
                 "batch_size": grad.shape[0],
                 **forward_stats,
                 **self._tensor_stats("current_grad", grad),
                 **self._tensor_stats("weight_grad_t", grad_w_t),
                 **self._tensor_stats("bias_grad_t", grad_b_t),
             })
-            self.stbp_trace_records.append(record)
 
         current.register_hook(record_current_grad)
+
+    def _maybe_trace_plif_tau(self, tau, plifnode, layer_name, step):
+        if not self.trace_stbp or layer_name is None or step is None or not tau.requires_grad:
+            return
+
+        tau_value = tau.detach().item()
+        w_value = plifnode.w.detach().item()
+        record = self._trace_record(layer_name, step)
+        record.update({
+            "plif_tau": tau_value,
+            "plif_w": w_value,
+        })
+
+        def record_tau_grad(grad):
+            tau_grad = grad.detach().item()
+            record.update({
+                "plif_tau_grad_t": tau_grad,
+                "plif_w_grad_t": tau_grad * tau_value * (1.0 - tau_value),
+            })
+
+        tau.register_hook(record_tau_grad)
 
     def neuron_model(self, syn_func, pre_layer_output, current, volt, spike, plifnode: Optional[PLIFNode] = None,
                      layer_name: Optional[str] = None, step: Optional[int] = None) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
@@ -261,7 +297,9 @@ class SpikeMLP(nn.Module):
             if plifnode is None:
                 raise ValueError('plifnode is required when neurons == "PLIF"')
             current = syn_func(pre_layer_output)
-            volt = plifnode(current, volt, spike)
+            tau = plifnode.tau_tensor()
+            self._maybe_trace_plif_tau(tau, plifnode, layer_name, step)
+            volt = volt * tau * (1.0 - spike) + current
             spike = self.spike_fn(volt)
             self._maybe_trace_current(current, pre_layer_output, volt, spike, layer_name, step)
         else:

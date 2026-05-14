@@ -37,15 +37,20 @@ if __name__ == "__main__":
     parser.add_argument("--run_label", default="")  # Optional prefix for saved results/models
     parser.add_argument("--trace_stbp", default="No")  # Whether to trace timestep-level STBP current gradients
     parser.add_argument("--trace_stbp_freq", default=100, type=int)  # Actor updates between STBP trace records
+    parser.add_argument("--view_snn_actor_params", default="No")  # Whether to print SNN actor parameter summaries
+    parser.add_argument("--view_snn_actor_params_freq", default=100, type=int)  # Actor updates between SNN actor parameter summaries
     args = parser.parse_known_args()[0]
 
 
     file_prefix = args.run_label if args.run_label else args.spiking_neurons
     file_name = f"{file_prefix}_{args.env}_{args.seed}"
+    stbp_trace_path = f"./logs/stbp_trace/{file_name}.csv"
     print("---------------------------------------")
     print(f"Policy: {args.spiking_neurons}, Env: {args.env}, Seed: {args.seed}")
     if args.trace_stbp == "Yes":
-        print(f"STBP trace: logs/stbp_trace/stbp_trace.csv, every {args.trace_stbp_freq} actor update(s)")
+        print(f"STBP trace: {stbp_trace_path}, every {args.trace_stbp_freq} actor update(s)")
+    if args.view_snn_actor_params == "Yes":
+        print(f"SNN actor parameter summary: every {args.view_snn_actor_params_freq} actor update(s)")
     print("---------------------------------------")
 
     if not os.path.exists("./results"):
@@ -79,6 +84,9 @@ if __name__ == "__main__":
         "plif_lr": args.plif_lr,
         "trace_stbp": args.trace_stbp,
         "trace_stbp_freq": args.trace_stbp_freq,
+        "trace_stbp_path": stbp_trace_path,
+        "view_snn_actor_params": args.view_snn_actor_params,
+        "view_snn_actor_params_freq": args.view_snn_actor_params_freq,
     }
 
 

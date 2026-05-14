@@ -1,0 +1,17 @@
+batch_id=20260512_195403
+python_bin=python
+log_dir=logs
+log_group_dir=logs/log_groups/PT_LIF_STBP_FAIL
+trace_dir=logs/stbp_trace
+trace_file=logs/stbp_trace/PT_LIF_STBP_FAIL_20260512_195403_Walker2d-v4_22297.csv
+gpu_id=2
+run_label=PT_LIF_STBP_FAIL_20260512_195403
+env=Walker2d-v4
+seed=22297
+proxy=Yes
+spiking_neurons=LIF
+trace_stbp=Yes
+trace_stbp_freq=100
+start_timesteps=25000
+proxy_lr=1e-3
+policy_freq=2

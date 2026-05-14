@@ -27,36 +27,53 @@ STBP_TRACE_COLUMNS = [
     "batch_size",
     "pre_spike_rate",
     "post_spike_rate",
+    "current_mean",
     "current_abs_mean",
     "current_abs_max",
     "volt_mean",
     "volt_std",
     "current_grad_l2",
+    "current_grad_mean",
     "current_grad_abs_mean",
     "current_grad_abs_max",
     "weight_grad_t_l2",
+    "weight_grad_t_mean",
     "weight_grad_t_abs_mean",
     "weight_grad_t_abs_max",
     "bias_grad_t_l2",
+    "bias_grad_t_mean",
     "bias_grad_t_abs_mean",
     "bias_grad_t_abs_max",
     "param_weight_grad_l2",
+    "param_weight_grad_mean",
     "param_weight_grad_abs_mean",
     "param_weight_grad_abs_max",
     "param_bias_grad_l2",
+    "param_bias_grad_mean",
     "param_bias_grad_abs_mean",
     "param_bias_grad_abs_max",
+    "plif_tau",
+    "plif_tau_grad_t",
+    "plif_w",
+    "plif_w_grad_t",
+    "param_plif_w_grad",
 ]
 
 
 class STBPTraceMixin:
-    def _init_stbp_trace(self, trace_stbp="No", trace_stbp_freq=100):
+    def _init_stbp_trace(self, trace_stbp="No", trace_stbp_freq=100, trace_stbp_path=None):
         self.trace_stbp = trace_stbp == "Yes"
         self.trace_stbp_freq = max(1, int(trace_stbp_freq))
-        self.trace_stbp_path = os.path.join("logs", "stbp_trace", "stbp_trace.csv")
+        self.trace_stbp_path = trace_stbp_path or os.path.join("logs", "stbp_trace", "stbp_trace.csv")
         self.actor_update_it = 0
         if self.trace_stbp:
-            os.makedirs(os.path.dirname(self.trace_stbp_path), exist_ok=True)
+            trace_dir = os.path.dirname(self.trace_stbp_path)
+            if trace_dir:
+                os.makedirs(trace_dir, exist_ok=True)
+
+    def _init_snn_actor_param_view(self, view_snn_actor_params="No", view_snn_actor_params_freq=100):
+        self.view_snn_actor_params = view_snn_actor_params == "Yes"
+        self.view_snn_actor_params_freq = max(1, int(view_snn_actor_params_freq))
 
     def _begin_stbp_trace(self):
         if not self.trace_stbp:
@@ -80,6 +97,7 @@ class STBPTraceMixin:
         grad = grad.detach()
         return {
             f"{prefix}_l2": grad.norm().item(),
+            f"{prefix}_mean": grad.mean().item(),
             f"{prefix}_abs_mean": grad.abs().mean().item(),
             f"{prefix}_abs_max": grad.abs().max().item(),
         }
@@ -97,6 +115,21 @@ class STBPTraceMixin:
         layers["output"] = self.actor.snn.out_pop_layer
         return layers
 
+    def _actor_plif_nodes(self):
+        if self.neurons != "PLIF":
+            return {}
+        if not isinstance(self.actor, SAN.SNN_Actor):
+            return {}
+        if not isinstance(self.actor.snn, SAN.SpikeMLP):
+            return {}
+
+        nodes = {
+            f"hidden{idx}": node
+            for idx, node in enumerate(self.actor.snn.plifnodes[:-1])
+        }
+        nodes["output"] = self.actor.snn.plifnodes[-1]
+        return nodes
+
     def _collect_param_grad_stats(self):
         stats_by_layer = {}
         for layer_name, layer in self._actor_snn_layers().items():
@@ -104,6 +137,10 @@ class STBPTraceMixin:
             layer_stats.update(self._grad_stats("param_weight_grad", layer.weight.grad))
             layer_stats.update(self._grad_stats("param_bias_grad", layer.bias.grad if layer.bias is not None else None))
             stats_by_layer[layer_name] = layer_stats
+        for layer_name, plifnode in self._actor_plif_nodes().items():
+            if plifnode.w.grad is not None:
+                layer_stats = stats_by_layer.setdefault(layer_name, {})
+                layer_stats["param_plif_w_grad"] = plifnode.w.grad.detach().item()
         return stats_by_layer
 
     def _finish_stbp_trace(self, trace_active, actor_loss):
@@ -128,6 +165,44 @@ class STBPTraceMixin:
             f"[stbp-trace] train_it={self.total_it} actor_update={self.actor_update_it} "
             f"rows={len(records)} file={self.trace_stbp_path}"
         )
+
+    @staticmethod
+    def _param_summary(param):
+        data = param.detach().float()
+        return {
+            "mean": data.mean().item(),
+            "std": data.std(unbiased=False).item(),
+            "min": data.min().item(),
+            "max": data.max().item(),
+            "l2_norm": data.norm().item(),
+        }
+
+    def _maybe_view_snn_actor_params(self):
+        if not self.view_snn_actor_params:
+            return
+        if self.actor_update_it % self.view_snn_actor_params_freq != 0:
+            return
+        if not isinstance(self.actor, SAN.SNN_Actor):
+            return
+
+        prefix = f"[snn-actor-params] train_it={self.total_it} actor_update={self.actor_update_it}"
+        print(prefix)
+        for name, param in self.actor.named_parameters():
+            stats = self._param_summary(param)
+            print(
+                f"{prefix} name={name} shape={tuple(param.shape)} "
+                f"requires_grad={param.requires_grad} "
+                f"mean={stats['mean']:.6e} std={stats['std']:.6e} "
+                f"min={stats['min']:.6e} max={stats['max']:.6e} "
+                f"l2_norm={stats['l2_norm']:.6e}"
+            )
+
+        if self.neurons == "PLIF" and isinstance(self.actor.snn, SAN.SpikeMLP):
+            tau_values = []
+            for idx, node in enumerate(self.actor.snn.plifnodes):
+                layer_name = "output" if idx == len(self.actor.snn.plifnodes) - 1 else f"hidden{idx}"
+                tau_values.append(f"{layer_name}: {node.tau():.6f}")
+            print(f"{prefix} plif_tau=[{', '.join(tau_values)}]")
 
 
 class Proxy_target(nn.Module):
@@ -192,6 +267,9 @@ class TD3(STBPTraceMixin):
             plif_lr=None,
             trace_stbp="No",
             trace_stbp_freq=100,
+            trace_stbp_path=None,
+            view_snn_actor_params="No",
+            view_snn_actor_params_freq=100,
             discount=0.99,
             tau=0.005,
             policy_noise=0.2,
@@ -233,7 +311,8 @@ class TD3(STBPTraceMixin):
         self.policy_freq = policy_freq
         self.neurons = spiking_neurons
         self.total_it = 0
-        self._init_stbp_trace(trace_stbp, trace_stbp_freq)
+        self._init_stbp_trace(trace_stbp, trace_stbp_freq, trace_stbp_path)
+        self._init_snn_actor_param_view(view_snn_actor_params, view_snn_actor_params_freq)
 
     def select_action(self, state):
         state = torch.FloatTensor(state.reshape(1, -1)).to(device)
@@ -281,6 +360,7 @@ class TD3(STBPTraceMixin):
             actor_loss.backward()
             self._finish_stbp_trace(trace_active, actor_loss)
             self.actor_optimizer.step()
+            self._maybe_view_snn_actor_params()
 
             # Update the frozen target models
             for param, target_param in zip(self.critic.parameters(), self.critic_target.parameters()):
@@ -322,6 +402,9 @@ class PT_TD3(STBPTraceMixin):
             plif_lr=None,
             trace_stbp="No",
             trace_stbp_freq=100,
+            trace_stbp_path=None,
+            view_snn_actor_params="No",
+            view_snn_actor_params_freq=100,
             discount=0.99,
             tau=0.005,
             policy_noise=0.2,
@@ -364,7 +447,8 @@ class PT_TD3(STBPTraceMixin):
         self.proxy_iters = proxy_iters
         self.neurons = spiking_neurons
         self.total_it = 0
-        self._init_stbp_trace(trace_stbp, trace_stbp_freq)
+        self._init_stbp_trace(trace_stbp, trace_stbp_freq, trace_stbp_path)
+        self._init_snn_actor_param_view(view_snn_actor_params, view_snn_actor_params_freq)
 
     def select_action(self, state):
         state = torch.FloatTensor(state.reshape(1, -1)).to(device)
@@ -423,6 +507,7 @@ class PT_TD3(STBPTraceMixin):
             actor_loss.backward()
             self._finish_stbp_trace(trace_active, actor_loss)
             self.actor_optimizer.step()
+            self._maybe_view_snn_actor_params()
 
             # Update the frozen target models
             for param, target_param in zip(self.critic.parameters(), self.critic_target.parameters()):
