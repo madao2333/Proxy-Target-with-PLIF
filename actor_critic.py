@@ -21,6 +21,7 @@ STBP_TRACE_COLUMNS = [
     "train_it",
     "actor_update",
     "actor_loss",
+    "action_grad_l2",
     "neuron",
     "layer",
     "step",
@@ -32,10 +33,14 @@ STBP_TRACE_COLUMNS = [
     "current_abs_max",
     "volt_mean",
     "volt_std",
+    "surrogate_window_rate",
+    "effective_retention_mean",
+    "retained_voltage_abs_mean",
     "current_grad_l2",
     "current_grad_mean",
     "current_grad_abs_mean",
     "current_grad_abs_max",
+    "current_grad_nonzero_rate",
     "weight_grad_t_l2",
     "weight_grad_t_mean",
     "weight_grad_t_abs_mean",
@@ -143,7 +148,17 @@ class STBPTraceMixin:
                 layer_stats["param_plif_w_grad"] = plifnode.w.grad.detach().item()
         return stats_by_layer
 
-    def _finish_stbp_trace(self, trace_active, actor_loss):
+    @staticmethod
+    def _register_action_grad_trace(trace_active, action):
+        grad_stats = {}
+        if trace_active and action.requires_grad:
+            def record_action_grad(grad):
+                grad_stats["action_grad_l2"] = grad.detach().norm().item()
+
+            action.register_hook(record_action_grad)
+        return grad_stats
+
+    def _finish_stbp_trace(self, trace_active, actor_loss, action_grad_l2=None):
         if not trace_active:
             return
         records = self.actor.end_stbp_trace()
@@ -159,6 +174,8 @@ class STBPTraceMixin:
             for record in records:
                 record = dict(record)
                 record["actor_loss"] = actor_loss_value
+                if action_grad_l2 is not None:
+                    record["action_grad_l2"] = action_grad_l2
                 record.update(param_grad_stats.get(record["layer"], {}))
                 writer.writerow({column: record.get(column, "") for column in STBP_TRACE_COLUMNS})
         print(
@@ -354,11 +371,13 @@ class TD3(STBPTraceMixin):
             # Compute actor losse
             self.actor_update_it += 1
             trace_active = self._begin_stbp_trace()
-            actor_loss = -self.critic.Q1(state, self.actor(state)).mean()
+            actor_action = self.actor(state)
+            action_grad_stats = self._register_action_grad_trace(trace_active, actor_action)
+            actor_loss = -self.critic.Q1(state, actor_action).mean()
             # Optimize the actor
             self.actor_optimizer.zero_grad()
             actor_loss.backward()
-            self._finish_stbp_trace(trace_active, actor_loss)
+            self._finish_stbp_trace(trace_active, actor_loss, action_grad_stats.get("action_grad_l2"))
             self.actor_optimizer.step()
             self._maybe_view_snn_actor_params()
 
@@ -501,11 +520,13 @@ class PT_TD3(STBPTraceMixin):
             # Compute actor losse
             self.actor_update_it += 1
             trace_active = self._begin_stbp_trace()
-            actor_loss = -self.critic.Q1(state, self.actor(state)).mean()
+            actor_action = self.actor(state)
+            action_grad_stats = self._register_action_grad_trace(trace_active, actor_action)
+            actor_loss = -self.critic.Q1(state, actor_action).mean()
             # Optimize the actor
             self.actor_optimizer.zero_grad()
             actor_loss.backward()
-            self._finish_stbp_trace(trace_active, actor_loss)
+            self._finish_stbp_trace(trace_active, actor_loss, action_grad_stats.get("action_grad_l2"))
             self.actor_optimizer.step()
             self._maybe_view_snn_actor_params()
 

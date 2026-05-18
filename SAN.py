@@ -221,7 +221,17 @@ class SpikeMLP(nn.Module):
             self.stbp_trace_records[key] = record
         return self.stbp_trace_records[key]
 
-    def _maybe_trace_current(self, current, pre_layer_output, volt, spike, layer_name, step):
+    def _maybe_trace_current(
+            self,
+            current,
+            pre_layer_output,
+            volt,
+            spike,
+            layer_name,
+            step,
+            effective_retention=None,
+            retained_voltage=None,
+    ):
         if not self.trace_stbp or layer_name is None or step is None or not current.requires_grad:
             return
 
@@ -234,7 +244,14 @@ class SpikeMLP(nn.Module):
             "current_abs_max": current.detach().abs().max().item(),
             "volt_mean": volt.detach().mean().item(),
             "volt_std": volt.detach().std(unbiased=False).item(),
+            "surrogate_window_rate": (
+                (volt.detach() - NEURON_VTH).abs() < SPIKE_PSEUDO_GRAD_WINDOW
+            ).float().mean().item(),
         }
+        if effective_retention is not None:
+            forward_stats["effective_retention_mean"] = effective_retention.detach().float().mean().item()
+        if retained_voltage is not None:
+            forward_stats["retained_voltage_abs_mean"] = retained_voltage.detach().abs().mean().item()
 
         def record_current_grad(grad):
             grad = grad.detach()
@@ -245,6 +262,7 @@ class SpikeMLP(nn.Module):
                 "batch_size": grad.shape[0],
                 **forward_stats,
                 **self._tensor_stats("current_grad", grad),
+                "current_grad_nonzero_rate": grad.ne(0).float().mean().item(),
                 **self._tensor_stats("weight_grad_t", grad_w_t),
                 **self._tensor_stats("bias_grad_t", grad_b_t),
             })
@@ -284,24 +302,45 @@ class SpikeMLP(nn.Module):
         :return: current, volt, spike
         """
         if self.neurons == 'LIF':
+            prev_volt = volt
+            prev_spike = spike
             current = syn_func(pre_layer_output)
-            volt = volt * NEURON_VDECAY * (1. - spike) + current
+            effective_retention = NEURON_VDECAY * (1. - prev_spike)
+            retained_voltage = prev_volt * effective_retention
+            volt = retained_voltage + current
             spike = self.spike_fn(volt)
-            self._maybe_trace_current(current, pre_layer_output, volt, spike, layer_name, step)
+            self._maybe_trace_current(
+                current, pre_layer_output, volt, spike, layer_name, step,
+                effective_retention, retained_voltage
+            )
         elif self.neurons == 'CLIF':
+            prev_volt = volt
+            prev_spike = spike
             current = current * NEURON_CDECAY + syn_func(pre_layer_output)
-            volt = volt * NEURON_VDECAY * (1. - spike) + current
+            effective_retention = NEURON_VDECAY * (1. - prev_spike)
+            retained_voltage = prev_volt * effective_retention
+            volt = retained_voltage + current
             spike = self.spike_fn(volt)
-            self._maybe_trace_current(current, pre_layer_output, volt, spike, layer_name, step)
+            self._maybe_trace_current(
+                current, pre_layer_output, volt, spike, layer_name, step,
+                effective_retention, retained_voltage
+            )
         elif self.neurons == "PLIF":
             if plifnode is None:
                 raise ValueError('plifnode is required when neurons == "PLIF"')
+            prev_volt = volt
+            prev_spike = spike
             current = syn_func(pre_layer_output)
             tau = plifnode.tau_tensor()
             self._maybe_trace_plif_tau(tau, plifnode, layer_name, step)
-            volt = volt * tau * (1.0 - spike) + current
+            effective_retention = tau * (1.0 - prev_spike)
+            retained_voltage = prev_volt * effective_retention
+            volt = retained_voltage + current
             spike = self.spike_fn(volt)
-            self._maybe_trace_current(current, pre_layer_output, volt, spike, layer_name, step)
+            self._maybe_trace_current(
+                current, pre_layer_output, volt, spike, layer_name, step,
+                effective_retention, retained_voltage
+            )
         else:
             raise ValueError('Neuron model can only be LIF, CLIF, PLIF, DN, and ANN')
         return current, volt, spike

@@ -1,0 +1,28 @@
+batch_id=20260516_105755
+python_bin=python
+log_dir=logs
+log_group_dir=logs/log_groups/PT_LIF_DEFAULT_ALL_ENVS
+trace_dir=logs/stbp_trace
+gpu_id=0
+max_parallel_jobs=15
+run_label=PT_LIF_DEFAULT_ALL_ENVS_20260516_105755
+seed_file=logs/lif_seeds.txt
+seed_count=3
+seeds=95718 22297 75183
+env_count=5
+total_experiments=15
+proxy=Yes
+spiking_neurons=LIF
+trace_stbp=Yes
+trace_stbp_freq=main.py default
+view_snn_actor_params=Yes
+view_snn_actor_params_freq=main.py default
+proxy_lr=1e-3
+policy_freq=main.py default
+other_training_hyperparameters=main.py defaults
+envs:
+Ant-v4
+HalfCheetah-v4
+Hopper-v4
+InvertedDoublePendulum-v4
+Walker2d-v4
