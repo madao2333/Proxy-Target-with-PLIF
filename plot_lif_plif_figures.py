@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parent
 LOG_DIR = ROOT / "logs"
 FIG_DIR = ROOT / "figures"
 
-os.environ.setdefault("MPLCONFIGDIR", "/tmp/matplotlib-chenjunwei")
+os.environ.setdefault("MPLCONFIGDIR", str(ROOT / ".matplotlib_cache"))
 
 import matplotlib
 
@@ -42,9 +42,9 @@ ALG_COLORS = {
     "PLIF": "#c44e52",
 }
 TAU_COLORS = {
-    "hidden h0": "#2f6db3",
-    "hidden h1": "#55a868",
-    "output": "#c44e52",
+    "第一隐藏层": "#2f6db3",
+    "第二隐藏层": "#55a868",
+    "动作输出层": "#c44e52",
 }
 
 EVAL_RE = re.compile(r"Evaluation over 10 episodes:\s*([-+]?\d+(?:\.\d+)?)")
@@ -58,8 +58,17 @@ def configure_style() -> None:
     plt.rcParams.update(
         {
             "figure.dpi": 140,
-            "savefig.dpi": 300,
-            "font.family": "DejaVu Sans",
+            "savefig.dpi": 600,
+            "font.family": "sans-serif",
+            "font.sans-serif": [
+                "Microsoft YaHei",
+                "SimHei",
+                "Noto Sans CJK SC",
+                "Source Han Sans SC",
+                "WenQuanYi Micro Hei",
+                "Arial Unicode MS",
+                "DejaVu Sans",
+            ],
             "font.size": 10,
             "axes.titlesize": 12,
             "axes.labelsize": 10,
@@ -72,12 +81,24 @@ def configure_style() -> None:
             "pdf.fonttype": 42,
             "ps.fonttype": 42,
             "svg.fonttype": "none",
+            "axes.unicode_minus": False,
         }
     )
 
 
 def read_side_by_side() -> dict[str, dict[int, dict[str, float]]]:
     path = LOG_DIR / "PT_LIF_vs_PT_PLIF_max_eval_side_by_side.tsv"
+    if not path.exists():
+        data: dict[str, dict[int, dict[str, float]]] = {}
+        for env in ENVS:
+            data[env] = {}
+            for seed in SEEDS:
+                data[env][seed] = {}
+                for algorithm in ("LIF", "PLIF"):
+                    evaluations, _ = parse_log(find_log(algorithm, env, seed))
+                    data[env][seed][algorithm] = max(evaluations)
+        return data
+
     data: dict[str, dict[int, dict[str, float]]] = {}
     with path.open("r", encoding="utf-8", newline="") as f:
         reader = csv.DictReader(f, delimiter="\t")
@@ -92,9 +113,16 @@ def read_side_by_side() -> dict[str, dict[int, dict[str, float]]]:
 
 
 def find_log(algorithm: str, env: str, seed: int) -> Path:
-    matches = sorted(LOG_DIR.glob(f"PT_{algorithm}_{env}_seed{seed}_gpu*.log"))
+    patterns = [
+        LOG_DIR / "log_groups" / f"PT_{algorithm}" / f"PT_{algorithm}_{env}_seed{seed}_gpu*.log",
+        LOG_DIR / f"PT_{algorithm}_{env}_seed{seed}_gpu*.log",
+    ]
+    matches = sorted(path for pattern in patterns for path in pattern.parent.glob(pattern.name))
     if not matches:
         raise FileNotFoundError(f"No log found for {algorithm} {env} seed {seed}")
+    if len(matches) > 1:
+        names = "\n".join(str(path.relative_to(ROOT)) for path in matches)
+        raise RuntimeError(f"Multiple logs found for {algorithm} {env} seed {seed}:\n{names}")
     return matches[0]
 
 
@@ -211,8 +239,8 @@ def plot_max_eval(data: dict[str, dict[int, dict[str, float]]]) -> list[Path]:
                 zorder=3,
             )
 
-    ax.set_title("Max Evaluation: LIF vs PLIF")
-    ax.set_ylabel("Max eval reward")
+    ax.set_title("LIF 与 PLIF 最大评估回报对比")
+    ax.set_ylabel("最大评估回报")
     ax.set_xticks(x)
     ax.set_xticklabels([ENV_LABELS[env] for env in ENVS], rotation=15, ha="right")
     ax.legend(ncol=2, loc="upper left")
@@ -242,13 +270,13 @@ def plot_learning_curves(curves: dict[str, dict[str, dict[int, list[float]]]]) -
                 linewidth=0,
             )
         ax.set_title(ENV_LABELS[env])
-        ax.set_xlabel("Env steps (M)")
-        ax.set_ylabel("Eval reward")
+        ax.set_xlabel("环境交互步数（百万）")
+        ax.set_ylabel("评估回报")
 
     axes_flat[-1].axis("off")
     handles, labels = axes_flat[0].get_legend_handles_labels()
     fig.legend(handles, labels, loc="lower center", ncol=2)
-    fig.suptitle("Learning Curves: LIF vs PLIF", y=0.995, fontsize=15, fontweight="bold")
+    fig.suptitle("LIF 与 PLIF 平均学习曲线", y=0.995, fontsize=15, fontweight="bold")
     fig.tight_layout(rect=(0, 0.04, 1, 0.97))
     return save_all(fig, "lif_plif_learning_curves")
 
@@ -256,7 +284,7 @@ def plot_learning_curves(curves: dict[str, dict[str, dict[int, list[float]]]]) -
 def plot_tau_curves(tau_data: dict[str, dict[int, list[tuple[float, float, float]]]]) -> list[Path]:
     fig, axes = plt.subplots(3, 2, figsize=(12.4, 11.2), sharex=False)
     axes_flat = axes.ravel()
-    layers = [("hidden h0", 0), ("hidden h1", 1), ("output", 2)]
+    layers = [("第一隐藏层", 0), ("第二隐藏层", 1), ("动作输出层", 2)]
 
     for ax, env in zip(axes_flat, ENVS):
         seed_taus = [tau_data[env][seed] for seed in SEEDS]
@@ -274,16 +302,16 @@ def plot_tau_curves(tau_data: dict[str, dict[int, list[tuple[float, float, float
                 alpha=0.10,
                 linewidth=0,
             )
-        ax.axhline(0.75, color="#666666", linestyle=":", linewidth=1.1, label="LIF fixed tau")
+        ax.axhline(0.75, color="#666666", linestyle=":", linewidth=1.1, label="LIF 固定时间常数")
         ax.set_ylim(0.45, 1.02)
         ax.set_title(ENV_LABELS[env])
-        ax.set_xlabel("Env steps (M)")
-        ax.set_ylabel("Tau")
+        ax.set_xlabel("环境交互步数（百万）")
+        ax.set_ylabel(r"时间常数 $\tau$")
 
     axes_flat[-1].axis("off")
     handles, labels = axes_flat[0].get_legend_handles_labels()
     fig.legend(handles, labels, loc="lower center", ncol=4)
-    fig.suptitle("PLIF Tau Curves", y=0.995, fontsize=15, fontweight="bold")
+    fig.suptitle("PLIF 时间常数演化曲线", y=0.995, fontsize=15, fontweight="bold")
     fig.tight_layout(rect=(0, 0.04, 1, 0.97))
     return save_all(fig, "plif_tau_curves")
 
@@ -297,14 +325,14 @@ def plot_walker2d_seed_curves(curves: dict[str, dict[str, dict[int, list[float]]
             values = np.asarray(curves[algorithm][env][seed], dtype=float)
             steps = np.arange(values.size) * EVAL_FREQ / 1_000_000
             ax.plot(steps, values, color=ALG_COLORS[algorithm], linewidth=1.8, label=algorithm)
-        ax.set_ylabel(f"seed {seed}\nreward")
+        ax.set_ylabel(f"随机种子 {seed}\n评估回报")
         ax.grid(True, alpha=0.25, linestyle="--")
 
-    axes[-1].set_xlabel("Env steps (M)")
+    axes[-1].set_xlabel("环境交互步数（百万）")
     handles, labels = axes[0].get_legend_handles_labels()
     fig.legend(handles, labels, loc="lower center", ncol=2)
     fig.suptitle(
-        "Walker2d Learning Curves by Seed",
+        "Walker2d-v4 不同随机种子的学习曲线",
         y=0.995,
         fontsize=15,
         fontweight="bold",

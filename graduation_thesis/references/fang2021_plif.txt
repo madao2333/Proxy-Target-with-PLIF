@@ -1,0 +1,827 @@
+   Incorporating Learnable Membrane Time Constant to Enhance Learning of
+                           Spiking Neural Networks
+
+ Wei Fang1,2 , Zhaofei Yu1,2,3∗ , Yanqi Chen1,2 , Timothée Masquelier4 , Tiejun Huang1,2,3 , Yonghong Tian1,2 *
+                1
+                  Department of Computer Science and Technology, Peking University, China
+                                         2
+                                           Peng Cheng Laboratory, China
+                        3
+                          Institute for Artificial Intelligence, Peking University, China
+  4
+    Centre de Recherche Cerveau et Cognition (CERCO), UMR5549 CNRS - Univ. Toulouse 3, France
+   {fwei, yuzf12, chyq}@pku.edu.cn, timothee.masquelier@cnrs.fr, {tjhuang, yhtian}@pku.edu.cn
+
+
+
+                           Abstract                                      Output Spikes
+
+                                                                            1101 0 1
+
+   Spiking Neural Networks (SNNs) have attracted enor-                             Axon
+
+mous research interest due to temporal information pro-               Soma
+                                                                              V (t )
+                                                                               W
+cessing capability, low power consumption, and high bio-                               Dendrite
+logical plausibility. However, the formulation of efficient       Synapse
+and high-performance learning algorithms for SNNs is still                    w
+                                                                              I (t )
+challenging. Most existing learning methods learn weights
+only, and require manual tuning of the membrane-related           (a) Spiking neuron              (b) The membrane potential of a LIF neuron
+parameters that determine the dynamics of a single spik-         Figure 1. (a) A Leaky Integrate-and-Fire (LIF) neuron with mem-
+ing neuron. These parameters are typically chosen to be          brane potential V , membrane time constant τ , input I(t) and
+the same for all neurons, which limits the diversity of neu-     synaptic weight w. (b) The membrane potential V of the LIF neu-
+                                                                 ron when constant input is received. Increasing or decreasing τ
+rons and thus the expressiveness of the resulting SNNs. In
+                                                                 will stretch the v = f (t) curve in the t direction while increasing
+this paper, we take inspiration from the observation that
+                                                                 or decreasing w will stretch the v = f (t) curve in the V direction.
+membrane-related parameters are different across brain re-
+gions, and propose a training algorithm that is capable of
+learning not only the synaptic weights but also the mem-
+brane time constants of SNNs. We show that incorporating
+                                                                 1. Introduction
+learnable membrane time constants can make the network               Spiking Neural Networks (SNNs) are viewed as the third
+less sensitive to initial values and can speed up learning.      generation of neural network models, which are closer to
+In addition, we reevaluate the pooling methods in SNNs           biological neurons in the brain [38]. Together with neu-
+and find that max-pooling will not lead to significant in-       ronal and synaptic states, the importance of spike timing
+formation loss and have the advantage of low computa-            is also considered in SNNs. Due to their distinctive prop-
+tion cost and binary compatibility. We evaluate the pro-         erties, such as temporal information processing capability,
+posed method for image classification tasks on both tradi-       low power consumption [49], and high biological plausi-
+tional static MNIST, Fashion-MNIST, CIFAR-10 datasets,           bility [16], SNNs increasingly arouse researchers’ great in-
+and neuromorphic N-MNIST, CIFAR10-DVS, DVS128 Ges-               terest in recent years. Nevertheless, it remains challenging
+ture datasets. The experiment results show that the pro-         to formulate efficient and high-performance learning algo-
+posed method outperforms the state-of-the-art accuracy on        rithms for SNNs.
+nearly all datasets, using fewer time-steps. Our codes are
+                                                                     Generally, the learning algorithms for SNNs can be
+available at https://github.com/fangw ei1234
+                                                                 divided into unsupervised learning, supervised learning,
+56/Parametric-Leaky-Integrate-and-Fire
+                                                                 reward-based learning, and Artificial Neural Network
+-Spiking-N euron.
+                                                                 (ANN) to SNN conversion methodologies. Either way,
+                                                                 we find that most existing learning methods only con-
+                                                                 sider learning the synaptic-related parameters like synap-
+  * Corresponding author                                         tic weights and treat the membrane-related parameters as
+
+
+
+                                                               2661
+hyperparameters. These membrane-related parameters like         29], and STDP-based expectation-maximization algorithm
+membrane time constants, which determine the dynamics           [43, 17]. However, these methods are only suitable for shal-
+of a single spiking neuron, are typically chosen to be the      low SNNs, and the performance is far below state-of-the-art
+same for all neurons. Note, however, there exist different      ANN results.
+membrane time constants for spiking neurons across brain        Reward-based learning of SNNs Reward-based learn-
+regions [39, 9, 30], which are proved to be essential for       ing of SNNs mimics the way the human brain learns by
+the representation of working memory and formulation of         taking advantage of the reward or punishment signals in-
+learning [20, 53]. Thus simply ignoring different time con-     duced by dopaminergic, serotonergic, cholinergic, or adren-
+stants in SNNs will limit the heterogeneity of neurons and      ergic neurons [13, 6, 41]. Despite the methods that arise
+thus the expressiveness of the resulting SNNs.                  in reinforcement learning, like policy gradient [52, 28],
+   In this paper, we propose a training algorithm that is       temporal-difference learning [46, 14] and Q-learning [6],
+capable of learning not only the synaptic weights but also      some heuristic phenomenological models based on STDP
+membrane time constants of SNNs. As illustrated in Fig. 1,      [15, 62] were proposed recently.
+we find that adjustments of the synaptic weight and the         ANN to SNN conversion ANN to SNN conversion
+membrane time constants have different effects on neuronal      (ANN2SNN) converts a trained non-spiking ANN to an
+dynamics. We show that incorporating learnable membrane         SNN by using the firing rate of each spiking neuron to ap-
+time constants is able to enhance the learning of SNNs.         proximate the corresponding ReLU activation of an analog
+   The main contributions of this paper can be summarized       neuron [24, 7, 50]. It can get near lossless inference results
+as follows:                                                     as an ANN [51, 10], but there is a trade-off between accu-
+                                                                racy and latency. To improve accuracy, longer inference
+ 1) We propose the backpropagation-based learning algo-
+                                                                latency is needed [19]. ANN2SNN is restricted to rate-
+    rithm using spiking neurons with learnable membrane
+                                                                coding, which loses the processing capability in temporal
+    parameters, referred to as Parametric Leaky Integrate-
+                                                                tasks. As far as we know, ANN2SNN only works for static
+    and-Fire (PLIF) spiking neurons, which better repre-
+                                                                datasets, not neuromorphic datasets.
+    sent the heterogeneity of neurons and thereby enhanc-
+    ing the expressiveness of the SNNs. We show that the        Supervised learning of SNNs SpikeProp [5] was the first
+    SNNs made of PLIF neurons are more robust to initial        supervised learning method for SNNs based on backpropa-
+    values and can learn faster than SNNs made of neurons       gation, which used a linear approximation to overcome the
+    with a fixed time constant.                                 non-differentiable threshold-triggered firing mechanism of
+ 2) We reevaluate the pooling methods in SNNs and dis-          SNNs. Subsequent works included Tempotron [18], Re-
+    credit the previous conclusion that max-pooling results     SuMe [45], and SPAN [40], but they could only be ap-
+    in significant information loss. We find that compared      plied to single-layer SNNs. Recently, the surrogate gradi-
+    to average-pooling, max-pooling is able to better pre-      ent method was proposed and provided another solution to
+    serve the asynchronous characteristic of neuron firing,     training multi-layer SNNs [35, 26, 64, 57, 54, 34, 27]. It
+    as well as reduce the computation cost. Our exper-          utilized surrogate derivatives to define the derivative of the
+    iments show that the performance of max-pooling is          threshold-triggered firing mechanism. Thus the SNNs could
+    comparable to average-pooling.                              be optimized with gradient descent algorithms as ANNs.
+ 3) We evaluate our methods on both traditional static          Zenke et al. [63, 42] systematically studied the remark-
+    MNIST [32], Fashion-MNIST [59], CIFAR-10 [31]               able robustness of surrogate gradient learning and showed
+    datasets widely used in ANNs as benchmarks, and             that SNNs optimized by the surrogate gradient methods can
+    neuromorphic N-MNIST [44], CIFAR10-DVS [36],                achieve competitive performance with ANNs. Compared to
+    DVS128 Gesture [1] datasets that focus on verifying         ANN2SNN, the surrogate gradient method has no restric-
+    the network’s temporal information processing capa-         tions on simulating time-steps because it is not based on
+    bility. The proposed method exceeds state-of-the-art        rate-coding [58, 63].
+    accuracy on nearly all tested datasets, using fewer         Spiking neurons and layers of deep SNNs Spiking neu-
+    time-steps.                                                 ron and layer models play an essential role in SNNs. Cheng
+                                                                et al. [8] added the lateral interactions between neighbor-
+2. Related Works                                                ing neurons and get better accuracy and stronger noise-
+                                                                robustness. Zimmer et al. [65] firstly adopt the learnable
+Unsupervised learning of SNNs The unsupervised learn-           time constants in LIF neurons for the speech recognition
+ing methods of SNNs are based on biological plausible lo-       task. Bellec et al. [2] proposed the adaptive threshold
+cal learning rules, like Hebbian learning [22] and Spike-       spiking neuron to enhance computing and learning capa-
+Timing-Dependent Plasticity (STDP) [3]. Existing ap-            bilities of SNNs, which was improved by [61] with learn-
+proaches exploited the self-organization principle [56, 11,     able time constants. Rathi et al. [47] suggested using a
+
+
+
+                                                              2662
+learnable membrane leak and firing threshold to finetune
+SNNs converted from ANNs. Despite this, no systematic
+research on the effects of learning membrane time constants
+to SNNs has been conducted so far, which is exactly the aim
+of this paper. Wu et al. [58] found that normalization lay-
+ers are also critical for deep SNNs and proposed Neuron
+Normalization (NeuNorm) to balance each neuron’s firing
+                                                                    Figure 2. The membrane potential V of a LIF neuron when instant
+rate to avoid severe information loss. Ledinauskas, E et al.
+                                                                    spikes at t = 5, 80, 85, 90 are received.
+[33] firstly suggested that using Batch Normalization [25]
+in deep SNNs for faster convergence.
+                                                                        In order to compare the effects of synaptic weight and
+3. Methods                                                          membrane time constant to the neuronal dynamics, we
+   In this section, we first briefly review the Leaky               consider a simple case where the LIF neuron zi receives
+Integrate-and-Fire model in Sec. 3.1, and analyze the effect        weighted input X(t) = wI(t) from a presynaptic neuron
+of synaptic weight and membrane time constant in Sec. 3.2.          zj (Fig. 1(a)). The rest potential Vrest is set to 0. When
+The Parametric Leaky Integrate-and-Fire model and the net-          the input is constant, namely, I(t) = I, the membrane po-
+work structure of the SNNs are then introduced in Sec. 3.3          tential of the LIF neuron zi changes over time is shown
+– Sec. 3.5. At last, we describe the spike max-pooling and          in Fig. 1(b) (blue curve), which is computed according to
+the learning algorithm of SNNs in Sec. 3.6 and Sec. 3.7.            Eq. (1). Increasing or decreasing w, as shown by the w+
+                                                                    and w− curves, will stretch the v = f (t) curve in the
+3.1. Leaky Integrate-and-Fire model                                 V direction. On the contrary, increasing or decreasing τ
+   The basic computing unit of an SNN is the spiking neu-           will stretch the v = f (t) curve in the t direction, and
+ron. Neuroscientists have built several spiking neuron mod-         will not change the steady-state voltage of the neuron zi
+els for describing the accurate relationships between input         as V (+∞) = wI. Fig. 2 illustrates the response of the neu-
+and output signals of the biological neuron. The Leaky              ron zi to instant input spikes at time t = {5, 80, 85, 90}ms,
+Integrate-and-Fire (LIF) model [16] is one of the simplest          namely, X(t) = w(δ(t−5)+δ(t−80)+δ(t−85)+δ(t−90))
+                                                                    1
+spiking neuron models used in SNNs. The subthreshold dy-              . The neuron’s response to instant input spike at t = 5 indi-
+namics of the LIF neuron is defined as:                             cates that a smaller τ (the τ − curve) leads to faster charge
+                                                                    to the steady-state voltage and faster decay to the resting
+              dV (t)                                                value, making the LIF neuron more sensitive to an instant
+           τ         = −(V (t) − Vrest ) + X(t),            (1)     spike. This sensitivity helps the neuron to capture instant
+                dt
+where V (t) represents the membrane potential of the neu-           variety in the input. In contrast, a smaller w (the w− curve)
+ron at time t, X(t) represents the input to neuron at time t, τ     leads to a slower charge to the steady-state voltage without
+is the membrane time constant, and Vrest is the resting po-         affecting decaying speed. When there are three successive
+tential. When the membrane potential V (t) exceeds a cer-           input spikes, the membrane potential of the neuron with a
+tain threshold Vth at time tf , the neuron will elicit a spike      smaller τ (the τ − curve) will reach a higher value at a faster
+and then the membrane potential V (t) goes back to a reset          rate, which makes it easier to fire.
+value Vreset < Vth . The LIF neuron achieves a balance                  To some extent, the effect of decreasing τ is similar to
+between computing cost and biological plausibility. We set          that of increasing w. Nevertheless, adjusting both τ and w
+Vrest = Vreset in this paper, and will not make a distinction       can bring some superior additional benefits. As mentioned
+between them in the rest of this paper.                             above, changing both τ and w can stretch the v = f (t)
+                                                                    curve, namely the neuron’s response to a given input, in
+3.2. Function comparison of synaptic weight and                     both t direction and V direction, which endows the neuron
+      membrane time constant                                        better fitting ability.
+    In most of the previous learning algorithms for SNNs            3.3. Parametric Leaky Integrate-and-Fire model
+made of LIF neurons, the membrane time constant τ is re-
+garded as a hyper-parameter and chosen to be the same for              We propose the Parametric Leaky Integrate-and-Fire
+all neurons before learning. The learning of SNNs is only           (PLIF) spiking neuron model to learn both the synaptic
+to optimize the synaptic weights. However, it cannot be ig-         weights and the membrane time constants of SNNs. The
+nored that the behavior of a spiking neuron for given inputs        dynamics of the PLIF neuron can be described by Eq. (1).
+depends not only on the weights of connected synapses but              The SNNs with PLIF neurons follow the three rules:
+also on the neuron’s inherent dynamics controlled by the               1
+                                                                    R ∞ δ(t) represents Dirac delta function. If x 6= 0, then δ(t) = 0.
+membrane time constant τ .                                           −∞ δ(t) dt = 1.
+
+
+
+
+                                                                  2663
+     charge
+      fire
+                                                                                                                ൈ ܰௗ௢௪௡                ൈ ܰ௙௖
+     reset                   𝑆𝑡−1               𝑆𝑡
+
+                                                                                                    ൈ ܰ௖௢௡௩
+
+                    𝐻𝑡−1     𝑉𝑡−1       𝐻𝑡      𝑉𝑡                                                              Unfold
+                                                                                                                ൈ ܰௗ௢௪௡                ൈ ܰ௙௖
+
+                                                                          ‫ݐ‬ൌͲ
+
+                    𝑋𝑡−1                𝑋𝑡
+                                                                          ‫ݐ‬ൌͳ
+
+      Figure 3. The general discrete spiking neuron model.
+                                                                          ‫ݐ‬ൌ‫ڮ‬
+    (1). The membrane time constant τ is optimized auto-
+matically during training, rather than being set as a hyper-              ‫ ݐ‬ൌܶെͳ
+parameter manually before training.                                                                  ൈ ܰ௖௢௡௩
+    (2). The membrane time constant τ is shared within the                         Input      Spiking Encoder             Classifier           Output
+
+neurons in the same layer in SNNs, which is biologically             Figure 4. The general formulation of our networks and its unfolded
+plausible as the neighboring neurons have similar proper-            formulation. ×Nconv indicates there are Nconv {Conv2d-Spiking
+ties.                                                                Neurons} connected sequentially. ×Ndown and ×Nf c have the
+    (3). The membrane time constant τ of neurons in dif-             same meaning. Note that the network’s parameters are shared at
+                                                                     all time-steps.
+ferent layers are distinct, making diverse phase-frequency
+responsiveness of neurons.
+    In fact, the proposed rules are able to increase the hetero-        For PLIF neurons, directly optimizing the membrane
+geneity of neurons and the expressiveness of the resulting           time constant τ in Eq. (5) may induce numerical instabil-
+SNNs while effectively controlling computation costs.                ity as τ is in the denominator. Besides, Eq. (5), as the dis-
+    For numerical simulations of PLIF neurons in SNNs, we            crete version of Eq. (1), is a valid approximation only when
+need to consider a version of the parameters dynamics that           the time-step dt is smaller than τ , that is, τ > 1, which is
+is discrete in time. Specifically, by including the threshold-       ignored by [47, 61]. To avoid the above problems, we re-
+triggered firing mechanism and the reset of the membrane             formulate Eq. (5) to the following equation with a trainable
+potential after firing, we can describe the dynamics of all          parameter a:
+kinds of spiking neurons with the following equations:
+                                                                                   Ht = Vt−1 + k(a)(−(Vt−1 − Vreset ) + Xt ).                           (6)
+                 Ht = f (Vt−1 , Xt ),                        (2)
+                  St = Θ(Ht − Vth ),                         (3)     Here k(a) denotes the clamp function and k(a) ∈ (0, 1),
+                                                                                                 1
+                  Vt = Ht (1 − St ) + Vreset St .            (4)     which ensures that τ = k(a)     ∈ (1, +∞). In our ex-
+                                                                     periments, k(a) is the sigmoid activation function, that is,
+To avoid confusion, we use Ht and Vt to represent the mem-                       1
+                                                                     k(a) = 1+exp(−a)  .
+brane potential after neuronal dynamics and after the trig-
+ger of a spike at time-step t, respectively. Xt denotes the          3.4. RNN-like Expression of LIF and PLIF
+external input, and Vth denotes the firing threshold. St de-
+                                                                        The LIF and PLIF neurons have a similar function as
+notes the output spike at time t, which equals 1 if there is
+                                                                     recurrent neural networks. Specifically, when Vreset = 0,
+a spike and 0 otherwise. Eq. (3) describes the spike gen-
+                                                                     the neuronal dynamics of the LIF neuron and PLIF neuron
+erative process, where Θ(x) is the Heaviside step function
+                                                                     (Eq. (5)) can be written as:
+and is defined by Θ(x) = 1 for x ≥ 0 and Θ(x) = 0 for
+x < 0. Eq. (4) illustrates that the membrane potential re-                                 
+                                                                                                  1
+                                                                                                    
+                                                                                                            1
+turns to Vreset after eliciting a spike, which is called hard                       Ht = 1 −          Vt−1 + Xt ,          (7)
+                                                                                                  τ         τ
+reset and widely used in deep SNNs [33].
+    As shown in Fig. 3, Eqs. (2) - (4) build a general model
+                                                                     where the integration progress τ1 Xt makes the LIF and
+to describe the discrete spiking neuron’s action: charging,
+                                                                     PLIF neurons able to remember current input information,
+firing, and resetting. Specifically, Eq. (2) describes the neu-
+                                                                     while the leakage progress (1 − τ1 )Vt−1 can be seen as for-
+ronal dynamics, and different spiking neuron models have
+                                                                     getting some information from the past. Eq. (7) shows that
+different functions f (·). For example, the function f (·) for
+                                                                     the balance between remembrance and forgetting is con-
+the LIF neuron and PLIF neuron is
+                                                                     trolled by the membrane time constant τ , which plays an
+                           1                                         analogous role as the gates in Long Short-Term Memory
+             Ht = Vt−1 +     (−(Vt−1 − Vreset ) + Xt ).      (5)
+                           τ                                         (LSTM) networks [23].
+
+
+
+                                                                   2664
+3.5. Network Formulation                                                spikes
+                                                                                                 ‫ Ͳݐ‬澳 ‫ ͳݐ‬澳 ‫ ʹݐ‬澳
+                                                                        neuron
+   We propose a general formulation to build SNNs in this               disconnected synapse
+                                                                        connected synapse
+paper, which is illustrated in Fig. 4. The SNN includes                 self-connected synapse
+
+                                                                        time window                                        ‫ ݐ‬ൌ ‫ ݅ݐ‬澳                      ‫ ݐ‬ൌ ‫݅ݐ‬൅ͳ 澳
+a spiking encoder network and a classifier network. The
+spiking encoder network consists of Ndown down-sample
+modules, each of which contains Nconv repeated {Conv2d-                                                                                             or
+
+Spiking Neurons} and a pooling layer. The spiking en-
+coder can extract features from inputs and convert them                           ‫ ݐ‬ൌ ‫݅ݐ‬൅ʹ 澳                              ‫ ݐ‬ൌ ‫݅ݐ‬൅͵ 澳
+
+into the firing spikes at different time-steps. The classifier                                                    (a) Spike max-pooling
+network consists of Nf c repeated {FC-Spiking Neurons}.
+Here Conv2d denotes the 2D convolutional layer and FC
+denotes the fully connected layer. Many previous works
+[11, 34, 54, 64, 8, 19] used a Poisson encoder to convert
+images to spikes as input, while [50] suggested that this en-
+coding introduces variability into the firing of the network
+and impairs its performance. Similar to [50, 58, 47], the in-                    ‫ ݐ‬ൌ ‫ ݅ݐ‬澳                         ‫ ݐ‬ൌ ‫݅ݐ‬൅ͳ 澳           ‫ ݐ‬ൌ ‫݅ݐ‬൅ʹ 澳              ‫ ݐ‬ൌ ‫݅ݐ‬൅͵ 澳
+
+put is directly fed to our network without being firstly con-                                            (b) Unfolded computation graph
+verted to spikes. In this situation, the image-spike encod-        Figure 5. Spike max-pooling regulates connections dynamically.
+ing is done by the first {Conv2d-Spiking Neurons} module,          (a) An example of three presynaptic neurons and one postsynap-
+which can be seen as a learnable encoder. Note that synaptic       tic neuron with spike max-pooling. At every time-step, only the
+connections, including convolutional layers and fully con-         neuron that fires a spike can connect to the postsynaptic neuron.
+nected layers, are stateless, while the spiking neuron layers      When more than one neuron fire at the same time-step, the neuron
+have self-connections in the temporal domain, as the un-           that can connect to the postsynaptic neuron is randomly selected.
+folded network formulation shown in Fig. 4. All parameters         (b) The unfolded computation graph of (a).
+are shared at all time-steps.
+3.6. Spike Max-Pooling                                             sembles to connect a continuously firing presynaptic neu-
+                                                                   ron and easier to fire. The winner-take-all mechanism in
+    The pooling layer is widely used to reduce the size of         the spatial domain and time-variant topology in the tempo-
+feature maps and to extract compact representation in con-         ral domain achieved by max-pooling can increase SNNs’
+volutional ANNs, as well as SNNs. Most previous studies            fitting capability in temporal tasks, such as classifying the
+[51, 8, 48] preferred to use the average-pooling in SNNs as        CIFAR10-DVS dataset. It is worth noting that the outputs
+they found that max-pooling in SNNs leads to significant in-       of the max-pooling layer are still binary, while the outputs
+formation loss. We argue that the max-pooling is consistent        of the average-pooling layer are float. The matrix multipli-
+with the SNNs’ temporal information processing ability and         cation and element-wise multiplication operation on spikes
+can increase SNNs’ fitting capability in temporal tasks and        can be accelerated by replacing multiplication ∗ with logi-
+reduce the computation cost for the next layer.                    cal AND &, which is also the advantage of SNNs compared
+    Specifically, the max-pooling layers are behind spiking        with ANNs.
+neuron layers in our model (Fig. 4), and the max-pooling
+operation is carried on spikes. Different from all neurons         3.7. Training Framework
+that transmit information to the next layer equally in the
+average-pooling window, only the neuron that fires a spike             Here we combine the neuron model (Fig. 3) and network
+in the max-pooling window can transmit information to the          formulation (Fig. 4) to drive the backpropagation training
+next layer. Therefore, the max-pooling layer introduces            algorithm for SNNs. Denote the simulating time-steps as T
+the winner-take-all mechanism, allowing the fired neuron           and classes number as C, the output O = [ot,i ] is a C × T
+to communicate with the next layer and ignoring other neu-         tensor. For a given input with label l, we encourage the
+rons in the pooling window. Another attractive property            neuron that represents class l to have the highest excitatory
+is that the max-pooling layer will regulate connections dy-        level while other neurons should remain silent. So the target
+namically (Fig. 5). The spiking neuron’s membrane poten-           output is defined by Y = [yt,i ] with yt,i = 1 for i = l and
+tial Vt will return to Vreset after firing a spike. It is hard     yt,i = 0 for i 6= l. The loss function is defined by the mean
+                                                                                                                     PT −1
+for a spiking neuron to fire again as recharging needs time.       squared error (MSE) L = M SE(O, Y ) = T1 t=0 Lt =
+                                                                    1
+                                                                      P  T −1 1  P  C−1               2
+However, if the neurons in the max-pooling window fire             T     t=0 C      i=0 (ot,i − yt,i ) . And the predicted label lp
+asynchronously, they will be connected to the postsynap-           is regarded as the index of P  the neuron with the maximum
+                                                                                                      T −1
+tic neuron in turn, which makes the postsynaptic neuron re-        firing rate lp = arg maxi T1 t=0 ot,i .
+
+
+
+                                                                 2665
+    Here we suppose that ai represents the learnable param-                        Dataset            Nconv     Ndown      Nf c
+eter of the PLIF neurons in the i-th layer in the network. At                      *MNIST               1         2         2
+time-step t, the vectors H it and V it represent the membrane                     CIFAR-10              3         2         2
+potential after neuronal dynamics and after reset, the vector                   CIFAR10-DVS             1         4         2
+V ith and V ireset represents the threshold and reset potential,                DVS128 Gesture          1         5         2
+respectively. The weighted inputs from the previous layer               Table 1. Network structures for different datasets. Nconv , Ndown
+are X it = W i−1 I it . S it = [sit,j ] denotes the output spike at     and Nf c are defined in Fig. 4. *MNIST denotes MNIST, Fashion-
+                                                                        MNIST and N-MNIST datasets.
+time-step t, where sit,j = 1 if the j-th neuron fires a spike,
+else sit,j = 0. The gradients backward from the next layer
+     ∂Lt                                                                both traditional static MNIST, Fashion-MNIST, CIFAR-10
+are ∂S  i . According to Fig. 3 and Fig. 4, we can calculate
+        t
+the gradients recursively:                                              datasets, and neuromorphic N-MNIST, CIFAR10-DVS, and
+                                                                        DVS128 Gesture datasets. More details of the training can
+                 ∂L      ∂L ∂H it+1   ∂Lt                               be found in the supplementary.
+                    i
+                      =    i      i
+                                    +                          (8)
+                ∂H t    ∂H t+1 ∂H t   ∂H it
+                                                                        4.1. Network Structure
+                ∂H it+1       ∂H it+1 ∂V it
+                          =                                    (9)          The network structures of SNNs for different datasets are
+                 ∂H it         ∂V it ∂H it
+                                                                        shown in Tab. 1. We set kernel size = 3, stride = 1 and
+                ∂Lt     ∂Lt ∂S it                                       padding = 1 for all Conv2d layers. The out channels of
+                      =                                       (10)
+                ∂H it   ∂S it ∂H it                                     Conv2d layers is 256 for CIFAR-10 dataset and 128 for all
+                                                                        other datasets. A batch normalization (BN) layer is added
+According to Eq. (6), Eq. (3), and Eq. (4) we can get
+                                                                        after each Conv2d layer. As the parameters of a BN layer
+       ∂H it+1                                                          can be absorbed in its front Conv2d layer [50], we can re-
+                 = 1 − k(ai )                                 (11)      move BN in the SNNs for inference. All pooling layers
+        ∂V it
+                                                                        set kernel size = 2 and stride = 2. For all networks,
+       ∂V it                                ∂S it
+           i
+             = 1 − S t + (V ireset − H it )                   (12)      the out f eatures of the first F C layer is a quarter of the
+       ∂H t                                 ∂H it                       in f eatures, and the out f eatures of the second F C layer
+       ∂S it                                                            is M · C, where C is the classes number and M is the neu-
+             = Θ0 (H it − V ith )                             (13)      rons of a population to represent one class. A dropout layer
+       ∂H it
+                                                                        [34] is placed before each F C layer. A voting layer after
+       ∂H it
+             = k(ai )                                         (14)      the output spiking neurons layer is used to boost classifying
+       ∂X it                                                            robustness. The voting layer is implemented by average-
+       ∂H it                                                            pooling with kernel size = M and stride = M . We set
+             = (−(V it−1 − V ireset ) + X it )k 0 (ai )                 M = 10 for all datasets. We use the average-pooling to
+       ∂ai
+                                                              (15)      implement democratic voting, such that the minority is sub-
+                          ∂H it ∂V it−1 ∂H it−1
+                       +                                                ordinate to the majority. Using max-pooling to vote may
+                         ∂V it−1 ∂H it−1 ∂ai
+                                                                        result in a dictatorship, as the minority will not be involved
+   Finally, we can get the gradients of the learnable param-            in the computation graph (see Fig. 5) and using M neurons
+eters:                                                                  to represent one class will degenerate into using one neuron.
+                        T −1
+                  ∂L    X     ∂L ∂H it                                  4.2. Comparison with the State-of-the-Art
+                      =                                       (16)
+                  ∂ai
+                        t=0
+                             ∂H it ∂ai                                      Tab. 2 shows the accuracies of the proposed methods
+                   ∂L
+                                T −1
+                                ∂L ∂H it i
+                                X                                       (PLIF neurons with τ0 = 2, max-pooling) and other com-
+                         =                 It                 (17)      paring methods on both traditional static MNIST, Fashion-
+                  ∂W i−1       ∂H it ∂X it
+                           t=0                                          MNIST, CIFAR-10 datasets, and neuromorphic N-MNIST,
+            ∂∗                         i        i                       CIFAR10-DVS, DVS128 Gesture datasets. We set the same
+Note that ∂S  i = 0 when t ≥ T , V −1 = V reset . We
+              t                                                         training hyperparameters for all datasets (see supplemen-
+use derivative of the surrogate function σ(x) to define the
+                                                                        tary). As shown in Tab. 2, we achieve the highest accu-
+derivative of spiking function Θ(x) (see supplementary).
+                                                                        racies on all datasets except for CIFAR-10. The accuracy
+k(x) is the clamp function.
+                                                                        on CIFAR-10 is slightly lower than [19], which is based
+4. Experiments                                                          on ANN2SNN conversion. However, they only applied to
+                                                                        static images as ANN2SNN is ill-suited to neuromorphic
+   We evaluate the performance of SNNs with PLIF neu-                   datasets. Different from them, our method is also applicable
+rons and spike max-pooling for classification tasks on                  to neuromorphic datasets and outperforms the spike-based
+
+
+
+                                                                      2666
+                               Accuracy     Accuracy              Accuracy          Accuracy           Accuracy           Accuracy
+  Model        Method
+                               MNIST        Fashion-MNIST         CIFAR-10          N-MNIST            CIFAR10-DVS        DVS128 Gesture
+   [24]       ANN2SNN           98.37%              -              82.95%                  -                 -                       -
+   [50]       ANN2SNN           99.44%              -              88.82%                  -                 -                       -
+   [51]       ANN2SNN               -               -              91.55%                  -                 -                       -
+   [19]       ANN2SNN               -               -              93.63%                  -                 -                       -
+   [35]     Spike-based BP      99.31%              -                 -                 98.74%               -                       -
+   [57]     Spike-based BP      99.42%              -                 -                 98.78%            50.7%                      -
+   [54]     Spike-based BP      99.36%              -                 -                  99.2%               -                   93.64%
+   [27]     Spike-based BP          -               -                 -                   96%                -                   95.54%
+   [26]     Spike-based BP      99.49%              -                 -                 98.84%               -                       -
+   [64]     Spike-based BP      99.62%           90.13%               -                    -                 -                       -
+   [58]     Spike-based BP          -               -              90.53%               99.53%            60.5%                      -
+   [34]     Spike-based BP      99.59%              -              90.95%               99.09%               -                       -
+    [8]     Spike-based BP       99.5%           92.07%               -                 99.45%               -                       -
+   [37]     Spike-based BP          -               -                 -                  96.3%            32.2%                      -
+   [60]     Spike-based BP          -               -                 -                     -                -                   92.01%
+                                                                                                                                 96.09%
+   [12]     Spike-based BP      99.46%               -                -                 99.39%               -
+                                                                                                                               (10 classes)
+   [21]     Spike-based BP          -                -                -                 98.28%               -                   93.40%
+            ANN2SNN and
+   [47]                             -                -             92.64%                 -                  -                      -
+            Spike-based BP
+   [55]         HATS                -                -                -                 99.1%             52.4%                     -
+    [4]          GCN                -                -                -                 99.0%             54.0%                     -
+   Ours     Spike-based BP      99.72%           94.38%            93.50%               99.61%            74.80%                  97.57%
+Table 2. Performance comparison between the proposed method and the state-of-the-art methods on different datasets. The highest accu-
+racies of previous works are in bold.
+
+
+  Dataset              SOTA      SOTA’s T      ours T                      Neuron        Fashion-MNIST   CIFAR-10   CIFAR10-DVS   DVS128 Gesture
+
+  MNIST                [64]      400           8                         PLIF(τ0 = 2)         94.38%      93.50%      74.80%            97.57%
+                                                                          LIF(τ = 2)          94.17%      93.03%      73.60%            96.88%
+  Fashion-MNIST        [8]       20            8                       PLIF(τ0 = 16)          94.65%      93.23%      70.50%            92.01%
+  CIFAR-10             [19]      2048          8                        LIF(τ = 16)           94.47%      47.50%      62.40%            76.74%
+  N-MNIST              [58]      59-64         10                                        Table 4. Accuracy of using PLIF/LIF.
+  CIFAR10-DVS          [58]      230-292       20
+                                 500(training)
+  DVS128 Gesture       [27]                    20
+                                 1800(testing)                       first study the effect of PLIF neurons. In this experiment,
+Table 3. The time-steps of previous SOTA works and ours on each      we train the same SNNs with PLIF neurons and LIF neu-
+dataset.                                                             rons respectively, and compare the test accuracy. As shown
+                                                                     in Tab. 4, if the initial membrane time constant τ0 of PLIF
+                                                                     neurons is set equal to the membrane time constant τ of LIF
+BP SOTA accuracy.                                                    neurons, the test accuracy of the SNNs with PLIF neurons is
+   Tab. 3 compares the number of time-steps of our method            always higher than that with LIF neurons. This is due to the
+and the previous works that achieve the best performance             membrane time constants of PLIF neurons in different lay-
+on each dataset. It can be found that the proposed method            ers can be different after learning, which better represents
+takes fewer time-steps than all the other methods. For ex-           the heterogeneity of neurons. Fig. 6 illustrates the test ac-
+ample, our method uses up to 256× fewer inference time-              curacy of PLIF vs. LIF neurons during training. As can be
+steps compared to ANN2SNN conversion [19]. Thus our                  seen, the accuracy and convergence speed of the SNNs with
+method can not only decrease the memory consumption and              LIF neurons decrease seriously if the initial value of the
+the training time but also increase inference speed greatly.         membrane time constant is not reasonable (red curve). In
+                                                                     contrast, the PLIF neurons can learn the appropriate mem-
+4.3. Ablation Study                                                  brane time constants and achieve better performance (green
+   We conduct extensive ablation studies to evaluate PLIF            curve).
+neurons and max-pooling on four challenging datasets. We                  To analyze the influence of initial values in PLIF neu-
+
+
+
+                                                                  2667
+                         94.5                                                                                                                    94                                                                                              Pooling   Fashion-MNIST   CIFAR-10   CIFAR10-DVS   DVS128 Gesture
+                                                                                                                                                                                                                                                 Average      94.74%        93.30%      72.70%         97.22%
+                         94.0                                                                                                                    92
+                                                                                                                                                                                                                                                  Max         94.38%        93.50%      74.80%         97.57%
+
+
+
+
+                                                                                                                             test accuracy (%)
+     test accuracy (%)
+
+
+
+
+                         93.5                                                                                                                    90                                                                                                  Table 5. Accuracy of using max-pooling/average-pooling.
+                                                                                                                                                 40
+                         93.0
+                                                                                                                                                 30
+                         92.5
+                                                                                                                                                 20
+
+                         92.0
+                                  0         200                        400                600          800           1000
+                                                                                                                                                 10
+                                                                                                                                                      0          200           400           600               800      1000
+                                                                                                                                                                                                                                                PLIF neurons are robust to initial values. Note that τ (6) in
+                                                                             epoch                                                                                                   epoch
+                                                                                                                                                                                                                                                Fig. 7(a) and τ (4) in Fig. 7(b) tend to infinity. This could
+                                        (a) Fashion-MNIST                                                                                                            (b) CIFAR-10                                                               be explained as follows. The PLIF neurons with the mem-
+                                                                                                                                                                                                                                                brane time constants τ (4) and τ (6) in two SNNs are behind
+                                        PLIF, τ0 = 2                                             PLIF, τ0 = 16                                                  LIF, τ = 2                                    LIF, τ = 16
+                                                                                                                                                                                                                                                the first FC layer with weight Wf c . We check the train-
+                                                                       94.5
+                         75                                                                                                                      100                                                                                            ing logs and find that the distribution, mean and variance
+                                                                       94.0                                                                                                                                                                        W
+                                                                                                                                                  90                                                                                            of τf c (τ = τ (4) or τ (6)) converge after dozens of epochs
+                                                   test accuracy (%)
+
+
+
+
+                         70
+                                                                                                                                                  80
+                                                                                                                                                                                                                                                (see supplementary). Refer to the dynamics of PLIF neu-
+     test accuracy (%)
+
+
+
+
+                                                                                                                             test accuracy (%)
+
+
+
+
+                                                                       93.5
+                         65                                                                                                                       70
+
+                                                                       93.0                                                                       60
+                                                                                                                                                                                                                                                rons (Eq. (5)) with Xt = Wf c It and τ1 → 0, we can find
+                         60
+                                                                                                                                                                                                                                                                W
+                                                                                                                                                  50
+                                                                                                                                                                                                                                                Ht → Vt−1 + τf c It . It means that the PLIF neurons after
+                         55                                            92.5                                                                       40
+
+                                                                                                                                                  30
+                                                                                                                                                                                                                                                the first FC layer are learning to become the Non-Leaky-
+                         50
+                              0           200                      92.0
+                                                                   400
+                                                                        0 600 200800
+                                                                       epoch
+                                                                                                                     1000
+                                                                                                                   400     600 0                                200
+                                                                                                                                                               800              400
+                                                                                                                                                                               1000     600
+                                                                                                                                                                                    epoch
+                                                                                                                                                                                                                800      1000                   Integrate-and-Fire neurons.
+                                                                                                                       epoch
+
+                                         (c) CIFAR10-DVS                                                                                                      (d) DVS128 Gesture                                                                    We further study the effect of max-pooling. Tab. 5
+Figure 6. The test accuracy of PLIF vs. LIF neurons on different                                                                                                                                                                                compares the accuracy of the proposed SNNs with max-
+datasets during training. The shaded curves indicate the origin                                                                                                                                                                                 pooling/average-pooling on four challenging datasets. The
+data. The solid curves are 64-epoch moving averages.                                                                                                                                                                                            performance of max-pooling is similar to that of average-
+                                                                                                                                                                                                                                                pooling, which indicates that the previous conclusion that
+ τ (0)                                                                         τ (1)
+
+                                                                                  8
+                                                                                                                                                 τ (2)                                            τ (3)
+                                                                                                                                                                                                      6                                         max-pooling results in significant information loss in SNNs
+    6
+
+    4
+                                                                                  6
+
+                                                                                  4
+                                                                                                                                                    4                                                4                                          is not reasonable. Remarkably, the max-pooling gets
+    2                                                                             2                                                                 2                                                2                                          slightly higher accuracies on CIFAR-10, CIFAR10-DVS,
+        0                         250     500     750                   1000          0         250        500      750     1000                         0     250     500       750       1000           0     250     500     750    1000
+ τ (4)                                                                         τ (5)
+                                                                                  8
+                                                                                                                                                 τ (6)                                            τ (7)                                         and DVS128 Gesture datasets, showing its better fitting ca-
+    6
+
+
+    4
+                                                                                  6                                                                40
+                                                                                                                                                                                                    10
+                                                                                                                                                                                                                                                pability in complex tasks.
+                                                                                  4                                                                20                                                5
+    2                                                                             2
+                                                                                                                                                    0
+        0                         250     500     750                   1000          0         250         500     750     1000                         0     250      500      750       1000           0     250     500     750    1000
+                                         epoch                                                             epoch                                                       epoch                                           epoch
+
+
+
+                                                (a) The change of τ (i) during training on CIFAR-10.                                                                                                                                            5. Conclusion
+
+                                                                                            PLIF, τ0 = 2                                                     PLIF, τ0 = 16                                                                         In this work, we proposed the Parametric Leaky
+                                                                                                                                                                                                                                                Integrate-and-Fire (PLIF) neuron to incorporate the learn-
+                                                                                                8
+                                                                                                      10                                                                         10                                                             able membrane time parameter into SNNs. We show that
+   10
+τ (0)                                                                                           6τ (1)                                                                         τ (2)
+                                                                                                                                                                                                                                                the SNNs with the PLIF neurons outperform state-of-the-
+     5                                                                                                 5                                                                           5                                                            art comparing methods on both static and neuromorphic
+                0                                500                                      10004            0                          500                              1000            0                         500                  1000
+                                                                                                                                                                                                                                                datasets. Besides, we show that the SNNs made of PLIF
+   10                                                                                                                                                                                                                                           neurons are more robust to initial values and can learn
+                                                                                                      10                                                                          10
+τ (3)                                                                                           2τ (4)                                                                         τ (5)                                                            faster than SNNs consist of LIF neurons. We also reevalu-
+    5
+                                                                                                       5
+                                                                                                       0             200                           400               600
+                                                                                                                                                                                  5
+                                                                                                                                                                                  800               1000
+                                                                                                                                                                                                                                                ate the performance of max-pooling and average-pooling in
+                0                                 500                                     1000             0                   500                                     1000            0                         500                  1000
+                                                                                                                                                                                                                                                SNNs and find the previous works underestimate the perfor-
+                                                 epoch                                                                        epoch                                                                             epoch
+                                                                                                                                                                                                                                                mance of max-pooling. We recommend using max-pooling
+                                         (b) The change of τ (i) during training on CIFAR10-DVS.                                                                                                                                                in SNNs for its lower computation cost, higher temporal fit-
+Figure 7. The change of membrane time constants in different lay-                                                                                                                                                                               ting capability, and the characteristic to receive spikes and
+ers during training with different initial values. τ (i) represents the                                                                                                                                                                         output spikes rather than floating values as average-pooling.
+membrane time constant τ of the i-th PLIF neurons layer.
+
+                                                                                                                                                                                                                                                6. Acknowledgment
+rons, we show how the membrane time constants of the
+neurons in each layer change during learning with respect                                                                                                                                                                                          This work is supported by grants from the Na-
+to different initial values. As shown in Fig. 7, the mem-                                                                                                                                                                                       tional Natural Science Foundation of China under
+brane time constants with different initial values in each                                                                                                                                                                                      contracts No.62027804, No.61825101, and No.62088102.
+layer tend to gather during training, which indicates that the
+
+
+
+                                                                                                                                                                                                                                              2668
+References                                                                   critic framework with spiking neurons. PLoS Computational
+                                                                             Biology, 9(4):e1003024, 2013. 2
+ [1] Arnon Amir, Brian Taba, David Berg, Timothy Melano, Jef-
+                                                                        [15] Johannes Friedrich, Robert Urbanczik, and Walter Senn.
+     frey McKinstry, Carmelo Di Nolfo, Tapan Nayak, Alexander
+                                                                             Spatio-temporal credit assignment in neuronal population
+     Andreopoulos, Guillaume Garreau, Marcela Mendoza, et al.
+                                                                             learning. PLoS Computational Biology, 7(6):e1002092,
+     A low power, fully event-based gesture recognition system.
+                                                                             2011. 2
+     In Proceedings of the IEEE Conference on Computer Vision
+                                                                        [16] Wulfram Gerstner, Werner M Kistler, Richard Naud, and
+     and Pattern Recognition, pages 7243–7252, 2017. 2
+                                                                             Liam Paninski. Neuronal dynamics: From single neurons
+ [2] Guillaume Bellec, Darjan Salaj, Anand Subramoney, Robert
+                                                                             to networks and models of cognition. Cambridge University
+     Legenstein, and Wolfgang Maass. Long short-term mem-
+                                                                             Press, 2014. 1, 3
+     ory and learning-to-learn in networks of spiking neurons. In
+                                                                        [17] Shangqi Guo, Zhaofei Yu, Fei Deng, Xiaolin Hu, and Feng
+     Advances in Neural Information Processing Systems, pages
+                                                                             Chen. Hierarchical bayesian inference and learning in spik-
+     787–797, 2018. 2
+                                                                             ing neural networks. IEEE Transactions on Cybernetics,
+ [3] Guo-qiang Bi and Mu-ming Poo. Synaptic modifications in
+                                                                             49(1):133–145, 2017. 2
+     cultured hippocampal neurons: dependence on spike timing,
+     synaptic strength, and postsynaptic cell type. Journal of Neu-     [18] Robert Gütig and Haim Sompolinsky. The tempotron: a neu-
+     roscience, 18(24):10464–10472, 1998. 2                                  ron that learns spike timing–based decisions. Nature Neuro-
+                                                                             science, 9(3):420–428, 2006. 2
+ [4] Yin Bi, Aaron Chadha, Alhabib Abbas, Eirina Bourtsoulatze,
+     and Yiannis Andreopoulos. Graph-based object classifica-           [19] Bing Han, Gopalakrishnan Srinivasan, and Kaushik Roy.
+     tion for neuromorphic vision sensing. In Proceedings of the             RMP-SNN: Residual Membrane Potential Neuron for En-
+     IEEE International Conference on Computer Vision, pages                 abling Deeper High-Accuracy and Low-Latency Spiking
+     491–501, 2019. 7                                                        Neural Network. In Proceedings of the IEEE Conference
+ [5] Sander M Bohte, Joost N Kok, and Han La Poutre. Error-                  on Computer Vision and Pattern Recognition, pages 13558–
+     backpropagation in temporally encoded networks of spiking               13567, 2020. 2, 5, 6, 7
+     neurons. Neurocomputing, 48(1-4):17–37, 2002. 2                    [20] Michael E Hasselmo and Chantal E Stern. Mechanisms un-
+ [6] Matthew Botvinick, Jane X. Wang, Will Dabney, Kevin J.                  derlying working memory for novel information. Trends in
+     Miller, and Zeb Kurth-Nelson. Deep reinforcement learn-                 Cognitive Sciences, 10(11):487–493, 2006. 2
+     ing and its neuroscientific implications. Neuron, 107(4):603–      [21] Weihua He, YuJie Wu, Lei Deng, Guoqi Li, Haoyu
+     616, 2020. 2                                                            Wang, Yang Tian, Wei Ding, Wenhui Wang, and Yuan
+ [7] Yongqiang Cao, Yang Chen, and Deepak Khosla. Spiking                    Xie. Comparing SNNs and RNNs on Neuromorphic Vi-
+     deep convolutional neural networks for energy-efficient ob-             sion Datasets: Similarities and Differences. arXiv preprint
+     ject recognition. International Journal of Computer Vision,             arXiv:2005.02183, 2020. 7
+     113(1):54–66, 2015. 2                                              [22] Donald Olding Hebb. The organization of behavior: A neu-
+ [8] Xiang Cheng, Yunzhe Hao, Jiaming Xu, and Bo Xu. LISNN:                  ropsychological theory. Psychology Press, 2005. 2
+     Improving Spiking Neural Networks with Lateral Interac-            [23] Sepp Hochreiter and Jürgen Schmidhuber. Long short-term
+     tions for Robust Object Recognition. In IJCAI, pages 1519–              memory. Neural Computation, 9(8):1735–1780, 1997. 4
+     1525. International Joint Conferences on Artificial Intelli-       [24] Eric Hunsberger and Chris Eliasmith. Spiking deep networks
+     gence Organization, 7 2020. 2, 5, 7                                     with LIF neurons. arXiv preprint arXiv:1510.08829, 2015.
+ [9] Gustavo Deco, Josephine Cruzat, and Morten L Kringel-                   2, 7
+     bach. Brain songs framework used for discovering the rele-         [25] Sergey Ioffe and Christian Szegedy. Batch normalization:
+     vant timescale of the human brain. Nature Communications,               Accelerating deep network training by reducing internal co-
+     10(1):1–13, 2019. 2                                                     variate shift. arXiv preprint arXiv:1502.03167, 2015. 3
+[10] Shikuang Deng and Shi Gu. Optimal conversion of conven-            [26] Yingyezhe Jin, Wenrui Zhang, and Peng Li. Hybrid
+     tional artificial neural networks to spiking neural networks.           macro/micro level backpropagation for training deep spiking
+     In International Conference on Learning Representations,                neural networks. In Advances in Neural Information Pro-
+     2021. 2                                                                 cessing Systems, pages 7005–7015, 2018. 2, 7
+[11] Peter U Diehl and Matthew Cook. Unsupervised learning              [27] Jacques Kaiser, Hesham Mostafa, and Emre Neftci. Synap-
+     of digit recognition using spike-timing-dependent plasticity.           tic Plasticity Dynamics for Deep Continuous Local Learning
+     Frontiers in Computational Neuroscience, 9:99, 2015. 2, 5               (DECOLLE). Frontiers in Neuroscience, 14:424, 2020. 2, 7
+[12] Haowen Fang, Amar Shrestha, Ziyi Zhao, and Qinru Qiu.              [28] David Kappel, Robert Legenstein, Stefan Habenschuss,
+     Exploiting Neuron and Synapse Filter Dynamics in Spatial                Michael Hsieh, and Wolfgang Maass. A dynamic con-
+     Temporal Learning of Deep Spiking Neural Network. arXiv                 nectome supports the emergence of stable computational
+     preprint arXiv:2003.02944, 2020. 7                                      function of neural circuits through reward-based learning.
+[13] Nicolas Frémaux and Wulfram Gerstner. Neuromodulated                   eNeuro, 5(2), 2018. 2
+     spike-timing-dependent plasticity, and theory of three-factor      [29] Saeed Reza Kheradpisheh, Mohammad Ganjtabesh, Simon J
+     learning rules. Frontiers in Neural Circuits, 9:85, 2016. 2             Thorpe, and Timothée Masquelier. Stdp-based spiking deep
+[14] Nicolas Frémaux, Henning Sprekeler, and Wulfram Gerst-                 convolutional neural networks for object recognition. Neural
+     ner. Reinforcement learning using a continuous time actor-              Networks, 99:56–67, 2018. 2
+
+
+
+
+                                                                      2669
+[30] Christof Koch, Moshe Rapp, and Idan Segev. A brief history             ing, classification, and spike shifting. Neural Computation,
+     of time (constants). Cerebral Cortex, 6(2):93–101, 1996. 2             22(2):467–510, 2010. 2
+[31] Alex Krizhevsky, Geoffrey Hinton, et al. Learning multiple        [46] Wiebke Potjans, Markus Diesmann, and Abigail Morri-
+     layers of features from tiny images. Technical report, 2009.           son. An imperfect dopaminergic error signal can drive
+     2                                                                      temporal-difference learning. PLoS Computational Biology,
+[32] Yann LeCun, Léon Bottou, Yoshua Bengio, and Patrick                   7(5):e1001133, 2011. 2
+     Haffner. Gradient-based learning applied to document recog-       [47] Nitin Rathi and Kaushik Roy. DIET-SNN: Direct Input En-
+     nition. Proceedings of the IEEE, 86(11):2278–2324, 1998.               coding With Leakage and Threshold Optimization in Deep
+     2                                                                      Spiking Neural Networks. arXiv preprint arXiv:2008.03658,
+[33] Eimantas Ledinauskas, Julius Ruseckas, Alfonsas Juršėnas,            2020. 2, 4, 5, 7
+     and Giedrius Buračas. Training Deep Spiking Neural Net-          [48] Nitin Rathi, Gopalakrishnan Srinivasan, Priyadarshini
+     works. arXiv preprint arXiv:2006.04436, 2020. 3, 4                     Panda, and Kaushik Roy. Enabling deep spiking neural net-
+[34] Chankyu Lee, Syed Shakib Sarwar, Priyadarshini Panda,                  works with hybrid conversion and spike timing dependent
+     Gopalakrishnan Srinivasan, and Kaushik Roy. Enabling                   backpropagation. arXiv preprint arXiv:2005.01807, 2020. 5
+     spike-based backpropagation for training deep neural net-         [49] Kaushik Roy, Akhilesh Jaiswal, and Priyadarshini Panda.
+     work architectures. Frontiers in Neuroscience, 14, 2020. 2,            Towards spike-based machine intelligence with neuromor-
+     5, 6, 7                                                                phic computing. Nature, 575(7784):607–617, 2019. 1
+[35] Jun Haeng Lee, Tobi Delbruck, and Michael Pfeiffer. Train-        [50] Bodo Rueckauer, Iulia-Alexandra Lungu, Yuhuang Hu,
+     ing deep spiking neural networks using backpropagation.                Michael Pfeiffer, and Shih-Chii Liu.           Conversion of
+     Frontiers in Neuroscience, 10:508, 2016. 2, 7                          continuous-valued deep networks to efficient event-driven
+[36] Hongmin Li, Hanchao Liu, Xiangyang Ji, Guoqi Li, and                   networks for image classification. Frontiers in Neuroscience,
+     Luping Shi. Cifar10-dvs: an event-stream dataset for ob-               11:682, 2017. 2, 5, 6, 7
+     ject classification. Frontiers in Neuroscience, 11:309, 2017.
+                                                                       [51] Abhronil Sengupta, Yuting Ye, Robert Wang, Chiao Liu, and
+     2
+                                                                            Kaushik Roy. Going deeper in spiking neural networks: Vgg
+[37] Qianhui Liu, Haibo Ruan, Dong Xing, Huajin Tang, and                   and residual architectures. Frontiers in Neuroscience, 13:95,
+     Gang Pan. Effective AER Object Classification Using Seg-               2019. 2, 5, 7
+     mented Probability-Maximization Learning in Spiking Neu-
+                                                                       [52] H Sebastian Seung. Learning in spiking neural networks by
+     ral Networks. In Proceedings of the AAAI Conference on
+                                                                            reinforcement of stochastic synaptic transmission. Neuron,
+     Artificial Intelligence, pages 1308–1315, 2020. 7
+                                                                            40(6):1063–1073, 2003. 2
+[38] Wolfgang Maass. Networks of spiking neurons: the third
+     generation of neural network models. Neural Networks,             [53] Karthik H Shankar and Marc W Howard.                 A scale-
+     10(9):1659–1671, 1997. 1                                               invariant internal representation of time. Neural Computa-
+                                                                            tion, 24(1):134–193, 2012. 2
+[39] Maurizio Mattia and Paolo Del Giudice. Population dy-
+     namics of interacting spiking neurons. Physical Review E,         [54] Sumit B Shrestha and Garrick Orchard. Slayer: Spike layer
+     66(5):051917, 2002. 2                                                  error reassignment in time. Advances in Neural Information
+[40] Ammar Mohemmed, Stefan Schliebs, Satoshi Matsuda, and                  Processing Systems, 31:1412–1421, 2018. 2, 5, 7
+     Nikola Kasabov. Span: Spike pattern association neuron for        [55] Amos Sironi, Manuele Brambilla, Nicolas Bourdis, Xavier
+     learning spatio-temporal spike patterns. International Jour-           Lagorce, and Ryad Benosman. HATS: Histograms of aver-
+     nal of Neural Systems, 22(04):1250012, 2012. 2                         aged time surfaces for robust event-based object classifica-
+[41] Milad Mozafari, Mohammad Ganjtabesh, Abbas Nowzari-                    tion. In Proceedings of the IEEE International Conference
+     Dalini, Simon J Thorpe, and Timothée Masquelier. Bio-                 on Computer Vision, pages 1731–1740, 2018. 7
+     inspired digit recognition using reward-modulated spike-          [56] Narayan Srinivasa and Youngkwan Cho. Self-organizing
+     timing-dependent plasticity in deep convolutional networks.            spiking neural model for learning fault-tolerant spatio-motor
+     Pattern Recognition, 94:87–95, 2019. 2                                 transformations. IEEE Transactions on Neural Networks and
+[42] Emre O Neftci, Hesham Mostafa, and Friedemann Zenke.                   Learning Systems, 23(10):1526–1538, 2012. 2
+     Surrogate gradient learning in spiking neural networks. IEEE      [57] Yujie Wu, Lei Deng, Guoqi Li, Jun Zhu, and Luping
+     Signal Processing Magazine, 36:61–63, 2019. 2                          Shi. Spatio-temporal backpropagation for training high-
+[43] Bernhard Nessler, Michael Pfeiffer, Lars Buesing, and Wolf-            performance spiking neural networks. Frontiers in Neuro-
+     gang Maass. Bayesian computation emerges in generic corti-             science, 12:331, 2018. 2, 7
+     cal microcircuits through spike-timing-dependent plasticity.      [58] Yujie Wu, Lei Deng, Guoqi Li, Jun Zhu, Yuan Xie, and Lup-
+     PLoS Computational Biology, 9(4):e1003037, 2013. 2                     ing Shi. Direct training for spiking neural networks: Faster,
+[44] Garrick Orchard, Ajinkya Jayawant, Gregory K Cohen, and                larger, better. In Proceedings of the AAAI Conference on Ar-
+     Nitish Thakor. Converting static image datasets to spiking             tificial Intelligence, pages 1311–1318, 2019. 2, 3, 5, 7
+     neuromorphic datasets using saccades. Frontiers in Neuro-         [59] Han Xiao, Kashif Rasul, and Roland Vollgraf. Fashion-
+     science, 9:437, 2015. 2                                                mnist: a novel image dataset for benchmarking machine
+[45] Filip Ponulak and Andrzej Kasiński. Supervised learning               learning algorithms. arXiv preprint arXiv:1708.07747, 2017.
+     in spiking neural networks with ReSuMe: sequence learn-                2
+
+
+
+
+                                                                     2670
+[60] Yannan Xing, Gaetano Di Caterina, and John Soraghan. A
+     new spiking convolutional recurrent neural network (scrnn)
+     with applications to event-based hand gesture recognition.
+     Frontiers in Neuroscience, 14:1143, 2020. 7
+[61] Bojian Yin, Federico Corradi, and Sander M Bohté. Ef-
+     fective and Efficient Computation with Multiple-timescale
+     Spiking Recurrent Neural Networks.             arXiv preprint
+     arXiv:2005.11633, 2020. 2, 4
+[62] Mengwen Yuan, Xi Wu, Rui Yan, and Huajin Tang. Re-
+     inforcement Learning in Spiking Neural Networks with
+     Stochastic and Deterministic Synapses. Neural Computa-
+     tion, 31(12):2368–2389, 2019. 2
+[63] Friedemann Zenke and Tim P Vogels. The remarkable ro-
+     bustness of surrogate gradient learning for instilling complex
+     function in spiking neural networks. BioRxiv, 2020. 2
+[64] Wenrui Zhang and Peng Li. Spike-train level backpropaga-
+     tion for training deep recurrent spiking neural networks. In
+     Advances in Neural Information Processing Systems, pages
+     7802–7813, 2019. 2, 5, 7
+[65] Romain Zimmer, Thomas Pellegrini, Srisht Fateh Singh, and
+     Timothée Masquelier. Technical report: supervised train-
+     ing of convolutional spiking neural networks with PyTorch.
+     arXiv preprint arXiv:1911.10124, 2019. 2
+
+
+
+
+                                                                      2671
+
