@@ -6,3 +6,4 @@ __pycache__/
 condaenv.tydagkc8.requirements.txt
 /results
 /scripts
+/outputs

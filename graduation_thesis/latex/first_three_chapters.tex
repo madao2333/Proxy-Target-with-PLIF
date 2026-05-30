@@ -141,12 +141,12 @@
 \noindent 论文指导教师签名：\underline{\makebox[45mm][c]{\raisebox{-0.35\height}{\includegraphics[height=13.5mm]{assets/signature_yu_qiang.jpg}}}}\hfill 2026 年 5 月 15 日
 
 \chapter*{\songti\zihao{2}\bfseries 摘\quad 要}
-脉冲神经网络具有事件驱动、稀疏计算和低功耗潜力，但其离散脉冲机制使连续控制强化学习面临梯度传播和连续动作输出困难。本文在 Proxy Target + TD3 框架下，比较 LIF 与 PLIF 脉冲 actor 在五个 MuJoCo 环境中的表现，并结合 STBP 梯度、放电状态和 PLIF 时间常数演化分析训练机制。实验表明，PT-PLIF 相比 PT-LIF 未呈现稳定的最终回报优势，PLIF 不应被视为全面优于 LIF 的替代神经元。Hopper-v4 案例显示，低回报停滞与有效梯度塌缩和时间递推路径削弱有关，调整 actor 更新间隔可缓解该现象。成功训练组中，PLIF 时间常数呈层间分化，LIF 与 PLIF 的配对机制指标高度一致，说明二者在当前框架下具有机制近似等价性，PLIF 的主要价值在于提供可解释的时间尺度自适应能力。
+脉冲神经网络具有低功耗潜力，但离散脉冲机制使连续控制强化学习面临动作输出和梯度传播困难。为分析可学习膜电位时间常数是否改变 Proxy Target 脉冲 actor 的训练机制，本文在 Proxy Target + TD3 框架下比较 LIF 与 PLIF，在五个 MuJoCo 环境中比较回报和学习曲线，并结合 STBP 梯度、放电状态、有效保留项和时间常数演化进行诊断。结果表明，PT-PLIF 相比 PT-LIF 未形成稳定回报优势；Hopper-v4 低回报停滞源于前向仍放电时的有效梯度塌缩和时间递推路径削弱，调整 actor 更新间隔可缓解该问题。成功训练状态下，PLIF 时间常数呈层间自适应，LIF 与 PLIF 机制指标高度一致。PLIF 的理论价值在于提供可解释的时间尺度调节机制，应用价值在于为 SNN actor 稳定性诊断和参数调节提供依据，而非必然提升回报的替代模型。
 
 \noindent{\songti\zihao{4}\bfseries 关键词：}{\songti 脉冲神经网络，连续控制，强化学习，Proxy Target，PLIF 神经元}
 
 \chapter*{\zihao{2}\bfseries ABSTRACT}
-Spiking neural networks offer event-driven, sparse, and low-power computation, but discrete spikes hinder gradient propagation and continuous action output in control reinforcement learning. Under Proxy Target + TD3, this thesis compares LIF and PLIF spiking actors on five MuJoCo tasks and analyzes STBP gradients, firing states, and PLIF time constants. Results show no stable return advantage of PT-PLIF over PT-LIF, so PLIF is not a universally superior replacement. Hopper-v4 diagnostics connect low-return stagnation to gradient collapse and weakened temporal recurrence, while adjusted actor updates alleviate it. Successful runs show layer-wise PLIF time constants and highly consistent paired LIF/PLIF diagnostics, suggesting approximate mechanism equivalence, with PLIF mainly offering interpretable time-scale adaptation.
+Spiking neural networks have low-power potential, but their discrete spikes make action output and gradient propagation difficult in continuous-control reinforcement learning. To examine whether learnable membrane time constants change the training mechanism of Proxy Target spiking actors, this thesis compares LIF and PLIF under Proxy Target + TD3 on five MuJoCo tasks, using returns, learning curves, STBP gradients, firing states, effective retention terms, and time-constant evolution. Results show that PT-PLIF does not obtain a stable return advantage over PT-LIF. In Hopper-v4, low-return stagnation is mainly associated with effective gradient collapse and weakened temporal recurrence while forward firing remains active, and it can be alleviated by adjusting the actor update interval. In successful runs, PLIF time constants show layer-wise adaptation, while LIF and PLIF remain highly consistent in mechanism diagnostics. The theoretical value of PLIF lies in an interpretable time-scale regulation mechanism, and its application value lies in guiding stability diagnosis and parameter tuning for SNN actors rather than serving as a substitute that necessarily improves returns.
 
 \noindent{\zihao{4}\textbf{KEY WORDS:}}\\
 Spiking Neural Networks；Continuous Control；Reinforcement Learning；Proxy Target；PLIF Neuron
@@ -166,27 +166,25 @@ Spiking Neural Networks；Continuous Control；Reinforcement Learning；Proxy Ta
 
 然而，SNN 与连续控制强化学习之间存在天然张力。首先，连续控制任务要求 actor 输出连续动作，而 SNN 的内部信号是离散脉冲序列，需要通过群体编码、脉冲计数或膜电位读出等方式映射到连续动作空间。其次，脉冲发放函数不可导，标准反向传播无法直接穿过阈值函数，训练多层 SNN 通常需要代理梯度和时空反向传播（Spatio-Temporal Backpropagation，STBP）\cite{lee2016backprop,wu2018stbp,neftci2019surrogate}。再次，TD3 等 off-policy 算法依赖目标网络软更新，而 SNN 的二值脉冲输出对参数扰动较为敏感，直接复制 ANN 中的目标网络机制可能引入不稳定的训练目标。Proxy Target 正是在这一背景下提出：用连续可微的代理目标 actor 拟合在线 SNN actor，从而在训练阶段提供平滑目标，而部署阶段仍保留脉冲 actor 的低功耗优势\cite{xu2025proxy}。
 
-在 SNN 神经元模型中，Leaky Integrate-and-Fire（LIF）神经元以固定衰减系数描述膜电位随时间的泄露，是最常用的基础模型之一。Parametric Leaky Integrate-and-Fire（PLIF）进一步将膜电位时间常数设为可学习参数，使网络不仅学习突触权重，也学习神经元自身的时间尺度\cite{fang2021plif}。从直觉上看，连续控制任务包含不同的时序依赖，不同环境和不同层可能需要不同的膜电位保持能力，因此 PLIF 似乎有可能提高脉冲 actor 的适应能力。但在 Proxy Target + TD3 框架下，本文实验显示 PT-PLIF 与 PT-LIF 的最终回报整体接近，并不存在稳定的全面优势。因此，本文的核心问题不是简单证明 PLIF 比 LIF 更强，而是分析可学习时间常数是否真正改变了训练动力学：一方面解释脉冲 actor 为什么会在某些设置下“仍然放电但学习不动”，另一方面判断 LIF 与 PLIF 在成功训练状态下是否形成了相近的内部机制。
+在 SNN 神经元模型中，Leaky Integrate-and-Fire（LIF）神经元以固定衰减系数描述膜电位随时间的泄露，是最常用的基础模型之一。Parametric Leaky Integrate-and-Fire（PLIF）进一步将膜电位时间常数设为可学习参数，使网络不仅学习突触权重，也学习神经元自身的时间尺度\cite{fang2021plif}。从直觉上看，连续控制任务包含不同的时序依赖，不同环境和不同层可能需要不同的膜电位保持能力，因此 PLIF 似乎有可能提高脉冲 actor 的适应能力。然而，在 Proxy Target + TD3 框架下，这一额外自由度是否能够转化为稳定的训练收益，以及它是否会改变脉冲 actor 的内部学习机制，仍需要结合实验结果和训练过程诊断进行分析。因此，本文的核心问题不是简单比较两类神经元形式的复杂程度，而是考察可学习时间常数是否真正改变了训练动力学：一方面解释脉冲 actor 为什么会在某些设置下“仍然放电但学习不动”，另一方面判断 LIF 与 PLIF 在成功训练状态下是否形成了相近的内部机制。
 
 \section{问题提出}
-传统 LIF 神经元使用固定的膜电位保留系数。以本文代码中的实现为例，LIF 隐藏层和输出 population 层使用相同的固定系数 $\tau_{\mathrm{LIF}}=0.75$，膜电位按照上一时刻膜电位、上一时刻脉冲重置项和当前输入电流共同更新。固定系数的优点是结构简单、参数量少、可解释性强；缺点是网络各层在训练前就被赋予相同时间尺度，难以根据任务动态自适应地调整记忆长度。
+传统 LIF 神经元使用固定的膜电位保留系数。以本文代码中的实现为例，LIF 隐藏层和输出 population 层使用相同的固定系数 $\tau_{\mathrm{LIF}}=0.75$，膜电位按照上一时刻膜电位、上一时刻脉冲重置项和当前输入电流共同更新。固定系数具有结构简单、参数量少和可解释性较强等优点，但也意味着网络各层在训练前就被赋予相同时间尺度，难以适应不同环境、不同网络层对记忆长度的差异化需求。
 
-PLIF 将这一固定系数替换为可学习参数。若训练信号充分，隐藏层可以学习更长或更短的膜电位保持时间，输出层也可以根据动作读出需求调整放电节奏。Fang 等人的研究表明，在监督学习任务中，学习膜时间常数能够增强 SNN 的表达能力并降低对初始值的敏感性\cite{fang2021plif}。因此，将 PLIF 引入强化学习中的 SNN actor 是自然的扩展。
+PLIF 将这一固定系数替换为可学习参数，使神经元能够在训练过程中调整自身膜电位保留能力。若训练信号能够有效传递，隐藏层可以学习更长或更短的膜电位保持时间，输出层也可以根据动作读出需求调整放电节奏。Fang 等人的研究表明，在监督学习任务中，学习膜时间常数能够增强 SNN 的表达能力并降低对初始值的敏感性\cite{fang2021plif}。因此，将 PLIF 引入强化学习中的 SNN actor，为连续控制策略提供了按层自适应时间尺度的可能性。
 
-但是，强化学习中的训练信号比监督学习更间接、更噪声化。actor 并不是直接拟合静态标签，而是通过 critic 对动作价值的估计间接更新；critic 本身又由 replay buffer、目标网络和时序差分目标共同驱动。对于 SNN actor，策略损失的反向传播还要穿过时间维度上的膜电位、脉冲发放和重置路径。如果早期训练使膜电位长期远离代理梯度有效窗口，则即使前向仍能产生大量脉冲，反向梯度也可能接近零。此时 PLIF 的额外时间常数参数并不会自动发挥作用，因为它同样依赖 STBP 提供学习信号。
-
-因此，本文需要回答的问题并不是 PLIF 是否在最终回报上简单优于 LIF，而是可学习时间常数在 Proxy Target + TD3 训练闭环中是否真正改变了脉冲 actor 的学习过程。具体而言，本文关注三类问题：第一，低回报停滞究竟来自脉冲活动不足，还是来自有效反向梯度路径失效；第二，PLIF 时间常数在成功训练中是否呈现可解释的层间调节；第三，在相近性能条件下，LIF 与 PLIF 是否形成了显著不同的内部训练机制。这些问题构成了后续实验设计和机制分析的出发点。
+因此，本文将问题聚焦于可学习时间常数在 Proxy Target + TD3 训练闭环中的实际作用，而不是仅从神经元形式上判断 PLIF 是否更复杂。具体而言，本文关注三类问题：第一，PLIF 相较于固定时间常数的 LIF 是否能够带来性能提升；第二，PLIF 时间常数在成功训练中是否呈现可解释的层间调节；第三，在相近性能条件下，LIF 与 PLIF 是否形成了显著不同的内部训练机制。这些问题构成了后续实验设计和机制分析的出发点。
 
 \section{研究目标}
 本文围绕 Proxy Target + TD3 框架下 LIF 与 PLIF 脉冲 actor 的训练机制展开，具体目标如下。
 
-第一，建立问题叙述。本文从连续控制强化学习、SNN actor 的低功耗潜力以及 Proxy Target 框架的必要性出发，引出脉冲 actor 中膜电位时间尺度建模问题。在此基础上，本文将固定膜电位保留系数的 LIF 与可学习时间常数的 PLIF 进行对照，并明确本文不以证明“PLIF 全面优于 LIF”为目标，而是关注二者在当前框架下的性能接近性和训练机制差异。
+第一，建立问题叙述。本文从连续控制强化学习、SNN actor 的低功耗潜力以及 Proxy Target 框架的必要性出发，引出脉冲 actor 中膜电位时间尺度建模问题。在此基础上，本文将固定膜电位保留系数的 LIF 与可学习时间常数的 PLIF 作为主要比较对象，为后续实验设计和机制分析奠定问题基础。
 
 第二，梳理理论基础。本文将介绍 MDP、Actor-Critic 和 TD3 的基本形式，说明双 critic、延迟策略更新和目标动作平滑在连续控制中的作用；随后介绍 SNN、LIF、PLIF、代理梯度和 STBP，为后续分析梯度塌缩、放电率饱和和时间常数演化提供概念工具。
 
 第三，对齐代码实现和实验设置。本文基于当前项目代码说明脉冲 actor 的具体结构：Population Spike Encoder 将连续状态编码为脉冲序列，Spike MLP 在时间维度上进行 LIF/PLIF 神经元计算，Population Decoder 将输出 population 的平均脉冲活动解码为连续动作。
 
-第四，诊断脉冲 actor 的学习停滞机制。本文以 Hopper-v4 中的默认失败组和 actor 更新间隔调整组为代表案例，结合评估回报、学习曲线、STBP 梯度、放电率、电流、膜电位、参数梯度和 PLIF 时间常数，分析低回报停滞是否来自脉冲沉默，还是来自高放电状态下的有效梯度塌缩。
+第四，诊断脉冲 actor 的学习停滞机制。本文以 Hopper-v4 中的默认失败组和 actor 更新间隔调整组为代表案例，结合评估回报、学习曲线、STBP 梯度、放电率、参数梯度和 PLIF 时间常数，分析低回报停滞是否来自脉冲沉默，还是来自高放电状态下的有效梯度塌缩。
 
 第五，比较 LIF 与 PLIF 的成功训练机制。本文在总体性能接近的基础上，进一步比较成功训练组中的放电状态、膜电位尺度、代理梯度窗口占比、有效保留项、非零梯度覆盖率和动作端梯度强度，判断 PLIF 的可学习时间常数是否使其形成不同于 LIF 的训练机制。
 
@@ -413,11 +411,11 @@ s_t^l=H(v_t^l-V_{\mathrm{th}}).
 \section{本章小结}
 本章从实现角度介绍了本文采用的脉冲 actor 设计。首先，本文说明了状态 population 编码、Spike MLP 和动作 population 解码三部分如何共同完成从连续状态到连续动作的映射。随后，本文对比了 LIF 与 PLIF 在膜电位保留系数上的计算差异，并说明 PLIF 时间常数通过 sigmoid 参数化为按层可学习的标量。最后，本文梳理了 Proxy Target + TD3 在代码中的训练流程，明确 proxy target、critic、SNN actor 和 target critic 在一次训练迭代中的更新顺序。
 
-由此可见，本文并不是将 PLIF 作为孤立神经元进行讨论，而是将其放入完整的连续控制强化学习闭环中分析。PLIF 提供了可学习的时间尺度自由度，但该自由度需要依赖 actor 更新阶段的 STBP 反向传播才能发挥作用。第四章将进一步说明实验环境、对比方法和评价指标，第五章则在此实现基础上分析总体性能、学习停滞机制、PLIF 时间常数演化以及 LIF 与 PLIF 的机制近似等价性。
+由此可见，本文并不是将 PLIF 作为孤立神经元进行讨论，而是将其放入完整的连续控制强化学习闭环中分析。PLIF 提供了可学习的时间尺度自由度，但该自由度需要依赖 actor 更新阶段的 STBP 反向传播才能发挥作用。第四章将进一步说明实验环境、对比方法、性能指标和训练超参数，第五章则在此实现基础上分析总体性能、学习停滞机制、PLIF 时间常数演化以及 LIF 与 PLIF 的机制近似等价性。
 
-\chapter{实验设计与机制分析框架}
+\chapter{实验设计与配置说明}
 
-\section{MuJoCo 任务选择与评估协议}
+\section{实验设置与比较对象}
 本文实验在 Gymnasium MuJoCo 连续控制环境上展开。MuJoCo 物理引擎提供了适合机器人运动控制研究的接触动力学仿真平台\cite{todorov2012mujoco}。选择这些环境的原因在于，它们具有连续状态空间和连续动作空间，能够检验脉冲 actor 在连续控制任务中的动作生成能力，也便于为后续机制分析提供不同难度任务上的结果背景。本文使用的五个具体环境见表 \ref{tab:envs}。
 
 这些任务覆盖了不同难度和动力学特征。倒立双摆任务的状态和动作维度相对较低，猎豹奔跑、双足行走和多足行走任务具有更复杂的运动控制需求，单腿跳跃任务对早期策略和探索噪声较敏感。需要说明的是，本文并不对每个环境分别展开同等深度的机制分析；五个环境主要用于总体性能和学习曲线对比，而 Hopper-v4 由于低回报停滞现象更明显，被选为训练失败机制和调参缓解现象的代表案例。
@@ -442,21 +440,16 @@ Walker2d-v4 & 双足行走控制 & 总体性能与学习曲线对比 \\
 
 主要对比实验使用五个随机种子：10991、22297、33431、75183 和 95718。训练和评估过程中对随机性进行统一控制，使不同方法之间尽量保持可比。每隔 $5000$ 个环境交互步进行一次评估，每次评估使用 $10$ 个 episode 的平均回报作为当前策略表现。最终性能主要取训练过程中出现过的最大评估回报，而不是只取最后一次评估值，以减少个别训练末期波动对比较结果的影响。
 
-\section{Actor 对照对象与核心比较关系}
-本文实验包含 ANN、LIF、PLIF 和 CLIF 四类 actor 或神经元设置。ANN 是非脉冲 TD3 actor baseline，不包含脉冲发放和膜电位递推，用于提供传统连续激活 actor 的结果参照。CLIF 在脉冲神经元中进一步引入电流动态，用于补充观察额外神经元动力学对训练表现的影响。二者在本文中主要承担背景参照作用，而不是机制分析的核心对象。
+基于上述任务设置和评估方式，本文设置 ANN、LIF、PLIF 和 CLIF 四类 actor 或神经元配置。其中，ANN 作为非脉冲 TD3 actor baseline，用于提供传统连续激活网络的性能参照；CLIF 用于补充观察引入额外神经元动力学后的训练表现。二者主要承担背景对照作用，而不是本文机制分析的核心对象。
 
-本文的核心比较对象是 LIF 与 PLIF。二者共享相同的状态 population 编码器、Spike MLP 结构、动作 population 解码器、critic 结构和 Proxy Target 训练流程，主要差异在于膜电位保留系数是否可学习。因此，若二者最终回报接近，不能简单说明 PLIF 无效，而应进一步观察时间常数是否获得有效梯度、隐藏层放电是否健康、电流和膜电位是否落在适合代理梯度传播的范围内。
+本文的核心比较对象是 LIF 与 PLIF。二者在状态 population 编码、Spike MLP 结构、动作 population 解码、critic 结构以及 Proxy Target 训练流程上保持一致，主要差异在于膜电位保留系数是否可学习。因此，二者的比较不能仅停留在最终回报层面，还需要结合放电状态、STBP 梯度和 PLIF 时间常数演化等诊断信息，分析可学习时间尺度是否改变脉冲 actor 的训练机制。
 
-基于这一定位，本文不将四类 actor 的比较写成单纯的性能排序。ANN 和 CLIF 用于说明总体结果背景，LIF 与 PLIF 则用于回答本文的核心问题：可学习时间常数是否改变 Proxy Target 脉冲 actor 的训练机制，以及二者在成功训练状态下是否具有近似等价的内部动力学。
-
-\section{性能指标、诊断指标与训练超参数}
-本文的实验指标分为性能结果和机制诊断两类。性能结果用于提供整体背景，包括最大评估回报和平均学习曲线。对于每个环境、每个算法和每个随机种子，训练日志中记录一系列评估回报，最大评估回报定义为这些记录中的最大值。随后对同一环境下五个随机种子的最大评估回报计算均值和标准差，用于比较不同方法的整体水平和随机种子间稳定性。平均学习曲线则用于观察收敛速度、早期失败和后期波动。
-
-为了分析训练机制，本文还记录神经动力学、梯度和参数三类诊断指标。神经动力学指标包括阈值前放电率、阈值后放电率、电流均值、电流绝对值均值、膜电位均值和膜电位标准差，用于判断网络处于沉默、健康放电还是饱和放电状态。梯度指标包括电流梯度、权重和偏置梯度、带符号梯度均值和 PLIF 时间常数梯度，用于判断 STBP 是否仍能提供学习信号。参数指标包括权重均值、权重标准差、权重范数和偏置均值，用于观察 actor 是否形成整体正偏、权重分化或参数冻结。
+\section{性能指标与训练超参数}
+本文采用最大评估回报和平均学习曲线作为主要性能指标。对于每个环境、每个算法和每个随机种子，训练日志中记录一系列评估回报，最大评估回报定义为这些记录中的最大值。随后对同一环境下五个随机种子的最大评估回报计算均值和标准差，用于比较不同方法的整体水平和随机种子间稳定性。平均学习曲线则用于观察收敛速度、早期失败和后期波动。
 
 表 \ref{tab:hyperparams} 汇总了默认训练和评估设置。这些超参数用于说明实验日志的基本训练条件，并为第五章中关于 \texttt{policy\_freq} 调整、PLIF 时间常数学习率以及 proxy target 更新的讨论提供背景。需要注意的是，表中 \texttt{tau}=0.005 表示 TD3 目标网络软更新系数，而不是 PLIF 神经元中的膜电位保留系数。
 
-\begin{table}[htbp]
+\begin{table}[H]
 \centering
 \caption{默认训练与评估超参数}
 \label{tab:hyperparams}
@@ -483,15 +476,9 @@ PLIF 时间常数学习率 & $1.0\times10^{-4}$ & 未指定时的 PLIF 时间常
 \bottomrule
 \end{tabular}
 \end{table}
+\FloatBarrier
 
-\section{结果组织方式与机制分析边界}
-为保证实验设置与结果分析之间具有明确对应关系，本节对实验结果的来源、组织方式和分析边界作统一说明。本文整理的训练日志覆盖 ANN、LIF、PLIF 和 CLIF 四类 actor 设置，并在表 \ref{tab:envs} 所列的五个 MuJoCo 连续控制环境上进行比较。各方法的总体表现主要依据前文定义的最大评估回报和平均学习曲线进行统计，用于说明不同 actor 设置在当前实验范围内的整体表现，而不是作为本文唯一结论依据。
-
-在结果组织上，本文先从四类方法的整体性能入手，给出 ANN、LIF、PLIF 和 CLIF 在不同环境中的总体对比。ANN baseline 用于提供传统连续激活 actor 的性能参照，CLIF 用于补充观察引入额外神经元动力学后的训练表现。随后，分析重点回到 LIF 与 PLIF 的比较。由于二者在网络结构、状态编码、动作解码、critic 以及 Proxy Target 训练流程上保持一致，其差异主要来自膜电位保留系数是否可学习，因此仅比较最终回报不足以判断 PLIF 是否发挥作用，还需要结合时间常数演化、放电状态、膜电位分布和梯度传播状态进行解释。
-
-除总体结果展示外，本文将 Hopper-v4 作为机制分析的代表环境。该环境在脉冲 actor 训练中更容易出现低回报停滞现象，适合用于进一步检查训练失败的内部原因。围绕该环境，本文整理了默认 PLIF 失败配置、调整 actor 更新频率后的成功配置以及相关对照实验的梯度与神经状态诊断信息，并结合参数统计结果，从放电率、电流、膜电位、权重梯度、偏置梯度和 PLIF 时间常数梯度等角度进行诊断。该部分分析的目的不是单纯报告某个超参数组合取得更高回报，而是说明低回报停滞与脉冲活动、代理梯度窗口和时间递推路径之间的关系。
-
-因此，第五章的实验结果将按照四个层次展开：首先展示四类方法在多个环境中的总体结果；其次结合学习曲线分析训练过程中的成功、停滞与波动；随后通过 STBP 梯度、神经动力学状态和 PLIF 时间常数演化解释 Hopper-v4 案例中的学习失败与缓解机制；最后比较成功训练状态下 LIF 与 PLIF 的配对机制指标，讨论二者在当前框架下的机制近似等价性。这样的安排能够使总体结果服务于背景说明，使机制诊断服务于本文的核心问题。
+基于上述实验设置，第五章先从五个 MuJoCo 环境的最大评估回报和学习曲线分析不同 actor 的总体表现，再以 Hopper-v4 中的代表性训练现象为入口展开机制诊断。
 
 \chapter{实验结果与分析}
 
@@ -658,7 +645,7 @@ v_t^l=\tau_l v_{t-1}^l(1-s_{t-1}^l)+I_t^l
 \[
 R_l=\mathbb{E}[\tau_l(1-s_{t-1}^l)].
 \]
-由于本文代码中每个 PLIF 层共享一个标量时间常数，表 \ref{tab:policy-freq-tau} 中进一步使用同层阈值后平均放电率 $\bar{s}$ 近似该平均量，即 $R_l\approx\tau_l(1-\bar{s})$。
+由于本文代码中每个 PLIF 层共享一个标量时间常数，表 \ref{tab:policy-freq-tau} 中进一步使用同层阈值后平均放电率 $\bar{s}$ 近似该平均量，即 $R_l\approx\tau_l(1-\bar{s})$。表中统计对象为前文 Hopper-v4 随机种子 10991 下的 actor 更新频率调整组，即 \texttt{policy\_freq}=4 的五次重复运行。具体统计时，时间常数的初始值和最终值分别取该组记录的首次与末次观测；早期窗口定义为 \texttt{train\_it}$\le 20000$，后期窗口定义为 \texttt{train\_it}$\ge 700000$。表中有效保留项按对应窗口内的平均时间常数和平均阈值后放电率计算，因此反映的是训练阶段窗口平均意义下的膜电位保留能力。
 
 \begin{table}[htbp]
 \centering
@@ -748,6 +735,8 @@ R_l=\mathbb{E}[\tau_l(1-s_{t-1}^l)].
 
 在第五章最后，本文进一步补充了 LIF 与 PLIF 成功训练组的配对机制分析。该部分不再仅从最终回报判断二者优劣，而是比较放电率、电流幅值、膜电位分布、代理梯度窗口占比、有效保留项、非零电流梯度占比和动作梯度范数等内部诊断指标。结果显示，在当前 Proxy Target + TD3 框架和成功训练设置下，PT-LIF 与 PT-PLIF 在多数前向动力学和反向梯度指标上具有较高一致性。PLIF 的可学习时间常数确实增强了部分隐藏层的膜电位保留能力，但这种额外自由度并未使其形成与 LIF 完全不同的训练机制。因此，本文最终将二者关系概括为机制上的近似等价：PLIF 提供了更可解释的时间尺度调节能力，但并不必然带来稳定的最终性能优势。
 
+从理论意义看，本文将 PLIF 的可学习时间常数放入完整的 Proxy Target + TD3 训练闭环中考察，说明该参数的作用必须依赖 STBP 梯度、放电重置和代理梯度窗口共同决定，而不能脱离训练动力学单独理解。该结论有助于把 LIF 与 PLIF 的比较从“最终回报优劣”推进到“时间尺度调节如何影响梯度路径”的机制层面。从应用价值看，本文整理的梯度、放电率、有效保留项和时间常数等诊断指标，可用于识别 SNN actor 中“前向仍放电、反向已失效”的训练停滞状态，并为 actor 更新频率、神经元时间常数和相关超参数的调节提供依据。因而，本文的结论不只是说明 PLIF 未稳定提升回报，也为后续构建更稳定、更可解释的低功耗连续控制脉冲 actor 提供了分析框架。
+
 \section{主要研究结论}
 综合前文实验与分析，本文得到以下几方面结论。
 
@@ -760,6 +749,8 @@ R_l=\mathbb{E}[\tau_l(1-s_{t-1}^l)].
 第四，PLIF 时间常数呈现具有功能差异的层间演化。成功训练中，隐藏层时间常数倾向于增大，并与较低放电率共同提高未放电路径上的有效膜电位保留项；动作输出层时间常数则不一定同步增大，甚至可能下降到低于初始值。这说明 PLIF 并不是简单地在所有层延长记忆，而是根据不同层在表示学习和动作读出中的作用形成差异化调节。隐藏层更需要保留亚阈值历史信息，输出层则更直接服务于动作 population 的即时读出。
 
 第五，LIF 与 PLIF 在成功训练状态下具有机制近似等价性。配对诊断结果显示，二者在后期放电率、电流幅值、膜电位尺度、代理梯度窗口占比、非零电流梯度占比和动作梯度范数等指标上保持高度一致。PLIF 的有效保留项整体高于 LIF，说明其额外时间常数确实发挥了调节作用；但这种调节主要发生在 LIF 已有训练机制附近，并没有改变 Proxy Target 脉冲 actor 的基本学习路径。因此，PLIF 更适合作为分析 SNN actor 时间尺度自适应的工具，而不是被表述为必然提高最终回报上限的替代模型。
+
+总体而言，本文结论的理论价值在于明确了可学习时间常数、放电重置和代理梯度传播之间的耦合关系，避免将 PLIF 简化理解为单纯提升性能的神经元替换项；其应用价值在于给出一组可操作的训练状态诊断指标和调参依据，为后续在连续控制任务中训练稳定、可解释并具备低功耗潜力的 SNN actor 提供参考。
 
 \section{研究不足}
 尽管本文围绕 Proxy Target 框架下 LIF 与 PLIF 脉冲 actor 的训练机制进行了较为细致的实验分析，但仍存在一些不足。
