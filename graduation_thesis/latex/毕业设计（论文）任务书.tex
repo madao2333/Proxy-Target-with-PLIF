@@ -1,0 +1,69 @@
+\documentclass[UTF8,12pt,a4paper]{ctexart}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\geometry{left=2.8cm,right=2.8cm,top=2.5cm,bottom=2.5cm}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.25em}
+\emergencystretch=2em
+\sloppy
+\linespread{1.35}
+\ctexset{section={format=\heiti\zihao{4},beforeskip=1.2em,afterskip=0.6em}}
+\begin{document}
+\begin{titlepage}
+\thispagestyle{empty}
+\centering
+\vspace*{2mm}
+\includegraphics[width=71.2mm,height=23.3mm]{assets/tju_name.jpeg}\par
+\vspace{3mm}
+{\zihao{2}\heiti\bfseries 本科生毕业设计（论文）任务书\par}
+\vspace{16mm}
+\includegraphics[width=58.2mm,height=53.4mm]{assets/tju_emblem.jpeg}\par
+\vspace{9mm}
+{\zihao{3}\heiti\bfseries 题目：基于脉冲神经网络的连续控制强化学习算法研究\par}
+\vspace{18mm}
+\begin{tabular}{rl}
+{\zihao{3}\songti\bfseries 学\quad 院} & \underline{\makebox[70mm][c]{\zihao{3}\songti\bfseries 智能与计算学部}}\\[10pt]
+{\zihao{3}\songti\bfseries 专\quad 业} & \underline{\makebox[70mm][c]{\zihao{3}\songti\bfseries 软件工程}}\\[10pt]
+{\zihao{3}\songti\bfseries 年\quad 级} & \underline{\makebox[70mm][c]{\zihao{3}\songti\bfseries 2022级}}\\[10pt]
+{\zihao{3}\songti\bfseries 姓\quad 名} & \underline{\makebox[70mm][c]{\zihao{3}\songti\bfseries 陈俊为}}\\[10pt]
+{\zihao{3}\songti\bfseries 学\quad 号} & \underline{\makebox[70mm][c]{\zihao{3}\songti\bfseries 3022234171}}\\[10pt]
+{\zihao{3}\songti\bfseries 指导教师} & \underline{\makebox[70mm][c]{\zihao{3}\songti\bfseries 于强}}\\
+\end{tabular}
+\vfill
+\end{titlepage}
+\section*{一、原始依据}
+随着人工智能的发展，深度强化学习（DRL）在连续控制等领域取得了巨大成功，但其高昂的计算能耗限制了其在边缘设备上的部署。脉冲神经网络（SNN）作为第三代神经网络，凭借其事件驱动和离散脉冲通信的特性，具有极高的能效优势。然而，将SNN应用于连续控制的强化学习任务面临两大挑战：一是SNN的离散脉冲输出与强化学习连续动作空间的不匹配；二是传统SNN神经元（如LIF）的时间常数通常是固定的，难以适应复杂多变的环境动态。
+
+针对上述问题，本课题拟开展基于“代理目标（Proxy Target）”与“可学习膜时间常数（PLIF）”相融合的算法研究。Proxy Target机制通过引入辅助网络有效地桥接了离散脉冲与连续控制之间的鸿沟，而PLIF神经元允许网络在训练过程中自适应地调整膜时间常数，从而增强SNN对时序信息的提取能力。
+
+本课题旨在设计并实现一种PT-PLIF强化学习算法。工作基础依托于现有的PyTorch深度学习框架，研究条件具备高性能计算服务器及OpenAI Gym/MuJoCo等标准强化学习仿真环境。通过本研究，旨在验证引入可学习时间常数是否能进一步提升Proxy Target算法在连续控制任务中的收敛速度与最终性能，为构建低功耗、高性能的类脑智能系统提供理论与实践依据。
+
+\section*{二、参考文献}
+\begin{enumerate}[label={[\arabic*]},leftmargin=2.7em,itemsep=0.2em]
+  \item Fang W, Yu Z, Chen Y, et al. Incorporating learnable membrane time constant to enhance learning of spiking neural networks[C]//Proceedings of the IEEE/CVF international conference on computer vision. 2021: 2661-2671.
+  \item Zhang D, Zhang T, Jia S, et al. Multi-sacle dynamic coding improved spiking actor network for reinforcement learning[C]//Proceedings of the AAAI conference on artificial intelligence. 2022, 36(1): 59-67.
+  \item Chen D, Peng P, Huang T, et al. Fully spiking actor network with intralayer connections for reinforcement learning[J]. IEEE Transactions on Neural Networks and Learning Systems, 2024, 36(2): 2881-2893.
+  \item Xu Z, Bu T, Hao Z, et al. Proxy Target: Bridging the Gap Between Discrete Spiking Neural Networks and Continuous Control[J]. arXiv preprint arXiv:2505.24161, 2025.
+  \item Fujimoto S, Hoof H, Meger D. Addressing function approximation error in actor-critic methods[C]//International conference on machine learning. PMLR, 2018: 1587-1596.
+\end{enumerate}
+
+\section*{三、设计（研究）内容和要求}
+本课题要求学生在深入理解脉冲神经网络（SNN）及深度强化学习算法的基础上，重点研究“代理目标（Proxy Target）”机制与“可学习膜时间常数（PLIF）”神经元的融合方法。学生需首先复现Proxy Target算法，利用辅助网络产生的连续目标指导SNN的离散输出，以解决SNN在连续动作空间下的训练难题；进而将SNN部分的LIF神经元替换为PLIF模型，实现神经元的动态自适应学习，构建PT-PLIF强化学习算法，旨在提升网络对不同时间尺度环境动态的捕捉能力。
+
+在此基础上，学生需基于Python语言和PyTorch深度学习框架搭建仿真实验平台。在OpenAI Gym的标准连续控制任务（如Pendulum、Mujoco系列）中，设计并执行对比实验。重点考察PT-PLIF算法相对于原始固定时间常数的Proxy Target算法以及传统ANN算法，在模型收敛速度、最终累积奖励及训练稳定性方面的性能差异。同时，需监测网络的平均脉冲发射率，验证算法在提升性能的同时是否保持了SNN低能耗、稀疏发放的特性，并尝试对训练过程中膜时间常数的变化曲线进行可视化分析。
+
+在执行过程中，要求编写的代码结构清晰、复用性强，且所有实验数据必须经过多个随机种子的重复运行以消除偶然性。毕业论文撰写需逻辑严谨，既要清晰阐述算法融合的数学原理与实现细节，又要对实验现象进行深入的分析，最终形成具有一定理论深度和应用参考价值的成果。
+
+\vspace{2em}
+\begin{flushright}
+指导教师（签字）\\[0.8em]
+年    月    日\\[0.8em]
+审题小组组长（签字）\\[0.8em]
+年    月    日\\[0.8em]
+\end{flushright}
+\end{document}

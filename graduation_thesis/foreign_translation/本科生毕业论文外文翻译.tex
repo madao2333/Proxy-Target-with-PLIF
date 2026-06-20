@@ -1,0 +1,42 @@
+\documentclass[UTF8,zihao=-4,oneside]{ctexart}
+
+\usepackage[a4paper,margin=0pt]{geometry}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage{xcolor}
+
+\setCJKmainfont[AutoFakeBold=2.5]{SimSun}
+\setCJKsansfont[AutoFakeBold=2.5]{SimHei}
+
+\pagestyle{empty}
+
+\newcommand{\sourcepdf}{外文翻译原稿_无分段页码.pdf}
+\newcommand{\segmentpageC}{%
+  \put(250,10){\color{white}\rule{95bp}{45bp}}%
+  \put(270,52){\color{white}\rule{55bp}{42bp}}%
+  \put(298,31){\makebox(0,0)[c]{\zihao{-4}\songti\thepage}}%
+}
+\newcommand{\segmentpageD}{%
+  \put(470,770){\color{white}\rule{105bp}{60bp}}%
+  \put(250,10){\color{white}\rule{95bp}{45bp}}%
+  \put(298,31){\makebox(0,0)[c]{\zihao{-4}\songti\thepage}}%
+}
+
+\begin{document}
+
+% 封面不显示页码。
+\includepdf[pages=1,pagecommand={\thispagestyle{empty}}]{\sourcepdf}
+
+% 外文资料页码从 C1 开始，其中第 2 页为“外文原文”标题页。
+\clearpage
+\renewcommand{\thepage}{C\arabic{page}}
+\setcounter{page}{1}
+\includepdf[pages=2-29,pagecommand={\thispagestyle{empty}},picturecommand={\segmentpageC}]{\sourcepdf}
+
+% 中文译文页码从 D1 开始。
+\clearpage
+\renewcommand{\thepage}{D\arabic{page}}
+\setcounter{page}{1}
+\includepdf[pages=30-39,pagecommand={\thispagestyle{empty}},picturecommand={\segmentpageD}]{\sourcepdf}
+
+\end{document}

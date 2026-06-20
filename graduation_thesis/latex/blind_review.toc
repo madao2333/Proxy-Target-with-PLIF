@@ -1,0 +1,32 @@
+\contentsline {chapter}{\numberline {第一章\hspace {.3em}}绪论}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}研究背景}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}问题提出}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}研究目标}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.4}主要贡献}{3}{section.1.4}%
+\contentsline {chapter}{\numberline {第二章\hspace {.3em}}相关理论与方法基础}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}强化学习与连续控制}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.2}脉冲神经网络}{5}{section.2.2}%
+\contentsline {section}{\numberline {2.3}PLIF 神经元}{5}{section.2.3}%
+\contentsline {section}{\numberline {2.4}代理梯度与 STBP}{6}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Proxy Target 框架}{7}{section.2.5}%
+\contentsline {chapter}{\numberline {第三章\hspace {.3em}}脉冲 Actor 结构与训练流程}{8}{chapter.3}%
+\contentsline {section}{\numberline {3.1}整体网络结构}{8}{section.3.1}%
+\contentsline {section}{\numberline {3.2}LIF 与 PLIF 的计算差异}{8}{section.3.2}%
+\contentsline {section}{\numberline {3.3}PLIF 时间常数参数化}{9}{section.3.3}%
+\contentsline {section}{\numberline {3.4}训练流程}{10}{section.3.4}%
+\contentsline {section}{\numberline {3.5}本章小结}{11}{section.3.5}%
+\contentsline {chapter}{\numberline {第四章\hspace {.3em}}实验设计、结果与分析}{12}{chapter.4}%
+\contentsline {section}{\numberline {4.1}实验设置与比较对象}{12}{section.4.1}%
+\contentsline {section}{\numberline {4.2}训练配置与评估方式}{13}{section.4.2}%
+\contentsline {section}{\numberline {4.3}总体实验结果展示}{14}{section.4.3}%
+\contentsline {section}{\numberline {4.4}学习失败现象的复现与缓解}{14}{section.4.4}%
+\contentsline {section}{\numberline {4.5}STBP 梯度消失与放电状态诊断}{16}{section.4.5}%
+\contentsline {section}{\numberline {4.6}PLIF 时间常数的层间演化}{22}{section.4.6}%
+\contentsline {section}{\numberline {4.7}LIF 与 PLIF 成功机制的近似等价性分析}{24}{section.4.7}%
+\contentsline {chapter}{\numberline {第五章\hspace {.3em}}总结与展望}{28}{chapter.5}%
+\contentsline {section}{\numberline {5.1}全文工作总结}{28}{section.5.1}%
+\contentsline {section}{\numberline {5.2}主要研究结论}{29}{section.5.2}%
+\contentsline {section}{\numberline {5.3}研究不足}{30}{section.5.3}%
+\contentsline {section}{\numberline {5.4}未来展望}{31}{section.5.4}%
+\contentsline {chapter}{参考文献}{33}{chapter*.19}%
+\contentsline {chapter}{致谢}{36}{chapter*.20}%

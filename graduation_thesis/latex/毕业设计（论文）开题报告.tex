@@ -1,0 +1,96 @@
+\documentclass[UTF8,12pt,a4paper]{ctexart}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\geometry{left=2.8cm,right=2.8cm,top=2.5cm,bottom=2.5cm}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.25em}
+\emergencystretch=2em
+\sloppy
+\linespread{1.35}
+\ctexset{section={format=\heiti\zihao{4},beforeskip=1.2em,afterskip=0.6em}}
+\begin{document}
+\begin{titlepage}
+\thispagestyle{empty}
+\centering
+\vspace*{2mm}
+\includegraphics[width=71.2mm,height=23.3mm]{assets/tju_name.jpeg}\par
+\vspace{3mm}
+{\zihao{2}\heiti\bfseries 本科生毕业设计（论文）开题报告\par}
+\vspace{16mm}
+\includegraphics[width=58.2mm,height=53.4mm]{assets/tju_emblem.jpeg}\par
+\vspace{9mm}
+{\zihao{3}\heiti\bfseries 题目：基于脉冲神经网络的连续控制强化学习算法研究\par}
+\vspace{18mm}
+\begin{tabular}{rl}
+{\zihao{3}\songti\bfseries 学\quad 院} & \underline{\makebox[70mm][c]{\zihao{3}\songti\bfseries 智算学部}}\\[10pt]
+{\zihao{3}\songti\bfseries 专\quad 业} & \underline{\makebox[70mm][c]{\zihao{3}\songti\bfseries 软件工程}}\\[10pt]
+{\zihao{3}\songti\bfseries 年\quad 级} & \underline{\makebox[70mm][c]{\zihao{3}\songti\bfseries 2022级}}\\[10pt]
+{\zihao{3}\songti\bfseries 姓\quad 名} & \underline{\makebox[70mm][c]{\zihao{3}\songti\bfseries 陈俊为}}\\[10pt]
+{\zihao{3}\songti\bfseries 学\quad 号} & \underline{\makebox[70mm][c]{\zihao{3}\songti\bfseries 3022234171}}\\[10pt]
+{\zihao{3}\songti\bfseries 指导教师} & \underline{\makebox[70mm][c]{\zihao{3}\songti\bfseries 于强}}\\
+\end{tabular}
+\vfill
+\end{titlepage}
+\section*{一、课题的来源及意义}
+本课题来源于人工智能与类脑计算的前沿交叉领域。随着深度强化学习在机器人控制、自动驾驶及复杂决策系统中的广泛应用，传统基于人工神经网络的算法虽然性能强大，但其高昂的计算成本与巨大的能源消耗已成为限制其在移动端及边缘设备大规模部署的关键瓶颈。脉冲神经网络作为第三代神经网络，凭借其类脑的稀疏发放与事件驱动特性，为实现低功耗智能提供了极具潜力的解决方案。然而，将脉冲神经网络应用于高维、动态的连续控制任务仍面临着严峻的挑战。一方面，离散的脉冲信号与连续的控制动作之间存在天然的失配，导致现有算法在训练过程中往往面临梯度估计困难、收敛不稳定的问题；另一方面，传统脉冲神经元模型往往采用固定的动力学参数，缺乏对复杂时变环境的自适应能力，限制了智能体的决策上限。因此，如何突破这些理论与技术壁垒，构建兼具高性能与高能效的控制算法，是当前学术界亟待解决的关键问题。
+
+开展本课题的研究具有重要的理论意义与广阔的应用前景。从理论层面看，探索能够弥合离散脉冲与连续控制之间鸿沟的训练机制，以及赋予神经元更灵活的时间尺度适应能力，有助于完善类脑计算在决策控制领域的理论框架，为理解生物智能的高效运作机制提供计算层面的解释。从应用层面看，解决上述问题将直接推动“绿色AI”的发展，为资源受限的嵌入式系统提供可行的智能化方案。
+
+\section*{二、国内外发展状况}
+深度强化学习结合了深度学习的感知能力和强化学习的决策能力，在Atari游戏、MuJoCo连续控制等任务上取得了巨大成功，但传统人工神经网络的高浮点运算量限制了其在移动端的应用。相比之下，SNN通过模拟生物神经元的脉冲发放机制，在神经形态硬件上可实现极低的能耗。近年来，研究者开始尝试将SNN引入强化学习，主要路线包括基于ANN训练后转换的方法和基于代理梯度的直接训练方法。虽然转换方法能获得较高精度，但往往需要较长的推理时间步，且难以处理实时动态任务；而直接训练方法虽然灵活，但在处理连续动作空间的策略梯度时，常因脉冲的不可微性面临梯度估计困难。
+
+针对连续控制任务中的“离散-连续”失配问题，Xu等人（2025）[4]指出了SNN的二值脉冲输出会导致目标网络的输出发生跳变，破坏了软更新所需的平滑性假设，严重影响算法收敛。为此，该研究提出了“代理目标”框架，通过引入一个连续值的辅助网络来平滑目标值的更新，并通过隐式模仿学习让辅助网络逼近SNN的行为，显著提升了训练稳定性和最终性能。而在神经元动力学方面，传统的SNN模型通常假设所有神经元具有相同的、固定的膜时间常数。
+
+然而，生物学证据表明大脑不同区域的神经元具有显著的时间尺度异质性。Fang等人（2021）[1]提出的参数化LIF（PLIF）模型允许膜时间常数作为可训练参数通过反向传播进行优化，研究表明PLIF能显著提升SNN的泛化能力和收敛速度。尽管Proxy Target解决了训练稳定性问题，PLIF解决了时间尺度适应性问题，但目前尚无研究将二者结合应用于连续控制任务。本课题拟填补这一空白，将PLIF引入Proxy Target框架，探究可学习的时间常数是否能进一步挖掘SNN在复杂动态环境中的潜力。
+
+\section*{三、研究目标、研究内容与研究方法}
+本课题的主要研究目标是设计并实现一种基于PT-PLIF的脉冲强化学习算法。具体而言，旨在构建一个融合算法框架，成功将PLIF神经元嵌入到Proxy Target的Actor-Critic架构中；并在标准连续控制基准上，验证新算法相较于原始固定时间常数的算法和传统ANN算法在收敛速度、累积奖励和稳定性上的提升；同时通过评估算法的脉冲发放率和可视化训练过程中时间常数的变化，验证其低功耗特性及对环境动态的自适应能力。
+
+为实现上述目标，研究内容将涵盖理论基础研究、算法设计、平台搭建及实验分析四个方面。首先将深入研读强化学习TD3算法、Proxy Target平滑更新机制以及PLIF神经元的微分动力学方程。其次进行算法设计，重点在于将Proxy Target框架中Actor网络的LIF神经元替换为PLIF神经元，设计以sigmoid函数为基础的参数化方法，并推导在RL损失函数下针对时间常数参数的梯度计算路径，确保其能与突触权重协同更新。随后，基于Python和PyTorch搭建包含OpenAI Gym环境的强化学习训练平台。最后开展对比实验，设置多种基线模型，记录训练曲线与测试数据，分析不同初始分布的影响，并统计推理阶段的能耗数据。
+
+在研究方法上，本课题将综合运用文献分析法、数学建模法、控制变量实验法和数据可视化分析法。首先系统梳理相关文献确立数学基础；利用微分方程和链式法则建立PT-PLIF的数学模型；在实验环节，严格控制超参数和随机种子，仅改变神经元类型以验证改进点的有效性；最后利用TensorBoard等工具绘制奖励曲线和脉冲栅格图，对模型行为进行直观的定量与定性分析。
+
+\section*{四、进度安排}
+本课题的研究进度将严格遵循学校2026届本科生毕业设计工作的时间节点进行安排，主要分为开题准备、系统实现与中期检查、深入实验与论文撰写、答辩与归档四个阶段。
+
+目前至2026年1月30日为开题准备与理论研究阶段。在此期间，通过文献调研完成对深度强化学习、Proxy Target算法及PLIF神经元模型的理论梳理，并完成外文文献翻译；同时，根据任务书要求完善研究方案，撰写毕业设计开题报告并上传至毕设管理系统，配合指导教师完成审核及学校的线上抽查工作，确保研究路线的科学性与可行性。
+
+2026年2月1日至4月10日为核心算法实现与中期检查阶段。利用寒假及开学初期的时间，搭建基于PyTorch和OpenAI Gym的仿真实验平台，复现原始TD3及基于LIF的Proxy Target算法以确立基准性能。在此基础上，重点攻克PLIF神经元的代码实现及其在Proxy Target框架中的集成工作，在简单环境下进行初步调试与验证。在4月10日之前，整理阶段性仿真数据和代码开发进度，在毕设系统中如实填写中期检查报告，接受指导教师的审核及学院的中期检查，确保项目按计划推进。
+
+2026年4月11日至5月25日为大规模对比实验与论文撰写阶段。将在Ant-v4、HalfCheetah-v4等复杂控制环境中开展多随机种子的对比实验，收集收敛曲线、能耗数据及时间常数演化图表，并进行深入的消融实验分析。同步进行毕业论文的撰写工作，完成从绪论到结论的全部章节，确保逻辑严密、数据详实。在5月25日前，完成论文定稿、指导教师评阅及同行专家盲审，并进行毕业论文查重检测，确保查重率符合学校要求，同时上传包含签名的独创性声明。
+
+2026年5月26日至6月7日为答辩准备与归档阶段。根据论文内容制作答辩演示文稿（PPT），精炼核心创新点与实验成果，参加学院组织的线下答辩，并接受教学督导专家的随机抽查。答辩结束后，根据答辩委员会的意见对论文进行最终修订，于6月7日前在系统中完成论文的二次提交及相关资料的归档工作，配合学院完成成绩录入，至此完成全部毕业设计任务。
+
+\section*{五、研究或实验方案的可行性分析}
+本研究方案在理论、技术、实验条件及个人能力方面均具备较高的可行性。在理论层面，本课题基于两篇高水平论文的成果：Proxy Target证明了辅助网络解决SNN离散性问题的有效性，而PLIF证明了梯度下降优化膜时间常数的可行性。两者分别作用于损失函数计算与前向传播动力学，在数学上逻辑自洽且互补。在技术层面，Python和PyTorch作为深度学习领域最成熟的工具，拥有强大的社区支持，且两篇核心参考文献均已开源代码，为算法复现和改进提供了坚实基础，降低了开发风险。
+
+在实验条件方面，OpenAI Gym和MuJoCo作为强化学习领域的标准环境，获取便捷且文档齐全，便于进行标准化的性能评估。在个人能力方面，学生在本科阶段已修读机器学习与神经网络相关课程，具备Python编程能力和PyTorch框架使用经验，能够阅读英文文献并进行算法复现。综上所述，本课题研究目标明确，路径清晰，具备顺利完成的条件。
+
+\section*{六、主要参考文献}
+\begin{enumerate}[label={[\arabic*]},leftmargin=2.7em,itemsep=0.2em]
+  \item Fang W, Yu Z, Chen Y, et al. Incorporating learnable membrane time constant to enhance learning of spiking neural networks[C]//Proceedings of the IEEE/CVF international conference on computer vision. 2021: 2661-2671.
+  \item Zhang D, Zhang T, Jia S, et al. Multi-sacle dynamic coding improved spiking actor network for reinforcement learning[C]//Proceedings of the AAAI conference on artificial intelligence. 2022, 36(1): 59-67.
+  \item Chen D, Peng P, Huang T, et al. Fully spiking actor network with intralayer connections for reinforcement learning[J]. IEEE Transactions on Neural Networks and Learning Systems, 2024, 36(2): 2881-2893.
+  \item Xu Z, Bu T, Hao Z, et al. Proxy Target: Bridging the Gap Between Discrete Spiking Neural Networks and Continuous Control[J]. arXiv preprint arXiv:2505.24161, 2025.
+  \item Fujimoto S, Hoof H, Meger D. Addressing function approximation error in actor-critic methods[C]//International conference on machine learning. PMLR, 2018: 1587-1596.
+\end{enumerate}
+
+\section*{审核意见}
+\noindent\begin{minipage}[t]{0.47\textwidth}
+选题是否合适： 是\ensuremath{\checkmark}  否\ensuremath{\square}\\[0.5em]
+课题能否实现： 能\ensuremath{\checkmark}  不能\ensuremath{\square}\\[0.5em]
+指导教师（签字）\\[0.5em]
+年    月    日
+\end{minipage}\hfill
+\begin{minipage}[t]{0.47\textwidth}
+选题是否合适： 是\ensuremath{\checkmark}  否\ensuremath{\square}\\[0.5em]
+课题能否实现： 能\ensuremath{\checkmark}  不能\ensuremath{\square}\\[0.5em]
+审题小组组长（签字）\\[0.5em]
+年    月    日
+\end{minipage}
+\end{document}

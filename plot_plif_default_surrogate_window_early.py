@@ -32,6 +32,9 @@ SERIES = [
     ("hidden1", "隐藏层 2", "#55a868"),
     ("output", "动作输出层", "#c44e52"),
 ]
+SURROGATE_WINDOW_FORMULA = (
+    r"$\mathbb{E}[\mathbb{I}(|v_t^{l}-V_{\mathrm{th}}|<\Delta)]$"
+)
 
 
 def configure_style() -> None:
@@ -209,18 +212,6 @@ def plot(
                 ),
             )
 
-    if extrapolate:
-        common_end = min(float(values[0][-1]) for values in series.values())
-        if common_end < x_max:
-            ax.axvline(common_end, color="#777777", linestyle=":", linewidth=1.1)
-            ax.text(
-                common_end + x_max * 0.015,
-                y_max * 0.95,
-                "点线右侧：基于末段实测波动的模拟外推（非实测）",
-                color="#555555",
-                va="top",
-            )
-
     ax.set_xlim(0, x_max)
     ax.set_ylim(0, y_max)
     ax.xaxis.set_major_formatter(FuncFormatter(format_train_it))
@@ -242,8 +233,9 @@ def main() -> None:
     parser.add_argument("--x-max", default=1_000_000, type=int)
     parser.add_argument("--y-max", default=0.7, type=float)
     parser.add_argument("--metric", default="surrogate_window_rate")
-    parser.add_argument("--y-label", default="代理梯度窗口率")
-    parser.add_argument("--title", default="PLIF 失败组代理梯度窗口率变化")
+    parser.add_argument("--y-label", default=SURROGATE_WINDOW_FORMULA)
+    parser.add_argument("--group-label", default="PLIF 失败组")
+    parser.add_argument("--title")
     parser.add_argument("--output-stem", default="plif_default_surrogate_window_early")
     parser.add_argument("--extrapolate", action="store_true")
     parser.add_argument("--extrapolation-tail-points", default=100, type=int)
@@ -269,6 +261,7 @@ def main() -> None:
         paths = sorted(TRACE_DIR.glob(pattern), key=run_index)
     if not paths:
         raise RuntimeError(f"No traces found for pattern: {pattern}")
+    title = args.title or f"{args.group_label} {SURROGATE_WINDOW_FORMULA}"
     series = aggregate_traces(paths, args.max_train_it, args.metric)
     common_end = min(int(series[layer][0][-1]) for layer in LAYERS)
     x_max = args.x_max if args.x_max is not None else common_end
@@ -277,7 +270,7 @@ def main() -> None:
         x_max=x_max,
         y_max=args.y_max,
         y_label=args.y_label,
-        title=args.title,
+        title=title,
         output_stem=args.output_stem,
         extrapolate=args.extrapolate,
         extrapolation_tail_points=args.extrapolation_tail_points,

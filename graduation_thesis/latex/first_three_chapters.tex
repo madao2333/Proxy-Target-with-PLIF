@@ -92,7 +92,7 @@
   unicode=true,
   colorlinks=false,
   pdfborder={0 0 0},
-  pdftitle={基于类脑神经网络的强化学习算法研究},
+  pdftitle={基于脉冲神经网络的连续控制强化学习算法研究},
   pdfauthor={陈俊为}
 }
 
@@ -112,10 +112,10 @@
 \vspace{16mm}
 \includegraphics[width=58.2mm,height=53.4mm]{assets/tju_emblem.jpeg}\par
 \vspace{9mm}
-{\zihao{3}\heiti\bfseries 题目：基于类脑神经网络的强化学习算法研究\par}
+{\zihao{3}\heiti\bfseries 题目：基于脉冲神经网络的连续控制强化学习算法研究\par}
 \vspace{18mm}
 \begin{tabular}{rl}
-{\zihao{3}\songti\bfseries 学\quad 院} & \underline{\makebox[70mm][c]{\zihao{3}\songti\bfseries 智能与智算学部}}\\[10pt]
+{\zihao{3}\songti\bfseries 学\quad 院} & \underline{\makebox[70mm][c]{\zihao{3}\songti\bfseries 智能与计算学部}}\\[10pt]
 {\zihao{3}\songti\bfseries 专\quad 业} & \underline{\makebox[70mm][c]{\zihao{3}\songti\bfseries 软件工程}}\\[10pt]
 {\zihao{3}\songti\bfseries 年\quad 级} & \underline{\makebox[70mm][c]{\zihao{3}\songti\bfseries 2022级}}\\[10pt]
 {\zihao{3}\songti\bfseries 姓\quad 名} & \underline{\makebox[70mm][c]{\zihao{3}\songti\bfseries 陈俊为}}\\[10pt]
@@ -141,7 +141,7 @@
 \noindent 论文指导教师签名：\underline{\makebox[45mm][c]{\raisebox{-0.35\height}{\includegraphics[height=13.5mm]{assets/signature_yu_qiang.jpg}}}}\hfill 2026 年 5 月 15 日
 
 \chapter*{\songti\zihao{2}\bfseries 摘\quad 要}
-脉冲神经网络具有低功耗潜力，但离散脉冲机制使连续控制强化学习面临动作输出和梯度传播困难。为分析可学习膜电位时间常数是否改变 Proxy Target 脉冲 actor 的训练机制，本文在 Proxy Target + TD3 框架下比较 LIF 与 PLIF，在五个 MuJoCo 环境中比较回报和学习曲线，并结合 STBP 梯度、放电状态、有效保留项和时间常数演化进行诊断。结果表明，PT-PLIF 相比 PT-LIF 未形成稳定回报优势；Hopper-v4 低回报停滞源于前向仍放电时的有效梯度塌缩和时间递推路径削弱，调整 actor 更新间隔可缓解该问题。成功训练状态下，PLIF 时间常数呈层间自适应，LIF 与 PLIF 机制指标高度一致。PLIF 的理论价值在于提供可解释的时间尺度调节机制，应用价值在于为 SNN actor 稳定性诊断和参数调节提供依据，而非必然提升回报的替代模型。
+脉冲神经网络具有低功耗潜力，但离散脉冲机制使连续控制强化学习面临动作输出和梯度传播困难。为分析可学习膜电位时间常数是否改变 Proxy Target 脉冲 actor 的训练机制，本文在 Proxy Target + TD3 框架下比较 LIF 与 PLIF，在五个 MuJoCo 环境中比较回报和学习曲线，并结合 STBP 梯度、放电状态、有效保留项和时间常数演化进行诊断。结果表明，PT-PLIF 相比 PT-LIF 未形成稳定回报优势；Hopper-v4 低回报停滞源于前向仍放电时的有效梯度消失和时间递推路径削弱，调整 actor 更新间隔可缓解该问题。成功训练状态下，PLIF 时间常数呈层间自适应，LIF 与 PLIF 机制指标高度一致。PLIF 的理论价值在于提供可解释的时间尺度调节机制，应用价值在于为 SNN actor 稳定性诊断和参数调节提供依据，而非必然提升回报的替代模型。
 
 \noindent{\songti\zihao{4}\bfseries 关键词：}{\songti 脉冲神经网络，连续控制，强化学习，Proxy Target，PLIF 神经元}
 
@@ -160,9 +160,9 @@ Spiking Neural Networks；Continuous Control；Reinforcement Learning；Proxy Ta
 \chapter{绪论}
 
 \section{研究背景}
-强化学习研究智能体如何在与环境的交互中根据奖励信号学习决策策略。对于机器人控制、仿真运动控制和具身智能等任务，状态和动作通常是连续的，高维非线性动力学使传统表格型强化学习难以直接适用。深度神经网络作为函数逼近器被引入后，Actor-Critic、DDPG、TD3 和 SAC 等算法能够在 MuJoCo 等连续控制环境中学习从状态到动作的端到端策略，其中 actor 负责生成动作，critic 负责估计状态--动作价值。TD3 通过双 critic、目标动作平滑和延迟策略更新缓解函数逼近误差，在连续控制任务中具有较强的稳定性和代表性\cite{lillicrap2016ddpg,fujimoto2018td3,haarnoja2018sac}。
+强化学习研究智能体如何在与环境的交互中根据奖励信号学习决策策略。对于机器人控制、仿真运动控制和具身智能等任务，状态和动作通常是连续的，高维非线性动力学使传统表格型强化学习难以直接适用\cite{kober2013rlrobotics}。深度神经网络作为函数逼近器被引入后，Actor-Critic、DDPG、TD3 和 SAC 等算法能够在 MuJoCo 等连续控制环境中学习从状态到动作的端到端策略，其中 actor 负责生成动作，critic 负责估计状态--动作价值。TD3 通过双 critic、目标动作平滑和延迟策略更新缓解函数逼近误差，在连续控制任务中具有较强的稳定性和代表性\cite{mnih2015dqn,lillicrap2016ddpg,fujimoto2018td3,haarnoja2018sac}。
 
-与此同时，脉冲神经网络（Spiking Neural Network，SNN）因其事件驱动计算方式受到关注。与人工神经网络（Artificial Neural Network，ANN）在每层传播连续激活不同，SNN 中神经元通常以膜电位积累和阈值触发的形式产生二值脉冲。只有在脉冲事件发生时才进行有效通信，使 SNN 在神经形态硬件上具有低功耗和低延迟潜力。对于需要长期部署在边缘设备、移动机器人或低功耗控制平台上的强化学习智能体，若能将 actor 网络替换为 SNN，就有机会在保持控制性能的同时降低推理能耗\cite{davies2018loihi,tang2020popsan,chen2024fully}。
+与此同时，脉冲神经网络（Spiking Neural Network，SNN）因其事件驱动计算方式受到关注。与人工神经网络（Artificial Neural Network，ANN）在每层传播连续激活不同，SNN 中神经元通常以膜电位积累和阈值触发的形式产生二值脉冲。只有在脉冲事件发生时才进行有效通信，使 SNN 在神经形态硬件上具有低功耗和低延迟潜力。对于需要长期部署在边缘设备、移动机器人或低功耗控制平台上的强化学习智能体，若能将 actor 网络替换为 SNN，就有机会在保持控制性能的同时降低推理能耗\cite{maass1997third,furber2014spinnaker,davies2018loihi,roy2019neuromorphic,tang2020popsan,chen2024fully}。
 
 然而，SNN 与连续控制强化学习之间存在天然张力。首先，连续控制任务要求 actor 输出连续动作，而 SNN 的内部信号是离散脉冲序列，需要通过群体编码、脉冲计数或膜电位读出等方式映射到连续动作空间。其次，脉冲发放函数不可导，标准反向传播无法直接穿过阈值函数，训练多层 SNN 通常需要代理梯度和时空反向传播（Spatio-Temporal Backpropagation，STBP）\cite{lee2016backprop,wu2018stbp,neftci2019surrogate}。再次，TD3 等 off-policy 算法依赖目标网络软更新，而 SNN 的二值脉冲输出对参数扰动较为敏感，直接复制 ANN 中的目标网络机制可能引入不稳定的训练目标。Proxy Target 正是在这一背景下提出：用连续可微的代理目标 actor 拟合在线 SNN actor，从而在训练阶段提供平滑目标，而部署阶段仍保留脉冲 actor 的低功耗优势\cite{xu2025proxy}。
 
@@ -180,11 +180,11 @@ PLIF 将这一固定系数替换为可学习参数，使神经元能够在训练
 
 第一，建立问题叙述。本文从连续控制强化学习、SNN actor 的低功耗潜力以及 Proxy Target 框架的必要性出发，引出脉冲 actor 中膜电位时间尺度建模问题。在此基础上，本文将固定膜电位保留系数的 LIF 与可学习时间常数的 PLIF 作为主要比较对象，为后续实验设计和机制分析奠定问题基础。
 
-第二，梳理理论基础。本文将介绍 MDP、Actor-Critic 和 TD3 的基本形式，说明双 critic、延迟策略更新和目标动作平滑在连续控制中的作用；随后介绍 SNN、LIF、PLIF、代理梯度和 STBP，为后续分析梯度塌缩、放电率饱和和时间常数演化提供概念工具。
+第二，梳理理论基础。本文将介绍 MDP、Actor-Critic 和 TD3 的基本形式，说明双 critic、延迟策略更新和目标动作平滑在连续控制中的作用；随后介绍 SNN、LIF、PLIF、代理梯度和 STBP，为后续分析梯度消失、放电率饱和和时间常数演化提供概念工具。
 
 第三，对齐代码实现和实验设置。本文基于当前项目代码说明脉冲 actor 的具体结构：Population Spike Encoder 将连续状态编码为脉冲序列，Spike MLP 在时间维度上进行 LIF/PLIF 神经元计算，Population Decoder 将输出 population 的平均脉冲活动解码为连续动作。
 
-第四，诊断脉冲 actor 的学习停滞机制。本文以 Hopper-v4 中的默认失败组和 actor 更新间隔调整组为代表案例，结合评估回报、学习曲线、STBP 梯度、放电率、参数梯度和 PLIF 时间常数，分析低回报停滞是否来自脉冲沉默，还是来自高放电状态下的有效梯度塌缩。
+第四，诊断脉冲 actor 的学习停滞机制。本文以 Hopper-v4 中的默认失败组和 actor 更新间隔调整组为代表案例，结合评估回报、学习曲线、STBP 梯度、放电率、参数梯度和 PLIF 时间常数，分析低回报停滞是否来自脉冲沉默，还是来自高放电状态下的有效梯度消失。
 
 第五，比较 LIF 与 PLIF 的成功训练机制。本文在总体性能接近的基础上，进一步比较成功训练组中的放电状态、膜电位尺度、代理梯度窗口占比、有效保留项、非零梯度覆盖率和动作端梯度强度，判断 PLIF 的可学习时间常数是否使其形成不同于 LIF 的训练机制。
 
@@ -211,7 +211,7 @@ PLIF 将这一固定系数替换为可学习参数，使神经元能够在训练
 J(\pi)=\mathbb{E}_{\pi}\left[\sum_{t=0}^{\infty}\gamma^t r_t\right].
 \end{equation}
 
-在连续控制任务中，动作空间 $\mathcal{A}$ 通常为连续向量空间，策略需要输出实值动作。确定性策略梯度方法使用参数化 actor $\mu_{\phi}(s)$ 直接产生动作，并使用 critic $Q_{\theta}(s,a)$ 估计状态--动作价值\cite{lillicrap2016ddpg}。Actor-Critic 框架的核心思想是用 critic 为 actor 提供可微的优化方向，即通过提升 $Q_{\theta}(s,\mu_{\phi}(s))$ 来更新 actor 参数：
+在连续控制任务中，动作空间 $\mathcal{A}$ 通常为连续向量空间，策略需要输出实值动作。确定性策略梯度方法使用参数化 actor $\mu_{\phi}(s)$ 直接产生动作，并使用 critic $Q_{\theta}(s,a)$ 估计状态--动作价值\cite{silver2014dpg,lillicrap2016ddpg}。Actor-Critic 框架的核心思想是用 critic 为 actor 提供可微的优化方向，即通过提升 $Q_{\theta}(s,\mu_{\phi}(s))$ 来更新 actor 参数：
 \begin{equation}
 \nabla_{\phi}J(\phi)\approx
 \mathbb{E}_{s\sim\mathcal{D}}\left[
@@ -236,13 +236,13 @@ y=r+\gamma(1-d)\min_{i=1,2}Q_{\theta_i'}(s',\tilde{a}'),
 使 critic 不容易利用动作空间中的尖锐误差。第三项设计是延迟策略更新，即 critic 每次训练都更新，而 actor 和目标网络每隔若干 critic 更新再更新一次\cite{fujimoto2018td3}。本文代码中的默认设置为 $\texttt{policy\_freq}=2$，表示 actor 每两次训练迭代更新一次。
 
 \section{脉冲神经网络}
-SNN 用脉冲序列而非连续激活表示和传递信息，具有事件驱动和稀疏计算特征，是神经形态计算中常用的网络模型\cite{davies2018loihi,neftci2019surrogate}。一个典型脉冲神经元维护膜电位 $v_t$，接收突触输入电流 $I_t$，当膜电位超过阈值 $V_{\mathrm{th}}$ 时产生脉冲 $s_t$。阈值触发过程可写为
+SNN 用脉冲序列而非连续激活表示和传递信息，具有事件驱动和稀疏计算特征，是神经形态计算中常用的网络模型\cite{maass1997third,davies2018loihi,roy2019neuromorphic,neftci2019surrogate}。一个典型脉冲神经元维护膜电位 $v_t$，接收突触输入电流 $I_t$，当膜电位超过阈值 $V_{\mathrm{th}}$ 时产生脉冲 $s_t$。阈值触发过程可写为
 \begin{equation}
 s_t=H(v_t-V_{\mathrm{th}}),
 \end{equation}
-其中 $H(\cdot)$ 为 Heaviside 阶跃函数。由于 $H$ 几乎处处导数为零且在阈值处不可导，SNN 的训练通常需要代理梯度或时间展开反向传播等近似方法\cite{lee2016backprop,wu2018stbp,neftci2019surrogate}。
+其中 $H(\cdot)$ 为 Heaviside 阶跃函数。由于 $H$ 几乎处处导数为零且在阈值处不可导，SNN 的训练通常需要代理梯度、时间展开反向传播或 ANN-to-SNN 转换等近似方法\cite{bohte2002error,rueckauer2017conversion,lee2016backprop,wu2018stbp,neftci2019surrogate,tavanaei2019deep,eshraghian2023training}。
 
-LIF 神经元在 Integrate-and-Fire 模型基础上加入泄露项，使膜电位随时间衰减，是深层 SNN 和脉冲强化学习 actor 中常用的基础神经元形式\cite{lee2016backprop,tang2020popsan,chen2024fully}。本文当前代码中的 LIF 形式可概括为
+LIF 神经元在 Integrate-and-Fire 模型基础上加入泄露项，使膜电位随时间衰减，是深层 SNN 和脉冲强化学习 actor 中常用的基础神经元形式\cite{gerstner2002spiking,izhikevich2003simple,lee2016backprop,tang2020popsan,chen2024fully}。本文当前代码中的 LIF 形式可概括为
 \begin{equation}
 I_t = W x_t + b,
 \end{equation}
@@ -279,9 +279,9 @@ w_0=\log\frac{\tau_0}{1-\tau_0}.
 \frac{\partial s_t}{\partial v_t}\approx
 \mathbb{I}\left(|v_t-V_{\mathrm{th}}|<\Delta\right),
 \end{equation}
-其中 $\Delta$ 为代理梯度窗口宽度，本文实验设为 $0.5$。这意味着只有膜电位落在阈值附近一定范围内时，反向传播才认为脉冲函数具有有效梯度。早期直接训练深层 SNN 的研究已经证明，可以通过时间展开和代理梯度近似将反向传播用于脉冲网络\cite{lee2016backprop,zenke2018superspike}；STBP 进一步强调误差需要同时沿网络层维度和时间维度传播\cite{wu2018stbp}，SLAYER 等方法也从 spike response 的时间信用分配角度给出了相近思路\cite{shrestha2018slayer}。Neftci 等人的综述将这类方法归纳为 surrogate gradient learning，为本文分析代理梯度窗口、梯度消失和训练稳定性提供了更一般的背景\cite{neftci2019surrogate}。
+其中 $\Delta$ 为代理梯度窗口宽度，本文实验设为 $0.5$。这意味着只有膜电位落在阈值附近一定范围内时，反向传播才认为脉冲函数具有有效梯度。早期直接训练深层 SNN 的研究已经证明，可以通过时间展开和代理梯度近似将反向传播用于脉冲网络\cite{bohte2002error,lee2016backprop,zenke2018superspike}；STBP 进一步强调误差需要同时沿网络层维度和时间维度传播\cite{wu2018stbp}，SLAYER 等方法也从 spike response 的时间信用分配角度给出了相近思路\cite{shrestha2018slayer}。Neftci 等人的综述以及后续训练方法总结将这类方法归纳为 surrogate gradient learning，为本文分析代理梯度窗口、梯度消失和训练稳定性提供了更一般的背景\cite{neftci2019surrogate,eshraghian2023training}。
 
-STBP 将反向传播同时展开到网络层维度和时间维度\cite{wu2018stbp}。对于第 $l$ 层第 $t$ 个时刻，损失对权重的梯度不仅依赖当前时刻的突触输入，也依赖膜电位沿时间递推产生的历史影响。若膜电位位于阈值附近，代理梯度能够为反向传播提供非零近似；若膜电位长期远离阈值附近区域，或上一时刻频繁放电使递推项中的 $(1-s_{t-1})$ 经常接近零，则时间维度上的梯度传递会被削弱。因此，代理梯度窗口和膜电位递推路径是后续分析 SNN actor 训练状态的重要理论依据。具体诊断指标和实验现象将在第四章和第五章展开。
+STBP 将反向传播同时展开到网络层维度和时间维度\cite{wu2018stbp}。对于第 $l$ 层第 $t$ 个时刻，损失对权重的梯度不仅依赖当前时刻的突触输入，也依赖膜电位沿时间递推产生的历史影响。若膜电位位于阈值附近，代理梯度能够为反向传播提供非零近似；若膜电位长期远离阈值附近区域，或上一时刻频繁放电使递推项中的 $(1-s_{t-1})$ 经常接近零，则时间维度上的梯度传递会被削弱。因此，代理梯度窗口和膜电位递推路径是后续分析 SNN actor 训练状态的重要理论依据。具体诊断指标和实验现象将在后续实验章节展开。
 
 \section{Proxy Target 框架}
 \label{sec:proxy-target-framework}
@@ -411,12 +411,12 @@ s_t^l=H(v_t^l-V_{\mathrm{th}}).
 \section{本章小结}
 本章从实现角度介绍了本文采用的脉冲 actor 设计。首先，本文说明了状态 population 编码、Spike MLP 和动作 population 解码三部分如何共同完成从连续状态到连续动作的映射。随后，本文对比了 LIF 与 PLIF 在膜电位保留系数上的计算差异，并说明 PLIF 时间常数通过 sigmoid 参数化为按层可学习的标量。最后，本文梳理了 Proxy Target + TD3 在代码中的训练流程，明确 proxy target、critic、SNN actor 和 target critic 在一次训练迭代中的更新顺序。
 
-由此可见，本文并不是将 PLIF 作为孤立神经元进行讨论，而是将其放入完整的连续控制强化学习闭环中分析。PLIF 提供了可学习的时间尺度自由度，但该自由度需要依赖 actor 更新阶段的 STBP 反向传播才能发挥作用。第四章将进一步说明实验环境、对比方法、性能指标和训练超参数，第五章则在此实现基础上分析总体性能、学习停滞机制、PLIF 时间常数演化以及 LIF 与 PLIF 的机制近似等价性。
+由此可见，本文并不是将 PLIF 作为孤立神经元进行讨论，而是将其放入完整的连续控制强化学习闭环中分析。PLIF 提供了可学习的时间尺度自由度，但该自由度需要依赖 actor 更新阶段的 STBP 反向传播才能发挥作用。下一章将进一步说明实验环境、对比方法、性能指标和训练超参数，并在此基础上分析总体性能、学习停滞机制、PLIF 时间常数演化以及 LIF 与 PLIF 的机制近似等价性。
 
-\chapter{实验设计与配置说明}
+\chapter{实验设计、结果与分析}
 
 \section{实验设置与比较对象}
-本文实验在 Gymnasium MuJoCo 连续控制环境上展开。MuJoCo 物理引擎提供了适合机器人运动控制研究的接触动力学仿真平台\cite{todorov2012mujoco}。选择这些环境的原因在于，它们具有连续状态空间和连续动作空间，能够检验脉冲 actor 在连续控制任务中的动作生成能力，也便于为后续机制分析提供不同难度任务上的结果背景。本文使用的五个具体环境见表 \ref{tab:envs}。
+本文实验在 Gymnasium MuJoCo 连续控制环境上展开。Gymnasium 为强化学习环境提供统一接口，MuJoCo 物理引擎提供了适合机器人运动控制研究的接触动力学仿真平台\cite{towers2024gymnasium,todorov2012mujoco}。选择这些环境的原因在于，它们具有连续状态空间和连续动作空间，能够检验脉冲 actor 在连续控制任务中的动作生成能力，也便于为后续机制分析提供不同难度任务上的结果背景。本文使用的五个具体环境见表 \ref{tab:envs}。
 
 这些任务覆盖了不同难度和动力学特征。倒立双摆任务的状态和动作维度相对较低，猎豹奔跑、双足行走和多足行走任务具有更复杂的运动控制需求，单腿跳跃任务对早期策略和探索噪声较敏感。需要说明的是，本文并不对每个环境分别展开同等深度的机制分析；五个环境主要用于总体性能和学习曲线对比，而 Hopper-v4 由于低回报停滞现象更明显，被选为训练失败机制和调参缓解现象的代表案例。
 
@@ -444,10 +444,10 @@ Walker2d-v4 & 双足行走控制 & 总体性能与学习曲线对比 \\
 
 本文的核心比较对象是 LIF 与 PLIF。二者在状态 population 编码、Spike MLP 结构、动作 population 解码、critic 结构以及 Proxy Target 训练流程上保持一致，主要差异在于膜电位保留系数是否可学习。因此，二者的比较不能仅停留在最终回报层面，还需要结合放电状态、STBP 梯度和 PLIF 时间常数演化等诊断信息，分析可学习时间尺度是否改变脉冲 actor 的训练机制。
 
-\section{性能指标与训练超参数}
+\section{训练配置与评估方式}
 本文采用最大评估回报和平均学习曲线作为主要性能指标。对于每个环境、每个算法和每个随机种子，训练日志中记录一系列评估回报，最大评估回报定义为这些记录中的最大值。随后对同一环境下五个随机种子的最大评估回报计算均值和标准差，用于比较不同方法的整体水平和随机种子间稳定性。平均学习曲线则用于观察收敛速度、早期失败和后期波动。
 
-表 \ref{tab:hyperparams} 汇总了默认训练和评估设置。这些超参数用于说明实验日志的基本训练条件，并为第五章中关于 \texttt{policy\_freq} 调整、PLIF 时间常数学习率以及 proxy target 更新的讨论提供背景。需要注意的是，表中 \texttt{tau}=0.005 表示 TD3 目标网络软更新系数，而不是 PLIF 神经元中的膜电位保留系数。
+表 \ref{tab:hyperparams} 汇总了默认训练和评估设置。这些超参数用于说明实验日志的基本训练条件，并为本章后续关于 \texttt{policy\_freq} 调整、PLIF 时间常数学习率以及 proxy target 更新的讨论提供背景。需要注意的是，表中 \texttt{tau}=0.005 表示 TD3 目标网络软更新系数，而不是 PLIF 神经元中的膜电位保留系数。
 
 \begin{table}[H]
 \centering
@@ -478,9 +478,7 @@ PLIF 时间常数学习率 & $1.0\times10^{-4}$ & 未指定时的 PLIF 时间常
 \end{table}
 \FloatBarrier
 
-基于上述实验设置，第五章先从五个 MuJoCo 环境的最大评估回报和学习曲线分析不同 actor 的总体表现，再以 Hopper-v4 中的代表性训练现象为入口展开机制诊断。
-
-\chapter{实验结果与分析}
+基于上述实验设置，本章随后先从五个 MuJoCo 环境的最大评估回报和学习曲线分析不同 actor 的总体表现，再以 Hopper-v4 中的代表性训练现象为入口展开机制诊断。
 
 \section{总体实验结果展示}
 本节先给出不同算法在五个 MuJoCo 连续控制环境中的最大评估回报对比。图 \ref{fig:algorithm-max-eval} 汇总了 ANN、LIF、PLIF 和 CLIF 四类方法在各环境、各随机种子上的最大评估回报，并用柱状图展示五个随机种子的均值和标准差。该图用于提供整体性能背景，后续分析将进一步区分最终回报、学习曲线和训练机制之间的关系。
@@ -492,7 +490,7 @@ PLIF 时间常数学习率 & $1.0\times10^{-4}$ & 未指定时的 PLIF 时间常
 \label{fig:algorithm-max-eval}
 \end{figure}
 
-从总体结果展示方式上看，最大评估回报能够直接反映不同方法在一次训练过程中达到过的最好策略水平，但它不能单独解释策略如何达到该水平，也不能说明失败组在训练中是否经历过梯度塌缩。因此，本文还需要结合学习曲线和 STBP 诊断指标进行后续分析。
+从总体结果展示方式上看，最大评估回报能够直接反映不同方法在一次训练过程中达到过的最好策略水平，但它不能单独解释策略如何达到该水平，也不能说明失败组在训练中是否经历过梯度消失。因此，本文还需要结合学习曲线和 STBP 诊断指标进行后续分析。
 
 图 \ref{fig:algorithm-learning-curves} 展示了四类方法在五个环境中的平均学习曲线。与最大评估回报相比，学习曲线能够更清楚地反映训练过程中的收敛速度、早期波动、后期稳定性以及不同随机种子之间的分化情况。对于本文关注的脉冲 actor 训练机制而言，学习曲线还可以帮助定位哪些环境和算法组合更容易出现长期低回报或早期学习停滞。
 
@@ -521,10 +519,10 @@ PLIF 时间常数学习率 & $1.0\times10^{-4}$ & 未指定时的 PLIF 时间常
 
 需要说明的是，本节中的五次重复均使用相同随机种子 10991，且当前实现下同组五条曲线完全重合。因此，该实验更适合用于说明“相同设置下失败现象和缓解现象均可复现”，而不应被解释为跨随机种子的统计显著性结论。后续分析将进一步结合 STBP 梯度信息、放电率、电流、膜电位和参数梯度，解释为什么调整 \texttt{policy\_freq} 会使训练从低回报停滞转向有效学习。
 
-\section{STBP 梯度塌缩与放电状态诊断}
-上一节已经说明，在 Hopper-v4 随机种子 10991 上，默认 PLIF 配置会稳定停留在低回报区间，而将 \texttt{policy\_freq} 从 $2$ 调整为 $4$ 后能够进入高回报区间。本节进一步从 STBP 梯度传播和放电状态两个角度解释这种差异。为保证两组实验之间具有一致的比较基础，本文重点考察两组均可稳定统计的诊断指标，包括梯度绝对值、梯度范数和放电率等。具体聚合时，先在每个训练记录点和每一层内部对 $5$ 个脉冲时间步取平均，再对同组 $5$ 次重复运行取平均。
+\section{STBP 梯度消失与放电状态诊断}
+上一节已经说明，在 Hopper-v4 随机种子 10991 上，默认 PLIF 配置会稳定停留在低回报区间，而将 \texttt{policy\_freq} 从 $2$ 调整为 $4$ 后能够进入高回报区间。本节进一步从 STBP 梯度传播和放电状态两个角度解释这种差异。为保证两组实验之间具有一致的比较基础，本文重点考察梯度绝对值、梯度范数和放电率等诊断指标，并结合进一步记录的代理梯度窗口占比判断空间反向传播链条是否有效。具体聚合时，先在每个训练记录点和每一层内部对 $5$ 个脉冲时间步取平均，再对同组 $5$ 次重复运行取平均。
 
-为了说明“仍然放电”与“仍然可学习”之间的差异，可以先从单层 PLIF 神经元的反向传播路径观察梯度塌缩的来源。对于第 $l$ 层第 $t$ 个时间步，
+为了说明“仍然放电”与“仍然可学习”之间的差异，可以从代理梯度在空间反向传播链条中的作用观察梯度消失的来源。对于第 $l$ 层第 $t$ 个时间步，
 \begin{equation}
 v_t^l=\tau_l v_{t-1}^l(1-s_{t-1}^l)+I_t^l,\quad
 s_t^l=H(v_t^l-V_{\mathrm{th}}).
@@ -537,48 +535,41 @@ s_t^l=H(v_t^l-V_{\mathrm{th}}).
 \approx
 \mathbb{I}\left(|v_t^l-V_{\mathrm{th}}|<\Delta\right).
 \end{equation}
-因此，损失对权重的梯度可概括为
+记第 $l$ 层的突触电流为
+\begin{equation*}
+I_t^l=W^l s_t^{l-1}+b^l.
+\end{equation*}
+仅考察同一时间步沿网络层维度传播的梯度，有
 \begin{equation}
-\frac{\partial \mathcal{L}}{\partial W^l}
+\frac{\partial \mathcal{L}}{\partial I_t^l}
 =
-\sum_t
-\frac{\partial \mathcal{L}}{\partial v_t^l}
+\frac{\partial \mathcal{L}}{\partial s_t^l}
+\frac{\partial s_t^l}{\partial v_t^l}
 \frac{\partial v_t^l}{\partial I_t^l}
-\frac{\partial I_t^l}{\partial W^l}
-\propto
-\sum_t
-\delta_t^l (s_t^{l-1})^\top,
+\approx
+\frac{\partial \mathcal{L}}{\partial s_t^l}\gamma_t^l,
+\label{eq:current-gradient-chain}
 \end{equation}
-其中 $\delta_t^l=\partial \mathcal{L}/\partial v_t^l$ 需要经过代理梯度项 $\gamma_t^l$ 以及膜电位时间递推路径继续传播。若膜电位长期落在代理梯度窗口外，则 $\gamma_t^l$ 接近零；若上一时刻频繁放电，则递推项中的 $(1-s_{t-1}^l)$ 会削弱甚至切断膜电位历史路径。此时即使前向传播仍产生大量脉冲，权重和偏置的有效梯度也可能迅速塌缩。
-
-对于 PLIF 的可学习参数 $w_l$，更完整的理解需要显式写出时间递推关系。由于 $v_{t-1}^l$ 和 $s_{t-1}^l$ 本身也受 $w_l$ 影响，不能简单地把 $v_{t-1}^l$ 视为常数。令
-\begin{equation*}
-e_t^l=\frac{\partial v_t^l}{\partial w_l}
-\end{equation*}
-表示第 $t$ 个时间步膜电位对 PLIF 参数的敏感度，初始膜电位固定时可令初始敏感度为 $0$。对第 $l$ 层自身的 PLIF 参数而言，$I_t^l$ 不直接包含 $w_l$。由
-\begin{equation*}
-v_t^l=\tau_l v_{t-1}^l(1-s_{t-1}^l)+I_t^l,\quad \tau_l=\sigma(w_l)
-\end{equation*}
-可得如下递推形式：
+其中 $\partial v_t^l/\partial I_t^l=1$。权重梯度以及向前一网络层继续传递的梯度分别为
 \begin{equation}
-e_t^l
-=
-v_{t-1}^l(1-s_{t-1}^l)
-\tau_l(1-\tau_l)
-+
-\tau_l\left[(1-s_{t-1}^l)-v_{t-1}^l\gamma_{t-1}^l\right]e_{t-1}^l,
-\end{equation}
-其中 $\gamma_{t-1}^l$ 为上一时间步反向传播中实际采用的代理梯度。按照本文的矩形窗口近似，有 $\gamma_{t-1}^l=\mathbb{I}(|v_{t-1}^l-V_{\mathrm{th}}|<\Delta)$，用于近似脉冲函数对膜电位的真实导数。该递推式包含两类影响：第一项是 $w_l$ 通过当前时间步的 $\tau_l$ 直接改变膜电位保留项；第二项是 $w_l$ 先影响历史膜电位和历史放电，再通过 $v_{t-1}^l$ 与 $(1-s_{t-1}^l)$ 传递到当前膜电位。最终，PLIF 参数的梯度由所有时间步的贡献累积得到：
-\begin{equation}
-\frac{\partial \mathcal{L}}{\partial w_l}
-=
+\begin{aligned}
+\frac{\partial \mathcal{L}}{\partial W^l}
+&=
 \sum_t
-\frac{\partial \mathcal{L}}{\partial v_t^l}
-e_t^l.
+\frac{\partial \mathcal{L}}{\partial I_t^l}
+(s_t^{l-1})^\top, \\
+\frac{\partial \mathcal{L}}{\partial s_t^{l-1}}
+&=
+(W^l)^\top
+\frac{\partial \mathcal{L}}{\partial I_t^l}.
+\end{aligned}
+\label{eq:spatial-gradient-chain}
 \end{equation}
-因此，当膜电位长期偏离代理梯度窗口时，$\gamma_{t-1}^l$ 以及 $\partial \mathcal{L}/\partial v_t^l$ 都可能变小；当频繁放电使 $(1-s_{t-1}^l)$ 经常接近零时，历史膜电位路径也会被削弱。此时 PLIF 时间常数虽然是可学习参数，也无法继续获得有效更新。后续的梯度和放电率诊断正是围绕这一反向传播路径展开。
+其中，$s_t^{l-1}$ 表示同一时间步来自前一网络层的脉冲。由上述链条可见，当某一层的膜电位全部落在代理梯度窗口外时，$\gamma_t^l=0$，该层的电流梯度随之变为零；其普通权重无法继续获得有效更新，向前一网络层传播的空间梯度也会被截断。
 
-为便于理解后续两组诊断图，表 \ref{tab:stbp-diagnostic-metrics} 汇总了本节使用的主要指标。整体上，梯度指标用于判断 actor 是否仍能获得反向学习信号，放电率指标用于判断前向脉冲活动是否沉默或饱和。
+本文 SNN actor 的连续动作由动作输出层脉冲在时间维度上累积后经种群解码器生成，不存在绕过输出脉冲函数的膜电位读出路径。因此，当动作输出层的代理梯度窗口占比为零时，策略损失难以穿过动作输出脉冲传入 SNN 内部，动作输出层会形成关键的梯度瓶颈。膜电位沿时间维度的递推仍然存在，但在缺少输出端误差信号时不能产生新的梯度。此时，即使前向传播仍产生脉冲活动，前序隐藏层权重、偏置以及 PLIF 时间常数参数也难以继续从策略损失获得有效更新。后续诊断将围绕这一反向传播链条展开。
+
+为便于理解后续诊断图，表 \ref{tab:stbp-diagnostic-metrics} 汇总了本节使用的主要指标。整体上，代理梯度窗口占比用于判断脉冲函数近似导数是否仍然有效，梯度指标用于判断 actor 是否仍能获得反向学习信号，放电率指标用于判断前向脉冲活动是否沉默或饱和。
 
 \begin{table}[H]
 \centering
@@ -594,13 +585,18 @@ e_t^l.
 时间步权重梯度 & $\|\nabla_{W,t}\mathcal{L}\|_2$ & 单个脉冲时间步中权重接收到的梯度强度，用于观察时间展开路径中的梯度是否仍然存在。 \\
 参数级权重梯度 & $\|\nabla_W\mathcal{L}\|_2$ & 聚合到实际网络参数后的权重梯度范数，直接反映优化器能否继续更新 actor 权重。 \\
 PLIF 时间常数梯度 & $\left|\partial\mathcal{L}/\partial w_l\right|$ & 可学习时间常数参数的梯度幅值，用于判断 PLIF 时间尺度是否仍能被策略损失调整。 \\
+代理梯度窗口占比 & $\mathbb{E}[\mathbb{I}(|v_t^l-V_{\mathrm{th}}|<\Delta)]$ & 膜电位落入代理梯度有效区域的比例，用于判断脉冲函数近似导数是否能够提供反向信号。 \\
 阈值前放电率 & $\mathbb{E}[s_t^{l-1}]$ & 进入当前层的上一层脉冲活动比例，用于衡量当前层输入脉冲是否充足。 \\
 阈值后放电率 & $\mathbb{E}[s_t^l]$ & 当前层输出脉冲比例，用于判断该层是否处于沉默、稀疏放电或高放电状态。 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-图 \ref{fig:plif-stbp-gradient-collapse} 给出了三层 actor 在训练过程中的 STBP 梯度变化。为了同时显示早期小梯度和后期零梯度，纵轴采用对数坐标，精确为零的值在图中用 $10^{-12}$ 显示。从图中可以看到，默认失败组的电流梯度、逐时间步权重梯度、参数级权重梯度以及时间常数梯度都在训练早期后迅速塌缩。五次重复运行中，最后一次非零梯度均出现在第 $19800$ 次训练迭代，之后直到第 $1000000$ 次训练迭代均不再记录到非零梯度。相反，\texttt{policy\_freq}=4 组直到训练末尾仍保持非零梯度，说明成功组的 actor 参数和 PLIF 时间常数仍能从策略损失获得学习信号。
+图 \ref{fig:plif-stbp-gradient-collapse} 给出了三层 actor 在训练过程中的 STBP 梯度变化。为了同时显示早期小梯度和后期零梯度，纵轴采用对数坐标，精确为零的值在图中用 $10^{-12}$ 显示。从图中可以看到，默认失败组的电流梯度、逐时间步权重梯度、参数级权重梯度以及时间常数梯度都在训练早期后迅速消失。五次重复运行中，最后一次非零梯度均出现在第 $19800$ 次训练迭代，之后直到第 $1000000$ 次训练迭代均不再记录到非零梯度。
+
+需要区分短暂的局部零梯度与持续性的反向传播中断。在 \texttt{policy\_freq}=4 的 actor 更新间隔调整组中，动作输出层的时间步权重梯度和参数级权重梯度在 \texttt{train\_it}$=800$--$1200$ 以及 \texttt{train\_it}$=2400$ 时短暂为零，PLIF 时间常数梯度在 \texttt{train\_it}$=800$--$4800$ 区间内短暂为零；但三层电流梯度在全部记录点均保持非零，后续权重梯度和时间常数梯度也能够恢复。这说明，训练早期单次或短区间内出现局部零梯度并不足以判定训练失败。actor 每次更新使用的 replay buffer 状态批次不同，网络参数也在持续变化，后续更新仍可能使膜电位重新进入代理梯度窗口。
+
+默认失败组则表现出不同的持续状态。进一步记录的代理梯度窗口占比表明，动作输出层在训练早期后持续为零。根据式 \eqref{eq:current-gradient-chain} 和式 \eqref{eq:spatial-gradient-chain}，当动作输出层的 $\gamma_t^l$ 持续为零时，其电流梯度变为零，策略损失无法继续传入 SNN 内部，前序隐藏层的空间梯度也随之被截断。由于 SNN 内部参数难以继续更新，膜电位分布也难以依靠梯度优化重新进入有效窗口，网络由此进入持续性的低回报停滞状态。需要说明的是，现有结果能够解释该状态为何持续维持，但尚不足以严格确定训练早期由哪一次更新首先触发了输出端梯度截断。
 
 \begin{figure}[H]
 \centering
@@ -618,14 +614,32 @@ PLIF 时间常数梯度 & $\left|\partial\mathcal{L}/\partial w_l\right|$ & 可�
 \label{fig:plif-stbp-spike-rates}
 \end{figure}
 
-综合来看，默认失败组的关键问题不是前向脉冲完全消失，而是在仍然保持较高放电率的同时，有效 STBP 梯度已经塌缩。一方面，频繁放电会通过重置项 $(1-s_{t-1})$ 削弱膜电位沿时间维度传递的路径；另一方面，图 \ref{fig:plif-stbp-gradient-collapse} 中的电流梯度、权重梯度和 PLIF 时间常数梯度直接表明失败组后期已经无法继续获得有效反向学习信号。此时权重、偏置和 PLIF 时间常数的梯度都会趋近于零，PLIF 额外提供的可学习时间常数也无法继续调整。相比之下，\texttt{policy\_freq}=4 组在隐藏层保持更稀疏的放电，并持续保留非零 STBP 梯度，因此 actor 能够继续通过 critic 提供的策略损失更新参数，最终进入高回报区间。
+为了进一步解释图 \ref{fig:plif-stbp-gradient-collapse} 中梯度消失的来源，本文根据前述代理梯度公式统计两组实验的代理梯度窗口占比，如图 \ref{fig:plif-fail-surrogate-window} 和图 \ref{fig:plif-success-surrogate-window} 所示。这两张图的作用是将式 \eqref{eq:current-gradient-chain} 和式 \eqref{eq:spatial-gradient-chain} 中的 $\gamma_t^l\approx\mathbb{I}(|v_t^l-V_{\mathrm{th}}|<\Delta)$ 可视化：若某层窗口占比长期接近零，则该层脉冲函数的近似导数难以继续提供反向学习入口；若窗口占比保持非零，则 STBP 链条仍有可能获得有效代理梯度。
 
-需要再次强调，本文中的五次重复运行使用相同随机种子，因此本节结论主要说明相同设置下的机制可复现性，而不是跨随机种子的统计显著性。不过，这一对照已经足以支持本文的核心机制判断：在当前 Proxy Target + PLIF 训练中，失败组的低回报停滞更接近“仍然放电但梯度塌缩”的状态，而不是简单的脉冲沉默或动作输出缺失。
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.50\textheight,keepaspectratio]{../../figures/plif_default_surrogate_window_early.pdf}
+\caption{Hopper-v4 默认失败组的代理梯度窗口占比。纵轴为 $\mathbb{E}[\mathbb{I}(|v_t^l-V_{\mathrm{th}}|<\Delta)]$，表示各层膜电位落入代理梯度有效窗口的比例。}
+\label{fig:plif-fail-surrogate-window}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth,height=0.50\textheight,keepaspectratio]{../../figures/plif_success_20260530_204900_surrogate_window.pdf}
+\caption{Hopper-v4 actor 更新间隔调整成功组的代理梯度窗口占比。与默认失败组相比，成功组在隐藏层和动作输出层均能长期保留非零代理梯度窗口占比。}
+\label{fig:plif-success-surrogate-window}
+\end{figure}
+
+综合来看，默认失败组的关键问题不是前向脉冲完全消失，而是动作输出层代理梯度窗口占比持续为零，导致策略损失难以传入 SNN 内部。图 \ref{fig:plif-stbp-spike-rates} 表明失败组后期仍有明显脉冲活动；但根据式 \eqref{eq:current-gradient-chain} 和式 \eqref{eq:spatial-gradient-chain}，能否继续学习还取决于动作输出层是否保留非零代理梯度。图 \ref{fig:plif-fail-surrogate-window} 显示，失败组动作输出层的代理梯度窗口占比在训练早期后长期接近零；图 \ref{fig:plif-stbp-gradient-collapse} 中的电流梯度、权重梯度和 PLIF 时间常数梯度进一步表明，失败组后期已经无法继续获得有效反向学习信号。相比之下，图 \ref{fig:plif-success-surrogate-window} 中成功组三层窗口占比均保持非零水平，说明其反向传播链条仍保留可用的代理梯度入口；配合更稀疏的隐藏层放电和持续非零 STBP 梯度，actor 能够继续通过 critic 提供的策略损失更新参数，最终进入高回报区间。
+
+在当前实现中，\texttt{policy\_freq} 从 $2$ 调整为 $4$ 后，相邻两次 actor 更新之间会执行更多次 critic 与 proxy target 优化。因此，成功组表现出更强训练稳健性的一种可能解释是：critic 对动作价值函数的估计和 proxy target 对在线 actor 的拟合更加充分，使后续策略更新所依赖的优化信号相对稳定，从而降低了训练早期进入持续性梯度失效状态的可能性。需要说明的是，现有对照实验尚不足以区分 critic 拟合、proxy target 拟合和 actor 更新节奏各自的独立贡献，因此该解释应理解为基于实现过程与实验现象的机制推测，而不是严格的单因素因果结论。
+
+需要再次强调，本文中的五次重复运行使用相同随机种子，因此本节结论主要说明相同设置下的机制可复现性，而不是跨随机种子的统计显著性。不过，这一对照已经足以支持本文的核心机制判断：在当前 Proxy Target + PLIF 训练中，失败组的低回报停滞更接近“仍然放电但梯度消失”的状态，而不是简单的脉冲沉默或动作输出缺失。
 
 \FloatBarrier
 
 \section{PLIF 时间常数的层间演化}
-上一节说明了成功组能够持续保留非零 STBP 梯度。本节进一步考察 PLIF 的可学习时间常数在训练中具体学到了什么。图 \ref{fig:plif-tau-curves} 展示了常规 PT-PLIF 实验中不同环境下三层 PLIF 时间常数的平均演化曲线。整体上，隐藏层时间常数往往从初始化附近逐渐升高，而动作输出层时间常数的变化更保守，在 Hopper-v4、HalfCheetah-v4 和 Walker2d-v4 中甚至出现后期下降。这说明 PLIF 并不是在所有层上无差别地增大时间常数，而是呈现出明显的层间分化：隐藏层更倾向于学习较长的膜电位保留时间，动作输出层则更直接服务于动作种群的读出，对时间常数的需求可能更短。
+上一节说明了成功组的反向传播链条能够从训练早期的局部零梯度中恢复，并在后期持续保留有效 STBP 梯度。本节进一步考察 PLIF 的可学习时间常数在训练中具体学到了什么。图 \ref{fig:plif-tau-curves} 展示了常规 PT-PLIF 实验中不同环境下三层 PLIF 时间常数的平均演化曲线。整体上，隐藏层时间常数往往从初始化附近逐渐升高，而动作输出层时间常数的变化更保守，在 Hopper-v4、HalfCheetah-v4 和 Walker2d-v4 中甚至出现后期下降。这说明 PLIF 并不是在所有层上无差别地增大时间常数，而是呈现出明显的层间分化：隐藏层更倾向于学习较长的膜电位保留时间，动作输出层则更直接服务于动作种群的读出，对时间常数的需求可能更短。
 
 \begin{figure}[!htbp]
 \centering
@@ -729,11 +743,11 @@ R_l=\mathbb{E}[\tau_l(1-s_{t-1}^l)].
 
 本文首先介绍了强化学习、TD3、脉冲神经网络、LIF/PLIF 神经元、代理梯度和 STBP 等理论基础，并结合当前代码实现说明了 PLIF 脉冲 actor 的网络结构、时间常数参数化方式和训练流程。随后，本文在多个 MuJoCo 连续控制环境中整理 ANN、LIF、PLIF 和 CLIF 等方法的实验结果，并以最大评估回报和学习曲线作为总体性能分析入口。实验结果表明，PT-PLIF 与 PT-LIF 在当前实验范围内并没有表现出稳定、普适的性能优势差距，因此本文没有将 PLIF 表述为全面优于 LIF 的替代模型，而是进一步从训练机制角度分析脉冲 actor 为什么会出现低回报停滞。
 
-在机制分析部分，本文以 Hopper-v4 中的 PLIF 失败组和 actor 更新间隔调整组作为代表案例，进一步考察 STBP 梯度传播、放电状态和 PLIF 时间常数演化之间的关系。分析表明，失败组并不是简单进入脉冲沉默状态，而是在前向传播仍保持较高放电率的同时，反向传播中的有效 STBP 梯度已经塌缩，导致权重、偏置和 PLIF 时间常数难以继续获得学习信号。相比之下，actor 更新间隔调整组在隐藏层保持更稀疏的放电状态，并持续保留非零梯度，使 actor 能够继续通过 critic 提供的策略损失更新参数。
+在机制分析部分，本文以 Hopper-v4 中的 PLIF 失败组和 actor 更新间隔调整组作为代表案例，进一步考察 STBP 梯度传播、放电状态和 PLIF 时间常数演化之间的关系。分析表明，失败组并不是简单进入脉冲沉默状态，而是在前向传播仍保持较高放电率的同时，反向传播中的有效 STBP 梯度已经消失，导致权重、偏置和 PLIF 时间常数难以继续获得学习信号。相比之下，actor 更新间隔调整组在隐藏层保持更稀疏的放电状态，并持续保留非零梯度，使 actor 能够继续通过 critic 提供的策略损失更新参数。
 
 此外，本文还结合 PLIF 时间常数的层间演化说明，可学习时间常数并不是在所有层上单调增大，而是表现出与网络功能相关的层间分化。隐藏层时间常数在成功组中明显增大，并与较低放电率共同提高有效膜电位保留能力；动作输出层则不必同步增大时间常数，而是更直接服务于动作 population 的读出。由此可见，PLIF 的主要价值不应被简单概括为最终回报提升，而应理解为为 SNN actor 提供了可分析的时间尺度自适应机制。本文的实验和分析共同说明，在 Proxy Target + TD3 框架下，脉冲 actor 的训练效果不仅取决于神经元模型本身，也受到放电状态、膜电位尺度、代理梯度窗口和 actor 更新频率等因素的共同影响。
 
-在第五章最后，本文进一步补充了 LIF 与 PLIF 成功训练组的配对机制分析。该部分不再仅从最终回报判断二者优劣，而是比较放电率、电流幅值、膜电位分布、代理梯度窗口占比、有效保留项、非零电流梯度占比和动作梯度范数等内部诊断指标。结果显示，在当前 Proxy Target + TD3 框架和成功训练设置下，PT-LIF 与 PT-PLIF 在多数前向动力学和反向梯度指标上具有较高一致性。PLIF 的可学习时间常数确实增强了部分隐藏层的膜电位保留能力，但这种额外自由度并未使其形成与 LIF 完全不同的训练机制。因此，本文最终将二者关系概括为机制上的近似等价：PLIF 提供了更可解释的时间尺度调节能力，但并不必然带来稳定的最终性能优势。
+在实验结果分析的最后，本文进一步补充了 LIF 与 PLIF 成功训练组的配对机制分析。该部分不再仅从最终回报判断二者优劣，而是比较放电率、电流幅值、膜电位分布、代理梯度窗口占比、有效保留项、非零电流梯度占比和动作梯度范数等内部诊断指标。结果显示，在当前 Proxy Target + TD3 框架和成功训练设置下，PT-LIF 与 PT-PLIF 在多数前向动力学和反向梯度指标上具有较高一致性。PLIF 的可学习时间常数确实增强了部分隐藏层的膜电位保留能力，但这种额外自由度并未使其形成与 LIF 完全不同的训练机制。因此，本文最终将二者关系概括为机制上的近似等价：PLIF 提供了更可解释的时间尺度调节能力，但并不必然带来稳定的最终性能优势。
 
 从理论意义看，本文将 PLIF 的可学习时间常数放入完整的 Proxy Target + TD3 训练闭环中考察，说明该参数的作用必须依赖 STBP 梯度、放电重置和代理梯度窗口共同决定，而不能脱离训练动力学单独理解。该结论有助于把 LIF 与 PLIF 的比较从“最终回报优劣”推进到“时间尺度调节如何影响梯度路径”的机制层面。从应用价值看，本文整理的梯度、放电率、有效保留项和时间常数等诊断指标，可用于识别 SNN actor 中“前向仍放电、反向已失效”的训练停滞状态，并为 actor 更新频率、神经元时间常数和相关超参数的调节提供依据。因而，本文的结论不只是说明 PLIF 未稳定提升回报，也为后续构建更稳定、更可解释的低功耗连续控制脉冲 actor 提供了分析框架。
 
@@ -742,7 +756,7 @@ R_l=\mathbb{E}[\tau_l(1-s_{t-1}^l)].
 
 第一，PT-PLIF 与 PT-LIF 在当前实验范围内整体表现接近。虽然 PLIF 在神经元模型上比 LIF 多出可学习时间常数这一自由度，但从五个 MuJoCo 连续控制任务的最大评估回报和学习曲线看，二者并没有形成稳定、普适的性能差距。个别环境或随机种子中的优势不能直接推出 PLIF 全面优于 LIF。对连续控制强化学习而言，最终性能不仅由单个神经元模型决定，还受到 critic 学习、proxy target 拟合、actor 更新频率、探索噪声以及随机种子等因素共同影响。
 
-第二，Hopper-v4 默认失败组揭示了一类“前向仍放电、反向已失效”的训练停滞模式。失败组后期并未进入脉冲沉默，隐藏层和动作输出层仍保持较高放电率；但由于电流幅值较大、膜电位分布更分散，同时频繁放电通过重置项削弱膜电位历史路径，STBP 有效梯度逐渐塌缩。此时 actor 虽然仍能产生动作，但权重、偏置和 PLIF 时间常数都难以继续获得有效学习信号，评估回报也长期停留在低水平。
+第二，Hopper-v4 默认失败组揭示了一类“前向仍放电、反向已失效”的训练停滞模式。失败组后期并未进入脉冲沉默，隐藏层和动作输出层仍保持较高放电率；但由于电流幅值较大、膜电位分布更分散，同时频繁放电通过重置项削弱膜电位历史路径，STBP 有效梯度逐渐消失。此时 actor 虽然仍能产生动作，但权重、偏置和 PLIF 时间常数都难以继续获得有效学习信号，评估回报也长期停留在低水平。
 
 第三，调整 actor 更新频率能够在代表性案例中缓解上述失败模式。以随机种子 10991 的单腿跳跃任务为例，默认 \texttt{policy\_freq}=2 配置稳定停留在低回报区间；将 actor 更新间隔调整为 \texttt{policy\_freq}=4 后，训练能够进入高回报区间。诊断结果表明，成功组的隐藏层放电更稀疏，电流和膜电位尺度更接近代理梯度有效区域，并且在训练后期仍能保持非零 STBP 梯度。该结果说明，训练稳定性不仅取决于神经元是否可学习，还与 actor 更新节奏和反向梯度通道是否保持健康密切相关。
 
@@ -757,7 +771,7 @@ R_l=\mathbb{E}[\tau_l(1-s_{t-1}^l)].
 
 首先，实验覆盖范围仍有进一步扩展空间。本文主要使用五个 MuJoCo 连续控制环境和有限数量随机种子进行比较，能够支持当前范围内的机制分析，但还不足以穷尽所有连续控制任务、网络规模和训练难度。尤其是在强化学习中，不同随机种子、环境版本、探索噪声和评估方式都可能带来较大波动，因此本文结论更适合表述为当前实验条件下的观察，而不是所有场景中的普遍定理。
 
-其次，失败机制分析主要围绕 Hopper-v4 的代表性案例展开。该环境能够清楚展示“仍然放电但梯度塌缩”的现象，也便于对失败组和成功组进行对照；但相同现象在其他环境中的出现概率、触发条件和缓解方式仍需要更多系统实验支撑。本文中的重复运行主要用于说明同一设置下机制现象可以复现，而不是严格意义上的跨随机种子统计显著性检验。
+其次，失败机制分析主要围绕 Hopper-v4 的代表性案例展开。该环境能够清楚展示“仍然放电但梯度消失”的现象，也便于对失败组和成功组进行对照；但相同现象在其他环境中的出现概率、触发条件和缓解方式仍需要更多系统实验支撑。本文中的重复运行主要用于说明同一设置下机制现象可以复现，而不是严格意义上的跨随机种子统计显著性检验。
 
 再次，本文尚未对 \texttt{proxy\_lr}、\texttt{policy\_freq}、actor 学习率、PLIF 时间常数学习率等超参数之间的交互关系进行完整网格化分析。当前结果能够说明在代表性设置中调整 actor 更新间隔可以缓解失败模式，但还不能进一步断言某一个超参数在所有任务上具有单独、稳定且可泛化的因果作用。未来仍需要更系统的消融实验区分 proxy target 拟合速度、actor 更新频率和脉冲神经元参数更新之间的耦合关系。
 
@@ -781,8 +795,17 @@ R_l=\mathbb{E}[\tau_l(1-s_{t-1}^l)].
 \bibitem{sutton2018rl}
 Sutton R S, Barto A G. Reinforcement Learning: An Introduction[M]. 2nd ed. Cambridge, MA: MIT Press, 2018.
 
+\bibitem{kober2013rlrobotics}
+Kober J, Bagnell J A, Peters J. Reinforcement Learning in Robotics: A Survey[J]. The International Journal of Robotics Research, 2013, 32(11): 1238-1274.
+
 \bibitem{lillicrap2016ddpg}
 Lillicrap T P, Hunt J J, Pritzel A, et al. Continuous Control with Deep Reinforcement Learning[C]//Proceedings of the 4th International Conference on Learning Representations. San Juan, Puerto Rico: OpenReview.net, 2016.
+
+\bibitem{mnih2015dqn}
+Mnih V, Kavukcuoglu K, Silver D, et al. Human-Level Control through Deep Reinforcement Learning[J]. Nature, 2015, 518(7540): 529-533.
+
+\bibitem{silver2014dpg}
+Silver D, Lever G, Heess N, et al. Deterministic Policy Gradient Algorithms[C]//Proceedings of the 31st International Conference on Machine Learning. Beijing, China: PMLR, 2014: 387-395.
 
 \bibitem{fujimoto2018td3}
 Fujimoto S, van Hoof H, Meger D. Addressing Function Approximation Error in Actor-Critic Methods[C]//Proceedings of the 35th International Conference on Machine Learning. Stockholm, Sweden: PMLR, 2018: 1587-1596.
@@ -793,14 +816,38 @@ Haarnoja T, Zhou A, Abbeel P, Levine S. Soft Actor-Critic: Off-Policy Maximum En
 \bibitem{todorov2012mujoco}
 Todorov E, Erez T, Tassa Y. MuJoCo: A Physics Engine for Model-Based Control[C]//2012 IEEE/RSJ International Conference on Intelligent Robots and Systems. Vilamoura-Algarve, Portugal: IEEE, 2012: 5026-5033.
 
+\bibitem{towers2024gymnasium}
+Towers M, Kwiatkowski A, Terry J, et al. Gymnasium: A Standard Interface for Reinforcement Learning Environments[EB/OL]. arXiv:2407.17032, 2024.
+
+\bibitem{maass1997third}
+Maass W. Networks of Spiking Neurons: The Third Generation of Neural Network Models[J]. Neural Networks, 1997, 10(9): 1659-1671.
+
+\bibitem{gerstner2002spiking}
+Gerstner W, Kistler W M. Spiking Neuron Models: Single Neurons, Populations, Plasticity[M]. Cambridge: Cambridge University Press, 2002.
+
+\bibitem{izhikevich2003simple}
+Izhikevich E M. Simple Model of Spiking Neurons[J]. IEEE Transactions on Neural Networks, 2003, 14(6): 1569-1572.
+
 \bibitem{davies2018loihi}
 Davies M, Srinivasa N, Lin T H, et al. Loihi: A Neuromorphic Manycore Processor with On-Chip Learning[J]. IEEE Micro, 2018, 38(1): 82-99.
+
+\bibitem{furber2014spinnaker}
+Furber S B, Galluppi F, Temple S, Plana L A. The SpiNNaker Project[J]. Proceedings of the IEEE, 2014, 102(5): 652-665.
+
+\bibitem{roy2019neuromorphic}
+Roy K, Jaiswal A, Panda P. Towards Spike-Based Machine Intelligence with Neuromorphic Computing[J]. Nature, 2019, 575(7784): 607-617.
 
 \bibitem{wu2018stbp}
 Wu Y, Deng L, Li G, Zhu J, Shi L. Spatio-Temporal Backpropagation for Training High-Performance Spiking Neural Networks[J]. Frontiers in Neuroscience, 2018, 12: 331.
 
 \bibitem{lee2016backprop}
 Lee J H, Delbruck T, Pfeiffer M. Training Deep Spiking Neural Networks Using Backpropagation[J]. Frontiers in Neuroscience, 2016, 10: 508.
+
+\bibitem{bohte2002error}
+Bohte S M, Kok J N, La Poutré H. Error-Backpropagation in Temporally Encoded Networks of Spiking Neurons[J]. Neurocomputing, 2002, 48(1-4): 17-37.
+
+\bibitem{rueckauer2017conversion}
+Rueckauer B, Lungu I A, Hu Y, Pfeiffer M, Liu S C. Conversion of Continuous-Valued Deep Networks to Efficient Event-Driven Networks for Image Classification[J]. Frontiers in Neuroscience, 2017, 11: 682.
 
 \bibitem{zenke2018superspike}
 Zenke F, Ganguli S. SuperSpike: Supervised Learning in Multilayer Spiking Neural Networks[J]. Neural Computation, 2018, 30(6): 1514-1541.
@@ -810,6 +857,12 @@ Shrestha S B, Orchard G. SLAYER: Spike Layer Error Reassignment in Time[C]//Adva
 
 \bibitem{neftci2019surrogate}
 Neftci E O, Mostafa H, Zenke F. Surrogate Gradient Learning in Spiking Neural Networks: Bringing the Power of Gradient-Based Optimization to Spiking Neural Networks[J]. IEEE Signal Processing Magazine, 2019, 36(6): 51-63.
+
+\bibitem{tavanaei2019deep}
+Tavanaei A, Ghodrati M, Kheradpisheh S R, Masquelier T, Maida A. Deep Learning in Spiking Neural Networks[J]. Neural Networks, 2019, 111: 47-63.
+
+\bibitem{eshraghian2023training}
+Eshraghian J K, Ward M, Neftci E O, et al. Training Spiking Neural Networks Using Lessons from Deep Learning[J]. Proceedings of the IEEE, 2023, 111(9): 1016-1054.
 
 \bibitem{tang2020popsan}
 Tang G, Kumar N, Yoo R, Michmizos K P. Deep Reinforcement Learning with Population-Coded Spiking Neural Network for Continuous Control[C]//Proceedings of the 4th Conference on Robot Learning. Cambridge, MA: PMLR, 2021: 2016-2029.
